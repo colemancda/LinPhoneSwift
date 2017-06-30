@@ -1,0 +1,444 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6E76D7401F0705B70017362C /* Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E76D73E1F0705B70017362C /* Core.swift */; };
+		6E76D7601F070F3C0017362C /* bctoolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7541F070F3C0017362C /* bctoolbox.framework */; };
+		6E76D7611F070F3C0017362C /* linphone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7551F070F3C0017362C /* linphone.framework */; };
+		6E76D7631F070F3C0017362C /* mediastreamer_base.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7571F070F3C0017362C /* mediastreamer_base.framework */; };
+		6E76D7641F070F3C0017362C /* mediastreamer_voip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7581F070F3C0017362C /* mediastreamer_voip.framework */; };
+		6E76D7651F070F3C0017362C /* msamr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7591F070F3C0017362C /* msamr.framework */; };
+		6E76D7661F070F3C0017362C /* mscodec2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75A1F070F3C0017362C /* mscodec2.framework */; };
+		6E76D7671F070F3C0017362C /* msopenh264.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75B1F070F3C0017362C /* msopenh264.framework */; };
+		6E76D7681F070F3C0017362C /* mssilk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75C1F070F3C0017362C /* mssilk.framework */; };
+		6E76D7691F070F3C0017362C /* mswebrtc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75D1F070F3C0017362C /* mswebrtc.framework */; };
+		6E76D76A1F070F3C0017362C /* msx264.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75E1F070F3C0017362C /* msx264.framework */; };
+		6E76D76B1F070F3C0017362C /* ortp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75F1F070F3C0017362C /* ortp.framework */; };
+		OBJ_28 /* LinPhoneSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* LinPhoneSwiftTests.swift */; };
+		OBJ_30 /* LinPhone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* LinPhone.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6E76D7371F06F8BB0017362C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = OBJ_16;
+			remoteInfo = LinPhoneSwift;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		6E76D73E1F0705B70017362C /* Core.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Core.swift; sourceTree = "<group>"; };
+		6E76D7541F070F3C0017362C /* bctoolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = bctoolbox.framework; sourceTree = "<group>"; };
+		6E76D7551F070F3C0017362C /* linphone.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = linphone.framework; sourceTree = "<group>"; };
+		6E76D7561F070F3C0017362C /* linphonetester.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = linphonetester.framework; sourceTree = "<group>"; };
+		6E76D7571F070F3C0017362C /* mediastreamer_base.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = mediastreamer_base.framework; sourceTree = "<group>"; };
+		6E76D7581F070F3C0017362C /* mediastreamer_voip.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = mediastreamer_voip.framework; sourceTree = "<group>"; };
+		6E76D7591F070F3C0017362C /* msamr.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = msamr.framework; sourceTree = "<group>"; };
+		6E76D75A1F070F3C0017362C /* mscodec2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = mscodec2.framework; sourceTree = "<group>"; };
+		6E76D75B1F070F3C0017362C /* msopenh264.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = msopenh264.framework; sourceTree = "<group>"; };
+		6E76D75C1F070F3C0017362C /* mssilk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = mssilk.framework; sourceTree = "<group>"; };
+		6E76D75D1F070F3C0017362C /* mswebrtc.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = mswebrtc.framework; sourceTree = "<group>"; };
+		6E76D75E1F070F3C0017362C /* msx264.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = msx264.framework; sourceTree = "<group>"; };
+		6E76D75F1F070F3C0017362C /* ortp.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ortp.framework; sourceTree = "<group>"; };
+		6E76D76D1F0710D90017362C /* module.map */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = module.map; sourceTree = "<group>"; };
+		6E76D76E1F0710D90017362C /* linphone.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = linphone.h; sourceTree = "<group>"; };
+		OBJ_11 /* LinPhoneSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinPhoneSwiftTests.swift; sourceTree = "<group>"; };
+		OBJ_14 /* LinPhone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LinPhone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		OBJ_15 /* LinPhoneTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = LinPhoneTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		OBJ_22 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
+			files = (
+				6E76D76A1F070F3C0017362C /* msx264.framework in Frameworks */,
+				6E76D7691F070F3C0017362C /* mswebrtc.framework in Frameworks */,
+				6E76D7631F070F3C0017362C /* mediastreamer_base.framework in Frameworks */,
+				6E76D7661F070F3C0017362C /* mscodec2.framework in Frameworks */,
+				6E76D7681F070F3C0017362C /* mssilk.framework in Frameworks */,
+				6E76D7641F070F3C0017362C /* mediastreamer_voip.framework in Frameworks */,
+				6E76D7601F070F3C0017362C /* bctoolbox.framework in Frameworks */,
+				6E76D7611F070F3C0017362C /* linphone.framework in Frameworks */,
+				6E76D7671F070F3C0017362C /* msopenh264.framework in Frameworks */,
+				6E76D7651F070F3C0017362C /* msamr.framework in Frameworks */,
+				6E76D76B1F070F3C0017362C /* ortp.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_29 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_30 /* LinPhone.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6E76D73D1F0705B70017362C /* LinPhone */ = {
+			isa = PBXGroup;
+			children = (
+				6E76D73E1F0705B70017362C /* Core.swift */,
+			);
+			path = LinPhone;
+			sourceTree = "<group>";
+		};
+		6E76D7531F070F3C0017362C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6E76D7541F070F3C0017362C /* bctoolbox.framework */,
+				6E76D7551F070F3C0017362C /* linphone.framework */,
+				6E76D7561F070F3C0017362C /* linphonetester.framework */,
+				6E76D7571F070F3C0017362C /* mediastreamer_base.framework */,
+				6E76D7581F070F3C0017362C /* mediastreamer_voip.framework */,
+				6E76D7591F070F3C0017362C /* msamr.framework */,
+				6E76D75A1F070F3C0017362C /* mscodec2.framework */,
+				6E76D75B1F070F3C0017362C /* msopenh264.framework */,
+				6E76D75C1F070F3C0017362C /* mssilk.framework */,
+				6E76D75D1F070F3C0017362C /* mswebrtc.framework */,
+				6E76D75E1F070F3C0017362C /* msx264.framework */,
+				6E76D75F1F070F3C0017362C /* ortp.framework */,
+			);
+			name = Frameworks;
+			path = "../linphone-iphone/liblinphone-sdk/apple-darwin/Frameworks";
+			sourceTree = "<group>";
+		};
+		6E76D76C1F0710C60017362C /* CLinPhone */ = {
+			isa = PBXGroup;
+			children = (
+				6E76D76D1F0710D90017362C /* module.map */,
+				6E76D76E1F0710D90017362C /* linphone.h */,
+			);
+			name = CLinPhone;
+			sourceTree = "<group>";
+		};
+		OBJ_10 /* LinPhoneSwiftTests */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_11 /* LinPhoneSwiftTests.swift */,
+			);
+			name = LinPhoneSwiftTests;
+			path = Tests/LinPhoneSwiftTests;
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_13 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_14 /* LinPhone.framework */,
+				OBJ_15 /* LinPhoneTests.xctest */,
+			);
+			name = Products;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		OBJ_5 /*  */ = {
+			isa = PBXGroup;
+			children = (
+				6E76D76C1F0710C60017362C /* CLinPhone */,
+				6E76D7531F070F3C0017362C /* Frameworks */,
+				OBJ_7 /* Sources */,
+				OBJ_9 /* Tests */,
+				OBJ_13 /* Products */,
+			);
+			name = "";
+			sourceTree = "<group>";
+		};
+		OBJ_7 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				6E76D73D1F0705B70017362C /* LinPhone */,
+			);
+			name = Sources;
+			path = ../Sources;
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_9 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_10 /* LinPhoneSwiftTests */,
+			);
+			name = Tests;
+			sourceTree = SOURCE_ROOT;
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		OBJ_16 /* LinPhone */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_17 /* Build configuration list for PBXNativeTarget "LinPhone" */;
+			buildPhases = (
+				OBJ_20 /* Sources */,
+				OBJ_22 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LinPhone;
+			productName = LinPhoneSwift;
+			productReference = OBJ_14 /* LinPhone.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		OBJ_23 /* LinPhoneTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_24 /* Build configuration list for PBXNativeTarget "LinPhoneTests" */;
+			buildPhases = (
+				OBJ_27 /* Sources */,
+				OBJ_29 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				OBJ_31 /* PBXTargetDependency */,
+			);
+			name = LinPhoneTests;
+			productName = LinPhoneSwiftTests;
+			productReference = OBJ_15 /* LinPhoneTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		OBJ_1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 9999;
+				TargetAttributes = {
+					OBJ_16 = {
+						LastSwiftMigration = 0830;
+					};
+				};
+			};
+			buildConfigurationList = OBJ_2 /* Build configuration list for PBXProject "LinPhone" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = OBJ_5 /*  */;
+			productRefGroup = OBJ_13 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				OBJ_16 /* LinPhone */,
+				OBJ_23 /* LinPhoneTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		OBJ_20 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				6E76D7401F0705B70017362C /* Core.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_27 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_28 /* LinPhoneSwiftTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		OBJ_31 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = OBJ_16 /* LinPhone */;
+			targetProxy = 6E76D7371F06F8BB0017362C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		OBJ_18 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				INFOPLIST_FILE = LinPhone.xcodeproj/LinPhoneSwift_Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = org.linphone.swift;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_INCLUDE_PATHS = $SRCROOT;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		OBJ_19 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				INFOPLIST_FILE = LinPhone.xcodeproj/LinPhoneSwift_Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = org.linphone.swift;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_INCLUDE_PATHS = $SRCROOT;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		OBJ_25 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = LinPhoneSwift.xcodeproj/LinPhoneSwiftTests_Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_NAME = LinPhoneTests;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		OBJ_26 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = LinPhoneSwift.xcodeproj/LinPhoneSwiftTests_Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_NAME = LinPhoneTests;
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+		OBJ_3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_NS_ASSERTIONS = YES;
+				FRAMEWORK_SEARCH_PATHS = "$SRCROOT/../linphone-iphone/liblinphone-sdk/apple-darwin/frameworks";
+				GCC_OPTIMIZATION_LEVEL = 0;
+				HEADER_SEARCH_PATHS = "$SRCROOT/../linphone-iphone/liblinphone-sdk/apple-darwin/include";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$SRCROOT/../linphone-iphone/liblinphone-sdk/apple-darwin/lib",
+					"$SRCROOT/../linphone-iphone/liblinphone-sdk/apple-darwin/frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_SWIFT_FLAGS = "-DXcode";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator appletvos appletvsimulator watchos watchsimulator";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = SWIFT_PACKAGE;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				USE_HEADERMAP = NO;
+			};
+			name = Debug;
+		};
+		OBJ_4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = "$SRCROOT/../linphone-iphone/liblinphone-sdk/apple-darwin/frameworks";
+				GCC_OPTIMIZATION_LEVEL = s;
+				HEADER_SEARCH_PATHS = "$SRCROOT/../linphone-iphone/liblinphone-sdk/apple-darwin/include";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$SRCROOT/../linphone-iphone/liblinphone-sdk/apple-darwin/lib",
+					"$SRCROOT/../linphone-iphone/liblinphone-sdk/apple-darwin/frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_SWIFT_FLAGS = "-DXcode";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator appletvos appletvsimulator watchos watchsimulator";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = SWIFT_PACKAGE;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				USE_HEADERMAP = NO;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		OBJ_17 /* Build configuration list for PBXNativeTarget "LinPhone" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_18 /* Debug */,
+				OBJ_19 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		OBJ_2 /* Build configuration list for PBXProject "LinPhone" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_3 /* Debug */,
+				OBJ_4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		OBJ_24 /* Build configuration list for PBXNativeTarget "LinPhoneTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_25 /* Debug */,
+				OBJ_26 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = OBJ_1 /* Project object */;
+}

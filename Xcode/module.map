@@ -1,0 +1,4 @@
+module CLinPhone [system] {
+    header "linphone.h"
+    export *
+}
