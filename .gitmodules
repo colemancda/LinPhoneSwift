@@ -1,0 +1,3 @@
+[submodule "linphone-iphone"]
+	path = linphone-iphone
+	url = https://github.com/BelledonneCommunications/linphone-iphone
