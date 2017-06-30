@@ -6,6 +6,20 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		6E76D7701F0718580017362C /* CMake */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 6E76D7711F0718580017362C /* Build configuration list for PBXAggregateTarget "CMake" */;
+			buildPhases = (
+				6E76D7741F0718610017362C /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = CMake;
+			productName = CMake;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		6E76D7401F0705B70017362C /* Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E76D73E1F0705B70017362C /* Core.swift */; };
 		6E76D7601F070F3C0017362C /* bctoolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7541F070F3C0017362C /* bctoolbox.framework */; };
@@ -30,6 +44,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = OBJ_16;
 			remoteInfo = LinPhoneSwift;
+		};
+		6E76D7751F0718B10017362C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6E76D7701F0718580017362C;
+			remoteInfo = CMake;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -139,7 +160,7 @@
 			name = Products;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		OBJ_5 /*  */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
 				6E76D76C1F0710C60017362C /* CLinPhone */,
@@ -148,7 +169,6 @@
 				OBJ_9 /* Tests */,
 				OBJ_13 /* Products */,
 			);
-			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_7 /* Sources */ = {
@@ -181,6 +201,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				6E76D7761F0718B10017362C /* PBXTargetDependency */,
 			);
 			name = LinPhone;
 			productName = LinPhoneSwift;
@@ -212,6 +233,10 @@
 			attributes = {
 				LastUpgradeCheck = 9999;
 				TargetAttributes = {
+					6E76D7701F0718580017362C = {
+						CreatedOnToolsVersion = 8.3.3;
+						ProvisioningStyle = Automatic;
+					};
 					OBJ_16 = {
 						LastSwiftMigration = 0830;
 					};
@@ -224,16 +249,33 @@
 			knownRegions = (
 				en,
 			);
-			mainGroup = OBJ_5 /*  */;
+			mainGroup = OBJ_5;
 			productRefGroup = OBJ_13 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				OBJ_16 /* LinPhone */,
 				OBJ_23 /* LinPhoneTests */,
+				6E76D7701F0718580017362C /* CMake */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6E76D7741F0718610017362C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=/applications/CMake.app/contents/bin:$PATH\nexport PATH=/usr/local/bin:$PATH\n\ncd $SRCROOT/../linphone-iphone\n\n# Build if SDK not availible\nif [ ! -d ./liblinphone-sdk ]; then\necho \"Build linphone\"\n./prepare.py -c\n./prepare.py\nmake\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		OBJ_20 /* Sources */ = {
@@ -255,6 +297,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		6E76D7761F0718B10017362C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6E76D7701F0718580017362C /* CMake */;
+			targetProxy = 6E76D7751F0718B10017362C /* PBXContainerItemProxy */;
+		};
 		OBJ_31 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = OBJ_16 /* LinPhone */;
@@ -263,6 +310,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		6E76D7721F0718580017362C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		6E76D7731F0718580017362C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		OBJ_18 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -411,6 +472,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		6E76D7711F0718580017362C /* Build configuration list for PBXAggregateTarget "CMake" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6E76D7721F0718580017362C /* Debug */,
+				6E76D7731F0718580017362C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
 		OBJ_17 /* Build configuration list for PBXNativeTarget "LinPhone" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
