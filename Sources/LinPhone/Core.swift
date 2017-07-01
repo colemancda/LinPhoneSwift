@@ -57,6 +57,12 @@ public final class Core {
         linphone_core_serialize_logs()
     }
     
+    /// Tells whether the linphone core log collection is enabled.
+    public var isLogCollectionEnabled: LinphoneLogCollectionState {
+        
+        return linphone_core_log_collection_enabled()
+    }
+    
     // MARK: - Accessors
     
     /// The path to a file or folder containing the trusted root CAs (PEM format)
@@ -86,13 +92,12 @@ public final class Core {
     /// Returns the `Configuration` object used to manage the storage (config) file.
     public var configuration: Configuration? {
         
-        guard let reference = linphone_core_get_config(internalPointer)
+        // get handle pointer
+        guard let configInternalPointer = linphone_core_get_config(internalPointer)
             else { return nil }
         
-        // increment reference count (since wrapper class will decrement when dealloc)
-        linphone_config_ref(reference)
+        // get associated swift object
         
-        return Configuration(reference)
     }
     
     /// Specify whether the tls server certificate common name must be verified when connecting to a SIP/TLS server.
@@ -175,11 +180,37 @@ public final class Core {
     
     // MARK: - Methods
     
+    /// Main loop function. It is crucial that your application call it periodically.
+    ///
+    /// `iterate()` performs various backgrounds tasks:
+    ///
+    /// - receiving of SIP messages
+    /// - handles timers and timeout
+    /// - performs registration to proxies
+    /// - authentication retries
+    ///
+    /// The application MUST call this function periodically, in its main loop.
+    /// Be careful that this function must be called from the same thread as other liblinphone methods.
+    /// If it is not the case make sure all liblinphone calls are serialized with a mutex. 
+    /// For ICE to work properly it should be called every 20ms.
+    @inline(__always)
+    public func iterate() {
+        
+        linphone_core_iterate(internalPointer)
+    }
+    
     /// Upload the log collection to the configured server url.
     @inline(__always)
     public func uploadLogCollection() {
         
         linphone_core_upload_log_collection(internalPointer)
+    }
+    
+    /// Whether a media encryption scheme is supported by the `Linphone.Core` engine.
+    @inline(__always)
+    public func isMediaEncryptionSupported(_ mediaEncryption: LinphoneMediaEncryption) -> Bool {
+        
+        return linphone_core_media_encryption_supported(internalPointer, mediaEncryption).boolValue
     }
 }
 

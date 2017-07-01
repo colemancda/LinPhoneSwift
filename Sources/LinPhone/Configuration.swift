@@ -27,7 +27,7 @@ public final class Configuration {
     
     // MARK: - Properties
     
-    internal let internalPointer: OpaquePointer
+    internal private(set) var internalPointer: InternalPointer!
     
     // MARK: - Initialization
     
@@ -36,25 +36,39 @@ public final class Configuration {
         linphone_config_unref(internalPointer)
     }
     
-    internal init(_ internalPointer: OpaquePointer) {
+    private init() { /* Dummy */ }
+    
+    private convenience init(_ internalPointer: OpaquePointer) {
         
+        self.init()
+        self.setUserData()
         self.internalPointer = internalPointer
     }
     
     /// Instantiates a `Linphone.Configuration` object from a user config file.
-    public init?(filename: String) {
+    public convenience init?(filename: String) {
         
         guard let internalPointer = linphone_config_new(filename)
             else { return nil }
         
-        self.internalPointer = internalPointer
+        self.init(internalPointer)
     }
     
-    public init?(filename: String, core: Core) {
+    /// Instantiates a `Linphone.Configuration` object from a user config file.
+    public convenience init?(filename: String, core: Core) {
         
         guard let internalPointer = linphone_core_create_config(core.internalPointer, filename)
             else { return nil }
         
-        self.internalPointer = internalPointer
+        self.init(internalPointer)
     }
+}
+
+// MARK: - Internal
+
+extension Configuration: Handle {
+    
+    typealias InternalPointer = OpaquePointer
+    
+    static var userDataFunction: (get: (InternalPointer?) -> UnsafeMutableRawPointer?, set: InternalPointer?, (UnsafeMutableRawPointer?) -> ()) { return (get: linphone_proxy_config_get_user_data, set: linphone_proxy_config_set_user_data)  }
 }

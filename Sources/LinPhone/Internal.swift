@@ -10,11 +10,14 @@ import CLinPhone
 
 // MARK: - Protocols
 
-internal protocol Handle {
+/// The Swift class is a wrapper for a `Linphone` opaque type.
+internal protocol Handle: class {
     
     associatedtype InternalPointer
     
-    var internalPointer: InternalPointer { get }
+    var internalPointer: InternalPointer! { get }
+    
+    static var userDataFunction: (get: (_ internalPointer: InternalPointer?) -> UnsafeMutableRawPointer?, set: (_ internalPointer: InternalPointer?, _ userdata: UnsafeMutableRawPointer?) -> ())  { get }
 }
 
 internal extension Handle {
@@ -35,10 +38,45 @@ internal extension Handle {
     }
 }
 
+internal extension Handle {
+    
+    static func from(internalPointer: InternalPointer) -> Self? {
+        
+        guard let userData = Self.userDataFunction.get(internalPointer)
+            else { return nil }
+        
+        return from(userData: userData)
+    }
+    
+    static func from(userData: UnsafeMutableRawPointer) -> Self {
+        
+        let unmanaged = Unmanaged<Self>.fromOpaque(userData)
+        
+        let context = unmanaged.takeUnretainedValue()
+        
+        return context
+    }
+    
+    func setUserData() {
+        
+        Self.userDataFunction.set(internalPointer, userData)
+    }
+    
+    var userData: UnsafeMutableRawPointer {
+        
+        let unmanaged = Unmanaged<Self>.passUnretained(self)
+        
+        let objectPointer = unmanaged.toOpaque()
+        
+        return objectPointer
+    }
+}
+
 // MARK: - Value Types
 
 internal extension CLinPhone.bool_t {
     
+    @inline(__always)
     init(_ bool: Bool) {
         
         self = bool ? 1 : 0
@@ -46,6 +84,7 @@ internal extension CLinPhone.bool_t {
     
     var boolValue: Bool {
         
-        return self > 0
+        @inline(__always)
+        get { return self > 0 }
     }
 }
