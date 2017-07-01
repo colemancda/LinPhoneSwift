@@ -15,7 +15,7 @@ public final class Core {
     // MARK: - Properties
     
     @_versioned
-    internal let internalPointer: OpaquePointer
+    internal private(set) var internalPointer: OpaquePointer
     
     // MARK: - Initialization
     
@@ -24,7 +24,16 @@ public final class Core {
         linphone_core_unref(internalPointer)
     }
     
-    public init?(factory: Factory = Factory.shared,
+    private init(dummy: ()) { /* Dummy */ }
+    
+    private convenience init(_ internalPointer: InternalPointer) {
+        
+        self.init(dummy: ())
+        self.internalPointer = internalPointer
+        self.setUserData()
+    }
+    
+    public convenience init?(factory: Factory = Factory.shared,
                 callBack: Callback,
                 configurationPath: String? = nil,
                 factoryConfigurationPath: String? = nil) {
@@ -35,7 +44,7 @@ public final class Core {
                                      factoryConfigurationPath)
             else { return nil }
         
-        self.internalPointer = internalPointer
+        self.init(internalPointer)
     }
     
     // MARK: - Static Properties / Methods
@@ -244,7 +253,7 @@ public extension Core {
         
         // MARK: - Properties
         
-        internal let internalPointer: UnsafeMutablePointer<LinphoneCoreVTable>
+        internal private(set) var internalPointer: UnsafeMutablePointer<LinphoneCoreVTable>!
         
         // MARK: - Initialization
         
@@ -253,17 +262,41 @@ public extension Core {
             linphone_core_v_table_destroy(internalPointer)
         }
         
-        public init() {
+        private init(dummy: ()) { /* Dummy */ }
+        
+        private convenience init(_ internalPointer: UnsafeMutablePointer<LinphoneCoreVTable>) {
             
-            self.internalPointer = linphone_core_v_table_new()
+            self.init(dummy: ())
+            self.internalPointer = internalPointer
+            self.setUserData()
+        }
+        
+        public convenience init() {
+            
+            self.init(linphone_core_v_table_new())
         }
     }
 }
 
 // MARK: - Internal
 
-extension Core: Handle { }
+extension Core: UserDataHandle {
+    
+    static var userDataGetFunction: (_ internalPointer: InternalPointer?) -> UnsafeMutableRawPointer? { return linphone_core_get_user_data }
+    
+    static var userDataSetFunction: (_ internalPointer: InternalPointer?, _ userdata: UnsafeMutableRawPointer?) -> () { return linphone_core_set_user_data }
+}
 
-extension Core.Callback: Handle { }
+extension Core.Callback: UserDataHandle {
+    
+    static var userDataGetFunction: (_ internalPointer: InternalPointer?) -> UnsafeMutableRawPointer? { return linphone_call_get_user_data }
+    
+    static var userDataSetFunction: (_ internalPointer: InternalPointer?, _ userdata: UnsafeMutableRawPointer?) -> () { return linphone_call_set_user_data }
+}
 
-extension Core.VTable: Handle { }
+extension Core.VTable: UserDataHandle {
+    
+    static var userDataGetFunction: (_ internalPointer: InternalPointer?) -> UnsafeMutableRawPointer? { return linphone_core_v_table_get_user_data }
+    
+    static var userDataSetFunction: (_ internalPointer: InternalPointer?, _ userdata: UnsafeMutableRawPointer?) -> () { return linphone_core_v_table_set_user_data }
+}

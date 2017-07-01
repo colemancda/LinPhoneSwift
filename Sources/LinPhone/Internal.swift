@@ -8,19 +8,50 @@
 
 import CLinPhone
 
+// MARK: - Classes
+
+/// Generic class for using C objects with manual reference count.
+internal final class ManagedPointer <InternalPointer> {
+    
+    let internalPointer: InternalPointer
+    
+    let retain: (InternalPointer?) -> ()
+    
+    let release: (InternalPointer?) -> ()
+    
+    deinit {
+        
+        release(internalPointer)
+    }
+    
+    init(_ internalPointer: InternalPointer,
+         _ retain: @escaping (InternalPointer?) -> (),
+         _ release: @escaping (InternalPointer?) -> (),
+         shouldRetain: Bool = false) {
+        
+        self.internalPointer = internalPointer
+        self.retain = retain
+        self.release = release
+        
+        if shouldRetain {
+            
+            retain(internalPointer)
+        }
+    }
+}
+
 // MARK: - Protocols
 
-/// The Swift class is a wrapper for a `Linphone` opaque type.
-internal protocol Handle: class {
+internal protocol Handle {
     
     associatedtype InternalPointer
     
-    var internalPointer: InternalPointer! { get }
+    var managedPointer: ManagedPointer<InternalPointer> { get }
     
-    static var userDataFunction: (get: (_ internalPointer: InternalPointer?) -> UnsafeMutableRawPointer?, set: (_ internalPointer: InternalPointer?, _ userdata: UnsafeMutableRawPointer?) -> ())  { get }
+    init(managedPointer: ManagedPointer<InternalPointer>)
 }
 
-internal extension Handle {
+internal extension InternalHandle {
     
     @inline(__always)
     func getString(_ function: (_ internalPointer: InternalPointer?) -> (UnsafePointer<Int8>?)) -> String? {
@@ -38,11 +69,20 @@ internal extension Handle {
     }
 }
 
-internal extension Handle {
+internal protocol UserDataHandle {
+    
+    let handle: Handle
+    
+    let userDataGetFunction: (_ internalPointer: Handle.InternalPointer?) -> UnsafeMutableRawPointer?
+    
+    let userDataSetFunction: (_ internalPointer: Handle.InternalPointer?, _ userdata: UnsafeMutableRawPointer?) -> ()
+}
+
+internal extension UserDataHandle {
     
     static func from(internalPointer: InternalPointer) -> Self? {
         
-        guard let userData = Self.userDataFunction.get(internalPointer)
+        guard let userData = Self.userDataGetFunction(internalPointer)
             else { return nil }
         
         return from(userData: userData)
@@ -59,7 +99,7 @@ internal extension Handle {
     
     func setUserData() {
         
-        Self.userDataFunction.set(internalPointer, userData)
+        Self.userDataSetFunction(internalPointer, userData)
     }
     
     var userData: UnsafeMutableRawPointer {
