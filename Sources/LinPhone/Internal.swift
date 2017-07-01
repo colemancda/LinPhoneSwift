@@ -17,18 +17,12 @@ internal final class ManagedPointer <Pointer: InternalPointer> {
     
     deinit {
         
-        Pointer.release(internalPointer.rawPointer)
+        internalPointer.release()
     }
     
-    init(_ internalPointer: Pointer,
-         shouldRetain: Bool = false) {
+    init(_ internalPointer: Pointer) {
         
         self.internalPointer = internalPointer
-        
-        if shouldRetain {
-            
-            Pointer.retain(internalPointer.rawPointer)
-        }
     }
 }
 
@@ -39,35 +33,22 @@ internal protocol InternalPointer {
     
     associatedtype RawPointer
     
-    static var retain: (RawPointer?) -> () { get }
-    
-    static var release: (RawPointer?) -> () { get }
-    
     init(_ rawPointer: RawPointer)
     
     var rawPointer: RawPointer { get }
-}
-
-extension InternalPointer {
     
-    func retain() {
-        
-        Self.retain(rawPointer)
-    }
+    func retain()
     
-    func release() {
-        
-        Self.release(rawPointer)
-    }
+    func release()
 }
 
 internal protocol Handle: class {
     
-    associatedtype InternalPointer
+    associatedtype InternalPointer: LinPhone.InternalPointer
     
     var managedPointer: ManagedPointer<InternalPointer> { get }
     
-    init(managedPointer: ManagedPointer<InternalPointer>)
+    init(_ managedPointer: ManagedPointer<InternalPointer>)
 }
 
 internal extension Handle {
