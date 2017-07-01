@@ -47,6 +47,7 @@
 		6E58AF071F0720E9009A0E68 /* ortp.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75F1F070F3C0017362C /* ortp.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6E58AF091F07221B009A0E68 /* StreamType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E58AF081F07221B009A0E68 /* StreamType.swift */; };
 		6E58AF0B1F07234B009A0E68 /* Enumeration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E58AF0A1F07234B009A0E68 /* Enumeration.swift */; };
+		6E58AF0D1F07CE74009A0E68 /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E58AF0C1F07CE74009A0E68 /* Factory.swift */; };
 		6E76D7401F0705B70017362C /* Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E76D73E1F0705B70017362C /* Core.swift */; };
 		6E76D7601F070F3C0017362C /* bctoolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7541F070F3C0017362C /* bctoolbox.framework */; };
 		6E76D7611F070F3C0017362C /* linphone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7551F070F3C0017362C /* linphone.framework */; };
@@ -108,6 +109,7 @@
 /* Begin PBXFileReference section */
 		6E58AF081F07221B009A0E68 /* StreamType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreamType.swift; sourceTree = "<group>"; };
 		6E58AF0A1F07234B009A0E68 /* Enumeration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enumeration.swift; sourceTree = "<group>"; };
+		6E58AF0C1F07CE74009A0E68 /* Factory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Factory.swift; sourceTree = "<group>"; };
 		6E76D73E1F0705B70017362C /* Core.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Core.swift; sourceTree = "<group>"; };
 		6E76D7541F070F3C0017362C /* bctoolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = bctoolbox.framework; sourceTree = "<group>"; };
 		6E76D7551F070F3C0017362C /* linphone.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = linphone.framework; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				6E76D73E1F0705B70017362C /* Core.swift */,
+				6E58AF0C1F07CE74009A0E68 /* Factory.swift */,
 				6E58AF081F07221B009A0E68 /* StreamType.swift */,
 				6E58AF0A1F07234B009A0E68 /* Enumeration.swift */,
 			);
@@ -368,6 +371,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
+				6E58AF0D1F07CE74009A0E68 /* Factory.swift in Sources */,
 				6E58AF0B1F07234B009A0E68 /* Enumeration.swift in Sources */,
 				6E76D7401F0705B70017362C /* Core.swift in Sources */,
 				6E58AF091F07221B009A0E68 /* StreamType.swift in Sources */,
@@ -513,7 +517,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				HEADER_SEARCH_PATHS = "$SRCROOT/../linphone-iphone/liblinphone-sdk/apple-darwin/include";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $FRAMEWORK_SEARCH_PATHS";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$SRCROOT/../linphone-iphone/liblinphone-sdk/apple-darwin/lib",
 					"$SRCROOT/../linphone-iphone/liblinphone-sdk/apple-darwin/frameworks",
@@ -543,7 +547,7 @@
 				GCC_OPTIMIZATION_LEVEL = s;
 				HEADER_SEARCH_PATHS = "$SRCROOT/../linphone-iphone/liblinphone-sdk/apple-darwin/include";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $FRAMEWORK_SEARCH_PATHS";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$SRCROOT/../linphone-iphone/liblinphone-sdk/apple-darwin/lib",
 					"$SRCROOT/../linphone-iphone/liblinphone-sdk/apple-darwin/frameworks",
