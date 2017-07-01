@@ -11,16 +11,25 @@ import CLinPhone
 /// LinPhone Core class
 public final class Core {
     
+    // MARK: - Properties
+    
+    @_versioned
+    internal let internalPointer: OpaquePointer
+    
     // MARK: - Initialization
     
-    internal private(set) var internalPointer: OpaquePointer!
-    
-    public init(factory: Factory = Factory.shared, callBack: ) {
+    public init?(factory: Factory = Factory.shared,
+                callBack: Callback,
+                configurationPath: String? = nil,
+                factoryConfigurationPath: String? = nil) {
         
-        linphone_factory_create_core(factory.internalPointer,
-                                     <#T##cbs: OpaquePointer!##OpaquePointer!#>,
-                                     <#T##config_path: UnsafePointer<Int8>!##UnsafePointer<Int8>!#>,
-                                     <#T##factory_config_path: UnsafePointer<Int8>!##UnsafePointer<Int8>!#>)
+        guard let internalPointer = linphone_factory_create_core(factory.internalPointer,
+                                     callBack.internalPointer,
+                                     configurationPath,
+                                     factoryConfigurationPath)
+            else { return }
+        
+        self.internalPointer = internalPointer
     }
     
     // MARK: - Static Properties / Methods
@@ -47,17 +56,25 @@ public final class Core {
     /// The path to a file or folder containing the trusted root CAs (PEM format)
     public var rootCA: String {
         
+        @inline(__always)
         get { return String(cString: linphone_core_get_root_ca(internalPointer)) }
         
+        @inline(__always)
         set { linphone_core_set_root_ca(internalPointer, newValue) }
     }
     
     /// liblinphone's user agent as a string.
     public var userAgent: String {
         
+        @inline(__always)
         get { return String(cString: linphone_core_get_user_agent(internalPointer)) }
+    }
+    
+    /// Sets the user agent string used in SIP messages.
+    @inline(__always)
+    public func setUserAgent(name: String, version: String) {
         
-        set { linphone_core_set_user_agent(<#T##lc: OpaquePointer!##OpaquePointer!#>, <#T##ua_name: UnsafePointer<Int8>!##UnsafePointer<Int8>!#>, <#T##version: UnsafePointer<Int8>!##UnsafePointer<Int8>!#>) }
+         linphone_core_set_user_agent(internalPointer, name, version)
     }
 }
 
@@ -65,7 +82,21 @@ public final class Core {
 
 public extension Core {
     
+    /// That class holds all the callbacks which are called by `Linphone.Core`.
     public final class Callback {
+        
+        // MARK: - Properties
+        
+        internal let internalPointer: OpaquePointer
+        
+        // MARK: - Initialization
+        
+        public init(factory: Factory = Factory.shared) {
+            
+            self.internalPointer = linphone_factory_create_core_cbs(factory.internalPointer)
+        }
+        
+        // MARK: - Methods
         
         
     }
