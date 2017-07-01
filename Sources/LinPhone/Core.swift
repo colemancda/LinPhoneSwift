@@ -15,22 +15,13 @@ public final class Core {
     // MARK: - Properties
     
     @_versioned
-    internal private(set) var internalPointer: OpaquePointer
+    internal let managedPointer: ManagedPointer<OpaquePointer>
     
     // MARK: - Initialization
     
-    deinit {
+    private init(_ managedPointer: ManagedPointer<OpaquePointer>) {
         
-        linphone_core_unref(internalPointer)
-    }
-    
-    private init(dummy: ()) { /* Dummy */ }
-    
-    private convenience init(_ internalPointer: InternalPointer) {
-        
-        self.init(dummy: ())
-        self.internalPointer = internalPointer
-        self.setUserData()
+        self.managedPointer = managedPointer
     }
     
     public convenience init?(factory: Factory = Factory.shared,

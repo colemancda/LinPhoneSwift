@@ -11,38 +11,57 @@ import CLinPhone
 // MARK: - Classes
 
 /// Generic class for using C objects with manual reference count.
-internal final class ManagedPointer <InternalPointer> {
+internal final class ManagedPointer <Pointer: InternalPointer> {
     
-    let internalPointer: InternalPointer
-    
-    let retain: (InternalPointer?) -> ()
-    
-    let release: (InternalPointer?) -> ()
+    let internalPointer: Pointer
     
     deinit {
         
-        release(internalPointer)
+        Pointer.release(internalPointer.rawPointer)
     }
     
-    init(_ internalPointer: InternalPointer,
-         _ retain: @escaping (InternalPointer?) -> (),
-         _ release: @escaping (InternalPointer?) -> (),
+    init(_ internalPointer: Pointer,
          shouldRetain: Bool = false) {
         
         self.internalPointer = internalPointer
-        self.retain = retain
-        self.release = release
         
         if shouldRetain {
             
-            retain(internalPointer)
+            Pointer.retain(internalPointer.rawPointer)
         }
     }
 }
 
 // MARK: - Protocols
 
-internal protocol Handle {
+/// Struct that holds static information for how to manage a pointer.
+internal protocol InternalPointer {
+    
+    associatedtype RawPointer
+    
+    static var retain: (RawPointer?) -> () { get }
+    
+    static var release: (RawPointer?) -> () { get }
+    
+    init(_ rawPointer: RawPointer)
+    
+    var rawPointer: RawPointer { get }
+}
+
+extension InternalPointer {
+    
+    func retain() {
+        
+        Self.retain(rawPointer)
+    }
+    
+    func release() {
+        
+        Self.release(rawPointer)
+    }
+}
+
+internal protocol Handle: class {
     
     associatedtype InternalPointer
     
@@ -51,7 +70,13 @@ internal protocol Handle {
     init(managedPointer: ManagedPointer<InternalPointer>)
 }
 
-internal extension InternalHandle {
+internal extension Handle {
+    
+    var internalPointer: InternalPointer {
+        
+        @inline(__always)
+        get { return managedPointer.internalPointer }
+    }
     
     @inline(__always)
     func getString(_ function: (_ internalPointer: InternalPointer?) -> (UnsafePointer<Int8>?)) -> String? {
@@ -69,13 +94,11 @@ internal extension InternalHandle {
     }
 }
 
-internal protocol UserDataHandle {
+internal protocol UserDataHandle: Handle {
     
-    let handle: Handle
+    static var userDataGetFunction: (_ internalPointer: InternalPointer?) -> UnsafeMutableRawPointer? { get }
     
-    let userDataGetFunction: (_ internalPointer: Handle.InternalPointer?) -> UnsafeMutableRawPointer?
-    
-    let userDataSetFunction: (_ internalPointer: Handle.InternalPointer?, _ userdata: UnsafeMutableRawPointer?) -> ()
+    static var userDataSetFunction: (_ internalPointer: InternalPointer?, _ userdata: UnsafeMutableRawPointer?) -> () { get }
 }
 
 internal extension UserDataHandle {
