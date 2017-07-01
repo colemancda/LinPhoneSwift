@@ -37,3 +37,7 @@ public final class Factory {
         self.rawPointer = linphone_factory_get()
     }
 }
+
+// MARK: - Internal
+
+extension Factory: Handle { }

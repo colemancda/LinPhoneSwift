@@ -25,12 +25,12 @@ public final class Core {
     }
     
     public convenience init?(factory: Factory = Factory.shared,
-                callBack: Callback,
+                callBacks: Callbacks,
                 configurationPath: String? = nil,
                 factoryConfigurationPath: String? = nil) {
         
         guard let rawPointer = linphone_factory_create_core(factory.rawPointer,
-                                     callBack.rawPointer,
+                                     callBacks.rawPointer,
                                      configurationPath,
                                      factoryConfigurationPath)
             else { return nil }
@@ -55,6 +55,13 @@ public final class Core {
     public static func serializeLogs() {
         
         linphone_core_serialize_logs()
+    }
+    
+    /// Reset the log collection by removing the log files.
+    @inline(__always)
+    public static func resetLogCollection() {
+        
+        linphone_core_reset_log_collection()
     }
     
     /// Tells whether the linphone core log collection is enabled.
@@ -238,6 +245,42 @@ public final class Core {
         
         return linphone_core_media_encryption_supported(rawPointer, mediaEncryption).boolValue
     }
+    
+    /// Reload `mediastreamer2` plugins from specified directory.
+    @inline(__always)
+    public func reloadMediaStreamerPlugins(from path: String? = nil) {
+        
+        linphone_core_reload_ms_plugins(rawPointer, path)
+    }
+    
+    /// Add a listener in order to be notified of `Linphone.Core` events. 
+    /// Once an event is received, registred `Linphone.Callbacks` are invoked sequencially.
+    @inline(__always)
+    public func add(callbacks: Callbacks) {
+        
+        linphone_core_add_callbacks(rawPointer, callbacks.rawPointer)
+    }
+    
+    /// Remove a listener from the `Linphone.Core` events.
+    @inline(__always)
+    public func remove(callbacks: Callbacks) {
+        
+        linphone_core_remove_callbacks(rawPointer, callbacks.rawPointer)
+    }
+    
+    /// Add a supported tag.
+    @inline(__always)
+    public func add(supportedTag tag: String) {
+        
+        linphone_core_remove_supported_tag(rawPointer, tag)
+    }
+    
+    /// Remove a supported tag.
+    @inline(__always)
+    public func remove(supportedTag tag: String) {
+        
+         linphone_core_remove_supported_tag(rawPointer, tag)
+    }
 }
 
 // MARK: - Supporting Types
@@ -245,16 +288,16 @@ public final class Core {
 public extension Core {
     
     /// That class holds all the callbacks which are called by `Linphone.Core`.
-    public final class Callback {
+    public final class Callbacks {
         
         // MARK: - Properties
         
         @_versioned
-        internal let managedPointer: ManagedPointer<Core.Callback.InternalPointer>
+        internal let managedPointer: ManagedPointer<Core.Callbacks.InternalPointer>
         
         // MARK: - Initialization
         
-        internal init(_ managedPointer: ManagedPointer<Core.Callback.InternalPointer>) {
+        internal init(_ managedPointer: ManagedPointer<Core.Callbacks.InternalPointer>) {
             
             self.managedPointer = managedPointer
         }
@@ -333,7 +376,7 @@ extension Core: ManagedHandle {
     }
 }
 
-extension Core.Callback: ManagedHandle {
+extension Core.Callbacks: ManagedHandle {
     
     typealias RawPointer = InternalPointer.RawPointer
     
@@ -369,7 +412,7 @@ extension Core: UserDataHandle {
     }
 }
 
-extension Core.Callback: UserDataHandle {
+extension Core.Callbacks: UserDataHandle {
     
     static var userDataGetFunction: (OpaquePointer?) -> UnsafeMutableRawPointer? {
         return linphone_core_cbs_get_user_data

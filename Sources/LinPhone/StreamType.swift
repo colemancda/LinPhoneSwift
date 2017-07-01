@@ -8,6 +8,7 @@
 
 import CLinPhone
 
+/// Enum describing the Linphone stream types.
 public enum StreamType {
     
     case audio
