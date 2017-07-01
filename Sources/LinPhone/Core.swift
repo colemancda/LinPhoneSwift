@@ -7,6 +7,7 @@
 //
 
 import CLinPhone
+import struct Foundation.Data
 
 /// LinPhone Core class
 public final class Core {
@@ -59,17 +60,17 @@ public final class Core {
     // MARK: - Accessors
     
     /// The path to a file or folder containing the trusted root CAs (PEM format)
-    public var rootCA: String {
+    public var rootCA: String? {
         
         @inline(__always)
-        get { return String(cString: linphone_core_get_root_ca(internalPointer)) }
+        get { return getString(linphone_core_get_root_ca) }
         
         @inline(__always)
-        set { linphone_core_set_root_ca(internalPointer, newValue) }
+        set { setString(linphone_core_set_root_ca, newValue) }
     }
     
     /// liblinphone's user agent as a string.
-    public var userAgent: String {
+    public var userAgent: String? {
         
         @inline(__always)
         get { return getString(linphone_core_get_user_agent) }
@@ -108,6 +109,7 @@ public final class Core {
         linphone_core_verify_server_certificates(internalPointer, bool_t(newValue))
     }
     
+    /// The path to the file storing the zrtp secrets cache.
     public var zrtpSecretsFile: String? {
         
         @inline(__always)
@@ -115,6 +117,60 @@ public final class Core {
         
         @inline(__always)
         set { setString(linphone_core_set_zrtp_secrets_file, newValue) }
+    }
+    
+    ///  Set the path to the directory storing the user's x509 certificates (used by dtls).
+    public var userCertificatesPath: String? {
+        
+        @inline(__always)
+        get { return getString(linphone_core_get_user_certificates_path) }
+        
+        @inline(__always)
+        set { setString(linphone_core_set_user_certificates_path, newValue) }
+    }
+    
+    /// Externally provided SSL configuration for the crypto library.
+    /// 
+    /// - Returns: A pointer to an opaque structure which will be provided directly to the crypto library used in `bctoolbox`.
+    /// - Warning: Use with extra care. 
+    /// This `ssl_config` structure is responsibility of the caller and will not be freed at the connection's end.
+    @inline(__always)
+    public func configureSSL(_ config: UnsafeMutableRawPointer?) {
+        
+        linphone_core_set_ssl_config(internalPointer, config)
+    }
+    
+    /// URI where to download xml configuration file at startup.
+    /// This can also be set from configuration file or factory config file, from [misc] section, item "config-uri". 
+    /// Calling this function does not load the configuration. 
+    /// It will write the value into configuration so that configuration from remote URI 
+    /// will take place at next LinphoneCore start.
+    public var provisioningURI: String? {
+        
+        @inline(__always)
+        get { return getString(linphone_core_get_provisioning_uri) }
+    }
+    
+    /// URI where to download xml configuration file at startup.
+    /// This can also be set from configuration file or factory config file, from [misc] section, item "config-uri".
+    /// Calling this function does not load the configuration.
+    /// It will write the value into configuration so that configuration from remote URI
+    /// will take place at next LinphoneCore start.
+    @inline(__always)
+    public func setProvisioningURI(_ newValue: String?) -> Bool {
+        
+        return setString(linphone_core_set_provisioning_uri, newValue) == Int32(0)
+    }
+    
+    /// The maximum number of simultaneous calls Linphone core can manage at a time. 
+    /// All new call above this limit are declined with a busy answer
+    public var maxCalls: Int {
+        
+        @inline(__always)
+        get { return Int(linphone_core_get_max_calls(internalPointer)) }
+        
+        @inline(__always)
+        set { linphone_core_set_max_calls(internalPointer, Int32(newValue)) }
     }
     
     // MARK: - Methods
@@ -126,8 +182,6 @@ public final class Core {
         linphone_core_upload_log_collection(internalPointer)
     }
 }
-
-extension Core: Handle { }
 
 // MARK: - Supporting Types
 
@@ -155,7 +209,7 @@ public extension Core {
 
 public extension Core {
     
-    public final class vTable {
+    public final class VTable {
         
         // MARK: - Properties
         
@@ -174,3 +228,11 @@ public extension Core {
         }
     }
 }
+
+// MARK: - Internal
+
+extension Core: Handle { }
+
+extension Core.Callback: Handle { }
+
+extension Core.VTable: Handle { }

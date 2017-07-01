@@ -29,9 +29,9 @@ internal extension Handle {
     }
     
     @inline(__always)
-    func setString(_ function: (_ internalPointer: InternalPointer?, _ cString: UnsafePointer<Int8>?) -> (), _ newValue: String?) {
+    func setString<Result>(_ function: (_ internalPointer: InternalPointer?, _ cString: UnsafePointer<Int8>?) -> Result, _ newValue: String?) -> Result {
         
-        function(self.internalPointer, newValue)
+        return function(self.internalPointer, newValue)
     }
 }
 
