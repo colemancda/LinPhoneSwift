@@ -63,6 +63,22 @@ public final class Core {
         return linphone_core_log_collection_enabled()
     }
     
+    /// Define the minimum level for logging.
+    @inline(__always)
+    public static func setLogLevel(_ logLevel: OrtpLogLevel) {
+        
+        linphone_core_set_log_level(logLevel)
+    }
+    
+    /// Define the minimum level for logging.
+    @inline(__always)
+    public static func setLogLevel(_ logLevel: [OrtpLogLevel]) {
+        
+        let mask = logLevel.reduce(0, { $0 | $1.rawValue })
+        
+        linphone_core_set_log_level_mask(mask)
+    }
+    
     // MARK: - Accessors
     
     /// The path to a file or folder containing the trusted root CAs (PEM format)
@@ -263,24 +279,26 @@ public extension Core {
         
         // MARK: - Properties
         
-        internal private(set) var internalPointer: UnsafeMutablePointer<LinphoneCoreVTable>!
+        internal var rawPointer: UnsafeMutablePointer<LinphoneCoreVTable> { return _rawPointer }
+        private var _rawPointer: UnsafeMutablePointer<LinphoneCoreVTable>!
         
         // MARK: - Initialization
         
         deinit {
             
-            linphone_core_v_table_destroy(internalPointer)
+            linphone_core_v_table_destroy(rawPointer)
         }
         
         private init(dummy: ()) { /* Dummy */ }
         
-        private convenience init(_ internalPointer: UnsafeMutablePointer<LinphoneCoreVTable>) {
+        private convenience init(_ rawPointer: UnsafeMutablePointer<LinphoneCoreVTable>) {
             
             self.init(dummy: ())
-            self.internalPointer = internalPointer
-            //self.setUserData()
+            self._rawPointer = rawPointer
+            self.setUserData()
         }
         
+        /// Create an empty vTable. 
         public convenience init() {
             
             self.init(linphone_core_v_table_new())
@@ -290,14 +308,16 @@ public extension Core {
 
 // MARK: - Internal
 
-extension Core: Handle {
+extension Core: ManagedHandle {
+    
+    typealias RawPointer = InternalPointer.RawPointer
     
     struct InternalPointer: LinPhone.InternalPointer {
         
         let rawPointer: OpaquePointer
         
         @inline(__always)
-        init(_ rawPointer: RawPointer) {
+        init(_ rawPointer: InternalPointer.RawPointer) {
             self.rawPointer = rawPointer
         }
         
@@ -313,14 +333,16 @@ extension Core: Handle {
     }
 }
 
-extension Core.Callback: Handle {
+extension Core.Callback: ManagedHandle {
+    
+    typealias RawPointer = InternalPointer.RawPointer
     
     struct InternalPointer: LinPhone.InternalPointer {
         
         let rawPointer: OpaquePointer
         
         @inline(__always)
-        init(_ rawPointer: RawPointer) {
+        init(_ rawPointer: InternalPointer.RawPointer) {
             self.rawPointer = rawPointer
         }
         
@@ -357,15 +379,16 @@ extension Core.Callback: UserDataHandle {
         return linphone_core_cbs_set_user_data
     }
 }
-/*
+
 extension Core.VTable: UserDataHandle {
     
-    static var userDataGetFunction: (OpaquePointer?) -> UnsafeMutableRawPointer? {
-        return linphone_core_v_table_get_user_data
+    static var userDataGetFunction: (UnsafeMutablePointer<LinphoneCoreVTable>?) -> UnsafeMutableRawPointer? {
+        
+        return { linphone_core_v_table_get_user_data(UnsafePointer($0)) }
     }
     
-    static var userDataSetFunction: (_ internalPointer: OpaquePointer?, _ userdata: UnsafeMutableRawPointer?) -> () {
+    static var userDataSetFunction: (_ internalPointer: UnsafeMutablePointer<LinphoneCoreVTable>?, _ userdata: UnsafeMutableRawPointer?) -> () {
         return linphone_core_v_table_set_user_data
     }
 }
-*/
+

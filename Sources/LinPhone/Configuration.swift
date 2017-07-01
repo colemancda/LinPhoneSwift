@@ -57,14 +57,16 @@ public final class Configuration {
 
 // MARK: - Internal
 
-extension Configuration: Handle {
+extension Configuration: ManagedHandle {
+    
+    typealias RawPointer = InternalPointer.RawPointer
     
     struct InternalPointer: LinPhone.InternalPointer {
         
         let rawPointer: OpaquePointer
         
         @inline(__always)
-        init(_ rawPointer: RawPointer) {
+        init(_ rawPointer: InternalPointer.RawPointer) {
             
             self.rawPointer = rawPointer
         }

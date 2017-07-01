@@ -44,6 +44,16 @@ internal protocol InternalPointer {
 
 internal protocol Handle: class {
     
+    associatedtype RawPointer
+    
+    var rawPointer: RawPointer { get }
+}
+
+// For Swift 4
+// internal protocol ManagedHandle: Handle where RawPointer == InternalPointer.RawPointer {
+
+internal protocol ManagedHandle: Handle {
+    
     associatedtype InternalPointer: LinPhone.InternalPointer
     
     var managedPointer: ManagedPointer<InternalPointer> { get }
@@ -51,7 +61,7 @@ internal protocol Handle: class {
     init(_ managedPointer: ManagedPointer<InternalPointer>)
 }
 
-internal extension Handle {
+internal extension ManagedHandle where RawPointer == InternalPointer.RawPointer  {
     
     var internalPointer: InternalPointer {
         
@@ -59,7 +69,7 @@ internal extension Handle {
         get { return managedPointer.internalPointer }
     }
     
-    var rawPointer: InternalPointer.RawPointer {
+    var rawPointer: RawPointer {
         
         @inline(__always)
         get { return internalPointer.rawPointer }
@@ -83,14 +93,14 @@ internal extension Handle {
 
 internal protocol UserDataHandle: Handle {
     
-    static var userDataGetFunction: (_ internalPointer: InternalPointer.RawPointer?) -> UnsafeMutableRawPointer? { get }
+    static var userDataGetFunction: (_ internalPointer: RawPointer?) -> UnsafeMutableRawPointer? { get }
     
-    static var userDataSetFunction: (_ internalPointer: InternalPointer.RawPointer?, _ userdata: UnsafeMutableRawPointer?) -> () { get }
+    static var userDataSetFunction: (_ internalPointer: RawPointer?, _ userdata: UnsafeMutableRawPointer?) -> () { get }
 }
 
 internal extension UserDataHandle {
     
-    static func from(rawPointer: InternalPointer.RawPointer) -> Self? {
+    static func from(rawPointer: RawPointer) -> Self? {
         
         guard let userData = Self.userDataGetFunction(rawPointer)
             else { return nil }
