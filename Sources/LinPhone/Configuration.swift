@@ -27,35 +27,56 @@ public final class Configuration {
     
     // MARK: - Properties
     
-    internal let internalPointer: OpaquePointer
+    internal let managedPointer: ManagedPointer<InternalPointer>
     
     // MARK: - Initialization
     
-    deinit {
+    internal init(_ managedPointer: ManagedPointer<InternalPointer>) {
         
-        linphone_config_unref(internalPointer)
-    }
-    
-    internal init(_ internalPointer: OpaquePointer) {
-        
-        self.internalPointer = internalPointer
+        self.managedPointer = managedPointer
     }
     
     /// Instantiates a `Linphone.Configuration` object from a user config file.
-    public init?(filename: String) {
+    public convenience init?(filename: String) {
         
-        guard let internalPointer = linphone_config_new(filename)
+        guard let rawPointer = linphone_config_new(filename)
             else { return nil }
         
-        self.internalPointer = internalPointer
+        self.init(ManagedPointer(InternalPointer(rawPointer)))
     }
     
     /// Instantiates a `Linphone.Configuration` object from a user config file.
-    public init?(filename: String, core: Core) {
+    public convenience init?(filename: String, core: Core) {
         
-        guard let internalPointer = linphone_core_create_config(core.internalPointer, filename)
+        guard let rawPointer = linphone_core_create_config(core.internalPointer, filename)
             else { return nil }
         
-        self.internalPointer = internalPointer
+        self.init(ManagedPointer(InternalPointer(rawPointer)))
+    }
+}
+
+// MARK: - Internal
+
+extension Configuration: Handle {
+    
+    struct InternalPointer: LinPhone.InternalPointer {
+        
+        let rawPointer: OpaquePointer
+        
+        @inline(__always)
+        init(_ rawPointer: RawPointer) {
+            
+            self.rawPointer = rawPointer
+        }
+        
+        @inline(__always)
+        func retain() {
+            linphone_config_ref(rawPointer)
+        }
+        
+        @inline(__always)
+        func release() {
+            linphone_config_unref(rawPointer)
+        }
     }
 }
