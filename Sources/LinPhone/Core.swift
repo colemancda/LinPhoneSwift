@@ -15,11 +15,11 @@ public final class Core {
     // MARK: - Properties
     
     @_versioned
-    internal let managedPointer: ManagedPointer<OpaquePointer>
+    internal let managedPointer: ManagedPointer<Core.InternalPointer>
     
     // MARK: - Initialization
     
-    private init(_ managedPointer: ManagedPointer<OpaquePointer>) {
+    internal init(_ managedPointer: ManagedPointer<Core.InternalPointer>) {
         
         self.managedPointer = managedPointer
     }
@@ -29,13 +29,13 @@ public final class Core {
                 configurationPath: String? = nil,
                 factoryConfigurationPath: String? = nil) {
         
-        guard let internalPointer = linphone_factory_create_core(factory.internalPointer,
-                                     callBack.internalPointer,
+        guard let rawPointer = linphone_factory_create_core(factory.rawPointer,
+                                     callBack.rawPointer,
                                      configurationPath,
                                      factoryConfigurationPath)
             else { return nil }
         
-        self.init(internalPointer)
+        self.init(ManagedPointer(InternalPointer(rawPointer)))
     }
     
     // MARK: - Static Properties / Methods
@@ -86,32 +86,42 @@ public final class Core {
     @inline(__always)
     public func setUserAgent(name: String, version: String) {
         
-         linphone_core_set_user_agent(internalPointer, name, version)
+         linphone_core_set_user_agent(rawPointer, name, version)
     }
     
     /// Returns the `Configuration` object used to manage the storage (config) file.
     public var configuration: Configuration? {
         
         // get handle pointer
-        guard let configInternalPointer = linphone_core_get_config(internalPointer)
+        guard let rawPointer = linphone_core_get_config(rawPointer)
             else { return nil }
         
-        // get associated swift object
+        // retain 
+        let internalPointer = Configuration.InternalPointer(rawPointer)
+        internalPointer.retain()
         
+        return Configuration(ManagedPointer(internalPointer))
     }
     
     /// Specify whether the tls server certificate common name must be verified when connecting to a SIP/TLS server.
     @inline(__always)
     public func shouldVerifyServerConnection(_ newValue: Bool) {
         
-        linphone_core_verify_server_cn(internalPointer, bool_t(newValue))
+        linphone_core_verify_server_cn(rawPointer, bool_t(newValue))
     }
     
     /// Specify whether the tls server certificate must be verified when connecting to a SIP/TLS server.
     @inline(__always)
     public func shouldVerifyServerCertificates(_ newValue: Bool) {
         
-        linphone_core_verify_server_certificates(internalPointer, bool_t(newValue))
+        linphone_core_verify_server_certificates(rawPointer, bool_t(newValue))
+    }
+    
+    /// Whether video capture is enabled.
+    public var isVideoCaptureEnabled: Bool {
+        
+        @inline(__always)
+        get { return linphone_core_video_capture_enabled(rawPointer).boolValue }
     }
     
     /// The path to the file storing the zrtp secrets cache.
@@ -142,7 +152,7 @@ public final class Core {
     @inline(__always)
     public func configureSSL(_ config: UnsafeMutableRawPointer?) {
         
-        linphone_core_set_ssl_config(internalPointer, config)
+        linphone_core_set_ssl_config(rawPointer, config)
     }
     
     /// URI where to download xml configuration file at startup.
@@ -172,10 +182,10 @@ public final class Core {
     public var maxCalls: Int {
         
         @inline(__always)
-        get { return Int(linphone_core_get_max_calls(internalPointer)) }
+        get { return Int(linphone_core_get_max_calls(rawPointer)) }
         
         @inline(__always)
-        set { linphone_core_set_max_calls(internalPointer, Int32(newValue)) }
+        set { linphone_core_set_max_calls(rawPointer, Int32(newValue)) }
     }
     
     // MARK: - Methods
@@ -196,21 +206,21 @@ public final class Core {
     @inline(__always)
     public func iterate() {
         
-        linphone_core_iterate(internalPointer)
+        linphone_core_iterate(rawPointer)
     }
     
     /// Upload the log collection to the configured server url.
     @inline(__always)
     public func uploadLogCollection() {
         
-        linphone_core_upload_log_collection(internalPointer)
+        linphone_core_upload_log_collection(rawPointer)
     }
     
     /// Whether a media encryption scheme is supported by the `Linphone.Core` engine.
     @inline(__always)
     public func isMediaEncryptionSupported(_ mediaEncryption: LinphoneMediaEncryption) -> Bool {
         
-        return linphone_core_media_encryption_supported(internalPointer, mediaEncryption).boolValue
+        return linphone_core_media_encryption_supported(rawPointer, mediaEncryption).boolValue
     }
 }
 
@@ -223,13 +233,22 @@ public extension Core {
         
         // MARK: - Properties
         
-        internal let internalPointer: OpaquePointer
+        @_versioned
+        internal let managedPointer: ManagedPointer<Core.Callback.InternalPointer>
         
         // MARK: - Initialization
         
-        public init(factory: Factory = Factory.shared) {
+        internal init(_ managedPointer: ManagedPointer<Core.Callback.InternalPointer>) {
             
-            self.internalPointer = linphone_factory_create_core_cbs(factory.internalPointer)
+            self.managedPointer = managedPointer
+        }
+        
+        public convenience init?(factory: Factory = Factory.shared) {
+            
+            guard let rawPointer = linphone_factory_create_core_cbs(factory.rawPointer)
+                else { return nil }
+            
+            self.init(ManagedPointer(InternalPointer(rawPointer)))
         }
         
         // MARK: - Methods
@@ -259,7 +278,7 @@ public extension Core {
             
             self.init(dummy: ())
             self.internalPointer = internalPointer
-            self.setUserData()
+            //self.setUserData()
         }
         
         public convenience init() {
@@ -271,23 +290,82 @@ public extension Core {
 
 // MARK: - Internal
 
+extension Core: Handle {
+    
+    struct InternalPointer: LinPhone.InternalPointer {
+        
+        let rawPointer: OpaquePointer
+        
+        @inline(__always)
+        init(_ rawPointer: RawPointer) {
+            self.rawPointer = rawPointer
+        }
+        
+        @inline(__always)
+        func retain() {
+            linphone_core_ref(rawPointer)
+        }
+        
+        @inline(__always)
+        func release() {
+            linphone_core_unref(rawPointer)
+        }
+    }
+}
+
+extension Core.Callback: Handle {
+    
+    struct InternalPointer: LinPhone.InternalPointer {
+        
+        let rawPointer: OpaquePointer
+        
+        @inline(__always)
+        init(_ rawPointer: RawPointer) {
+            self.rawPointer = rawPointer
+        }
+        
+        @inline(__always)
+        func retain() {
+            linphone_core_cbs_ref(rawPointer)
+        }
+        
+        @inline(__always)
+        func release() {
+            linphone_core_cbs_unref(rawPointer)
+        }
+    }
+}
+
 extension Core: UserDataHandle {
     
-    static var userDataGetFunction: (_ internalPointer: InternalPointer?) -> UnsafeMutableRawPointer? { return linphone_core_get_user_data }
+    static var userDataGetFunction: (OpaquePointer?) -> UnsafeMutableRawPointer? {
+        return linphone_core_get_user_data
+    }
     
-    static var userDataSetFunction: (_ internalPointer: InternalPointer?, _ userdata: UnsafeMutableRawPointer?) -> () { return linphone_core_set_user_data }
+    static var userDataSetFunction: (_ internalPointer: OpaquePointer?, _ userdata: UnsafeMutableRawPointer?) -> () {
+        return linphone_core_set_user_data
+    }
 }
 
 extension Core.Callback: UserDataHandle {
     
-    static var userDataGetFunction: (_ internalPointer: InternalPointer?) -> UnsafeMutableRawPointer? { return linphone_call_get_user_data }
+    static var userDataGetFunction: (OpaquePointer?) -> UnsafeMutableRawPointer? {
+        return linphone_core_cbs_get_user_data
+    }
     
-    static var userDataSetFunction: (_ internalPointer: InternalPointer?, _ userdata: UnsafeMutableRawPointer?) -> () { return linphone_call_set_user_data }
+    static var userDataSetFunction: (_ internalPointer: OpaquePointer?, _ userdata: UnsafeMutableRawPointer?) -> () {
+        return linphone_core_cbs_set_user_data
+    }
 }
-
+/*
 extension Core.VTable: UserDataHandle {
     
-    static var userDataGetFunction: (_ internalPointer: InternalPointer?) -> UnsafeMutableRawPointer? { return linphone_core_v_table_get_user_data }
+    static var userDataGetFunction: (OpaquePointer?) -> UnsafeMutableRawPointer? {
+        return linphone_core_v_table_get_user_data
+    }
     
-    static var userDataSetFunction: (_ internalPointer: InternalPointer?, _ userdata: UnsafeMutableRawPointer?) -> () { return linphone_core_v_table_set_user_data }
+    static var userDataSetFunction: (_ internalPointer: OpaquePointer?, _ userdata: UnsafeMutableRawPointer?) -> () {
+        return linphone_core_v_table_set_user_data
+    }
 }
+*/

@@ -18,7 +18,7 @@ public final class Factory {
     
     // MARK: - Properties
     
-    internal let internalPointer: OpaquePointer
+    internal let rawPointer: OpaquePointer
     
     // MARK: - Initialization
     
@@ -27,13 +27,13 @@ public final class Factory {
         // Clean the factory. 
         /// This function is generally useless as the factory is unique per process,
         /// however calling this function at the end avoid getting reports from belle-sip leak detector'
-        /// about memory leaked in linphone_factory_get().
+        /// about memory leaked in `linphone_factory_get()`.
         linphone_factory_clean()
     }
     
     /// Create the singleton factory.
     private init() {
         
-        self.internalPointer = linphone_factory_get()
+        self.rawPointer = linphone_factory_get()
     }
 }

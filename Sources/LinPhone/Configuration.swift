@@ -48,7 +48,7 @@ public final class Configuration {
     /// Instantiates a `Linphone.Configuration` object from a user config file.
     public convenience init?(filename: String, core: Core) {
         
-        guard let rawPointer = linphone_core_create_config(core.internalPointer, filename)
+        guard let rawPointer = linphone_core_create_config(core.rawPointer, filename)
             else { return nil }
         
         self.init(ManagedPointer(InternalPointer(rawPointer)))
