@@ -49,4 +49,12 @@ public final class Configuration {
         
         self.internalPointer = internalPointer
     }
+    
+    public init?(filename: String, core: Core) {
+        
+        guard let internalPointer = linphone_core_create_config(core.internalPointer, filename)
+            else { return nil }
+        
+        self.internalPointer = internalPointer
+    }
 }

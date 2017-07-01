@@ -49,6 +49,7 @@
 		6E58AF0B1F07234B009A0E68 /* Enumeration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E58AF0A1F07234B009A0E68 /* Enumeration.swift */; };
 		6E58AF0D1F07CE74009A0E68 /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E58AF0C1F07CE74009A0E68 /* Factory.swift */; };
 		6E58AF0F1F07D245009A0E68 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E58AF0E1F07D245009A0E68 /* Configuration.swift */; };
+		6E58AF131F07E9E9009A0E68 /* Internal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E58AF121F07E9E9009A0E68 /* Internal.swift */; };
 		6E76D7401F0705B70017362C /* Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E76D73E1F0705B70017362C /* Core.swift */; };
 		6E76D7601F070F3C0017362C /* bctoolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7541F070F3C0017362C /* bctoolbox.framework */; };
 		6E76D7611F070F3C0017362C /* linphone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7551F070F3C0017362C /* linphone.framework */; };
@@ -112,6 +113,7 @@
 		6E58AF0A1F07234B009A0E68 /* Enumeration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enumeration.swift; sourceTree = "<group>"; };
 		6E58AF0C1F07CE74009A0E68 /* Factory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Factory.swift; sourceTree = "<group>"; };
 		6E58AF0E1F07D245009A0E68 /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		6E58AF121F07E9E9009A0E68 /* Internal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Internal.swift; sourceTree = "<group>"; };
 		6E76D73E1F0705B70017362C /* Core.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Core.swift; sourceTree = "<group>"; };
 		6E76D7541F070F3C0017362C /* bctoolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = bctoolbox.framework; sourceTree = "<group>"; };
 		6E76D7551F070F3C0017362C /* linphone.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = linphone.framework; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 				6E58AF0C1F07CE74009A0E68 /* Factory.swift */,
 				6E58AF081F07221B009A0E68 /* StreamType.swift */,
 				6E58AF0A1F07234B009A0E68 /* Enumeration.swift */,
+				6E58AF121F07E9E9009A0E68 /* Internal.swift */,
 			);
 			path = LinPhone;
 			sourceTree = "<group>";
@@ -377,6 +380,7 @@
 				6E58AF0D1F07CE74009A0E68 /* Factory.swift in Sources */,
 				6E58AF0F1F07D245009A0E68 /* Configuration.swift in Sources */,
 				6E58AF0B1F07234B009A0E68 /* Enumeration.swift in Sources */,
+				6E58AF131F07E9E9009A0E68 /* Internal.swift in Sources */,
 				6E76D7401F0705B70017362C /* Core.swift in Sources */,
 				6E58AF091F07221B009A0E68 /* StreamType.swift in Sources */,
 			);

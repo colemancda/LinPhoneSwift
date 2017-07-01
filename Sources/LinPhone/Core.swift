@@ -18,6 +18,11 @@ public final class Core {
     
     // MARK: - Initialization
     
+    deinit {
+        
+        linphone_core_unref(internalPointer)
+    }
+    
     public init?(factory: Factory = Factory.shared,
                 callBack: Callback,
                 configurationPath: String? = nil,
@@ -27,7 +32,7 @@ public final class Core {
                                      callBack.internalPointer,
                                      configurationPath,
                                      factoryConfigurationPath)
-            else { return }
+            else { return nil }
         
         self.internalPointer = internalPointer
     }
@@ -67,7 +72,7 @@ public final class Core {
     public var userAgent: String {
         
         @inline(__always)
-        get { return String(cString: linphone_core_get_user_agent(internalPointer)) }
+        get { return getString(linphone_core_get_user_agent) }
     }
     
     /// Sets the user agent string used in SIP messages.
@@ -76,7 +81,53 @@ public final class Core {
         
          linphone_core_set_user_agent(internalPointer, name, version)
     }
+    
+    /// Returns the `Configuration` object used to manage the storage (config) file.
+    public var configuration: Configuration? {
+        
+        guard let reference = linphone_core_get_config(internalPointer)
+            else { return nil }
+        
+        // increment reference count (since wrapper class will decrement when dealloc)
+        linphone_config_ref(reference)
+        
+        return Configuration(reference)
+    }
+    
+    /// Specify whether the tls server certificate common name must be verified when connecting to a SIP/TLS server.
+    @inline(__always)
+    public func shouldVerifyServerConnection(_ newValue: Bool) {
+        
+        linphone_core_verify_server_cn(internalPointer, bool_t(newValue))
+    }
+    
+    /// Specify whether the tls server certificate must be verified when connecting to a SIP/TLS server.
+    @inline(__always)
+    public func shouldVerifyServerCertificates(_ newValue: Bool) {
+        
+        linphone_core_verify_server_certificates(internalPointer, bool_t(newValue))
+    }
+    
+    public var zrtpSecretsFile: String? {
+        
+        @inline(__always)
+        get { return getString(linphone_core_get_zrtp_secrets_file) }
+        
+        @inline(__always)
+        set { setString(linphone_core_set_zrtp_secrets_file, newValue) }
+    }
+    
+    // MARK: - Methods
+    
+    /// Upload the log collection to the configured server url.
+    @inline(__always)
+    public func uploadLogCollection() {
+        
+        linphone_core_upload_log_collection(internalPointer)
+    }
 }
+
+extension Core: Handle { }
 
 // MARK: - Supporting Types
 
@@ -99,5 +150,27 @@ public extension Core {
         // MARK: - Methods
         
         
+    }
+}
+
+public extension Core {
+    
+    public final class vTable {
+        
+        // MARK: - Properties
+        
+        internal let internalPointer: UnsafeMutablePointer<LinphoneCoreVTable>
+        
+        // MARK: - Initialization
+        
+        deinit {
+            
+            linphone_core_v_table_destroy(internalPointer)
+        }
+        
+        public init() {
+            
+            self.internalPointer = linphone_core_v_table_new()
+        }
     }
 }
