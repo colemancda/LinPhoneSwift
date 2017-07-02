@@ -50,6 +50,45 @@
 		6E58AF0D1F07CE74009A0E68 /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E58AF0C1F07CE74009A0E68 /* Factory.swift */; };
 		6E58AF0F1F07D245009A0E68 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E58AF0E1F07D245009A0E68 /* Configuration.swift */; };
 		6E58AF131F07E9E9009A0E68 /* Internal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E58AF121F07E9E9009A0E68 /* Internal.swift */; };
+		6E58AF1F1F085B4F009A0E68 /* msx264.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75E1F070F3C0017362C /* msx264.framework */; };
+		6E58AF201F085B4F009A0E68 /* mswebrtc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75D1F070F3C0017362C /* mswebrtc.framework */; };
+		6E58AF211F085B4F009A0E68 /* mediastreamer_base.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7571F070F3C0017362C /* mediastreamer_base.framework */; };
+		6E58AF221F085B4F009A0E68 /* mscodec2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75A1F070F3C0017362C /* mscodec2.framework */; };
+		6E58AF231F085B4F009A0E68 /* mssilk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75C1F070F3C0017362C /* mssilk.framework */; };
+		6E58AF241F085B4F009A0E68 /* mediastreamer_voip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7581F070F3C0017362C /* mediastreamer_voip.framework */; };
+		6E58AF251F085B4F009A0E68 /* bctoolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7541F070F3C0017362C /* bctoolbox.framework */; };
+		6E58AF261F085B4F009A0E68 /* linphone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7551F070F3C0017362C /* linphone.framework */; };
+		6E58AF271F085B4F009A0E68 /* msopenh264.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75B1F070F3C0017362C /* msopenh264.framework */; };
+		6E58AF281F085B4F009A0E68 /* msamr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7591F070F3C0017362C /* msamr.framework */; };
+		6E58AF291F085B4F009A0E68 /* ortp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75F1F070F3C0017362C /* ortp.framework */; };
+		6E58AF341F085B53009A0E68 /* CoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* CoreTests.swift */; };
+		6E58AF361F085B53009A0E68 /* LinPhoneSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* LinPhoneSwift.framework */; };
+		6E58AF371F085B53009A0E68 /* bctoolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7541F070F3C0017362C /* bctoolbox.framework */; };
+		6E58AF381F085B53009A0E68 /* linphone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7551F070F3C0017362C /* linphone.framework */; };
+		6E58AF391F085B53009A0E68 /* linphonetester.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7561F070F3C0017362C /* linphonetester.framework */; };
+		6E58AF3A1F085B53009A0E68 /* mediastreamer_base.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7571F070F3C0017362C /* mediastreamer_base.framework */; };
+		6E58AF3B1F085B53009A0E68 /* mediastreamer_voip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7581F070F3C0017362C /* mediastreamer_voip.framework */; };
+		6E58AF3C1F085B53009A0E68 /* msamr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7591F070F3C0017362C /* msamr.framework */; };
+		6E58AF3D1F085B53009A0E68 /* mscodec2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75A1F070F3C0017362C /* mscodec2.framework */; };
+		6E58AF3E1F085B53009A0E68 /* msopenh264.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75B1F070F3C0017362C /* msopenh264.framework */; };
+		6E58AF3F1F085B53009A0E68 /* mssilk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75C1F070F3C0017362C /* mssilk.framework */; };
+		6E58AF401F085B53009A0E68 /* mswebrtc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75D1F070F3C0017362C /* mswebrtc.framework */; };
+		6E58AF411F085B53009A0E68 /* msx264.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75E1F070F3C0017362C /* msx264.framework */; };
+		6E58AF421F085B53009A0E68 /* ortp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75F1F070F3C0017362C /* ortp.framework */; };
+		6E58AF441F085B53009A0E68 /* bctoolbox.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7541F070F3C0017362C /* bctoolbox.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6E58AF451F085B53009A0E68 /* linphone.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7551F070F3C0017362C /* linphone.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6E58AF461F085B53009A0E68 /* linphonetester.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7561F070F3C0017362C /* linphonetester.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6E58AF471F085B53009A0E68 /* mediastreamer_base.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7571F070F3C0017362C /* mediastreamer_base.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6E58AF481F085B53009A0E68 /* mediastreamer_voip.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7581F070F3C0017362C /* mediastreamer_voip.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6E58AF491F085B53009A0E68 /* msamr.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7591F070F3C0017362C /* msamr.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6E58AF4A1F085B53009A0E68 /* mscodec2.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75A1F070F3C0017362C /* mscodec2.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6E58AF4B1F085B53009A0E68 /* msopenh264.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75B1F070F3C0017362C /* msopenh264.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6E58AF4C1F085B53009A0E68 /* mssilk.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75C1F070F3C0017362C /* mssilk.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6E58AF4D1F085B53009A0E68 /* mswebrtc.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75D1F070F3C0017362C /* mswebrtc.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6E58AF4E1F085B53009A0E68 /* msx264.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75E1F070F3C0017362C /* msx264.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6E58AF4F1F085B53009A0E68 /* ortp.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75F1F070F3C0017362C /* ortp.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6E58AF571F085BB5009A0E68 /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E58AF561F085BB5009A0E68 /* Factory.swift */; };
+		6E58AF5A1F085DB2009A0E68 /* MediaStreamer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E58AF2E1F085B4F009A0E68 /* MediaStreamer.framework */; };
 		6E76D7401F0705B70017362C /* Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E76D73E1F0705B70017362C /* Core.swift */; };
 		6E76D7601F070F3C0017362C /* bctoolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7541F070F3C0017362C /* bctoolbox.framework */; };
 		6E76D7611F070F3C0017362C /* linphone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7551F070F3C0017362C /* linphone.framework */; };
@@ -63,10 +102,31 @@
 		6E76D76A1F070F3C0017362C /* msx264.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75E1F070F3C0017362C /* msx264.framework */; };
 		6E76D76B1F070F3C0017362C /* ortp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75F1F070F3C0017362C /* ortp.framework */; };
 		OBJ_28 /* CoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* CoreTests.swift */; };
-		OBJ_30 /* LinPhone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* LinPhone.framework */; };
+		OBJ_30 /* LinPhoneSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* LinPhoneSwift.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		6E58AF161F085B4F009A0E68 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6E76D7701F0718580017362C;
+			remoteInfo = CMake;
+		};
+		6E58AF321F085B53009A0E68 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = OBJ_16;
+			remoteInfo = LinPhoneSwift;
+		};
+		6E58AF581F085DAB009A0E68 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6E58AF141F085B4F009A0E68;
+			remoteInfo = MediaStreamer;
+		};
 		6E76D7371F06F8BB0017362C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
@@ -106,6 +166,28 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6E58AF431F085B53009A0E68 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				6E58AF441F085B53009A0E68 /* bctoolbox.framework in Embed Frameworks */,
+				6E58AF451F085B53009A0E68 /* linphone.framework in Embed Frameworks */,
+				6E58AF461F085B53009A0E68 /* linphonetester.framework in Embed Frameworks */,
+				6E58AF471F085B53009A0E68 /* mediastreamer_base.framework in Embed Frameworks */,
+				6E58AF481F085B53009A0E68 /* mediastreamer_voip.framework in Embed Frameworks */,
+				6E58AF491F085B53009A0E68 /* msamr.framework in Embed Frameworks */,
+				6E58AF4A1F085B53009A0E68 /* mscodec2.framework in Embed Frameworks */,
+				6E58AF4B1F085B53009A0E68 /* msopenh264.framework in Embed Frameworks */,
+				6E58AF4C1F085B53009A0E68 /* mssilk.framework in Embed Frameworks */,
+				6E58AF4D1F085B53009A0E68 /* mswebrtc.framework in Embed Frameworks */,
+				6E58AF4E1F085B53009A0E68 /* msx264.framework in Embed Frameworks */,
+				6E58AF4F1F085B53009A0E68 /* ortp.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -114,6 +196,9 @@
 		6E58AF0C1F07CE74009A0E68 /* Factory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Factory.swift; sourceTree = "<group>"; };
 		6E58AF0E1F07D245009A0E68 /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		6E58AF121F07E9E9009A0E68 /* Internal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Internal.swift; sourceTree = "<group>"; };
+		6E58AF2E1F085B4F009A0E68 /* MediaStreamer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MediaStreamer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E58AF531F085B53009A0E68 /* MediaStreamerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MediaStreamerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E58AF561F085BB5009A0E68 /* Factory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Factory.swift; sourceTree = "<group>"; };
 		6E76D73E1F0705B70017362C /* Core.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Core.swift; sourceTree = "<group>"; };
 		6E76D7541F070F3C0017362C /* bctoolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = bctoolbox.framework; sourceTree = "<group>"; };
 		6E76D7551F070F3C0017362C /* linphone.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = linphone.framework; sourceTree = "<group>"; };
@@ -128,17 +213,55 @@
 		6E76D75E1F070F3C0017362C /* msx264.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = msx264.framework; sourceTree = "<group>"; };
 		6E76D75F1F070F3C0017362C /* ortp.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ortp.framework; sourceTree = "<group>"; };
 		6E76D76D1F0710D90017362C /* module.map */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = module.map; sourceTree = "<group>"; };
-		6E76D76E1F0710D90017362C /* linphone.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = linphone.h; sourceTree = "<group>"; };
 		OBJ_11 /* CoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreTests.swift; sourceTree = "<group>"; };
-		OBJ_14 /* LinPhone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LinPhone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		OBJ_14 /* LinPhoneSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LinPhoneSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_15 /* LinPhoneTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = LinPhoneTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		6E58AF1E1F085B4F009A0E68 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
+			files = (
+				6E58AF1F1F085B4F009A0E68 /* msx264.framework in Frameworks */,
+				6E58AF201F085B4F009A0E68 /* mswebrtc.framework in Frameworks */,
+				6E58AF211F085B4F009A0E68 /* mediastreamer_base.framework in Frameworks */,
+				6E58AF221F085B4F009A0E68 /* mscodec2.framework in Frameworks */,
+				6E58AF231F085B4F009A0E68 /* mssilk.framework in Frameworks */,
+				6E58AF241F085B4F009A0E68 /* mediastreamer_voip.framework in Frameworks */,
+				6E58AF251F085B4F009A0E68 /* bctoolbox.framework in Frameworks */,
+				6E58AF261F085B4F009A0E68 /* linphone.framework in Frameworks */,
+				6E58AF271F085B4F009A0E68 /* msopenh264.framework in Frameworks */,
+				6E58AF281F085B4F009A0E68 /* msamr.framework in Frameworks */,
+				6E58AF291F085B4F009A0E68 /* ortp.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6E58AF351F085B53009A0E68 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
+			files = (
+				6E58AF361F085B53009A0E68 /* LinPhoneSwift.framework in Frameworks */,
+				6E58AF371F085B53009A0E68 /* bctoolbox.framework in Frameworks */,
+				6E58AF381F085B53009A0E68 /* linphone.framework in Frameworks */,
+				6E58AF391F085B53009A0E68 /* linphonetester.framework in Frameworks */,
+				6E58AF3A1F085B53009A0E68 /* mediastreamer_base.framework in Frameworks */,
+				6E58AF3B1F085B53009A0E68 /* mediastreamer_voip.framework in Frameworks */,
+				6E58AF3C1F085B53009A0E68 /* msamr.framework in Frameworks */,
+				6E58AF3D1F085B53009A0E68 /* mscodec2.framework in Frameworks */,
+				6E58AF3E1F085B53009A0E68 /* msopenh264.framework in Frameworks */,
+				6E58AF3F1F085B53009A0E68 /* mssilk.framework in Frameworks */,
+				6E58AF401F085B53009A0E68 /* mswebrtc.framework in Frameworks */,
+				6E58AF411F085B53009A0E68 /* msx264.framework in Frameworks */,
+				6E58AF421F085B53009A0E68 /* ortp.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		OBJ_22 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
+				6E58AF5A1F085DB2009A0E68 /* MediaStreamer.framework in Frameworks */,
 				6E76D76A1F070F3C0017362C /* msx264.framework in Frameworks */,
 				6E76D7691F070F3C0017362C /* mswebrtc.framework in Frameworks */,
 				6E76D7631F070F3C0017362C /* mediastreamer_base.framework in Frameworks */,
@@ -157,7 +280,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_30 /* LinPhone.framework in Frameworks */,
+				OBJ_30 /* LinPhoneSwift.framework in Frameworks */,
 				6E58AEEA1F071D4A009A0E68 /* bctoolbox.framework in Frameworks */,
 				6E58AEEB1F071D4A009A0E68 /* linphone.framework in Frameworks */,
 				6E58AEEC1F071D4A009A0E68 /* linphonetester.framework in Frameworks */,
@@ -176,6 +299,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6E58AF551F085B8A009A0E68 /* MediaStreamer */ = {
+			isa = PBXGroup;
+			children = (
+				6E58AF561F085BB5009A0E68 /* Factory.swift */,
+			);
+			path = MediaStreamer;
+			sourceTree = "<group>";
+		};
 		6E76D73D1F0705B70017362C /* LinPhone */ = {
 			isa = PBXGroup;
 			children = (
@@ -209,15 +340,6 @@
 			path = "../linphone-iphone/liblinphone-sdk/apple-darwin/Frameworks";
 			sourceTree = "<group>";
 		};
-		6E76D76C1F0710C60017362C /* CLinPhone */ = {
-			isa = PBXGroup;
-			children = (
-				6E76D76D1F0710D90017362C /* module.map */,
-				6E76D76E1F0710D90017362C /* linphone.h */,
-			);
-			name = CLinPhone;
-			sourceTree = "<group>";
-		};
 		OBJ_10 /* LinPhoneTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -230,8 +352,10 @@
 		OBJ_13 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_14 /* LinPhone.framework */,
+				OBJ_14 /* LinPhoneSwift.framework */,
 				OBJ_15 /* LinPhoneTests.xctest */,
+				6E58AF2E1F085B4F009A0E68 /* MediaStreamer.framework */,
+				6E58AF531F085B53009A0E68 /* MediaStreamerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = BUILT_PRODUCTS_DIR;
@@ -239,7 +363,7 @@
 		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
-				6E76D76C1F0710C60017362C /* CLinPhone */,
+				6E76D76D1F0710D90017362C /* module.map */,
 				6E76D7531F070F3C0017362C /* Frameworks */,
 				OBJ_7 /* Sources */,
 				OBJ_9 /* Tests */,
@@ -251,6 +375,7 @@
 			isa = PBXGroup;
 			children = (
 				6E76D73D1F0705B70017362C /* LinPhone */,
+				6E58AF551F085B8A009A0E68 /* MediaStreamer */,
 			);
 			name = Sources;
 			path = ../Sources;
@@ -267,9 +392,45 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		OBJ_16 /* LinPhone */ = {
+		6E58AF141F085B4F009A0E68 /* MediaStreamer */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_17 /* Build configuration list for PBXNativeTarget "LinPhone" */;
+			buildConfigurationList = 6E58AF2B1F085B4F009A0E68 /* Build configuration list for PBXNativeTarget "MediaStreamer" */;
+			buildPhases = (
+				6E58AF171F085B4F009A0E68 /* Sources */,
+				6E58AF1E1F085B4F009A0E68 /* Frameworks */,
+				6E58AF2A1F085B4F009A0E68 /* Increment Build */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6E58AF151F085B4F009A0E68 /* PBXTargetDependency */,
+			);
+			name = MediaStreamer;
+			productName = LinPhoneSwift;
+			productReference = 6E58AF2E1F085B4F009A0E68 /* MediaStreamer.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		6E58AF301F085B53009A0E68 /* MediaStreamerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6E58AF501F085B53009A0E68 /* Build configuration list for PBXNativeTarget "MediaStreamerTests" */;
+			buildPhases = (
+				6E58AF331F085B53009A0E68 /* Sources */,
+				6E58AF351F085B53009A0E68 /* Frameworks */,
+				6E58AF431F085B53009A0E68 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6E58AF311F085B53009A0E68 /* PBXTargetDependency */,
+			);
+			name = MediaStreamerTests;
+			productName = LinPhoneSwiftTests;
+			productReference = 6E58AF531F085B53009A0E68 /* MediaStreamerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		OBJ_16 /* LinPhoneSwift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_17 /* Build configuration list for PBXNativeTarget "LinPhoneSwift" */;
 			buildPhases = (
 				OBJ_20 /* Sources */,
 				OBJ_22 /* Frameworks */,
@@ -278,11 +439,12 @@
 			buildRules = (
 			);
 			dependencies = (
+				6E58AF591F085DAB009A0E68 /* PBXTargetDependency */,
 				6E76D7761F0718B10017362C /* PBXTargetDependency */,
 			);
-			name = LinPhone;
+			name = LinPhoneSwift;
 			productName = LinPhoneSwift;
-			productReference = OBJ_14 /* LinPhone.framework */;
+			productReference = OBJ_14 /* LinPhoneSwift.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		OBJ_23 /* LinPhoneTests */ = {
@@ -311,6 +473,9 @@
 			attributes = {
 				LastUpgradeCheck = 9999;
 				TargetAttributes = {
+					6E58AF141F085B4F009A0E68 = {
+						LastSwiftMigration = 0830;
+					};
 					6E76D7701F0718580017362C = {
 						CreatedOnToolsVersion = 8.3.3;
 						ProvisioningStyle = Automatic;
@@ -335,15 +500,31 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				OBJ_16 /* LinPhone */,
-				OBJ_23 /* LinPhoneTests */,
 				6E76D7701F0718580017362C /* CMake */,
+				OBJ_16 /* LinPhoneSwift */,
+				OBJ_23 /* LinPhoneTests */,
+				6E58AF141F085B4F009A0E68 /* MediaStreamer */,
+				6E58AF301F085B53009A0E68 /* MediaStreamerTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXShellScriptBuildPhase section */
 		6E58AEF81F071EF0009A0E68 /* Increment Build */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Increment Build";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/bash\n\n#  update_build_number.sh\n#  Usage: `update_build_number.sh [branch]`\n#  Run this script after the 'Copy Bundle Resources' build phase\n#  Ref: http://tgoode.com/2014/06/05/sensible-way-increment-bundle-version-cfbundleversion-xcode/\n\nif [ $TRAVIS == \"true\" ]\nthen echo \"Updating build number to TRAVISCI.\"\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion TRAVISCI\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\nelse branch=${1:-'master'}\nbuildNumber=$(expr $(git rev-list $branch --count) - $(git rev-list HEAD..$branch --count))\necho \"Updating build number to $buildNumber using branch '$branch'.\"\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\nfi";
+		};
+		6E58AF2A1F085B4F009A0E68 /* Increment Build */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -373,6 +554,22 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		6E58AF171F085B4F009A0E68 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				6E58AF571F085BB5009A0E68 /* Factory.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6E58AF331F085B53009A0E68 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				6E58AF341F085B53009A0E68 /* CoreTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		OBJ_20 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
@@ -397,6 +594,21 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		6E58AF151F085B4F009A0E68 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6E76D7701F0718580017362C /* CMake */;
+			targetProxy = 6E58AF161F085B4F009A0E68 /* PBXContainerItemProxy */;
+		};
+		6E58AF311F085B53009A0E68 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = OBJ_16 /* LinPhoneSwift */;
+			targetProxy = 6E58AF321F085B53009A0E68 /* PBXContainerItemProxy */;
+		};
+		6E58AF591F085DAB009A0E68 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6E58AF141F085B4F009A0E68 /* MediaStreamer */;
+			targetProxy = 6E58AF581F085DAB009A0E68 /* PBXContainerItemProxy */;
+		};
 		6E76D7761F0718B10017362C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 6E76D7701F0718580017362C /* CMake */;
@@ -404,12 +616,105 @@
 		};
 		OBJ_31 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = OBJ_16 /* LinPhone */;
+			target = OBJ_16 /* LinPhoneSwift */;
 			targetProxy = 6E76D7371F06F8BB0017362C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		6E58AF2C1F085B4F009A0E68 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = NO;
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				INFOPLIST_FILE = "LinPhone.xcodeproj/MediaStreamer-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = org.linphone.swift;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_INCLUDE_PATHS = $SRCROOT;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6E58AF2D1F085B4F009A0E68 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = NO;
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				INFOPLIST_FILE = "LinPhone.xcodeproj/MediaStreamer-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = org.linphone.swift;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_INCLUDE_PATHS = $SRCROOT;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		6E58AF511F085B53009A0E68 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = "";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = "LinPhone.xcodeproj/MediaStreamerTests-Info.plist";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		6E58AF521F085B53009A0E68 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = "";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = "LinPhone.xcodeproj/MediaStreamerTests-Info.plist";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
 		6E76D7721F0718580017362C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -427,6 +732,7 @@
 		OBJ_18 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = NO;
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				ENABLE_TESTABILITY = YES;
@@ -438,19 +744,19 @@
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = org.linphone.swift;
-				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_INCLUDE_PATHS = $SRCROOT;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		OBJ_19 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = NO;
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				ENABLE_TESTABILITY = YES;
@@ -462,12 +768,11 @@
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = org.linphone.swift;
-				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_INCLUDE_PATHS = $SRCROOT;
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -483,6 +788,7 @@
 				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = LinPhone.xcodeproj/LinPhoneSwiftTests_Info.plist;
+				LIBRARY_SEARCH_PATHS = "$SRCROOT/../linphone-iphone/liblinphone-sdk/apple-darwin/lib";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_NAME = LinPhoneTests;
@@ -503,6 +809,7 @@
 				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = LinPhone.xcodeproj/LinPhoneSwiftTests_Info.plist;
+				LIBRARY_SEARCH_PATHS = "$SRCROOT/../linphone-iphone/liblinphone-sdk/apple-darwin/lib";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_NAME = LinPhoneTests;
@@ -574,6 +881,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		6E58AF2B1F085B4F009A0E68 /* Build configuration list for PBXNativeTarget "MediaStreamer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6E58AF2C1F085B4F009A0E68 /* Debug */,
+				6E58AF2D1F085B4F009A0E68 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		6E58AF501F085B53009A0E68 /* Build configuration list for PBXNativeTarget "MediaStreamerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6E58AF511F085B53009A0E68 /* Debug */,
+				6E58AF521F085B53009A0E68 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
 		6E76D7711F0718580017362C /* Build configuration list for PBXAggregateTarget "CMake" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -583,7 +908,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		OBJ_17 /* Build configuration list for PBXNativeTarget "LinPhone" */ = {
+		OBJ_17 /* Build configuration list for PBXNativeTarget "LinPhoneSwift" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				OBJ_18 /* Debug */,

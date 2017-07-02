@@ -1,4 +1,9 @@
 module CLinPhone [system] {
-    header "linphone.h"
+    header "linphone/core.h"
+    export *
+}
+
+module CMediaStreamer2 [system] {
+    header "mediastreamer2/mediastream.h"
     export *
 }

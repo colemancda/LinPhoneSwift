@@ -54,7 +54,7 @@ internal protocol Handle: class {
 
 internal protocol ManagedHandle: Handle {
     
-    associatedtype InternalPointer: LinPhone.InternalPointer
+    associatedtype InternalPointer: LinPhoneSwift.InternalPointer
     
     var managedPointer: ManagedPointer<InternalPointer> { get }
     

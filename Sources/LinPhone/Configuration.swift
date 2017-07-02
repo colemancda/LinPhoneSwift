@@ -61,7 +61,7 @@ extension Configuration: ManagedHandle {
     
     typealias RawPointer = InternalPointer.RawPointer
     
-    struct InternalPointer: LinPhone.InternalPointer {
+    struct InternalPointer: LinPhoneSwift.InternalPointer {
         
         let rawPointer: OpaquePointer
         

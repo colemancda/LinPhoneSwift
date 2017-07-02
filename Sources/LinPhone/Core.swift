@@ -7,7 +7,7 @@
 //
 
 import CLinPhone
-import struct Foundation.Data
+import MediaStreamer
 
 /// LinPhone Core class
 public final class Core {
@@ -119,11 +119,25 @@ public final class Core {
         guard let rawPointer = linphone_core_get_config(rawPointer)
             else { return nil }
         
-        // retain 
+        // retain handle because we will release it when swift object is released
+        // if any other swift object shares the same internal handle,
         let internalPointer = Configuration.InternalPointer(rawPointer)
         internalPointer.retain()
         
         return Configuration(ManagedPointer(internalPointer))
+    }
+    
+    /// Returns the `MediaStreamer.Factory` used by the `Linphone.Core` to control mediastreamer2 library.
+    ///
+    /// - Note: The object is only guarenteed to be valid for the lifetime of the closure.
+    public func withMediaStreamerFactory<Result>(_ closure: (MediaStreamer.Factory) throws -> Result) rethrows -> Result {
+        
+        guard let rawPointer = linphone_core_get_ms_factory(self.rawPointer)
+            else { fatalError("Nil pointer") }
+        
+        let factory = MediaStreamer.Factory(rawPointer: rawPointer, isOwner: false)
+        
+        return try closure(factory)
     }
     
     /// Specify whether the tls server certificate common name must be verified when connecting to a SIP/TLS server.
@@ -355,7 +369,7 @@ extension Core: ManagedHandle {
     
     typealias RawPointer = InternalPointer.RawPointer
     
-    struct InternalPointer: LinPhone.InternalPointer {
+    struct InternalPointer: LinPhoneSwift.InternalPointer {
         
         let rawPointer: OpaquePointer
         
@@ -380,7 +394,7 @@ extension Core.Callbacks: ManagedHandle {
     
     typealias RawPointer = InternalPointer.RawPointer
     
-    struct InternalPointer: LinPhone.InternalPointer {
+    struct InternalPointer: LinPhoneSwift.InternalPointer {
         
         let rawPointer: OpaquePointer
         
