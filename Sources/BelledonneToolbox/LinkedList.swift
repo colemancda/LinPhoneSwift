@@ -203,20 +203,28 @@ extension LinkedList: ReferenceConvertible {
         
         internal var copy: LinkedList.Reference? {
             
-            // copy linked list struct
-            guard let copyRawPointer = bctbx_list_copy(self.rawPointer)
-                else { return nil }
+            let copy = LinkedList.Reference(data: Data(referencing: self.data))
             
-            // copy data and assign to new list
-            let dataCopy = self.data.copy() as! NSMutableData
-            copyRawPointer.pointee.data = dataCopy.mutableBytes
+            var node = copy
+            var more = true
             
-            // create object
-            let copy = LinkedList.Reference(rawPointer: copyRawPointer, data: dataCopy)
-            copy.previous = self.previous
-            copy.next = self.next
+            repeat {
+                
+                if let next = node.next {
+                    
+                    let newNode = LinkedList.Reference(data: Data(referencing: next.data))
+                    node.next = newNode
+                    
+                    node = next
+                    
+                } else {
+                    
+                    more = false
+                }
+                
+            } while more
             
-            return copy
+            return node
         }
         
         private init(data: NSMutableData) {
