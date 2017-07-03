@@ -27,6 +27,7 @@ public final class Configuration {
     
     // MARK: - Properties
     
+    @_versioned
     internal let managedPointer: ManagedPointer<InternalPointer>
     
     // MARK: - Initialization
@@ -79,7 +80,109 @@ public final class Configuration {
         self.init(ManagedPointer(InternalPointer(rawPointer)))
     }
     
-    // MARK: - Accessors
+    // MARK: - Methods
+    
+    /// Reads a user configuration file and fills the reciever with the read configuration values.
+    @inline(__always)
+    public func read(file filename: String) -> Bool {
+        
+        return linphone_config_read_file(rawPointer, filename) == 0
+    }
+    
+    /*
+    /// Reads a user configuration file and fills the reciever with the read configuration values.
+    @inline(__always)
+    public func readRelative(file filename: String) -> Bool {
+        
+        return linphone_config_read_relative_file(rawPointer, filename) == 0
+    }*/
+    
+    /// Whether file exists relative to the to the current location.
+    @inline(__always)
+    public func relativeFileExists(_ filename: String) -> Bool {
+        
+        return linphone_config_relative_file_exists(rawPointer, filename).boolValue
+    }
+    
+    // MARK: - Setters
+    
+    /// Set the value for the specified key and section in the configuration file.
+    @inline(__always)
+    public func setValue(_ value: Float, for key: String, in section: String) {
+        
+        linphone_config_set_float(rawPointer, section, key, value)
+    }
+    
+    /// Set the value for the specified key and section in the configuration file.
+    @inline(__always)
+    public func setValue(_ value: Int64, for key: String, in section: String) {
+        
+        linphone_config_set_int64(rawPointer, section, key, value)
+    }
+    
+    /// Set the value for the specified key and section in the configuration file.
+    /// 
+    /// - Note: Sets an integer config item, but stores it as hexadecimal
+    @inline(__always)
+    public func setHexadecimalValue(_ value: Int32, for key: String, in section: String) {
+        
+        linphone_config_set_int_hex(rawPointer, section, key, value)
+    }
+    
+    /// Sets the overwrite flag for a config item (used when dumping config as xml).
+    @inline(__always)
+    public func setOverwriteFlag(_ flag: Bool, for key: String, in section: String) {
+        
+        linphone_config_set_overwrite_flag_for_entry(rawPointer, section, key, bool_t(flag))
+    }
+    
+    /// Sets the overwrite flag for a config section (used when dumping config as xml).
+    @inline(__always)
+    public func setOverwriteFlag(_ flag: Bool, for section: String) {
+        
+        linphone_config_set_overwrite_flag_for_section(rawPointer, section, bool_t(flag))
+    }
+    
+    /// Sets a range config item.
+    @inline(__always)
+    public func setValue(_ range: ClosedRange<Int32>, for key: String, in section: String) {
+        
+        linphone_config_set_range(rawPointer, section, key, range.lowerBound, range.upperBound)
+    }
+    
+    /// Sets the skip flag for a config item (used when dumping config as xml).
+    @inline(__always)
+    public func setSkipFlag(_ flag: Bool, for key: String, in section: String) {
+        
+        linphone_config_set_skip_flag_for_entry(rawPointer, section, key, bool_t(flag))
+    }
+    
+    /// Sets the skip flag for a config item (used when dumping config as xml).
+    @inline(__always)
+    public func setSkipFlag(_ flag: Bool, for section: String) {
+        
+        linphone_config_set_skip_flag_for_section(rawPointer, section, bool_t(flag))
+    }
+    
+    /// Set the string value for the specified key and section in the configuration file.
+    @inline(__always)
+    public func setValue(_ value: String, for key: String, in section: String) {
+        
+        linphone_config_set_string(rawPointer, section, key, value)
+    }
+    
+    /// Set the string list value for the specified key and section in the configuration file.
+    @inline(__always)
+    public func setValue(_ value: StringList, for key: String, in section: String) {
+        
+        linphone_config_set_string(rawPointer, section, key, value)
+    }
+    
+    // MARK: - Getters
+    
+    
+    
+    // MARK: - Subcripting
     
     
 }

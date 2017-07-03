@@ -113,19 +113,19 @@ public final class Core {
     }
     
     /// Returns the `Configuration` object used to manage the storage (config) file.
-    public var configuration: Configuration? {
+    public lazy var configuration: Configuration? = {
         
         // get handle pointer
-        guard let rawPointer = linphone_core_get_config(rawPointer)
+        guard let rawPointer = linphone_core_get_config(self.rawPointer)
             else { return nil }
         
         // retain handle because we will release it when swift object is released
-        // if any other swift object shares the same internal handle,
+        // this will prevent a crash if any other swift object shares the same internal handle,
         let internalPointer = Configuration.InternalPointer(rawPointer)
         internalPointer.retain()
         
         return Configuration(ManagedPointer(internalPointer))
-    }
+    }()
     
     /// Returns the `MediaStreamer.Factory` used by the `Linphone.Core` to control mediastreamer2 library.
     ///
@@ -275,14 +275,14 @@ public final class Core {
     @inline(__always)
     public func add(callbacks: Callbacks) {
         
-        linphone_core_add_callbacks(rawPointer, callbacks.rawPointer)
+        linphone_core_add_callbacks(rawPointer, callbacks.rawPointer) // retains
     }
     
     /// Remove a listener from the `Linphone.Core` events.
     @inline(__always)
     public func remove(callbacks: Callbacks) {
         
-        linphone_core_remove_callbacks(rawPointer, callbacks.rawPointer)
+        linphone_core_remove_callbacks(rawPointer, callbacks.rawPointer)  // releases
     }
     
     /// Add a supported tag.
