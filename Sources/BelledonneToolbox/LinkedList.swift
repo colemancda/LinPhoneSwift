@@ -85,7 +85,7 @@ public struct LinkedList {
         @inline(__always)
         mutating set {
             
-            internalReference.mutatingReference.next = next?.internalReference.mutatingReference
+            internalReference.mutatingReference.previous = previous?.internalReference.mutatingReference
         }
     }
     
@@ -117,7 +117,11 @@ public struct LinkedList {
          internalReference.mutatingReference.prepend(element.internalReference.mutatingReference)
     }
     
-    // MARK: - Methods
+    @inline(__always)
+    public func forEach(_ body: (LinkedList) throws -> ()) rethrows {
+        
+        try internalReference.reference.forEach { try body(LinkedList($0)) }
+    }
     
     /// Access the underlying C structure instance.
     ///
@@ -210,7 +214,7 @@ extension LinkedList: ReferenceConvertible {
             // create object
             let copy = LinkedList.Reference(rawPointer: copyRawPointer, data: dataCopy)
             copy.previous = self.previous
-            copy.
+            copy.next = self.next
             
             return copy
         }
@@ -251,9 +255,9 @@ extension LinkedList: ReferenceConvertible {
             
             repeat {
                 
-                if let first = node.first {
+                if let previous = node.previous {
                     
-                    node = first
+                    node = previous
                     
                 } else {
                     
@@ -301,6 +305,28 @@ extension LinkedList: ReferenceConvertible {
             
             self.first?.previous = element
         }
+        
+        @inline(__always)
+        public func forEach(_ body: (LinkedList.Reference) throws -> ()) rethrows {
+            
+            var node = self
+            var more = true
+            
+            repeat {
+                
+                try body(node)
+                
+                if let next = node.next {
+                    
+                    node = next
+                    
+                } else {
+                    
+                    more = false
+                }
+                
+            } while more
+        }
     }
 }
 
@@ -312,7 +338,9 @@ extension LinkedList: CustomStringConvertible {
         
         var stringValues = [String]()
         
+        self.forEach { stringValues.append($0.string) }
+        
         /// Print just like an array would
-        return "\(Array(self))"
+        return "\(stringValues)"
     }
 }
