@@ -208,10 +208,13 @@ public final class Core {
     /// Calling this function does not load the configuration.
     /// It will write the value into configuration so that configuration from remote URI
     /// will take place at next LinphoneCore start.
+    ///
+    /// - Parameter uri: The `http` or `https` URI to use in order to download the configuration.
+    /// Passing `nil` will disable remote provisioning.
     @inline(__always)
-    public func setProvisioningURI(_ newValue: String?) -> Bool {
+    public func setProvisioningURI(_ uri: String?) -> Bool {
         
-        return setString(linphone_core_set_provisioning_uri, newValue) == Int32(0)
+        return setString(linphone_core_set_provisioning_uri, uri) == Int32(0)
     }
     
     /// The maximum number of simultaneous calls Linphone core can manage at a time. 
@@ -337,6 +340,7 @@ public extension Core {
         // MARK: - Properties
         
         internal var rawPointer: UnsafeMutablePointer<LinphoneCoreVTable> { return _rawPointer }
+        
         private var _rawPointer: UnsafeMutablePointer<LinphoneCoreVTable>!
         
         // MARK: - Initialization
