@@ -183,6 +183,7 @@ public final class Configuration {
     @inline(__always)
     public func set(_ linkedList: LinkedList, for key: String, in section: String) {
         
+        // we guarentee the linked list wont be modified, no need to create a mutable copy
         linkedList.withUnsafeRawPointer { linphone_config_set_string_list(rawPointer, section, key, $0) }
     }
     

@@ -8,7 +8,7 @@
 
 import CLinPhone
 
-/// `LinPhone.Factory` is a singleton object devoted to the creation of all the object of
+/// `LinPhone.Factory` is a singleton object devoted to the creation of all the objects of
 /// LinPhone that cannot created by `Linphone.Core` itself.
 public final class Factory {
     
