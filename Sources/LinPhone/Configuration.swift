@@ -181,9 +181,9 @@ public final class Configuration {
     
     /// Set the string list value for the specified key and section in the configuration file.
     @inline(__always)
-    public func set(_ value: StringList, for key: String, in section: String) {
+    public func set(_ linkedList: LinkedList, for key: String, in section: String) {
         
-        linphone_config_set_string_list(rawPointer, section, key, value.rawPointer)
+        linkedList.withUnsafeRawPointer { linphone_config_set_string_list(rawPointer, section, key, $0) }
     }
     
     // MARK: - Getters

@@ -130,14 +130,14 @@ public final class Core {
     /// Returns the `MediaStreamer.Factory` used by the `Linphone.Core` to control mediastreamer2 library.
     ///
     /// - Note: The object is only guarenteed to be valid for the lifetime of the closure.
-    public func withMediaStreamerFactory<Result>(_ closure: (MediaStreamer.Factory) throws -> Result) rethrows -> Result {
+    public func withMediaStreamerFactory<Result>(_ body: (MediaStreamer.Factory) throws -> Result) rethrows -> Result {
         
         guard let rawPointer = linphone_core_get_ms_factory(self.rawPointer)
             else { fatalError("Nil pointer") }
         
         let factory = MediaStreamer.Factory(rawPointer: rawPointer, isOwner: false)
         
-        return try closure(factory)
+        return try body(factory)
     }
     
     /// Specify whether the tls server certificate common name must be verified when connecting to a SIP/TLS server.

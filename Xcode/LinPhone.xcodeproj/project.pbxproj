@@ -57,7 +57,7 @@
 		6E569B111F09F67500BF244A /* mswebrtc.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75D1F070F3C0017362C /* mswebrtc.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6E569B121F09F67500BF244A /* msx264.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75E1F070F3C0017362C /* msx264.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6E569B131F09F67500BF244A /* ortp.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75F1F070F3C0017362C /* ortp.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6E569B191F09F74D00BF244A /* StringList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E569ADC1F09DA3500BF244A /* StringList.swift */; };
+		6E569B191F09F74D00BF244A /* LinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E569ADC1F09DA3500BF244A /* LinkedList.swift */; };
 		6E569B1D1F09F9AD00BF244A /* UserDataHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E569B1C1F09F9AD00BF244A /* UserDataHandle.swift */; };
 		6E569B1F1F09F9D500BF244A /* Handle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E569B1E1F09F9D500BF244A /* Handle.swift */; };
 		6E569B211F09F9FF00BF244A /* ManagedPointer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E569B201F09F9FF00BF244A /* ManagedPointer.swift */; };
@@ -266,7 +266,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		6E569ADC1F09DA3500BF244A /* StringList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringList.swift; sourceTree = "<group>"; };
+		6E569ADC1F09DA3500BF244A /* LinkedList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkedList.swift; sourceTree = "<group>"; };
 		6E569AF21F09F67200BF244A /* BelledonneToolbox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BelledonneToolbox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E569B171F09F67500BF244A /* BelledonneToolboxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BelledonneToolboxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E569B1C1F09F9AD00BF244A /* UserDataHandle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDataHandle.swift; sourceTree = "<group>"; };
@@ -428,7 +428,7 @@
 		6E569ADB1F09DA2300BF244A /* BelledonneToolbox */ = {
 			isa = PBXGroup;
 			children = (
-				6E569ADC1F09DA3500BF244A /* StringList.swift */,
+				6E569ADC1F09DA3500BF244A /* LinkedList.swift */,
 				6E569B2A1F0A063F00BF244A /* Handle.swift */,
 				6E569B2C1F0A067800BF244A /* CopyableHandle.swift */,
 				6E569B2D1F0A067800BF244A /* ReferenceConvertible.swift */,
@@ -758,7 +758,7 @@
 			files = (
 				6E569B2E1F0A067800BF244A /* CopyableHandle.swift in Sources */,
 				6E569B2F1F0A067800BF244A /* ReferenceConvertible.swift in Sources */,
-				6E569B191F09F74D00BF244A /* StringList.swift in Sources */,
+				6E569B191F09F74D00BF244A /* LinkedList.swift in Sources */,
 				6E569B2B1F0A063F00BF244A /* Handle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
