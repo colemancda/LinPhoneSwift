@@ -15,11 +15,11 @@ public final class Core {
     // MARK: - Properties
     
     @_versioned
-    internal let managedPointer: ManagedPointer<Core.InternalPointer>
+    internal let managedPointer: ManagedPointer<Core.UnmanagedPointer>
     
     // MARK: - Initialization
     
-    internal init(_ managedPointer: ManagedPointer<Core.InternalPointer>) {
+    internal init(_ managedPointer: ManagedPointer<Core.UnmanagedPointer>) {
         
         self.managedPointer = managedPointer
     }
@@ -35,7 +35,7 @@ public final class Core {
                                      factoryConfigurationPath)
             else { return nil }
         
-        self.init(ManagedPointer(InternalPointer(rawPointer)))
+        self.init(ManagedPointer(UnmanagedPointer(rawPointer)))
     }
     
     // MARK: - Static Properties / Methods
@@ -121,10 +121,10 @@ public final class Core {
         
         // retain handle because we will release it when swift object is released
         // this will prevent a crash if any other swift object shares the same internal handle,
-        let internalPointer = Configuration.InternalPointer(rawPointer)
-        internalPointer.retain()
+        let UnmanagedPointer = Configuration.UnmanagedPointer(rawPointer)
+        UnmanagedPointer.retain()
         
-        return Configuration(ManagedPointer(internalPointer))
+        return Configuration(ManagedPointer(UnmanagedPointer))
     }()
     
     /// Returns the `MediaStreamer.Factory` used by the `Linphone.Core` to control mediastreamer2 library.
@@ -310,11 +310,11 @@ public extension Core {
         // MARK: - Properties
         
         @_versioned
-        internal let managedPointer: ManagedPointer<Core.Callbacks.InternalPointer>
+        internal let managedPointer: ManagedPointer<Core.Callbacks.UnmanagedPointer>
         
         // MARK: - Initialization
         
-        internal init(_ managedPointer: ManagedPointer<Core.Callbacks.InternalPointer>) {
+        internal init(_ managedPointer: ManagedPointer<Core.Callbacks.UnmanagedPointer>) {
             
             self.managedPointer = managedPointer
         }
@@ -324,7 +324,7 @@ public extension Core {
             guard let rawPointer = linphone_factory_create_core_cbs(factory.rawPointer)
                 else { return nil }
             
-            self.init(ManagedPointer(InternalPointer(rawPointer)))
+            self.init(ManagedPointer(UnmanagedPointer(rawPointer)))
         }
         
         // MARK: - Methods
@@ -371,14 +371,14 @@ public extension Core {
 
 extension Core: ManagedHandle {
     
-    typealias RawPointer = InternalPointer.RawPointer
+    typealias RawPointer = UnmanagedPointer.RawPointer
     
-    struct InternalPointer: LinPhoneSwift.InternalPointer {
+    struct UnmanagedPointer: LinPhoneSwift.UnmanagedPointer {
         
         let rawPointer: OpaquePointer
         
         @inline(__always)
-        init(_ rawPointer: InternalPointer.RawPointer) {
+        init(_ rawPointer: UnmanagedPointer.RawPointer) {
             self.rawPointer = rawPointer
         }
         
@@ -396,14 +396,14 @@ extension Core: ManagedHandle {
 
 extension Core.Callbacks: ManagedHandle {
     
-    typealias RawPointer = InternalPointer.RawPointer
+    typealias RawPointer = UnmanagedPointer.RawPointer
     
-    struct InternalPointer: LinPhoneSwift.InternalPointer {
+    struct UnmanagedPointer: LinPhoneSwift.UnmanagedPointer {
         
         let rawPointer: OpaquePointer
         
         @inline(__always)
-        init(_ rawPointer: InternalPointer.RawPointer) {
+        init(_ rawPointer: UnmanagedPointer.RawPointer) {
             self.rawPointer = rawPointer
         }
         
@@ -425,7 +425,7 @@ extension Core: UserDataHandle {
         return linphone_core_get_user_data
     }
     
-    static var userDataSetFunction: (_ internalPointer: OpaquePointer?, _ userdata: UnsafeMutableRawPointer?) -> () {
+    static var userDataSetFunction: (_ UnmanagedPointer: OpaquePointer?, _ userdata: UnsafeMutableRawPointer?) -> () {
         return linphone_core_set_user_data
     }
 }
@@ -436,7 +436,7 @@ extension Core.Callbacks: UserDataHandle {
         return linphone_core_cbs_get_user_data
     }
     
-    static var userDataSetFunction: (_ internalPointer: OpaquePointer?, _ userdata: UnsafeMutableRawPointer?) -> () {
+    static var userDataSetFunction: (_ UnmanagedPointer: OpaquePointer?, _ userdata: UnsafeMutableRawPointer?) -> () {
         return linphone_core_cbs_set_user_data
     }
 }
@@ -448,7 +448,7 @@ extension Core.VTable: UserDataHandle {
         return { linphone_core_v_table_get_user_data(UnsafePointer($0)) }
     }
     
-    static var userDataSetFunction: (_ internalPointer: UnsafeMutablePointer<LinphoneCoreVTable>?, _ userdata: UnsafeMutableRawPointer?) -> () {
+    static var userDataSetFunction: (_ UnmanagedPointer: UnsafeMutablePointer<LinphoneCoreVTable>?, _ userdata: UnsafeMutableRawPointer?) -> () {
         return linphone_core_v_table_set_user_data
     }
 }

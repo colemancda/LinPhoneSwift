@@ -7,6 +7,7 @@
 //
 
 import CLinPhone
+import BelledonneToolbox
 
 /// The `LinPhone.Configuration` object is used to manipulate a configuration file.
 ///
@@ -28,11 +29,11 @@ public final class Configuration {
     // MARK: - Properties
     
     @_versioned
-    internal let managedPointer: ManagedPointer<InternalPointer>
+    internal let managedPointer: ManagedPointer<UnmanagedPointer>
     
     // MARK: - Initialization
     
-    internal init(_ managedPointer: ManagedPointer<InternalPointer>) {
+    internal init(_ managedPointer: ManagedPointer<UnmanagedPointer>) {
         
         self.managedPointer = managedPointer
     }
@@ -43,7 +44,7 @@ public final class Configuration {
         guard let rawPointer = linphone_config_new(filename)
             else { return nil }
         
-        self.init(ManagedPointer(InternalPointer(rawPointer)))
+        self.init(ManagedPointer(UnmanagedPointer(rawPointer)))
     }
     
     // Documentation is unclear on memory and value semantics.
@@ -55,7 +56,7 @@ public final class Configuration {
         guard let rawPointer = linphone_core_create_config(core.rawPointer, filename)
             else { return nil }
         
-        self.init(ManagedPointer(InternalPointer(rawPointer)))
+        self.init(ManagedPointer(UnmanagedPointer(rawPointer)))
      }
     
     /// Instantiates a `Linphone.Configuration` object from a user provided string.
@@ -64,7 +65,7 @@ public final class Configuration {
         guard let rawPointer = linphone_config_new_from_buffer(string)
             else { return nil }
         
-        self.init(ManagedPointer(InternalPointer(rawPointer)))
+        self.init(ManagedPointer(UnmanagedPointer(rawPointer)))
     }
     
     /// Instantiates a `Linphone.Configuration` object from a user config file and a factory config file.
@@ -77,7 +78,7 @@ public final class Configuration {
         guard let rawPointer = linphone_config_new_with_factory(filename, factoryFilename)
             else { return nil }
         
-        self.init(ManagedPointer(InternalPointer(rawPointer)))
+        self.init(ManagedPointer(UnmanagedPointer(rawPointer)))
     }
     
     // MARK: - Methods
@@ -104,18 +105,25 @@ public final class Configuration {
         return linphone_config_relative_file_exists(rawPointer, filename).boolValue
     }
     
+    /// Writes the config file to disk.
+    @inline(__always)
+    public func synchronize() -> Bool {
+        
+        return linphone_config_sync(rawPointer) == 0
+    }
+    
     // MARK: - Setters
     
     /// Set the value for the specified key and section in the configuration file.
     @inline(__always)
-    public func setValue(_ value: Float, for key: String, in section: String) {
+    public func set(_ value: Float, for key: String, in section: String) {
         
         linphone_config_set_float(rawPointer, section, key, value)
     }
     
     /// Set the value for the specified key and section in the configuration file.
     @inline(__always)
-    public func setValue(_ value: Int64, for key: String, in section: String) {
+    public func set(_ value: Int64, for key: String, in section: String) {
         
         linphone_config_set_int64(rawPointer, section, key, value)
     }
@@ -124,7 +132,7 @@ public final class Configuration {
     /// 
     /// - Note: Sets an integer config item, but stores it as hexadecimal
     @inline(__always)
-    public func setHexadecimalValue(_ value: Int32, for key: String, in section: String) {
+    public func setHexadecimal(_ value: Int32, for key: String, in section: String) {
         
         linphone_config_set_int_hex(rawPointer, section, key, value)
     }
@@ -145,7 +153,7 @@ public final class Configuration {
     
     /// Sets a range config item.
     @inline(__always)
-    public func setValue(_ range: ClosedRange<Int32>, for key: String, in section: String) {
+    public func set(_ range: ClosedRange<Int32>, for key: String, in section: String) {
         
         linphone_config_set_range(rawPointer, section, key, range.lowerBound, range.upperBound)
     }
@@ -166,16 +174,16 @@ public final class Configuration {
     
     /// Set the string value for the specified key and section in the configuration file.
     @inline(__always)
-    public func setValue(_ value: String, for key: String, in section: String) {
+    public func set(_ value: String, for key: String, in section: String) {
         
         linphone_config_set_string(rawPointer, section, key, value)
     }
     
     /// Set the string list value for the specified key and section in the configuration file.
     @inline(__always)
-    public func setValue(_ value: StringList, for key: String, in section: String) {
+    public func set(_ value: StringList, for key: String, in section: String) {
         
-        linphone_config_set_string(rawPointer, section, key, value)
+        linphone_config_set_string_list(rawPointer, section, key, value.rawPointer)
     }
     
     // MARK: - Getters
@@ -191,14 +199,14 @@ public final class Configuration {
 
 extension Configuration: ManagedHandle {
     
-    typealias RawPointer = InternalPointer.RawPointer
+    typealias RawPointer = UnmanagedPointer.RawPointer
     
-    struct InternalPointer: LinPhoneSwift.InternalPointer {
+    struct UnmanagedPointer: LinPhoneSwift.UnmanagedPointer {
         
         let rawPointer: OpaquePointer
         
         @inline(__always)
-        init(_ rawPointer: InternalPointer.RawPointer) {
+        init(_ rawPointer: UnmanagedPointer.RawPointer) {
             
             self.rawPointer = rawPointer
         }

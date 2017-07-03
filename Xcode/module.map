@@ -1,9 +1,61 @@
 module CLinPhone [system] {
-    header "linphone/core.h"
-    export *
+    
+    module core {
+        header "linphone/core.h"
+        export *
+    }
 }
 
 module CMediaStreamer2 [system] {
+    
     header "mediastreamer2/mediastream.h"
     export *
+}
+
+module CBelledonneToolbox [system] {
+    
+    module crypto {
+        header "bctoolbox/crypto.h"
+        export *
+    }
+    
+    module defs {
+        header "bctoolbox/defs.h"
+        export *
+    }
+    
+    module list {
+        header "bctoolbox/list.h"
+        export *
+    }
+    
+    module logging {
+        header "bctoolbox/logging.h"
+        export *
+    }
+    
+    module map {
+        header "bctoolbox/map.h"
+        export *
+    }
+    
+    module parser {
+        header "bctoolbox/parser.h"
+        export *
+    }
+    
+    module port {
+        header "bctoolbox/port.h"
+        export *
+    }
+    
+    module vconnect {
+        header "bctoolbox/vconnect.h"
+        export *
+    }
+    
+    module vfs {
+        header "bctoolbox/vfs.h"
+        export *
+    }
 }
