@@ -47,10 +47,71 @@ public struct URI {
     public var stringValue: String {
         
         @inline(__always)
-        get { return internalReference.reference.stringValue }
+        get { return internalReference.reference.description }
     }
     
+    public var scheme: String? {
+        
+        @inline(__always)
+        get { return internalReference.reference.getString(belle_generic_uri_get_scheme) }
+        
+        @inline(__always)
+        mutating set { internalReference.mutatingReference.setString(belle_generic_uri_set_scheme, newValue) }
+    }
     
+    public var user: String? {
+        
+        @inline(__always)
+        get { return internalReference.reference.getString(belle_generic_uri_get_user) }
+        
+        @inline(__always)
+        mutating set { internalReference.mutatingReference.setString(belle_generic_uri_set_user, newValue) }
+    }
+    
+    public var password: String? {
+        
+        @inline(__always)
+        get { return internalReference.reference.getString(belle_generic_uri_get_user_password) }
+        
+        @inline(__always)
+        mutating set { internalReference.mutatingReference.setString(belle_generic_uri_set_user_password, newValue) }
+    }
+    
+    public var host: String? {
+        
+        @inline(__always)
+        get { return internalReference.reference.getString(belle_generic_uri_get_host) }
+        
+        @inline(__always)
+        mutating set { internalReference.mutatingReference.setString(belle_generic_uri_set_host, newValue) }
+    }
+    
+    public var path: String? {
+        
+        @inline(__always)
+        get { return internalReference.reference.getString(belle_generic_uri_get_path) }
+        
+        @inline(__always)
+        mutating set { internalReference.mutatingReference.setString(belle_generic_uri_set_path, newValue) }
+    }
+    
+    public var query: String? {
+        
+        @inline(__always)
+        get { return internalReference.reference.getString(belle_generic_uri_get_query) }
+        
+        @inline(__always)
+        mutating set { internalReference.mutatingReference.setString(belle_generic_uri_set_query, newValue) }
+    }
+    
+    public var port: Int32 {
+        
+        @inline(__always)
+        get { return belle_generic_uri_get_port(internalReference.reference.rawPointer) }
+        
+        @inline(__always)
+        mutating set { belle_generic_uri_set_port(internalReference.mutatingReference.rawPointer, newValue) }
+    }
 }
 
 // MARK: - ReferenceConvertible
@@ -90,26 +151,10 @@ extension URI: ReferenceConvertible {
             
             self.init(ManagedPointer(UnmanagedPointer(rawPointer)))
         }
-        
-        // MARK: - Accessors
-        
-        var stringValue: String {
-            
-            @inline(__always)
-            get { return getString({ UnsafePointer(belle_generic_uri_to_string($0)) }) ?? "" }
-        }
     }
 }
 
-extension URI.Reference: ManagedHandle { }
-
-extension URI.Reference: CopyableHandle {
-    
-    internal var copy: URI.Reference? {
-        
-        return URI.Reference(string: self.stringValue)
-    }
-}
+extension URI.Reference: BelledonneObjectHandle { }
 
 // MARK: - CustomStringConvertible
 

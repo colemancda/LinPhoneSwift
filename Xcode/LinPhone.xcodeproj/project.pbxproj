@@ -23,7 +23,6 @@
 /* Begin PBXBuildFile section */
 		6E25E9CA1F0B6E22005BC42C /* libbellesip.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E25E9761F0B6DEA005BC42C /* libbellesip.a */; };
 		6E25E9CC1F0B6E4F005BC42C /* libbctoolbox.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E25E9731F0B6DEA005BC42C /* libbctoolbox.a */; };
-		6E25E9CD1F0B6E8E005BC42C /* BelledonneToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E569AF21F09F67200BF244A /* BelledonneToolbox.framework */; };
 		6E25E9D01F0B6E9C005BC42C /* BelledonneSIP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E5291661F0B53AE00D4B765 /* BelledonneSIP.framework */; };
 		6E25E9D31F0B6EBB005BC42C /* libbctoolbox.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E25E9731F0B6DEA005BC42C /* libbctoolbox.a */; };
 		6E25E9D41F0B6EDE005BC42C /* libmbedx509.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E25E9831F0B6DEA005BC42C /* libmbedx509.a */; };
@@ -408,7 +407,6 @@
 				6E25E9DE1F0B7426005BC42C /* libstdc++.tbd in Frameworks */,
 				6E25E9DD1F0B7413005BC42C /* libz.tbd in Frameworks */,
 				6E25E9D91F0B73A5005BC42C /* libresolv.tbd in Frameworks */,
-				6E25E9CD1F0B6E8E005BC42C /* BelledonneToolbox.framework in Frameworks */,
 				6E25E9CA1F0B6E22005BC42C /* libbellesip.a in Frameworks */,
 				6E25E9D31F0B6EBB005BC42C /* libbctoolbox.a in Frameworks */,
 				6E25E9D41F0B6EDE005BC42C /* libmbedx509.a in Frameworks */,
@@ -1269,12 +1267,12 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = "";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $(FRAMEWORK_SEARCH_PATHS) $(CONFIGURATION_BUILD_DIR)";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1288,12 +1286,12 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = "";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $(FRAMEWORK_SEARCH_PATHS) $(CONFIGURATION_BUILD_DIR)";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";

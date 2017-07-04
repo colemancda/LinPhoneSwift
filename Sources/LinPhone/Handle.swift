@@ -23,12 +23,12 @@ internal protocol Handle: class {
 extension Handle {
     
     @inline(__always)
-    func getString(_ function: (_ internalPointer: RawPointer?) -> (UnsafePointer<Int8>?)) -> String? {
+    func getString(_ function: (_ internalPointer: RawPointer?) -> (UnsafePointer<Int8>?), isCopy: Bool = false) -> String? {
         
         guard let cString = function(self.rawPointer)
             else { return nil }
         
-        //defer { free(cString) }
+        //defer { if isCopy { free(cString) } } // FIXME
         
         return String(cString: cString)
     }
