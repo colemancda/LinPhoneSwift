@@ -139,8 +139,10 @@
 		6E25EA801F0B783E005BC42C /* libmsx264.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E25E99C1F0B6DEA005BC42C /* libmsx264.a */; };
 		6E25EA811F0B785D005BC42C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E25EA3E1F0B7684005BC42C /* AVFoundation.framework */; };
 		6E25EA831F0B7887005BC42C /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E25EA821F0B7887005BC42C /* libiconv.tbd */; };
+		6E25EA8A1F0BEB05005BC42C /* LinkedListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E25EA871F0BEA98005BC42C /* LinkedListTests.swift */; };
+		6E25EA8B1F0BEB69005BC42C /* URITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E25EA891F0BEA98005BC42C /* URITests.swift */; };
 		6E5291891F0B543C00D4B765 /* URI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5291881F0B543C00D4B765 /* URI.swift */; };
-		6E52918B1F0B553400D4B765 /* SIPURI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E52918A1F0B553400D4B765 /* SIPURI.swift */; };
+		6E52918B1F0B553400D4B765 /* URI.SIP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E52918A1F0B553400D4B765 /* URI.SIP.swift */; };
 		6E52918D1F0B58C000D4B765 /* BelledonneObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E52918C1F0B58C000D4B765 /* BelledonneObject.swift */; };
 		6E5291911F0B5B2B00D4B765 /* CopyableHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E52918E1F0B5B2B00D4B765 /* CopyableHandle.swift */; };
 		6E5291921F0B5B2B00D4B765 /* Handle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E52918F1F0B5B2B00D4B765 /* Handle.swift */; };
@@ -356,10 +358,13 @@
 		6E25EA481F0B7727005BC42C /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/CoreMedia.framework; sourceTree = DEVELOPER_DIR; };
 		6E25EA501F0B77AB005BC42C /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/usr/lib/libsqlite3.tbd; sourceTree = DEVELOPER_DIR; };
 		6E25EA821F0B7887005BC42C /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/usr/lib/libiconv.tbd; sourceTree = DEVELOPER_DIR; };
+		6E25EA851F0BEA98005BC42C /* FactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactoryTests.swift; sourceTree = "<group>"; };
+		6E25EA871F0BEA98005BC42C /* LinkedListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkedListTests.swift; sourceTree = "<group>"; };
+		6E25EA891F0BEA98005BC42C /* URITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URITests.swift; sourceTree = "<group>"; };
 		6E5291661F0B53AE00D4B765 /* BelledonneSIP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BelledonneSIP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E5291871F0B53B100D4B765 /* BelledonneSIPTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BelledonneSIPTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E5291881F0B543C00D4B765 /* URI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URI.swift; sourceTree = "<group>"; };
-		6E52918A1F0B553400D4B765 /* SIPURI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SIPURI.swift; sourceTree = "<group>"; };
+		6E52918A1F0B553400D4B765 /* URI.SIP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URI.SIP.swift; sourceTree = "<group>"; };
 		6E52918C1F0B58C000D4B765 /* BelledonneObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BelledonneObject.swift; sourceTree = "<group>"; };
 		6E52918E1F0B5B2B00D4B765 /* CopyableHandle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CopyableHandle.swift; sourceTree = "<group>"; };
 		6E52918F1F0B5B2B00D4B765 /* Handle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Handle.swift; sourceTree = "<group>"; };
@@ -652,11 +657,38 @@
 			name = Linphone;
 			sourceTree = "<group>";
 		};
+		6E25EA841F0BEA98005BC42C /* MediaStreamerTests */ = {
+			isa = PBXGroup;
+			children = (
+				6E25EA851F0BEA98005BC42C /* FactoryTests.swift */,
+			);
+			name = MediaStreamerTests;
+			path = ../Tests/MediaStreamerTests;
+			sourceTree = "<group>";
+		};
+		6E25EA861F0BEA98005BC42C /* BelledonneToolboxTests */ = {
+			isa = PBXGroup;
+			children = (
+				6E25EA871F0BEA98005BC42C /* LinkedListTests.swift */,
+			);
+			name = BelledonneToolboxTests;
+			path = ../Tests/BelledonneToolboxTests;
+			sourceTree = "<group>";
+		};
+		6E25EA881F0BEA98005BC42C /* BelledonneSIPTests */ = {
+			isa = PBXGroup;
+			children = (
+				6E25EA891F0BEA98005BC42C /* URITests.swift */,
+			);
+			name = BelledonneSIPTests;
+			path = ../Tests/BelledonneSIPTests;
+			sourceTree = "<group>";
+		};
 		6E52914D1F0B53A800D4B765 /* BelledonneSIP */ = {
 			isa = PBXGroup;
 			children = (
 				6E5291881F0B543C00D4B765 /* URI.swift */,
-				6E52918A1F0B553400D4B765 /* SIPURI.swift */,
+				6E52918A1F0B553400D4B765 /* URI.SIP.swift */,
 				6E52918C1F0B58C000D4B765 /* BelledonneObject.swift */,
 				6E5291941F0B5BC200D4B765 /* ManagedPointer.swift */,
 				6E5291951F0B5BC200D4B765 /* UnmanagedPointer.swift */,
@@ -758,6 +790,9 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_10 /* LinPhoneTests */,
+				6E25EA841F0BEA98005BC42C /* MediaStreamerTests */,
+				6E25EA861F0BEA98005BC42C /* BelledonneToolboxTests */,
+				6E25EA881F0BEA98005BC42C /* BelledonneSIPTests */,
 			);
 			name = Tests;
 			sourceTree = SOURCE_ROOT;
@@ -1045,7 +1080,7 @@
 				6E5291991F0B631F00D4B765 /* ManagedHandle.swift in Sources */,
 				6E5291921F0B5B2B00D4B765 /* Handle.swift in Sources */,
 				6E5291911F0B5B2B00D4B765 /* CopyableHandle.swift in Sources */,
-				6E52918B1F0B553400D4B765 /* SIPURI.swift in Sources */,
+				6E52918B1F0B553400D4B765 /* URI.SIP.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1053,6 +1088,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
+				6E25EA8B1F0BEB69005BC42C /* URITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1071,6 +1107,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
+				6E25EA8A1F0BEB05005BC42C /* LinkedListTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

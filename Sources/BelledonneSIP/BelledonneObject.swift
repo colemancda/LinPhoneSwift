@@ -8,7 +8,7 @@
 
 import CBelledonneSIP
 
-/// It is the base protocol for all BelleSIP non-trivial objects
+/// It is the base protocol for all BelleSIP non-trivial objects. Can be class or struct.
 public protocol BelledonneObject {
     
     associatedtype RawPointer
@@ -43,30 +43,46 @@ internal struct BelledonneUnmanagedObject: UnmanagedPointer {
     func release() {
         belle_sip_object_unref(UnsafeMutableRawPointer(rawPointer))
     }
+}
+
+internal protocol BelledonneObjectHandle: ManagedHandle, CopyableHandle, CustomStringConvertible {
+    
+    typealias RawPointer = OpaquePointer
+    
+    var rawPointer: OpaquePointer { get }
+    
+    var managedPointer: ManagedPointer<BelledonneUnmanagedObject> { get }
+    
+    init(_ managedPointer: ManagedPointer<BelledonneUnmanagedObject>)
+}
+
+internal extension BelledonneObjectHandle {
     
     var objectTypeDescription: String {
         
-        let cString = belle_sip_object_describe(UnsafeMutableRawPointer(rawPointer))!
-        
-        // defer { free(cString) }
-        
-        return String(cString: cString)
+        return getString { UnsafePointer(belle_sip_object_describe(📦($0))) } ?? ""
     }
-}
-
-extension BelledonneUnmanagedObject: CustomStringConvertible {
     
-    public var description: String {
+    var description: String {
         
-        guard let cString = belle_sip_object_to_string(UnsafeMutableRawPointer(rawPointer))
-            else { return "" }
+        return getString { UnsafePointer(belle_sip_object_to_string(📦($0))) } ?? ""
+    }
+    
+    var copy: Self? {
         
-        //defer { free(cString) }
-        
-        return String(cString: cString)
+        guard let copyRawPointer = belle_sip_object_clone(self.rawPointer)
+            else {  }
     }
 }
 
+/// Cast any type to unsafe raw pointer.
+@inline(__always)
+private func 📦 <RawPointer> (_ rawPointer: RawPointer) -> UnsafeMutableRawPointer {
+    
+    let opaquePointer = unsafeBitCast(rawPointer, to: OpaquePointer.self)
+    
+    return UnsafeMutableRawPointer(opaquePointer)
+}
 
 /*
 internal extension BelledonneObject where Self: ReferenceConvertible {
