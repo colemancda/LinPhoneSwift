@@ -205,45 +205,57 @@ extension LinkedList: ReferenceConvertible {
         /// Keep reference for ARC. `bctbx_list_t` only manages memory of list structure, not the attached data. WTF?
         internal let data: NSMutableData // data.mutableBytes == rawPointer.pointee.data
         
-        /// Keep reference for ARC. List is linked in Swift by ARC, and we update the underlying C structures to reflect
+        /// List is linked in Swift by ARC, and we update the underlying C structures to reflect
         /// current state.
         internal var previous: LinkedList.Reference? {
             
-            didSet {
+            get { return _previous }
+            
+            set {
                 
-                let newValue = previous
+                let oldValue = _previous
                 
-                //oldValue?.next = nil
-                //newValue?.next = self
-                
-                // remove self from old value
-                oldValue?.rawPointer.pointee.next = nil
+                // reset old value
+                oldValue?.next = nil
                 
                 // set internal pointer
-                self.rawPointer.pointee.prev = previous?.rawPointer
-                previous?.rawPointer.pointee.next = self.rawPointer
+                self.rawPointer.pointee.prev = newValue?.rawPointer
+                newValue?.rawPointer.pointee.next = self.rawPointer
+                
+                /// keep reference for ARC
+                newValue?._next = self
+                self._previous = newValue
             }
         }
         
-        /// Keep reference for ARC. List is linked in Swift by ARC, and we update the underlying C structures to reflect
+        /// Keep reference for ARC.
+        private var _previous: LinkedList.Reference?
+        
+        /// List is linked in Swift by ARC, and we update the underlying C structures to reflect
         /// current state.
         internal var next: LinkedList.Reference? {
             
-            didSet {
+            get { return _next }
+            
+            set {
                 
-                let newValue = next
+                let oldValue = _next
                 
-                //oldValue?.previous = nil
-                //newValue?.previous = self
+                // reset old value
+                oldValue?.previous = nil
                 
-                // remove self from old value
-                oldValue?.rawPointer.pointee.prev = nil
+                // set internal pointer
+                self.rawPointer.pointee.next = newValue?.rawPointer
+                newValue?.rawPointer.pointee.prev = self.rawPointer
                 
-                // same as `bctbx_list_next()`
-                self.rawPointer.pointee.next = next?.rawPointer
-                next?.rawPointer.pointee.prev = self.rawPointer
+                /// keep reference for ARC
+                newValue?._previous = self
+                self._next = newValue
             }
         }
+        
+        /// Keep reference for ARC.
+        private var _next: LinkedList.Reference?
         
         // MARK: - Initialization
         
