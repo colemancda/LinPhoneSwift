@@ -87,7 +87,7 @@ public final class Configuration {
     @inline(__always)
     public func read(file filename: String) -> Bool {
         
-        return linphone_config_read_file(rawPointer, filename) == 0
+        return linphone_config_read_file(rawPointer, filename) == .success
     }
     
     /*
@@ -95,7 +95,7 @@ public final class Configuration {
     @inline(__always)
     public func readRelative(file filename: String) -> Bool {
         
-        return linphone_config_read_relative_file(rawPointer, filename) == 0
+        return linphone_config_read_relative_file(rawPointer, filename) == .success
     }*/
     
     /// Whether file exists relative to the to the current location.
@@ -109,7 +109,7 @@ public final class Configuration {
     @inline(__always)
     public func synchronize() -> Bool {
         
-        return linphone_config_sync(rawPointer) == 0
+        return linphone_config_sync(rawPointer) == .success
     }
     
     // MARK: - Setters

@@ -15,18 +15,15 @@ public protocol LinPhoneEnumeration: RawRepresentable {
     var linPhoneType: LinPhoneType { get }
 }
 
-public extension LinPhoneEnumeration where LinPhoneType.RawValue == Self.RawValue {
+public extension LinPhoneEnumeration where Self.RawValue == LinPhoneType.RawValue {
     
-    init?(rawValue: RawValue) {
+    init(_ linPhoneType: LinPhoneType) {
         
-        guard let linphoneType = LinPhoneType(rawValue: rawValue)
-            else { return nil }
-        
-        self.init(linphoneType)
+        self.init(rawValue: linPhoneType.rawValue)!
     }
     
-    var rawValue: RawValue {
+    var linPhoneType: LinPhoneType {
         
-        return linPhoneType.rawValue
+        return LinPhoneType(rawValue: self.rawValue)!
     }
 }

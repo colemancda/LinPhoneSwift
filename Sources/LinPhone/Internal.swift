@@ -7,6 +7,7 @@
 //
 
 import typealias CLinPhone.bool_t
+import typealias CLinPhone.LinphoneStatus
 
 internal extension CLinPhone.bool_t {
     
@@ -21,4 +22,11 @@ internal extension CLinPhone.bool_t {
         @inline(__always)
         get { return self > 0 }
     }
+}
+
+internal extension LinphoneStatus {
+    
+    static var success: LinphoneStatus { return 0 }
+    
+    static var error: LinphoneStatus { return -1 }
 }

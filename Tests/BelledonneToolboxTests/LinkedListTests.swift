@@ -13,8 +13,8 @@ final class LinkedListTests: XCTestCase {
     
     static var allTests = [
         ("testStringList", testStringList),
-        ("testStringList", testDataList),
-        ("testStringList", testEmptyList)
+        ("testDataList", testDataList),
+        ("testEmptyList", testEmptyList)
         ]
     
     func testStringList() {

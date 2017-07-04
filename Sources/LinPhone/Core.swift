@@ -7,7 +7,7 @@
 //
 
 import CLinPhone
-import MediaStreamer
+import class MediaStreamer.Factory
 
 /// LinPhone Core class
 public final class Core {
@@ -214,7 +214,7 @@ public final class Core {
     @inline(__always)
     public func setProvisioningURI(_ uri: String?) -> Bool {
         
-        return setString(linphone_core_set_provisioning_uri, uri) == Int32(0)
+        return setString(linphone_core_set_provisioning_uri, uri) == .success
     }
     
     /// The maximum number of simultaneous calls Linphone core can manage at a time. 

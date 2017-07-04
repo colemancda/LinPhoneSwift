@@ -9,40 +9,20 @@
 import CLinPhone
 
 /// Enum describing the Linphone stream types.
-public enum StreamType {
+public enum StreamType: UInt32, LinPhoneEnumeration {
+    
+    public typealias LinPhoneType = LinphoneStreamType
     
     case audio
     case video
-}
-
-extension StreamType: LinPhoneEnumeration {
-    
-    public typealias LinPhoneType = LinphoneStreamType
-    public typealias RawValue = LinPhoneType.RawValue
-    
-    @inline(__always)
-    public init?(_ linPhoneType: LinPhoneType) {
-        
-        switch linPhoneType {
-        case LinphoneStreamTypeAudio: self = .audio
-        case LinphoneStreamTypeVideo: self = .video
-        default: return nil
-        }
-    }
-    
-    public var linPhoneType: LinPhoneType {
-        
-        switch self {
-        case .audio: return LinphoneStreamTypeAudio
-        case .video: return LinphoneStreamTypeVideo
-        }
-    }
+    case text
+    case unknown
 }
 
 extension StreamType: CustomStringConvertible {
     
     public var description: String {
         
-        return String(cString: linphone_stream_type_to_string(linPhoneType))
+        return String(cString: linphone_stream_type_to_string(self.linPhoneType))
     }
 }
