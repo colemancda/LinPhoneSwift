@@ -53,22 +53,26 @@ public struct URI {
     
 }
 
+// MARK: - ReferenceConvertible
+
 extension URI: ReferenceConvertible {
     
     internal final class Reference {
         
-        typealias RawPointer = OpaquePointer
+        internal typealias RawPointer = UnmanagedPointer.RawPointer
+        
+        internal typealias UnmanagedPointer = BelledonneUnmanagedObject
         
         // MARK: - Properties
         
         @_versioned
-        internal let rawPointer: OpaquePointer
+        internal let managedPointer: ManagedPointer<UnmanagedPointer>
         
         // MARK: - Initialization
         
-        internal init(_ rawPointer: RawPointer) {
+        internal init(_ managedPointer: ManagedPointer<UnmanagedPointer>) {
             
-            self.rawPointer = rawPointer
+            self.managedPointer = managedPointer
         }
         
         convenience init() {
@@ -76,7 +80,7 @@ extension URI: ReferenceConvertible {
             guard let rawPointer = belle_generic_uri_new()
                 else { fatalError("Could not allocate instance") }
             
-            self.init(rawPointer)
+            self.init(ManagedPointer(UnmanagedPointer(rawPointer)))
         }
         
         convenience init?(string: String) {
@@ -84,10 +88,8 @@ extension URI: ReferenceConvertible {
             guard let rawPointer = belle_generic_uri_parse(string)
                 else { return nil }
             
-            self.init(rawPointer)
+            self.init(ManagedPointer(UnmanagedPointer(rawPointer)))
         }
-        
-        
         
         // MARK: - Accessors
         
@@ -99,6 +101,8 @@ extension URI: ReferenceConvertible {
     }
 }
 
+extension URI.Reference: ManagedHandle { }
+
 extension URI.Reference: CopyableHandle {
     
     internal var copy: URI.Reference? {
@@ -107,6 +111,8 @@ extension URI.Reference: CopyableHandle {
     }
 }
 
+// MARK: - CustomStringConvertible
+
 extension URI: CustomStringConvertible {
     
     public var description: String {
@@ -114,6 +120,8 @@ extension URI: CustomStringConvertible {
         return stringValue
     }
 }
+
+// MARK: - BelledonneObject
 
 extension URI: BelledonneObject {
     

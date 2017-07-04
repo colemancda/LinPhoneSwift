@@ -6,6 +6,12 @@
 //
 //
 
+#if os(macOS)
+    import Darwin
+#elseif os(Linux)
+    import Glibc
+#endif
+
 /// A Swift class wrapper for a C object.
 internal protocol Handle: class {
     
@@ -21,6 +27,8 @@ extension Handle {
         
         guard let cString = function(self.rawPointer)
             else { return nil }
+        
+        //defer { free(cString) }
         
         return String(cString: cString)
     }

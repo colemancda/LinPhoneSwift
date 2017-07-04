@@ -8,6 +8,7 @@
 
 import CBelledonneSIP
 
+/// It is the base protocol for all BelleSIP non-trivial objects
 public protocol BelledonneObject {
     
     associatedtype RawPointer
@@ -22,6 +23,28 @@ public protocol BelledonneObject {
     /// - Note: The pointer is only guarenteed to be valid for the lifetime of the closure.
     func withUnsafeRawPointer <Result> (_ body: (RawPointer) throws -> Result) rethrows -> Result
 }
+
+/// Belledonne Object manual reference count type.
+internal struct BelledonneUnmanagedObject: UnmanagedPointer {
+    
+    let rawPointer: OpaquePointer
+    
+    @inline(__always)
+    init(_ rawPointer: OpaquePointer) {
+        self.rawPointer = rawPointer
+    }
+    
+    @inline(__always)
+    func retain() {
+        belle_sip_object_ref(UnsafeMutableRawPointer(rawPointer))
+    }
+    
+    @inline(__always)
+    func release() {
+        belle_sip_object_unref(UnsafeMutableRawPointer(rawPointer))
+    }
+}
+
 
 /*
 internal extension BelledonneObject where Self: ReferenceConvertible {
@@ -48,23 +71,3 @@ internal extension BelledonneObject where Self: ReferenceConvertible {
         return try body(rawPointer)
     }
 }*/
-
-internal struct BelledonneUnmanagedObject: UnmanagedPointer {
-    
-    let rawPointer: OpaquePointer
-    
-    @inline(__always)
-    init(_ rawPointer: OpaquePointer) {
-        self.rawPointer = rawPointer
-    }
-    
-    @inline(__always)
-    func retain() {
-        belle_sip_object_ref(UnsafeMutableRawPointer(rawPointer))
-    }
-    
-    @inline(__always)
-    func release() {
-        belle_sip_object_unref(UnsafeMutableRawPointer(rawPointer))
-    }
-}
