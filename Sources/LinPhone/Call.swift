@@ -64,7 +64,23 @@ public final class Call {
         get { return linphone_call_asked_to_autoanswer(rawPointer).boolValue }
     }
     
-    public var 
+    /// Returns the remote address associated to this call.
+    public var remoteAddress: Address? {
+        
+        guard let rawPointer = linphone_call_get_remote_address(self.rawPointer)
+            else { return }
+        
+        let address = Address()
+        
+        return address
+    }
+    
+    /// Returns the remote address associated to this call.
+    public var remoteAddressString: String? {
+        
+        @inline(__always)
+        get { return getString(linphone_call_get_remote_address_as_string) }
+    }
 }
 
 // MARK: - Supporting Types

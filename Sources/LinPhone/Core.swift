@@ -8,6 +8,7 @@
 
 import CLinPhone
 import class MediaStreamer.Factory
+import struct BelledonneSIP.URI
 
 /// LinPhone Core class
 public final class Core {
@@ -193,17 +194,6 @@ public final class Core {
     }
     
     /// URI where to download xml configuration file at startup.
-    /// This can also be set from configuration file or factory config file, from [misc] section, item "config-uri". 
-    /// Calling this function does not load the configuration. 
-    /// It will write the value into configuration so that configuration from remote URI 
-    /// will take place at next LinphoneCore start.
-    public var provisioningURI: String? {
-        
-        @inline(__always)
-        get { return getString(linphone_core_get_provisioning_uri) }
-    }
-    
-    /// URI where to download xml configuration file at startup.
     /// This can also be set from configuration file or factory config file, from [misc] section, item "config-uri".
     /// Calling this function does not load the configuration.
     /// It will write the value into configuration so that configuration from remote URI
@@ -211,14 +201,30 @@ public final class Core {
     ///
     /// - Parameter uri: The `http` or `https` URI to use in order to download the configuration.
     /// Passing `nil` will disable remote provisioning.
+    public var provisioning: URI? {
+        
+        @inline(__always)
+        get { return URI(string: provisioningURIString ?? "") }
+        
+        @inline(__always)
+        set { guard setProvisioningURI(newValue?.stringValue)
+            else { fatalError("Invalid URI: \(newValue?.description ?? "nil")") } }
+    }
+    
+    internal var provisioningURIString: String? {
+        
+        @inline(__always)
+        get { return getString(linphone_core_get_provisioning_uri) }
+    }
+    
     @inline(__always)
-    public func setProvisioningURI(_ uri: String?) -> Bool {
+    internal func setProvisioningURI(_ uri: String?) -> Bool {
         
         return setString(linphone_core_set_provisioning_uri, uri) == .success
     }
     
     /// The maximum number of simultaneous calls Linphone core can manage at a time. 
-    /// All new call above this limit are declined with a busy answer
+    /// All new calls above this limit are declined with a busy answer
     public var maxCalls: Int {
         
         @inline(__always)

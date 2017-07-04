@@ -60,12 +60,12 @@ internal extension BelledonneObjectHandle {
     
     var objectTypeDescription: String {
         
-        return getString({ UnsafePointer(belle_sip_object_describe(📦($0))) }, isCopy: true) ?? ""
+        return getString { belle_sip_object_describe(📦($0)) } ?? ""
     }
     
     var description: String {
         
-        return getString({ UnsafePointer(belle_sip_object_to_string(📦($0))) }, isCopy: true) ?? ""
+        return getString { belle_sip_object_to_string(📦($0)) } ?? ""
     }
     
     var copy: Self? {
