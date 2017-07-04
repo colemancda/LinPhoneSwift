@@ -43,6 +43,28 @@ internal struct BelledonneUnmanagedObject: UnmanagedPointer {
     func release() {
         belle_sip_object_unref(UnsafeMutableRawPointer(rawPointer))
     }
+    
+    var objectTypeDescription: String {
+        
+        let cString = belle_sip_object_describe(UnsafeMutableRawPointer(rawPointer))!
+        
+        // defer { free(cString) }
+        
+        return String(cString: cString)
+    }
+}
+
+extension BelledonneUnmanagedObject: CustomStringConvertible {
+    
+    public var description: String {
+        
+        guard let cString = belle_sip_object_to_string(UnsafeMutableRawPointer(rawPointer))
+            else { return "" }
+        
+        //defer { free(cString) }
+        
+        return String(cString: cString)
+    }
 }
 
 

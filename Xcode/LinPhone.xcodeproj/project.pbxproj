@@ -21,42 +21,59 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		6E5291571F0B53AE00D4B765 /* msx264.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75E1F070F3C0017362C /* msx264.framework */; };
-		6E5291581F0B53AE00D4B765 /* mswebrtc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75D1F070F3C0017362C /* mswebrtc.framework */; };
-		6E5291591F0B53AE00D4B765 /* mediastreamer_base.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7571F070F3C0017362C /* mediastreamer_base.framework */; };
-		6E52915A1F0B53AE00D4B765 /* mscodec2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75A1F070F3C0017362C /* mscodec2.framework */; };
-		6E52915B1F0B53AE00D4B765 /* mssilk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75C1F070F3C0017362C /* mssilk.framework */; };
-		6E52915C1F0B53AE00D4B765 /* mediastreamer_voip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7581F070F3C0017362C /* mediastreamer_voip.framework */; };
-		6E52915D1F0B53AE00D4B765 /* bctoolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7541F070F3C0017362C /* bctoolbox.framework */; };
-		6E52915E1F0B53AE00D4B765 /* linphone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7551F070F3C0017362C /* linphone.framework */; };
-		6E52915F1F0B53AE00D4B765 /* msopenh264.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75B1F070F3C0017362C /* msopenh264.framework */; };
-		6E5291601F0B53AE00D4B765 /* msamr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7591F070F3C0017362C /* msamr.framework */; };
-		6E5291611F0B53AE00D4B765 /* ortp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75F1F070F3C0017362C /* ortp.framework */; };
-		6E52916A1F0B53B100D4B765 /* LinPhoneSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* LinPhoneSwift.framework */; };
-		6E52916B1F0B53B100D4B765 /* bctoolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7541F070F3C0017362C /* bctoolbox.framework */; };
-		6E52916C1F0B53B100D4B765 /* linphone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7551F070F3C0017362C /* linphone.framework */; };
-		6E52916D1F0B53B100D4B765 /* linphonetester.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7561F070F3C0017362C /* linphonetester.framework */; };
-		6E52916E1F0B53B100D4B765 /* mediastreamer_base.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7571F070F3C0017362C /* mediastreamer_base.framework */; };
-		6E52916F1F0B53B100D4B765 /* mediastreamer_voip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7581F070F3C0017362C /* mediastreamer_voip.framework */; };
-		6E5291701F0B53B100D4B765 /* msamr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7591F070F3C0017362C /* msamr.framework */; };
-		6E5291711F0B53B100D4B765 /* mscodec2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75A1F070F3C0017362C /* mscodec2.framework */; };
-		6E5291721F0B53B100D4B765 /* msopenh264.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75B1F070F3C0017362C /* msopenh264.framework */; };
-		6E5291731F0B53B100D4B765 /* mssilk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75C1F070F3C0017362C /* mssilk.framework */; };
-		6E5291741F0B53B100D4B765 /* mswebrtc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75D1F070F3C0017362C /* mswebrtc.framework */; };
-		6E5291751F0B53B100D4B765 /* msx264.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75E1F070F3C0017362C /* msx264.framework */; };
-		6E5291761F0B53B100D4B765 /* ortp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75F1F070F3C0017362C /* ortp.framework */; };
-		6E5291781F0B53B100D4B765 /* bctoolbox.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7541F070F3C0017362C /* bctoolbox.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6E5291791F0B53B100D4B765 /* linphone.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7551F070F3C0017362C /* linphone.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6E52917A1F0B53B100D4B765 /* linphonetester.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7561F070F3C0017362C /* linphonetester.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6E52917B1F0B53B100D4B765 /* mediastreamer_base.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7571F070F3C0017362C /* mediastreamer_base.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6E52917C1F0B53B100D4B765 /* mediastreamer_voip.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7581F070F3C0017362C /* mediastreamer_voip.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6E52917D1F0B53B100D4B765 /* msamr.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7591F070F3C0017362C /* msamr.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6E52917E1F0B53B100D4B765 /* mscodec2.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75A1F070F3C0017362C /* mscodec2.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6E52917F1F0B53B100D4B765 /* msopenh264.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75B1F070F3C0017362C /* msopenh264.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6E5291801F0B53B100D4B765 /* mssilk.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75C1F070F3C0017362C /* mssilk.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6E5291811F0B53B100D4B765 /* mswebrtc.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75D1F070F3C0017362C /* mswebrtc.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6E5291821F0B53B100D4B765 /* msx264.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75E1F070F3C0017362C /* msx264.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6E5291831F0B53B100D4B765 /* ortp.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75F1F070F3C0017362C /* ortp.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6E25E99D1F0B6DEA005BC42C /* libantlr3c.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E25E96E1F0B6DEA005BC42C /* libantlr3c.a */; };
+		6E25E99E1F0B6DEA005BC42C /* libavcodec.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E25E96F1F0B6DEA005BC42C /* libavcodec.a */; };
+		6E25E99F1F0B6DEA005BC42C /* libavutil.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E25E9701F0B6DEA005BC42C /* libavutil.a */; };
+		6E25E9A01F0B6DEA005BC42C /* libbcg729.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E25E9711F0B6DEA005BC42C /* libbcg729.a */; };
+		6E25E9A11F0B6DEA005BC42C /* libbctoolbox-tester.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E25E9721F0B6DEA005BC42C /* libbctoolbox-tester.a */; };
+		6E25E9A21F0B6DEA005BC42C /* libbctoolbox.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E25E9731F0B6DEA005BC42C /* libbctoolbox.a */; };
+		6E25E9A31F0B6DEA005BC42C /* libbcunit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E25E9741F0B6DEA005BC42C /* libbcunit.a */; };
+		6E25E9A41F0B6DEA005BC42C /* libbelcard.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E25E9751F0B6DEA005BC42C /* libbelcard.a */; };
+		6E25E9A51F0B6DEA005BC42C /* libbellesip.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E25E9761F0B6DEA005BC42C /* libbellesip.a */; };
+		6E25E9A61F0B6DEA005BC42C /* libbelr.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E25E9771F0B6DEA005BC42C /* libbelr.a */; };
+		6E25E9A71F0B6DEA005BC42C /* libbv16.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E25E9781F0B6DEA005BC42C /* libbv16.a */; };
+		6E25E9A81F0B6DEA005BC42C /* libbzrtp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E25E9791F0B6DEA005BC42C /* libbzrtp.a */; };
+		6E25E9A91F0B6DEA005BC42C /* libcorec.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E25E97A1F0B6DEA005BC42C /* libcorec.a */; };
+		6E25E9AA1F0B6DEA005BC42C /* libcunit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E25E97B1F0B6DEA005BC42C /* libcunit.a */; };
+		6E25E9AB1F0B6DEA005BC42C /* libebml2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E25E97C1F0B6DEA005BC42C /* libebml2.a */; };
+		6E25E9AC1F0B6DEA005BC42C /* libgsm.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E25E97D1F0B6DEA005BC42C /* libgsm.a */; };
+		6E25E9AD1F0B6DEA005BC42C /* liblinphone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E25E97E1F0B6DEA005BC42C /* liblinphone.a */; };
+		6E25E9AE1F0B6DEA005BC42C /* liblinphonetester.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E25E97F1F0B6DEA005BC42C /* liblinphonetester.a */; };
+		6E25E9AF1F0B6DEA005BC42C /* libmatroska2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E25E9801F0B6DEA005BC42C /* libmatroska2.a */; };
+		6E25E9B01F0B6DEA005BC42C /* libmbedcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E25E9811F0B6DEA005BC42C /* libmbedcrypto.a */; };
+		6E25E9B11F0B6DEA005BC42C /* libmbedtls.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E25E9821F0B6DEA005BC42C /* libmbedtls.a */; };
+		6E25E9B21F0B6DEA005BC42C /* libmbedx509.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E25E9831F0B6DEA005BC42C /* libmbedx509.a */; };
+		6E25E9B31F0B6DEA005BC42C /* libmediastreamer_base.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E25E9841F0B6DEA005BC42C /* libmediastreamer_base.a */; };
+		6E25E9B41F0B6DEA005BC42C /* libmediastreamer_voip.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E25E9851F0B6DEA005BC42C /* libmediastreamer_voip.a */; };
+		6E25E9B51F0B6DEA005BC42C /* libopencore-amrnb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E25E9861F0B6DEA005BC42C /* libopencore-amrnb.a */; };
+		6E25E9B61F0B6DEA005BC42C /* libopencore-amrwb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E25E9871F0B6DEA005BC42C /* libopencore-amrwb.a */; };
+		6E25E9B71F0B6DEA005BC42C /* libopenh264.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E25E9881F0B6DEA005BC42C /* libopenh264.a */; };
+		6E25E9B81F0B6DEA005BC42C /* libopus.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E25E9891F0B6DEA005BC42C /* libopus.a */; };
+		6E25E9B91F0B6DEA005BC42C /* libortp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E25E98A1F0B6DEA005BC42C /* libortp.a */; };
+		6E25E9BA1F0B6DEA005BC42C /* libspeex.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E25E98B1F0B6DEA005BC42C /* libspeex.a */; };
+		6E25E9BB1F0B6DEA005BC42C /* libspeexdsp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E25E98C1F0B6DEA005BC42C /* libspeexdsp.a */; };
+		6E25E9BC1F0B6DEA005BC42C /* libsrtp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E25E98D1F0B6DEA005BC42C /* libsrtp.a */; };
+		6E25E9BD1F0B6DEA005BC42C /* libswresample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E25E98E1F0B6DEA005BC42C /* libswresample.a */; };
+		6E25E9BE1F0B6DEA005BC42C /* libswscale.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E25E98F1F0B6DEA005BC42C /* libswscale.a */; };
+		6E25E9BF1F0B6DEA005BC42C /* libtunnel.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E25E9901F0B6DEA005BC42C /* libtunnel.a */; };
+		6E25E9C01F0B6DEA005BC42C /* libturbojpeg.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E25E9911F0B6DEA005BC42C /* libturbojpeg.a */; };
+		6E25E9C11F0B6DEA005BC42C /* libvo-amrwbenc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E25E9921F0B6DEA005BC42C /* libvo-amrwbenc.a */; };
+		6E25E9C21F0B6DEA005BC42C /* libvpx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E25E9931F0B6DEA005BC42C /* libvpx.a */; };
+		6E25E9C31F0B6DEA005BC42C /* libx264.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E25E9941F0B6DEA005BC42C /* libx264.a */; };
+		6E25E9C41F0B6DEA005BC42C /* libmsamr.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E25E9971F0B6DEA005BC42C /* libmsamr.a */; };
+		6E25E9C51F0B6DEA005BC42C /* libmsbcg729.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E25E9981F0B6DEA005BC42C /* libmsbcg729.a */; };
+		6E25E9C61F0B6DEA005BC42C /* libmsopenh264.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E25E9991F0B6DEA005BC42C /* libmsopenh264.a */; };
+		6E25E9C71F0B6DEA005BC42C /* libmssilk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E25E99A1F0B6DEA005BC42C /* libmssilk.a */; };
+		6E25E9C81F0B6DEA005BC42C /* libmswebrtc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E25E99B1F0B6DEA005BC42C /* libmswebrtc.a */; };
+		6E25E9C91F0B6DEA005BC42C /* libmsx264.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E25E99C1F0B6DEA005BC42C /* libmsx264.a */; };
+		6E25E9CA1F0B6E22005BC42C /* libbellesip.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E25E9761F0B6DEA005BC42C /* libbellesip.a */; };
+		6E25E9CC1F0B6E4F005BC42C /* libbctoolbox.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E25E9731F0B6DEA005BC42C /* libbctoolbox.a */; };
+		6E25E9CD1F0B6E8E005BC42C /* BelledonneToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E569AF21F09F67200BF244A /* BelledonneToolbox.framework */; };
+		6E25E9D01F0B6E9C005BC42C /* BelledonneSIP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E5291661F0B53AE00D4B765 /* BelledonneSIP.framework */; };
+		6E25E9D31F0B6EBB005BC42C /* libbctoolbox.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E25E9731F0B6DEA005BC42C /* libbctoolbox.a */; };
+		6E25E9D41F0B6EDE005BC42C /* libmbedx509.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E25E9831F0B6DEA005BC42C /* libmbedx509.a */; };
+		6E25E9D51F0B6EE1005BC42C /* libmbedtls.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E25E9821F0B6DEA005BC42C /* libmbedtls.a */; };
+		6E25E9D61F0B6EE4005BC42C /* libmbedcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E25E9811F0B6DEA005BC42C /* libmbedcrypto.a */; };
 		6E5291891F0B543C00D4B765 /* URI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5291881F0B543C00D4B765 /* URI.swift */; };
 		6E52918B1F0B553400D4B765 /* SIPURI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E52918A1F0B553400D4B765 /* SIPURI.swift */; };
 		6E52918D1F0B58C000D4B765 /* BelledonneObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E52918C1F0B58C000D4B765 /* BelledonneObject.swift */; };
@@ -66,42 +83,7 @@
 		6E5291961F0B5BC200D4B765 /* ManagedPointer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5291941F0B5BC200D4B765 /* ManagedPointer.swift */; };
 		6E5291971F0B5BC200D4B765 /* UnmanagedPointer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5291951F0B5BC200D4B765 /* UnmanagedPointer.swift */; };
 		6E5291991F0B631F00D4B765 /* ManagedHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5291981F0B631F00D4B765 /* ManagedHandle.swift */; };
-		6E569AE31F09F67200BF244A /* msx264.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75E1F070F3C0017362C /* msx264.framework */; };
-		6E569AE41F09F67200BF244A /* mswebrtc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75D1F070F3C0017362C /* mswebrtc.framework */; };
-		6E569AE51F09F67200BF244A /* mediastreamer_base.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7571F070F3C0017362C /* mediastreamer_base.framework */; };
-		6E569AE61F09F67200BF244A /* mscodec2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75A1F070F3C0017362C /* mscodec2.framework */; };
-		6E569AE71F09F67200BF244A /* mssilk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75C1F070F3C0017362C /* mssilk.framework */; };
-		6E569AE81F09F67200BF244A /* mediastreamer_voip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7581F070F3C0017362C /* mediastreamer_voip.framework */; };
-		6E569AE91F09F67200BF244A /* bctoolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7541F070F3C0017362C /* bctoolbox.framework */; };
-		6E569AEA1F09F67200BF244A /* linphone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7551F070F3C0017362C /* linphone.framework */; };
-		6E569AEB1F09F67200BF244A /* msopenh264.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75B1F070F3C0017362C /* msopenh264.framework */; };
-		6E569AEC1F09F67200BF244A /* msamr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7591F070F3C0017362C /* msamr.framework */; };
-		6E569AED1F09F67200BF244A /* ortp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75F1F070F3C0017362C /* ortp.framework */; };
 		6E569AFA1F09F67500BF244A /* LinPhoneSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* LinPhoneSwift.framework */; };
-		6E569AFB1F09F67500BF244A /* bctoolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7541F070F3C0017362C /* bctoolbox.framework */; };
-		6E569AFC1F09F67500BF244A /* linphone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7551F070F3C0017362C /* linphone.framework */; };
-		6E569AFD1F09F67500BF244A /* linphonetester.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7561F070F3C0017362C /* linphonetester.framework */; };
-		6E569AFE1F09F67500BF244A /* mediastreamer_base.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7571F070F3C0017362C /* mediastreamer_base.framework */; };
-		6E569AFF1F09F67500BF244A /* mediastreamer_voip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7581F070F3C0017362C /* mediastreamer_voip.framework */; };
-		6E569B001F09F67500BF244A /* msamr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7591F070F3C0017362C /* msamr.framework */; };
-		6E569B011F09F67500BF244A /* mscodec2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75A1F070F3C0017362C /* mscodec2.framework */; };
-		6E569B021F09F67500BF244A /* msopenh264.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75B1F070F3C0017362C /* msopenh264.framework */; };
-		6E569B031F09F67500BF244A /* mssilk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75C1F070F3C0017362C /* mssilk.framework */; };
-		6E569B041F09F67500BF244A /* mswebrtc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75D1F070F3C0017362C /* mswebrtc.framework */; };
-		6E569B051F09F67500BF244A /* msx264.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75E1F070F3C0017362C /* msx264.framework */; };
-		6E569B061F09F67500BF244A /* ortp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75F1F070F3C0017362C /* ortp.framework */; };
-		6E569B081F09F67500BF244A /* bctoolbox.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7541F070F3C0017362C /* bctoolbox.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6E569B091F09F67500BF244A /* linphone.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7551F070F3C0017362C /* linphone.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6E569B0A1F09F67500BF244A /* linphonetester.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7561F070F3C0017362C /* linphonetester.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6E569B0B1F09F67500BF244A /* mediastreamer_base.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7571F070F3C0017362C /* mediastreamer_base.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6E569B0C1F09F67500BF244A /* mediastreamer_voip.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7581F070F3C0017362C /* mediastreamer_voip.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6E569B0D1F09F67500BF244A /* msamr.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7591F070F3C0017362C /* msamr.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6E569B0E1F09F67500BF244A /* mscodec2.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75A1F070F3C0017362C /* mscodec2.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6E569B0F1F09F67500BF244A /* msopenh264.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75B1F070F3C0017362C /* msopenh264.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6E569B101F09F67500BF244A /* mssilk.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75C1F070F3C0017362C /* mssilk.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6E569B111F09F67500BF244A /* mswebrtc.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75D1F070F3C0017362C /* mswebrtc.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6E569B121F09F67500BF244A /* msx264.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75E1F070F3C0017362C /* msx264.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6E569B131F09F67500BF244A /* ortp.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75F1F070F3C0017362C /* ortp.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6E569B191F09F74D00BF244A /* LinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E569ADC1F09DA3500BF244A /* LinkedList.swift */; };
 		6E569B1D1F09F9AD00BF244A /* UserDataHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E569B1C1F09F9AD00BF244A /* UserDataHandle.swift */; };
 		6E569B1F1F09F9D500BF244A /* Handle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E569B1E1F09F9D500BF244A /* Handle.swift */; };
@@ -113,90 +95,34 @@
 		6E569B2B1F0A063F00BF244A /* Handle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E569B2A1F0A063F00BF244A /* Handle.swift */; };
 		6E569B2E1F0A067800BF244A /* CopyableHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E569B2C1F0A067800BF244A /* CopyableHandle.swift */; };
 		6E569B2F1F0A067800BF244A /* ReferenceConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E569B2D1F0A067800BF244A /* ReferenceConvertible.swift */; };
-		6E58AEEA1F071D4A009A0E68 /* bctoolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7541F070F3C0017362C /* bctoolbox.framework */; };
-		6E58AEEB1F071D4A009A0E68 /* linphone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7551F070F3C0017362C /* linphone.framework */; };
-		6E58AEEC1F071D4A009A0E68 /* linphonetester.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7561F070F3C0017362C /* linphonetester.framework */; };
-		6E58AEED1F071D4A009A0E68 /* mediastreamer_base.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7571F070F3C0017362C /* mediastreamer_base.framework */; };
-		6E58AEEE1F071D4A009A0E68 /* mediastreamer_voip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7581F070F3C0017362C /* mediastreamer_voip.framework */; };
-		6E58AEEF1F071D4A009A0E68 /* msamr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7591F070F3C0017362C /* msamr.framework */; };
-		6E58AEF01F071D4A009A0E68 /* mscodec2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75A1F070F3C0017362C /* mscodec2.framework */; };
-		6E58AEF11F071D4A009A0E68 /* msopenh264.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75B1F070F3C0017362C /* msopenh264.framework */; };
-		6E58AEF21F071D4A009A0E68 /* mssilk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75C1F070F3C0017362C /* mssilk.framework */; };
-		6E58AEF31F071D4A009A0E68 /* mswebrtc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75D1F070F3C0017362C /* mswebrtc.framework */; };
-		6E58AEF41F071D4A009A0E68 /* msx264.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75E1F070F3C0017362C /* msx264.framework */; };
-		6E58AEF51F071D4A009A0E68 /* ortp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75F1F070F3C0017362C /* ortp.framework */; };
-		6E58AEFC1F0720E9009A0E68 /* bctoolbox.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7541F070F3C0017362C /* bctoolbox.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6E58AEFD1F0720E9009A0E68 /* linphone.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7551F070F3C0017362C /* linphone.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6E58AEFE1F0720E9009A0E68 /* linphonetester.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7561F070F3C0017362C /* linphonetester.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6E58AEFF1F0720E9009A0E68 /* mediastreamer_base.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7571F070F3C0017362C /* mediastreamer_base.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6E58AF001F0720E9009A0E68 /* mediastreamer_voip.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7581F070F3C0017362C /* mediastreamer_voip.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6E58AF011F0720E9009A0E68 /* msamr.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7591F070F3C0017362C /* msamr.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6E58AF021F0720E9009A0E68 /* mscodec2.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75A1F070F3C0017362C /* mscodec2.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6E58AF031F0720E9009A0E68 /* msopenh264.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75B1F070F3C0017362C /* msopenh264.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6E58AF041F0720E9009A0E68 /* mssilk.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75C1F070F3C0017362C /* mssilk.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6E58AF051F0720E9009A0E68 /* mswebrtc.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75D1F070F3C0017362C /* mswebrtc.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6E58AF061F0720E9009A0E68 /* msx264.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75E1F070F3C0017362C /* msx264.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6E58AF071F0720E9009A0E68 /* ortp.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75F1F070F3C0017362C /* ortp.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6E58AF091F07221B009A0E68 /* StreamType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E58AF081F07221B009A0E68 /* StreamType.swift */; };
 		6E58AF0B1F07234B009A0E68 /* Enumeration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E58AF0A1F07234B009A0E68 /* Enumeration.swift */; };
 		6E58AF0D1F07CE74009A0E68 /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E58AF0C1F07CE74009A0E68 /* Factory.swift */; };
 		6E58AF0F1F07D245009A0E68 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E58AF0E1F07D245009A0E68 /* Configuration.swift */; };
 		6E58AF131F07E9E9009A0E68 /* Internal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E58AF121F07E9E9009A0E68 /* Internal.swift */; };
-		6E58AF1F1F085B4F009A0E68 /* msx264.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75E1F070F3C0017362C /* msx264.framework */; };
-		6E58AF201F085B4F009A0E68 /* mswebrtc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75D1F070F3C0017362C /* mswebrtc.framework */; };
-		6E58AF211F085B4F009A0E68 /* mediastreamer_base.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7571F070F3C0017362C /* mediastreamer_base.framework */; };
-		6E58AF221F085B4F009A0E68 /* mscodec2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75A1F070F3C0017362C /* mscodec2.framework */; };
-		6E58AF231F085B4F009A0E68 /* mssilk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75C1F070F3C0017362C /* mssilk.framework */; };
-		6E58AF241F085B4F009A0E68 /* mediastreamer_voip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7581F070F3C0017362C /* mediastreamer_voip.framework */; };
-		6E58AF251F085B4F009A0E68 /* bctoolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7541F070F3C0017362C /* bctoolbox.framework */; };
-		6E58AF261F085B4F009A0E68 /* linphone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7551F070F3C0017362C /* linphone.framework */; };
-		6E58AF271F085B4F009A0E68 /* msopenh264.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75B1F070F3C0017362C /* msopenh264.framework */; };
-		6E58AF281F085B4F009A0E68 /* msamr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7591F070F3C0017362C /* msamr.framework */; };
-		6E58AF291F085B4F009A0E68 /* ortp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75F1F070F3C0017362C /* ortp.framework */; };
 		6E58AF361F085B53009A0E68 /* LinPhoneSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* LinPhoneSwift.framework */; };
-		6E58AF371F085B53009A0E68 /* bctoolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7541F070F3C0017362C /* bctoolbox.framework */; };
-		6E58AF381F085B53009A0E68 /* linphone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7551F070F3C0017362C /* linphone.framework */; };
-		6E58AF391F085B53009A0E68 /* linphonetester.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7561F070F3C0017362C /* linphonetester.framework */; };
-		6E58AF3A1F085B53009A0E68 /* mediastreamer_base.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7571F070F3C0017362C /* mediastreamer_base.framework */; };
-		6E58AF3B1F085B53009A0E68 /* mediastreamer_voip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7581F070F3C0017362C /* mediastreamer_voip.framework */; };
-		6E58AF3C1F085B53009A0E68 /* msamr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7591F070F3C0017362C /* msamr.framework */; };
-		6E58AF3D1F085B53009A0E68 /* mscodec2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75A1F070F3C0017362C /* mscodec2.framework */; };
-		6E58AF3E1F085B53009A0E68 /* msopenh264.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75B1F070F3C0017362C /* msopenh264.framework */; };
-		6E58AF3F1F085B53009A0E68 /* mssilk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75C1F070F3C0017362C /* mssilk.framework */; };
-		6E58AF401F085B53009A0E68 /* mswebrtc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75D1F070F3C0017362C /* mswebrtc.framework */; };
-		6E58AF411F085B53009A0E68 /* msx264.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75E1F070F3C0017362C /* msx264.framework */; };
-		6E58AF421F085B53009A0E68 /* ortp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75F1F070F3C0017362C /* ortp.framework */; };
-		6E58AF441F085B53009A0E68 /* bctoolbox.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7541F070F3C0017362C /* bctoolbox.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6E58AF451F085B53009A0E68 /* linphone.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7551F070F3C0017362C /* linphone.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6E58AF461F085B53009A0E68 /* linphonetester.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7561F070F3C0017362C /* linphonetester.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6E58AF471F085B53009A0E68 /* mediastreamer_base.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7571F070F3C0017362C /* mediastreamer_base.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6E58AF481F085B53009A0E68 /* mediastreamer_voip.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7581F070F3C0017362C /* mediastreamer_voip.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6E58AF491F085B53009A0E68 /* msamr.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7591F070F3C0017362C /* msamr.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6E58AF4A1F085B53009A0E68 /* mscodec2.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75A1F070F3C0017362C /* mscodec2.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6E58AF4B1F085B53009A0E68 /* msopenh264.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75B1F070F3C0017362C /* msopenh264.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6E58AF4C1F085B53009A0E68 /* mssilk.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75C1F070F3C0017362C /* mssilk.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6E58AF4D1F085B53009A0E68 /* mswebrtc.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75D1F070F3C0017362C /* mswebrtc.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6E58AF4E1F085B53009A0E68 /* msx264.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75E1F070F3C0017362C /* msx264.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6E58AF4F1F085B53009A0E68 /* ortp.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75F1F070F3C0017362C /* ortp.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6E58AF571F085BB5009A0E68 /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E58AF561F085BB5009A0E68 /* Factory.swift */; };
 		6E58AF5A1F085DB2009A0E68 /* MediaStreamer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E58AF2E1F085B4F009A0E68 /* MediaStreamer.framework */; };
 		6E76D7401F0705B70017362C /* Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E76D73E1F0705B70017362C /* Core.swift */; };
-		6E76D7601F070F3C0017362C /* bctoolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7541F070F3C0017362C /* bctoolbox.framework */; };
-		6E76D7611F070F3C0017362C /* linphone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7551F070F3C0017362C /* linphone.framework */; };
-		6E76D7631F070F3C0017362C /* mediastreamer_base.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7571F070F3C0017362C /* mediastreamer_base.framework */; };
-		6E76D7641F070F3C0017362C /* mediastreamer_voip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7581F070F3C0017362C /* mediastreamer_voip.framework */; };
-		6E76D7651F070F3C0017362C /* msamr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D7591F070F3C0017362C /* msamr.framework */; };
-		6E76D7661F070F3C0017362C /* mscodec2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75A1F070F3C0017362C /* mscodec2.framework */; };
-		6E76D7671F070F3C0017362C /* msopenh264.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75B1F070F3C0017362C /* msopenh264.framework */; };
-		6E76D7681F070F3C0017362C /* mssilk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75C1F070F3C0017362C /* mssilk.framework */; };
-		6E76D7691F070F3C0017362C /* mswebrtc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75D1F070F3C0017362C /* mswebrtc.framework */; };
-		6E76D76A1F070F3C0017362C /* msx264.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75E1F070F3C0017362C /* msx264.framework */; };
-		6E76D76B1F070F3C0017362C /* ortp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76D75F1F070F3C0017362C /* ortp.framework */; };
 		OBJ_28 /* CoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* CoreTests.swift */; };
 		OBJ_30 /* LinPhoneSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* LinPhoneSwift.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		6E25E9CE1F0B6E95005BC42C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6E569ADD1F09F67200BF244A;
+			remoteInfo = BelledonneToolbox;
+		};
+		6E25E9D11F0B6EA1005BC42C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6E52914E1F0B53AE00D4B765;
+			remoteInfo = BelledonneSIP;
+		};
 		6E5291501F0B53AE00D4B765 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
@@ -255,18 +181,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				6E5291781F0B53B100D4B765 /* bctoolbox.framework in Embed Frameworks */,
-				6E5291791F0B53B100D4B765 /* linphone.framework in Embed Frameworks */,
-				6E52917A1F0B53B100D4B765 /* linphonetester.framework in Embed Frameworks */,
-				6E52917B1F0B53B100D4B765 /* mediastreamer_base.framework in Embed Frameworks */,
-				6E52917C1F0B53B100D4B765 /* mediastreamer_voip.framework in Embed Frameworks */,
-				6E52917D1F0B53B100D4B765 /* msamr.framework in Embed Frameworks */,
-				6E52917E1F0B53B100D4B765 /* mscodec2.framework in Embed Frameworks */,
-				6E52917F1F0B53B100D4B765 /* msopenh264.framework in Embed Frameworks */,
-				6E5291801F0B53B100D4B765 /* mssilk.framework in Embed Frameworks */,
-				6E5291811F0B53B100D4B765 /* mswebrtc.framework in Embed Frameworks */,
-				6E5291821F0B53B100D4B765 /* msx264.framework in Embed Frameworks */,
-				6E5291831F0B53B100D4B765 /* ortp.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -277,18 +191,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				6E569B081F09F67500BF244A /* bctoolbox.framework in Embed Frameworks */,
-				6E569B091F09F67500BF244A /* linphone.framework in Embed Frameworks */,
-				6E569B0A1F09F67500BF244A /* linphonetester.framework in Embed Frameworks */,
-				6E569B0B1F09F67500BF244A /* mediastreamer_base.framework in Embed Frameworks */,
-				6E569B0C1F09F67500BF244A /* mediastreamer_voip.framework in Embed Frameworks */,
-				6E569B0D1F09F67500BF244A /* msamr.framework in Embed Frameworks */,
-				6E569B0E1F09F67500BF244A /* mscodec2.framework in Embed Frameworks */,
-				6E569B0F1F09F67500BF244A /* msopenh264.framework in Embed Frameworks */,
-				6E569B101F09F67500BF244A /* mssilk.framework in Embed Frameworks */,
-				6E569B111F09F67500BF244A /* mswebrtc.framework in Embed Frameworks */,
-				6E569B121F09F67500BF244A /* msx264.framework in Embed Frameworks */,
-				6E569B131F09F67500BF244A /* ortp.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -299,18 +201,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				6E58AEFC1F0720E9009A0E68 /* bctoolbox.framework in Embed Frameworks */,
-				6E58AEFD1F0720E9009A0E68 /* linphone.framework in Embed Frameworks */,
-				6E58AEFE1F0720E9009A0E68 /* linphonetester.framework in Embed Frameworks */,
-				6E58AEFF1F0720E9009A0E68 /* mediastreamer_base.framework in Embed Frameworks */,
-				6E58AF001F0720E9009A0E68 /* mediastreamer_voip.framework in Embed Frameworks */,
-				6E58AF011F0720E9009A0E68 /* msamr.framework in Embed Frameworks */,
-				6E58AF021F0720E9009A0E68 /* mscodec2.framework in Embed Frameworks */,
-				6E58AF031F0720E9009A0E68 /* msopenh264.framework in Embed Frameworks */,
-				6E58AF041F0720E9009A0E68 /* mssilk.framework in Embed Frameworks */,
-				6E58AF051F0720E9009A0E68 /* mswebrtc.framework in Embed Frameworks */,
-				6E58AF061F0720E9009A0E68 /* msx264.framework in Embed Frameworks */,
-				6E58AF071F0720E9009A0E68 /* ortp.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -321,18 +211,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				6E58AF441F085B53009A0E68 /* bctoolbox.framework in Embed Frameworks */,
-				6E58AF451F085B53009A0E68 /* linphone.framework in Embed Frameworks */,
-				6E58AF461F085B53009A0E68 /* linphonetester.framework in Embed Frameworks */,
-				6E58AF471F085B53009A0E68 /* mediastreamer_base.framework in Embed Frameworks */,
-				6E58AF481F085B53009A0E68 /* mediastreamer_voip.framework in Embed Frameworks */,
-				6E58AF491F085B53009A0E68 /* msamr.framework in Embed Frameworks */,
-				6E58AF4A1F085B53009A0E68 /* mscodec2.framework in Embed Frameworks */,
-				6E58AF4B1F085B53009A0E68 /* msopenh264.framework in Embed Frameworks */,
-				6E58AF4C1F085B53009A0E68 /* mssilk.framework in Embed Frameworks */,
-				6E58AF4D1F085B53009A0E68 /* mswebrtc.framework in Embed Frameworks */,
-				6E58AF4E1F085B53009A0E68 /* msx264.framework in Embed Frameworks */,
-				6E58AF4F1F085B53009A0E68 /* ortp.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -340,6 +218,51 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6E25E96E1F0B6DEA005BC42C /* libantlr3c.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libantlr3c.a; sourceTree = "<group>"; };
+		6E25E96F1F0B6DEA005BC42C /* libavcodec.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libavcodec.a; sourceTree = "<group>"; };
+		6E25E9701F0B6DEA005BC42C /* libavutil.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libavutil.a; sourceTree = "<group>"; };
+		6E25E9711F0B6DEA005BC42C /* libbcg729.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libbcg729.a; sourceTree = "<group>"; };
+		6E25E9721F0B6DEA005BC42C /* libbctoolbox-tester.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libbctoolbox-tester.a"; sourceTree = "<group>"; };
+		6E25E9731F0B6DEA005BC42C /* libbctoolbox.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libbctoolbox.a; sourceTree = "<group>"; };
+		6E25E9741F0B6DEA005BC42C /* libbcunit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libbcunit.a; sourceTree = "<group>"; };
+		6E25E9751F0B6DEA005BC42C /* libbelcard.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libbelcard.a; sourceTree = "<group>"; };
+		6E25E9761F0B6DEA005BC42C /* libbellesip.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libbellesip.a; sourceTree = "<group>"; };
+		6E25E9771F0B6DEA005BC42C /* libbelr.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libbelr.a; sourceTree = "<group>"; };
+		6E25E9781F0B6DEA005BC42C /* libbv16.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libbv16.a; sourceTree = "<group>"; };
+		6E25E9791F0B6DEA005BC42C /* libbzrtp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libbzrtp.a; sourceTree = "<group>"; };
+		6E25E97A1F0B6DEA005BC42C /* libcorec.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcorec.a; sourceTree = "<group>"; };
+		6E25E97B1F0B6DEA005BC42C /* libcunit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcunit.a; sourceTree = "<group>"; };
+		6E25E97C1F0B6DEA005BC42C /* libebml2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libebml2.a; sourceTree = "<group>"; };
+		6E25E97D1F0B6DEA005BC42C /* libgsm.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libgsm.a; sourceTree = "<group>"; };
+		6E25E97E1F0B6DEA005BC42C /* liblinphone.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = liblinphone.a; sourceTree = "<group>"; };
+		6E25E97F1F0B6DEA005BC42C /* liblinphonetester.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = liblinphonetester.a; sourceTree = "<group>"; };
+		6E25E9801F0B6DEA005BC42C /* libmatroska2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libmatroska2.a; sourceTree = "<group>"; };
+		6E25E9811F0B6DEA005BC42C /* libmbedcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libmbedcrypto.a; sourceTree = "<group>"; };
+		6E25E9821F0B6DEA005BC42C /* libmbedtls.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libmbedtls.a; sourceTree = "<group>"; };
+		6E25E9831F0B6DEA005BC42C /* libmbedx509.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libmbedx509.a; sourceTree = "<group>"; };
+		6E25E9841F0B6DEA005BC42C /* libmediastreamer_base.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libmediastreamer_base.a; sourceTree = "<group>"; };
+		6E25E9851F0B6DEA005BC42C /* libmediastreamer_voip.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libmediastreamer_voip.a; sourceTree = "<group>"; };
+		6E25E9861F0B6DEA005BC42C /* libopencore-amrnb.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libopencore-amrnb.a"; sourceTree = "<group>"; };
+		6E25E9871F0B6DEA005BC42C /* libopencore-amrwb.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libopencore-amrwb.a"; sourceTree = "<group>"; };
+		6E25E9881F0B6DEA005BC42C /* libopenh264.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libopenh264.a; sourceTree = "<group>"; };
+		6E25E9891F0B6DEA005BC42C /* libopus.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libopus.a; sourceTree = "<group>"; };
+		6E25E98A1F0B6DEA005BC42C /* libortp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libortp.a; sourceTree = "<group>"; };
+		6E25E98B1F0B6DEA005BC42C /* libspeex.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libspeex.a; sourceTree = "<group>"; };
+		6E25E98C1F0B6DEA005BC42C /* libspeexdsp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libspeexdsp.a; sourceTree = "<group>"; };
+		6E25E98D1F0B6DEA005BC42C /* libsrtp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libsrtp.a; sourceTree = "<group>"; };
+		6E25E98E1F0B6DEA005BC42C /* libswresample.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libswresample.a; sourceTree = "<group>"; };
+		6E25E98F1F0B6DEA005BC42C /* libswscale.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libswscale.a; sourceTree = "<group>"; };
+		6E25E9901F0B6DEA005BC42C /* libtunnel.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libtunnel.a; sourceTree = "<group>"; };
+		6E25E9911F0B6DEA005BC42C /* libturbojpeg.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libturbojpeg.a; sourceTree = "<group>"; };
+		6E25E9921F0B6DEA005BC42C /* libvo-amrwbenc.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libvo-amrwbenc.a"; sourceTree = "<group>"; };
+		6E25E9931F0B6DEA005BC42C /* libvpx.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libvpx.a; sourceTree = "<group>"; };
+		6E25E9941F0B6DEA005BC42C /* libx264.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libx264.a; sourceTree = "<group>"; };
+		6E25E9971F0B6DEA005BC42C /* libmsamr.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libmsamr.a; sourceTree = "<group>"; };
+		6E25E9981F0B6DEA005BC42C /* libmsbcg729.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libmsbcg729.a; sourceTree = "<group>"; };
+		6E25E9991F0B6DEA005BC42C /* libmsopenh264.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libmsopenh264.a; sourceTree = "<group>"; };
+		6E25E99A1F0B6DEA005BC42C /* libmssilk.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libmssilk.a; sourceTree = "<group>"; };
+		6E25E99B1F0B6DEA005BC42C /* libmswebrtc.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libmswebrtc.a; sourceTree = "<group>"; };
+		6E25E99C1F0B6DEA005BC42C /* libmsx264.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libmsx264.a; sourceTree = "<group>"; };
 		6E5291661F0B53AE00D4B765 /* BelledonneSIP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BelledonneSIP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E5291871F0B53B100D4B765 /* BelledonneSIPTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BelledonneSIPTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E5291881F0B543C00D4B765 /* URI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URI.swift; sourceTree = "<group>"; };
@@ -373,18 +296,6 @@
 		6E58AF531F085B53009A0E68 /* MediaStreamerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MediaStreamerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E58AF561F085BB5009A0E68 /* Factory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Factory.swift; sourceTree = "<group>"; };
 		6E76D73E1F0705B70017362C /* Core.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Core.swift; sourceTree = "<group>"; };
-		6E76D7541F070F3C0017362C /* bctoolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = bctoolbox.framework; sourceTree = "<group>"; };
-		6E76D7551F070F3C0017362C /* linphone.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = linphone.framework; sourceTree = "<group>"; };
-		6E76D7561F070F3C0017362C /* linphonetester.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = linphonetester.framework; sourceTree = "<group>"; };
-		6E76D7571F070F3C0017362C /* mediastreamer_base.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = mediastreamer_base.framework; sourceTree = "<group>"; };
-		6E76D7581F070F3C0017362C /* mediastreamer_voip.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = mediastreamer_voip.framework; sourceTree = "<group>"; };
-		6E76D7591F070F3C0017362C /* msamr.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = msamr.framework; sourceTree = "<group>"; };
-		6E76D75A1F070F3C0017362C /* mscodec2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = mscodec2.framework; sourceTree = "<group>"; };
-		6E76D75B1F070F3C0017362C /* msopenh264.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = msopenh264.framework; sourceTree = "<group>"; };
-		6E76D75C1F070F3C0017362C /* mssilk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = mssilk.framework; sourceTree = "<group>"; };
-		6E76D75D1F070F3C0017362C /* mswebrtc.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = mswebrtc.framework; sourceTree = "<group>"; };
-		6E76D75E1F070F3C0017362C /* msx264.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = msx264.framework; sourceTree = "<group>"; };
-		6E76D75F1F070F3C0017362C /* ortp.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ortp.framework; sourceTree = "<group>"; };
 		6E76D76D1F0710D90017362C /* module.map */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = module.map; sourceTree = "<group>"; };
 		OBJ_11 /* CoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreTests.swift; sourceTree = "<group>"; };
 		OBJ_14 /* LinPhoneSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LinPhoneSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -396,17 +307,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
-				6E5291571F0B53AE00D4B765 /* msx264.framework in Frameworks */,
-				6E5291581F0B53AE00D4B765 /* mswebrtc.framework in Frameworks */,
-				6E5291591F0B53AE00D4B765 /* mediastreamer_base.framework in Frameworks */,
-				6E52915A1F0B53AE00D4B765 /* mscodec2.framework in Frameworks */,
-				6E52915B1F0B53AE00D4B765 /* mssilk.framework in Frameworks */,
-				6E52915C1F0B53AE00D4B765 /* mediastreamer_voip.framework in Frameworks */,
-				6E52915D1F0B53AE00D4B765 /* bctoolbox.framework in Frameworks */,
-				6E52915E1F0B53AE00D4B765 /* linphone.framework in Frameworks */,
-				6E52915F1F0B53AE00D4B765 /* msopenh264.framework in Frameworks */,
-				6E5291601F0B53AE00D4B765 /* msamr.framework in Frameworks */,
-				6E5291611F0B53AE00D4B765 /* ortp.framework in Frameworks */,
+				6E25E9CD1F0B6E8E005BC42C /* BelledonneToolbox.framework in Frameworks */,
+				6E25E9CA1F0B6E22005BC42C /* libbellesip.a in Frameworks */,
+				6E25E9D31F0B6EBB005BC42C /* libbctoolbox.a in Frameworks */,
+				6E25E9D41F0B6EDE005BC42C /* libmbedx509.a in Frameworks */,
+				6E25E9D51F0B6EE1005BC42C /* libmbedtls.a in Frameworks */,
+				6E25E9D61F0B6EE4005BC42C /* libmbedcrypto.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,19 +320,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
-				6E52916A1F0B53B100D4B765 /* LinPhoneSwift.framework in Frameworks */,
-				6E52916B1F0B53B100D4B765 /* bctoolbox.framework in Frameworks */,
-				6E52916C1F0B53B100D4B765 /* linphone.framework in Frameworks */,
-				6E52916D1F0B53B100D4B765 /* linphonetester.framework in Frameworks */,
-				6E52916E1F0B53B100D4B765 /* mediastreamer_base.framework in Frameworks */,
-				6E52916F1F0B53B100D4B765 /* mediastreamer_voip.framework in Frameworks */,
-				6E5291701F0B53B100D4B765 /* msamr.framework in Frameworks */,
-				6E5291711F0B53B100D4B765 /* mscodec2.framework in Frameworks */,
-				6E5291721F0B53B100D4B765 /* msopenh264.framework in Frameworks */,
-				6E5291731F0B53B100D4B765 /* mssilk.framework in Frameworks */,
-				6E5291741F0B53B100D4B765 /* mswebrtc.framework in Frameworks */,
-				6E5291751F0B53B100D4B765 /* msx264.framework in Frameworks */,
-				6E5291761F0B53B100D4B765 /* ortp.framework in Frameworks */,
+				6E25E9D01F0B6E9C005BC42C /* BelledonneSIP.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,17 +328,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
-				6E569AE31F09F67200BF244A /* msx264.framework in Frameworks */,
-				6E569AE41F09F67200BF244A /* mswebrtc.framework in Frameworks */,
-				6E569AE51F09F67200BF244A /* mediastreamer_base.framework in Frameworks */,
-				6E569AE61F09F67200BF244A /* mscodec2.framework in Frameworks */,
-				6E569AE71F09F67200BF244A /* mssilk.framework in Frameworks */,
-				6E569AE81F09F67200BF244A /* mediastreamer_voip.framework in Frameworks */,
-				6E569AE91F09F67200BF244A /* bctoolbox.framework in Frameworks */,
-				6E569AEA1F09F67200BF244A /* linphone.framework in Frameworks */,
-				6E569AEB1F09F67200BF244A /* msopenh264.framework in Frameworks */,
-				6E569AEC1F09F67200BF244A /* msamr.framework in Frameworks */,
-				6E569AED1F09F67200BF244A /* ortp.framework in Frameworks */,
+				6E25E9CC1F0B6E4F005BC42C /* libbctoolbox.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -453,18 +337,6 @@
 			buildActionMask = 0;
 			files = (
 				6E569AFA1F09F67500BF244A /* LinPhoneSwift.framework in Frameworks */,
-				6E569AFB1F09F67500BF244A /* bctoolbox.framework in Frameworks */,
-				6E569AFC1F09F67500BF244A /* linphone.framework in Frameworks */,
-				6E569AFD1F09F67500BF244A /* linphonetester.framework in Frameworks */,
-				6E569AFE1F09F67500BF244A /* mediastreamer_base.framework in Frameworks */,
-				6E569AFF1F09F67500BF244A /* mediastreamer_voip.framework in Frameworks */,
-				6E569B001F09F67500BF244A /* msamr.framework in Frameworks */,
-				6E569B011F09F67500BF244A /* mscodec2.framework in Frameworks */,
-				6E569B021F09F67500BF244A /* msopenh264.framework in Frameworks */,
-				6E569B031F09F67500BF244A /* mssilk.framework in Frameworks */,
-				6E569B041F09F67500BF244A /* mswebrtc.framework in Frameworks */,
-				6E569B051F09F67500BF244A /* msx264.framework in Frameworks */,
-				6E569B061F09F67500BF244A /* ortp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -472,17 +344,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
-				6E58AF1F1F085B4F009A0E68 /* msx264.framework in Frameworks */,
-				6E58AF201F085B4F009A0E68 /* mswebrtc.framework in Frameworks */,
-				6E58AF211F085B4F009A0E68 /* mediastreamer_base.framework in Frameworks */,
-				6E58AF221F085B4F009A0E68 /* mscodec2.framework in Frameworks */,
-				6E58AF231F085B4F009A0E68 /* mssilk.framework in Frameworks */,
-				6E58AF241F085B4F009A0E68 /* mediastreamer_voip.framework in Frameworks */,
-				6E58AF251F085B4F009A0E68 /* bctoolbox.framework in Frameworks */,
-				6E58AF261F085B4F009A0E68 /* linphone.framework in Frameworks */,
-				6E58AF271F085B4F009A0E68 /* msopenh264.framework in Frameworks */,
-				6E58AF281F085B4F009A0E68 /* msamr.framework in Frameworks */,
-				6E58AF291F085B4F009A0E68 /* ortp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -491,18 +352,6 @@
 			buildActionMask = 0;
 			files = (
 				6E58AF361F085B53009A0E68 /* LinPhoneSwift.framework in Frameworks */,
-				6E58AF371F085B53009A0E68 /* bctoolbox.framework in Frameworks */,
-				6E58AF381F085B53009A0E68 /* linphone.framework in Frameworks */,
-				6E58AF391F085B53009A0E68 /* linphonetester.framework in Frameworks */,
-				6E58AF3A1F085B53009A0E68 /* mediastreamer_base.framework in Frameworks */,
-				6E58AF3B1F085B53009A0E68 /* mediastreamer_voip.framework in Frameworks */,
-				6E58AF3C1F085B53009A0E68 /* msamr.framework in Frameworks */,
-				6E58AF3D1F085B53009A0E68 /* mscodec2.framework in Frameworks */,
-				6E58AF3E1F085B53009A0E68 /* msopenh264.framework in Frameworks */,
-				6E58AF3F1F085B53009A0E68 /* mssilk.framework in Frameworks */,
-				6E58AF401F085B53009A0E68 /* mswebrtc.framework in Frameworks */,
-				6E58AF411F085B53009A0E68 /* msx264.framework in Frameworks */,
-				6E58AF421F085B53009A0E68 /* ortp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -510,18 +359,52 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
+				6E25E9AF1F0B6DEA005BC42C /* libmatroska2.a in Frameworks */,
+				6E25E9BE1F0B6DEA005BC42C /* libswscale.a in Frameworks */,
+				6E25E9B71F0B6DEA005BC42C /* libopenh264.a in Frameworks */,
+				6E25E9BF1F0B6DEA005BC42C /* libtunnel.a in Frameworks */,
+				6E25E9B91F0B6DEA005BC42C /* libortp.a in Frameworks */,
+				6E25E9C21F0B6DEA005BC42C /* libvpx.a in Frameworks */,
+				6E25E9A91F0B6DEA005BC42C /* libcorec.a in Frameworks */,
+				6E25E9B31F0B6DEA005BC42C /* libmediastreamer_base.a in Frameworks */,
 				6E58AF5A1F085DB2009A0E68 /* MediaStreamer.framework in Frameworks */,
-				6E76D76A1F070F3C0017362C /* msx264.framework in Frameworks */,
-				6E76D7691F070F3C0017362C /* mswebrtc.framework in Frameworks */,
-				6E76D7631F070F3C0017362C /* mediastreamer_base.framework in Frameworks */,
-				6E76D7661F070F3C0017362C /* mscodec2.framework in Frameworks */,
-				6E76D7681F070F3C0017362C /* mssilk.framework in Frameworks */,
-				6E76D7641F070F3C0017362C /* mediastreamer_voip.framework in Frameworks */,
-				6E76D7601F070F3C0017362C /* bctoolbox.framework in Frameworks */,
-				6E76D7611F070F3C0017362C /* linphone.framework in Frameworks */,
-				6E76D7671F070F3C0017362C /* msopenh264.framework in Frameworks */,
-				6E76D7651F070F3C0017362C /* msamr.framework in Frameworks */,
-				6E76D76B1F070F3C0017362C /* ortp.framework in Frameworks */,
+				6E25E9C51F0B6DEA005BC42C /* libmsbcg729.a in Frameworks */,
+				6E25E9AB1F0B6DEA005BC42C /* libebml2.a in Frameworks */,
+				6E25E9C11F0B6DEA005BC42C /* libvo-amrwbenc.a in Frameworks */,
+				6E25E9B01F0B6DEA005BC42C /* libmbedcrypto.a in Frameworks */,
+				6E25E9A11F0B6DEA005BC42C /* libbctoolbox-tester.a in Frameworks */,
+				6E25E9AE1F0B6DEA005BC42C /* liblinphonetester.a in Frameworks */,
+				6E25E9B81F0B6DEA005BC42C /* libopus.a in Frameworks */,
+				6E25E9AD1F0B6DEA005BC42C /* liblinphone.a in Frameworks */,
+				6E25E9C01F0B6DEA005BC42C /* libturbojpeg.a in Frameworks */,
+				6E25E9B51F0B6DEA005BC42C /* libopencore-amrnb.a in Frameworks */,
+				6E25E9A71F0B6DEA005BC42C /* libbv16.a in Frameworks */,
+				6E25E9A21F0B6DEA005BC42C /* libbctoolbox.a in Frameworks */,
+				6E25E9A81F0B6DEA005BC42C /* libbzrtp.a in Frameworks */,
+				6E25E9B61F0B6DEA005BC42C /* libopencore-amrwb.a in Frameworks */,
+				6E25E9B11F0B6DEA005BC42C /* libmbedtls.a in Frameworks */,
+				6E25E9C71F0B6DEA005BC42C /* libmssilk.a in Frameworks */,
+				6E25E99D1F0B6DEA005BC42C /* libantlr3c.a in Frameworks */,
+				6E25E99F1F0B6DEA005BC42C /* libavutil.a in Frameworks */,
+				6E25E9A51F0B6DEA005BC42C /* libbellesip.a in Frameworks */,
+				6E25E9B21F0B6DEA005BC42C /* libmbedx509.a in Frameworks */,
+				6E25E9C41F0B6DEA005BC42C /* libmsamr.a in Frameworks */,
+				6E25E9C31F0B6DEA005BC42C /* libx264.a in Frameworks */,
+				6E25E99E1F0B6DEA005BC42C /* libavcodec.a in Frameworks */,
+				6E25E9A61F0B6DEA005BC42C /* libbelr.a in Frameworks */,
+				6E25E9C91F0B6DEA005BC42C /* libmsx264.a in Frameworks */,
+				6E25E9AA1F0B6DEA005BC42C /* libcunit.a in Frameworks */,
+				6E25E9A31F0B6DEA005BC42C /* libbcunit.a in Frameworks */,
+				6E25E9A01F0B6DEA005BC42C /* libbcg729.a in Frameworks */,
+				6E25E9BA1F0B6DEA005BC42C /* libspeex.a in Frameworks */,
+				6E25E9C81F0B6DEA005BC42C /* libmswebrtc.a in Frameworks */,
+				6E25E9BD1F0B6DEA005BC42C /* libswresample.a in Frameworks */,
+				6E25E9A41F0B6DEA005BC42C /* libbelcard.a in Frameworks */,
+				6E25E9BC1F0B6DEA005BC42C /* libsrtp.a in Frameworks */,
+				6E25E9C61F0B6DEA005BC42C /* libmsopenh264.a in Frameworks */,
+				6E25E9B41F0B6DEA005BC42C /* libmediastreamer_voip.a in Frameworks */,
+				6E25E9AC1F0B6DEA005BC42C /* libgsm.a in Frameworks */,
+				6E25E9BB1F0B6DEA005BC42C /* libspeexdsp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -530,24 +413,81 @@
 			buildActionMask = 0;
 			files = (
 				OBJ_30 /* LinPhoneSwift.framework in Frameworks */,
-				6E58AEEA1F071D4A009A0E68 /* bctoolbox.framework in Frameworks */,
-				6E58AEEB1F071D4A009A0E68 /* linphone.framework in Frameworks */,
-				6E58AEEC1F071D4A009A0E68 /* linphonetester.framework in Frameworks */,
-				6E58AEED1F071D4A009A0E68 /* mediastreamer_base.framework in Frameworks */,
-				6E58AEEE1F071D4A009A0E68 /* mediastreamer_voip.framework in Frameworks */,
-				6E58AEEF1F071D4A009A0E68 /* msamr.framework in Frameworks */,
-				6E58AEF01F071D4A009A0E68 /* mscodec2.framework in Frameworks */,
-				6E58AEF11F071D4A009A0E68 /* msopenh264.framework in Frameworks */,
-				6E58AEF21F071D4A009A0E68 /* mssilk.framework in Frameworks */,
-				6E58AEF31F071D4A009A0E68 /* mswebrtc.framework in Frameworks */,
-				6E58AEF41F071D4A009A0E68 /* msx264.framework in Frameworks */,
-				6E58AEF51F071D4A009A0E68 /* ortp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6E25E96D1F0B6DEA005BC42C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6E25E96E1F0B6DEA005BC42C /* libantlr3c.a */,
+				6E25E96F1F0B6DEA005BC42C /* libavcodec.a */,
+				6E25E9701F0B6DEA005BC42C /* libavutil.a */,
+				6E25E9711F0B6DEA005BC42C /* libbcg729.a */,
+				6E25E9721F0B6DEA005BC42C /* libbctoolbox-tester.a */,
+				6E25E9731F0B6DEA005BC42C /* libbctoolbox.a */,
+				6E25E9741F0B6DEA005BC42C /* libbcunit.a */,
+				6E25E9751F0B6DEA005BC42C /* libbelcard.a */,
+				6E25E9761F0B6DEA005BC42C /* libbellesip.a */,
+				6E25E9771F0B6DEA005BC42C /* libbelr.a */,
+				6E25E9781F0B6DEA005BC42C /* libbv16.a */,
+				6E25E9791F0B6DEA005BC42C /* libbzrtp.a */,
+				6E25E97A1F0B6DEA005BC42C /* libcorec.a */,
+				6E25E97B1F0B6DEA005BC42C /* libcunit.a */,
+				6E25E97C1F0B6DEA005BC42C /* libebml2.a */,
+				6E25E97D1F0B6DEA005BC42C /* libgsm.a */,
+				6E25E97E1F0B6DEA005BC42C /* liblinphone.a */,
+				6E25E97F1F0B6DEA005BC42C /* liblinphonetester.a */,
+				6E25E9801F0B6DEA005BC42C /* libmatroska2.a */,
+				6E25E9811F0B6DEA005BC42C /* libmbedcrypto.a */,
+				6E25E9821F0B6DEA005BC42C /* libmbedtls.a */,
+				6E25E9831F0B6DEA005BC42C /* libmbedx509.a */,
+				6E25E9841F0B6DEA005BC42C /* libmediastreamer_base.a */,
+				6E25E9851F0B6DEA005BC42C /* libmediastreamer_voip.a */,
+				6E25E9861F0B6DEA005BC42C /* libopencore-amrnb.a */,
+				6E25E9871F0B6DEA005BC42C /* libopencore-amrwb.a */,
+				6E25E9881F0B6DEA005BC42C /* libopenh264.a */,
+				6E25E9891F0B6DEA005BC42C /* libopus.a */,
+				6E25E98A1F0B6DEA005BC42C /* libortp.a */,
+				6E25E98B1F0B6DEA005BC42C /* libspeex.a */,
+				6E25E98C1F0B6DEA005BC42C /* libspeexdsp.a */,
+				6E25E98D1F0B6DEA005BC42C /* libsrtp.a */,
+				6E25E98E1F0B6DEA005BC42C /* libswresample.a */,
+				6E25E98F1F0B6DEA005BC42C /* libswscale.a */,
+				6E25E9901F0B6DEA005BC42C /* libtunnel.a */,
+				6E25E9911F0B6DEA005BC42C /* libturbojpeg.a */,
+				6E25E9921F0B6DEA005BC42C /* libvo-amrwbenc.a */,
+				6E25E9931F0B6DEA005BC42C /* libvpx.a */,
+				6E25E9941F0B6DEA005BC42C /* libx264.a */,
+				6E25E9951F0B6DEA005BC42C /* mediastreamer */,
+			);
+			name = Frameworks;
+			path = "../linphone-iphone/liblinphone-sdk/apple-darwin/lib";
+			sourceTree = "<group>";
+		};
+		6E25E9951F0B6DEA005BC42C /* mediastreamer */ = {
+			isa = PBXGroup;
+			children = (
+				6E25E9961F0B6DEA005BC42C /* plugins */,
+			);
+			path = mediastreamer;
+			sourceTree = "<group>";
+		};
+		6E25E9961F0B6DEA005BC42C /* plugins */ = {
+			isa = PBXGroup;
+			children = (
+				6E25E9971F0B6DEA005BC42C /* libmsamr.a */,
+				6E25E9981F0B6DEA005BC42C /* libmsbcg729.a */,
+				6E25E9991F0B6DEA005BC42C /* libmsopenh264.a */,
+				6E25E99A1F0B6DEA005BC42C /* libmssilk.a */,
+				6E25E99B1F0B6DEA005BC42C /* libmswebrtc.a */,
+				6E25E99C1F0B6DEA005BC42C /* libmsx264.a */,
+			);
+			path = plugins;
+			sourceTree = "<group>";
+		};
 		6E52914D1F0B53A800D4B765 /* BelledonneSIP */ = {
 			isa = PBXGroup;
 			children = (
@@ -603,26 +543,6 @@
 			path = LinPhone;
 			sourceTree = "<group>";
 		};
-		6E76D7531F070F3C0017362C /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				6E76D7541F070F3C0017362C /* bctoolbox.framework */,
-				6E76D7551F070F3C0017362C /* linphone.framework */,
-				6E76D7561F070F3C0017362C /* linphonetester.framework */,
-				6E76D7571F070F3C0017362C /* mediastreamer_base.framework */,
-				6E76D7581F070F3C0017362C /* mediastreamer_voip.framework */,
-				6E76D7591F070F3C0017362C /* msamr.framework */,
-				6E76D75A1F070F3C0017362C /* mscodec2.framework */,
-				6E76D75B1F070F3C0017362C /* msopenh264.framework */,
-				6E76D75C1F070F3C0017362C /* mssilk.framework */,
-				6E76D75D1F070F3C0017362C /* mswebrtc.framework */,
-				6E76D75E1F070F3C0017362C /* msx264.framework */,
-				6E76D75F1F070F3C0017362C /* ortp.framework */,
-			);
-			name = Frameworks;
-			path = "../linphone-iphone/liblinphone-sdk/apple-darwin/Frameworks";
-			sourceTree = "<group>";
-		};
 		OBJ_10 /* LinPhoneTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -651,7 +571,7 @@
 			isa = PBXGroup;
 			children = (
 				6E76D76D1F0710D90017362C /* module.map */,
-				6E76D7531F070F3C0017362C /* Frameworks */,
+				6E25E96D1F0B6DEA005BC42C /* Frameworks */,
 				OBJ_7 /* Sources */,
 				OBJ_9 /* Tests */,
 				OBJ_13 /* Products */,
@@ -692,6 +612,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				6E25E9CF1F0B6E95005BC42C /* PBXTargetDependency */,
 				6E52914F1F0B53AE00D4B765 /* PBXTargetDependency */,
 			);
 			name = BelledonneSIP;
@@ -710,6 +631,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				6E25E9D21F0B6EA1005BC42C /* PBXTargetDependency */,
 			);
 			name = BelledonneSIPTests;
 			productName = LinPhoneSwiftTests;
@@ -864,10 +786,10 @@
 				OBJ_23 /* LinPhoneTests */,
 				6E58AF141F085B4F009A0E68 /* MediaStreamer */,
 				6E58AF301F085B53009A0E68 /* MediaStreamerTests */,
-				6E569ADD1F09F67200BF244A /* BelledonneToolbox */,
-				6E569AF41F09F67500BF244A /* BelledonneToolboxTests */,
 				6E52914E1F0B53AE00D4B765 /* BelledonneSIP */,
 				6E5291671F0B53B100D4B765 /* BelledonneSIPTests */,
+				6E569ADD1F09F67200BF244A /* BelledonneToolbox */,
+				6E569AF41F09F67500BF244A /* BelledonneToolboxTests */,
 			);
 		};
 /* End PBXProject section */
@@ -1032,6 +954,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		6E25E9CF1F0B6E95005BC42C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6E569ADD1F09F67200BF244A /* BelledonneToolbox */;
+			targetProxy = 6E25E9CE1F0B6E95005BC42C /* PBXContainerItemProxy */;
+		};
+		6E25E9D21F0B6EA1005BC42C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6E52914E1F0B53AE00D4B765 /* BelledonneSIP */;
+			targetProxy = 6E25E9D11F0B6EA1005BC42C /* PBXContainerItemProxy */;
+		};
 		6E52914F1F0B53AE00D4B765 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 6E76D7701F0718580017362C /* CMake */;
