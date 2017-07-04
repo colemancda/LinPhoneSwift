@@ -16,37 +16,31 @@ public struct LinkedList {
     // MARK: - Properties
     
     @_versioned
-    internal let internalReference: Reference
+    internal let internalReference: Reference?
     
     // MARK: - Initialization
     
-    internal init(_ internalReference: Reference) {
+    internal init(_ internalReference: Reference?) {
         
         self.internalReference = internalReference
     }
     
     /// Initialize linked list from a data array.
-    public init?(data: [Data]) {
+    public init(data: [Data]) {
         
         let mutableData = data.map { NSMutableData(data: $0) }
         
-        guard let reference = Reference(mutableData: mutableData)
-            else { return nil }
-        
-        self.init(reference)
+        self.init(Reference(mutableData: mutableData))
     }
     
     /// Initialize linked list from a string array.
-    public init?(strings: [String]) {
+    public init(strings: [String]) {
         
         // convert strings to data
         
         let data = strings.map { $0.cStringData }
         
-        guard let reference = Reference(mutableData: data)
-            else { return nil }
-        
-        self.init(reference)
+        self.init(Reference(mutableData: data))
     }
     
     // MARK: - Accessors
@@ -54,13 +48,20 @@ public struct LinkedList {
     /// Get the value as a string.
     public var strings: [String] {
         
-        return internalReference.data.map { String(cStringData: $0) }
+        return internalReference?.data.map { String(cStringData: $0) } ?? []
     }
     
     /// Get the linked list data.
     public var data: [Data] {
         
-        return  internalReference.data.map { Data(referencing: $0) }
+        @inline(__always)
+        get { return internalReference?.data.map { Data(referencing: $0) } ?? [] }
+    }
+    
+    public var isEmpty: Bool {
+        
+        @inline(__always)
+        get { return internalReference == nil }
     }
     
     // MARK: - Accessors
@@ -68,9 +69,19 @@ public struct LinkedList {
     /// Access the underlying C structure instance.
     ///
     /// - Note: The pointer is only guarenteed to be valid for the lifetime of the closure.
-    public func withUnsafeRawPointer <Result> (_ body: (UnsafePointer<bctbx_list_t>) throws -> Result) rethrows -> Result {
+    @inline(__always)
+    public func withUnsafeRawPointer <Result> (_ body: (UnsafePointer<bctbx_list_t>?) throws -> Result) rethrows -> Result {
         
-        let rawPointer = UnsafePointer(internalReference.rawPointer)
+        let rawPointer: UnsafePointer<bctbx_list_t>?
+        
+        if let reference = self.internalReference {
+            
+            rawPointer = UnsafePointer(reference.rawPointer)
+            
+        } else {
+            
+            rawPointer = nil
+        }
         
         return try body(rawPointer)
     }
@@ -82,7 +93,7 @@ extension LinkedList: Equatable {
     
     public static func == (lhs: LinkedList, rhs: LinkedList) -> Bool {
         
-        return lhs.data == rhs.data
+        return (lhs.internalReference?.data ?? []) == (rhs.internalReference?.data ?? [])
     }
 }
 
@@ -100,7 +111,6 @@ extension LinkedList: CustomStringConvertible {
     
     public var description: String {
         
-        /// Print just like an array would
         return "\(strings)"
     }
 }
