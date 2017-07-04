@@ -89,6 +89,18 @@ public struct LinkedList {
         }
     }
     
+    public var first: LinkedList? {
+        
+        @inline(__always)
+        get {
+            
+            guard let reference = internalReference.reference.first
+                else { return nil }
+            
+            return LinkedList(reference)
+        }
+    }
+    
     public var last: LinkedList? {
         
         @inline(__always)

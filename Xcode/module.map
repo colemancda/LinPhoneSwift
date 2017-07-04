@@ -59,3 +59,9 @@ module CBelledonneToolbox [system] {
         export *
     }
 }
+
+module CBelledonneSIP [system] {
+    
+    umbrella header "belle-sip/belle-sip.h"
+    export *
+}
