@@ -12,10 +12,16 @@ import XCTest
 final class LinkedListTests: XCTestCase {
     
     static var allTests = [
-        ("testValueSemantics", testValueSemantics),
+        ("testBasicList", testBasicList),
         ]
     
-    func testValueSemantics() {
+    func testBasicList() {
+        
+        let items = (1 ... 10).map { "item\($0)" }
+        guard let list = LinkedList(strings: items)
+            else { XCTFail(); return }
+        XCTAssert(list)
+        
         
         let element1String = "item1"
         var element1 = LinkedList(string: element1String)

@@ -16,145 +16,61 @@ public struct LinkedList {
     // MARK: - Properties
     
     @_versioned
-    internal private(set) var internalReference: CopyOnWrite<Reference>
+    internal let internalReference: Reference
     
     // MARK: - Initialization
     
     internal init(_ internalReference: Reference) {
         
-        self.internalReference = CopyOnWrite(internalReference)
+        self.internalReference = internalReference
     }
     
-    /// Initialize linked list from data.
-    public init(data: Data) {
+    /// Initialize linked list from a data array.
+    public init?(data: [Data]) {
         
-        self.init(Reference(data: data))
+        let mutableData = data.map { NSMutableData(data: $0) }
+        
+        guard let reference = Reference(mutableData: mutableData)
+            else { return nil }
+        
+        self.init(reference)
     }
     
-    /// Initialize linked list from string.
-    public init(string: String) {
+    /// Initialize linked list from a string array.
+    public init?(strings: [String]) {
         
-        self.init(Reference(string: string))
+        // convert strings to data
+        
+        let data = strings.map { $0.cStringData }
+        
+        guard let reference = Reference(mutableData: data)
+            else { return nil }
+        
+        self.init(reference)
     }
     
     // MARK: - Accessors
     
     /// Get the value as a string.
-    public var string: String {
+    public var strings: [String] {
         
-        return String(cString: internalReference.reference.data.mutableBytes.assumingMemoryBound(to: UInt8.self))
+        return internalReference.data.map { String(cStringData: $0) }
     }
     
-    /// Get the linked list node's data.
-    public var data: Data {
+    /// Get the linked list data.
+    public var data: [Data] {
         
-        return Data(referencing: internalReference.reference.data)
+        return  internalReference.data.map { Data(referencing: $0) }
     }
     
     // MARK: - Accessors
-    
-    public var next: LinkedList? {
-        
-        @inline(__always)
-        get {
-            
-            guard let reference = internalReference.reference.next
-                else { return nil }
-            
-            return LinkedList(reference)
-        }
-        
-        @inline(__always)
-        mutating set {
-            
-            var newValueCopy = newValue
-            
-            internalReference.mutatingReference.next = newValueCopy?.internalReference.mutatingReference
-        }
-    }
-    
-    public var previous: LinkedList? {
-        
-        @inline(__always)
-        get {
-            
-            guard let reference = internalReference.reference.previous
-                else { return nil }
-            
-            return LinkedList(reference)
-        }
-        
-        @inline(__always)
-        mutating set {
-            
-            var newValueCopy = newValue
-            
-            internalReference.mutatingReference.previous = newValueCopy?.internalReference.mutatingReference
-        }
-    }
-    
-    public var first: LinkedList? {
-        
-        @inline(__always)
-        get {
-            
-            guard let reference = internalReference.reference.first
-                else { return nil }
-            
-            return LinkedList(reference)
-        }
-    }
-    
-    public var last: LinkedList? {
-        
-        @inline(__always)
-        get {
-            
-            guard let reference = internalReference.reference.last
-                else { return nil }
-            
-            return LinkedList(reference)
-        }
-    }
-    
-    // MARK: - Methods
-    
-    /// Append an element to the end of the linked list.
-    @inline(__always)
-    public mutating func append(_ element: inout LinkedList) {
-        
-        internalReference.mutatingReference.append(element.internalReference.mutatingReference)
-    }
-    
-    /// Prepends an element to the beginning of the list.
-    @inline(__always)
-    public mutating func prepend(_ element: inout LinkedList) {
-        
-         internalReference.mutatingReference.prepend(element.internalReference.mutatingReference)
-    }
-    
-    @inline(__always)
-    public func forEach(_ body: (LinkedList) throws -> ()) rethrows {
-        
-        try internalReference.reference.forEach { try body(LinkedList($0)) }
-    }
-    
-    /// Access the underlying C structure instance.
-    ///
-    /// - Note: The pointer is only guarenteed to be valid for the lifetime of the closure.
-    public mutating func withUnsafeMutableRawPointer <Result> (_ body: (UnsafeMutablePointer<bctbx_list_t>) throws -> Result) rethrows -> Result {
-        
-        let rawPointer = internalReference.mutatingReference.rawPointer
-        
-        return try body(rawPointer)
-    }
     
     /// Access the underlying C structure instance.
     ///
     /// - Note: The pointer is only guarenteed to be valid for the lifetime of the closure.
     public func withUnsafeRawPointer <Result> (_ body: (UnsafePointer<bctbx_list_t>) throws -> Result) rethrows -> Result {
         
-        let rawPointer = UnsafePointer(internalReference.reference.rawPointer)
+        let rawPointer = UnsafePointer(internalReference.rawPointer)
         
         return try body(rawPointer)
     }
@@ -176,7 +92,7 @@ extension LinkedList: Hashable {
     
     public var hashValue: Int {
         
-        return data.hashValue
+        return description.hashValue
     }
 }
 
@@ -184,227 +100,61 @@ extension LinkedList: CustomStringConvertible {
     
     public var description: String {
         
-        var stringValues = [String]()
-        
-        self.forEach { stringValues.append($0.string) }
-        
         /// Print just like an array would
-        return "\(stringValues)"
+        return "\(strings)"
     }
 }
 
 // MARK: - Reference
 
-extension LinkedList: ReferenceConvertible {
+extension LinkedList {
     
-    internal final class Reference: CopyableHandle {
+    internal final class Reference: Handle {
         
         typealias RawPointer = UnsafeMutablePointer<bctbx_list_t>
         
         // MARK: - Properties
         
-        /// Underlying `bctbx_list_t` pointer
+        /// Underlying `bctbx_list_t` pointer. Always the first element.
         internal let rawPointer: RawPointer
         
         /// Keep reference for ARC. `bctbx_list_t` only manages memory of list structure, not the attached data. WTF?
-        internal let data: NSMutableData // data.mutableBytes == rawPointer.pointee.data
-        
-        /// List is linked in Swift by ARC, and we update the underlying C structures to reflect
-        /// current state.
-        internal var previous: LinkedList.Reference? {
-            
-            get { return _previous }
-            
-            set {
-                
-                let oldValue = _previous
-                
-                // reset old value
-                oldValue?.next = nil
-                
-                // set internal pointer
-                self.rawPointer.pointee.prev = newValue?.rawPointer
-                newValue?.rawPointer.pointee.next = self.rawPointer
-                
-                /// keep reference for ARC
-                newValue?._next = self
-                self._previous = newValue
-            }
-        }
-        
-        /// Keep reference for ARC.
-        private var _previous: LinkedList.Reference?
-        
-        /// List is linked in Swift by ARC, and we update the underlying C structures to reflect
-        /// current state.
-        internal var next: LinkedList.Reference? {
-            
-            get { return _next }
-            
-            set {
-                
-                let oldValue = _next
-                
-                // reset old value
-                oldValue?.previous = nil
-                
-                // set internal pointer
-                self.rawPointer.pointee.next = newValue?.rawPointer
-                newValue?.rawPointer.pointee.prev = self.rawPointer
-                
-                /// keep reference for ARC
-                newValue?._previous = self
-                self._next = newValue
-            }
-        }
-        
-        /// Keep reference for ARC.
-        private var _next: LinkedList.Reference?
+        internal let data: [NSMutableData]
         
         // MARK: - Initialization
         
-        @inline(__always)
-        private init(rawPointer: RawPointer, data: NSMutableData) {
+        deinit {
+            
+            bctbx_list_free(rawPointer)
+        }
+        
+        fileprivate init?(mutableData: [NSMutableData]) {
+            
+            guard let firstData = mutableData.first,
+                let rawPointer = bctbx_list_new(firstData.mutableBytes)
+                else { return nil }
+            
+            /// append other data.
+            for data in mutableData.suffix(from: 1) {
+                
+                bctbx_list_append(rawPointer, data.mutableBytes)
+            }
             
             self.rawPointer = rawPointer
-            self.data = data
-            
-            assert(data.mutableBytes == rawPointer.pointee.data, "Invalid data pointer")
+            self.data = mutableData
         }
+    }
+}
+
+fileprivate extension String {
+    
+    var cStringData: NSMutableData {
         
-        internal var copy: LinkedList.Reference? {
-            
-            let copy = LinkedList.Reference(data: Data(referencing: self.data))
-            
-            var node = copy
-            var more = true
-            
-            repeat {
-                
-                if let next = node.next {
-                    
-                    let newNode = LinkedList.Reference(data: Data(referencing: next.data))
-                    node.next = newNode
-                    
-                    node = next
-                    
-                } else {
-                    
-                    more = false
-                }
-                
-            } while more
-            
-            return node
-        }
+        return self.withCString { NSMutableData(bytes: $0, length: Int(strlen($0)) + 1) }
+    }
+    
+    init(cStringData data: NSMutableData) {
         
-        private init(data: NSMutableData) {
-            
-            guard let rawPointer = bctbx_list_new(data.mutableBytes)
-                else { fatalError("Could not allocate instance") }
-            
-            self.rawPointer = rawPointer
-            self.data = data
-        }
-        
-        public convenience init(data: Data) {
-            
-            let mutableCopy = NSMutableData(data: data)
-            
-            self.init(data: mutableCopy)
-        }
-        
-        public convenience init(string: String) {
-            
-            // copy null terminated string buffer
-            let data = string.withCString { NSMutableData(bytes: $0, length: Int(strlen($0)) + 1) }
-            
-            guard let rawPointer = bctbx_list_new(data.mutableBytes)
-                else { fatalError("Could not allocate instance") }
-            
-            self.init(rawPointer: rawPointer, data: data)
-        }
-        
-        // MARK: - Accessors
-        
-        public var first: LinkedList.Reference? {
-            
-            var node = self
-            var more = true
-            
-            repeat {
-                
-                if let previous = node.previous {
-                    
-                    node = previous
-                    
-                } else {
-                    
-                    more = false
-                }
-                
-            } while more
-            
-            return node
-        }
-        
-        public var last: LinkedList.Reference? {
-            
-            var node = self
-            var more = true
-            
-            repeat {
-                
-                if let next = node.next {
-                    
-                    node = next
-                    
-                } else {
-                    
-                    more = false
-                }
-                
-            } while more
-            
-            return node
-        }
-        
-        // MARK: - Methods
-        
-        /// Appends an element to the end of the list.
-        @inline(__always)
-        public func append(_ element: LinkedList.Reference) {
-            
-            self.last?.next = element
-        }
-        
-        /// Prepends an element to the beginning of the list.
-        @inline(__always)
-        public func prepend(_ element: LinkedList.Reference) {
-            
-            self.first?.previous = element
-        }
-        
-        @inline(__always)
-        public func forEach(_ body: (LinkedList.Reference) throws -> ()) rethrows {
-            
-            var node = self
-            var more = true
-            
-            repeat {
-                
-                try body(node)
-                
-                if let next = node.next {
-                    
-                    node = next
-                    
-                } else {
-                    
-                    more = false
-                }
-                
-            } while more
-        }
+        self.init(cString: data.mutableBytes.assumingMemoryBound(to: UInt8.self))
     }
 }
