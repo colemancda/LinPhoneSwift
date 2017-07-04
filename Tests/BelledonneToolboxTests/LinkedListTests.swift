@@ -39,13 +39,26 @@ final class LinkedListTests: XCTestCase {
         XCTAssert(element2.last == element2)
         XCTAssert(element1.first == element1)
         XCTAssert(element2.first == element1)
+        XCTAssert(element1.description == "\([element1String, element2String])", "\(element1.description)")
         
         var element1Copy = element1
         XCTAssert(element1Copy.internalReference.reference === originalElement1Reference)
         XCTAssert(element1Copy.next?.internalReference.reference === originalElement2Reference)
         
         element1Copy.append(&element1)
+        XCTAssert(element1Copy.internalReference.reference !== originalElement1Reference)
+        XCTAssert(element1Copy.next?.internalReference.reference !== originalElement2Reference)
         XCTAssert(element1Copy.description == "\([element1String, element2String, element1String, element2String])", "\(element1Copy.description)")
+        
+        var elementList = element1
+        var newElement2 = LinkedList(string: element2String)
+        elementList.append(&newElement2)
+        XCTAssert(elementList.description == "\([element1String, element2String, element2String])", "\(elementList.description)")
+        
+        var elementList2 = element1
+        var newElement2Copy = newElement2
+        elementList2.append(&newElement2Copy)
+        XCTAssert(elementList2.description == "\([element1String, element2String, element2String])", "\(elementList.description)")
         
     }
 }

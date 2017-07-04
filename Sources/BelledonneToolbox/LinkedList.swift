@@ -67,7 +67,9 @@ public struct LinkedList {
         @inline(__always)
         mutating set {
             
-            internalReference.mutatingReference.next = next?.internalReference.mutatingReference
+            var newValueCopy = newValue
+            
+            internalReference.mutatingReference.next = newValueCopy?.internalReference.mutatingReference
         }
     }
     
@@ -85,7 +87,9 @@ public struct LinkedList {
         @inline(__always)
         mutating set {
             
-            internalReference.mutatingReference.previous = previous?.internalReference.mutatingReference
+            var newValueCopy = newValue
+            
+            internalReference.mutatingReference.previous = newValueCopy?.internalReference.mutatingReference
         }
     }
     
