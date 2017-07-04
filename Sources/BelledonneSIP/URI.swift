@@ -96,7 +96,7 @@ extension URI: ReferenceConvertible {
         var stringValue: String {
             
             @inline(__always)
-            get { return getString({ belle_generic_uri_to_string(OpaquePointer($0)) }) ?? "" }
+            get { return getString({ UnsafePointer(belle_generic_uri_to_string($0)) }) ?? "" }
         }
     }
 }
