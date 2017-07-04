@@ -38,10 +38,6 @@ public struct URI {
         self.init(reference)
     }
     
-    // MARK: - Methods
-    
-    
-    
     // MARK: - Accessors
     
     public var stringValue: String {
@@ -114,47 +110,25 @@ public struct URI {
     }
 }
 
-// MARK: - ReferenceConvertible
+// MARK: - Equatable
 
-extension URI: ReferenceConvertible {
+extension URI: Equatable {
     
-    internal final class Reference {
+    public static func == (lhs: URI, rhs: URI) -> Bool {
         
-        internal typealias RawPointer = UnmanagedPointer.RawPointer
-        
-        internal typealias UnmanagedPointer = BelledonneUnmanagedObject
-        
-        // MARK: - Properties
-        
-        @_versioned
-        internal let managedPointer: ManagedPointer<UnmanagedPointer>
-        
-        // MARK: - Initialization
-        
-        internal init(_ managedPointer: ManagedPointer<UnmanagedPointer>) {
-            
-            self.managedPointer = managedPointer
-        }
-        
-        convenience init() {
-            
-            guard let rawPointer = belle_generic_uri_new()
-                else { fatalError("Could not allocate instance") }
-            
-            self.init(ManagedPointer(UnmanagedPointer(rawPointer)))
-        }
-        
-        convenience init?(string: String) {
-            
-            guard let rawPointer = belle_generic_uri_parse(string)
-                else { return nil }
-            
-            self.init(ManagedPointer(UnmanagedPointer(rawPointer)))
-        }
+        return lhs.stringValue == rhs.stringValue
     }
 }
 
-extension URI.Reference: BelledonneObjectHandle { }
+// MARK: - Hashable
+
+extension URI: Hashable {
+    
+    public var hashValue: Int {
+        
+        return stringValue.hashValue
+    }
+}
 
 // MARK: - CustomStringConvertible
 
@@ -186,5 +160,45 @@ extension URI: BelledonneObject {
         let rawPointer = internalReference.reference.rawPointer
         
         return try body(rawPointer)
+    }
+}
+
+// MARK: - ReferenceConvertible
+
+extension URI: ReferenceConvertible {
+    
+    internal final class Reference: BelledonneObjectHandle {
+        
+        internal typealias UnmanagedPointer = BelledonneUnmanagedObject
+        
+        internal typealias RawPointer = UnmanagedPointer.RawPointer
+        
+        // MARK: - Properties
+        
+        @_versioned
+        internal let managedPointer: ManagedPointer<UnmanagedPointer>
+        
+        // MARK: - Initialization
+        
+        internal init(_ managedPointer: ManagedPointer<UnmanagedPointer>) {
+            
+            self.managedPointer = managedPointer
+        }
+        
+        convenience init() {
+            
+            guard let rawPointer = belle_generic_uri_new()
+                else { fatalError("Could not allocate instance") }
+            
+            self.init(ManagedPointer(UnmanagedPointer(rawPointer)))
+        }
+        
+        convenience init?(string: String) {
+            
+            guard let rawPointer = belle_generic_uri_parse(string)
+                else { return nil }
+            
+            self.init(ManagedPointer(UnmanagedPointer(rawPointer)))
+        }
     }
 }

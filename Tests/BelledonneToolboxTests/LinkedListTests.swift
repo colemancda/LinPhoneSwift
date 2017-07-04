@@ -15,7 +15,7 @@ final class LinkedListTests: XCTestCase {
         ("testVersion", testVersion),
         ]
     
-    func testMutation() {
+    func testValueSemantics() {
         
         var list 
     }

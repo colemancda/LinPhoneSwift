@@ -13,6 +13,7 @@ final class URITests: XCTestCase {
     
     static var allTests = [
         ("testBasicURI", testBasicURI),
+        ("testValueSemantics", testValueSemantics)
         ]
     
     func testBasicURI() {
@@ -34,6 +35,8 @@ final class URITests: XCTestCase {
             XCTAssert(uri.scheme == "http")
             XCTAssert(uri.host == "www.linphone.org")
             XCTAssert(uri.path == "/index.html")
+            XCTAssert(uri.stringValue == uri.description)
+            XCTAssert(uri.stringValue == rawURI)
         }
         
         do {
