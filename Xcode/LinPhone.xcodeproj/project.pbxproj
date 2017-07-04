@@ -149,7 +149,6 @@
 		6E5291961F0B5BC200D4B765 /* ManagedPointer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5291941F0B5BC200D4B765 /* ManagedPointer.swift */; };
 		6E5291971F0B5BC200D4B765 /* UnmanagedPointer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5291951F0B5BC200D4B765 /* UnmanagedPointer.swift */; };
 		6E5291991F0B631F00D4B765 /* ManagedHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5291981F0B631F00D4B765 /* ManagedHandle.swift */; };
-		6E569AFA1F09F67500BF244A /* LinPhone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* LinPhone.framework */; };
 		6E569B191F09F74D00BF244A /* LinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E569ADC1F09DA3500BF244A /* LinkedList.swift */; };
 		6E569B1D1F09F9AD00BF244A /* UserDataHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E569B1C1F09F9AD00BF244A /* UserDataHandle.swift */; };
 		6E569B1F1F09F9D500BF244A /* Handle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E569B1E1F09F9D500BF244A /* Handle.swift */; };
@@ -169,6 +168,7 @@
 		6E58AF361F085B53009A0E68 /* LinPhone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* LinPhone.framework */; };
 		6E58AF571F085BB5009A0E68 /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E58AF561F085BB5009A0E68 /* Factory.swift */; };
 		6E76D7401F0705B70017362C /* Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E76D73E1F0705B70017362C /* Core.swift */; };
+		6EF6A6D41F0C059400C39864 /* BelledonneToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E569AF21F09F67200BF244A /* BelledonneToolbox.framework */; };
 		OBJ_28 /* CoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* CoreTests.swift */; };
 		OBJ_30 /* LinPhone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* LinPhone.framework */; };
 /* End PBXBuildFile section */
@@ -250,6 +250,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 6E76D7701F0718580017362C;
 			remoteInfo = CMake;
+		};
+		6EF6A6D21F0C058C00C39864 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6E569ADD1F09F67200BF244A;
+			remoteInfo = BelledonneToolbox;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -437,7 +444,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
-				6E569AFA1F09F67500BF244A /* LinPhone.framework in Frameworks */,
+				6EF6A6D41F0C059400C39864 /* BelledonneToolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -789,8 +796,8 @@
 			children = (
 				OBJ_10 /* LinPhoneTests */,
 				6E25EA841F0BEA98005BC42C /* MediaStreamerTests */,
-				6E25EA861F0BEA98005BC42C /* BelledonneToolboxTests */,
 				6E25EA881F0BEA98005BC42C /* BelledonneSIPTests */,
+				6E25EA861F0BEA98005BC42C /* BelledonneToolboxTests */,
 			);
 			name = Tests;
 			sourceTree = SOURCE_ROOT;
@@ -864,6 +871,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				6EF6A6D31F0C058C00C39864 /* PBXTargetDependency */,
 			);
 			name = BelledonneToolboxTests;
 			productName = LinPhoneSwiftTests;
@@ -1204,6 +1212,11 @@
 			isa = PBXTargetDependency;
 			target = 6E76D7701F0718580017362C /* CMake */;
 			targetProxy = 6E76D7751F0718B10017362C /* PBXContainerItemProxy */;
+		};
+		6EF6A6D31F0C058C00C39864 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6E569ADD1F09F67200BF244A /* BelledonneToolbox */;
+			targetProxy = 6EF6A6D21F0C058C00C39864 /* PBXContainerItemProxy */;
 		};
 		OBJ_31 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;

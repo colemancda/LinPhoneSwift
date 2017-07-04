@@ -156,6 +156,39 @@ public struct LinkedList {
     }
 }
 
+// MARK: - Equatable
+
+extension LinkedList: Equatable {
+    
+    public static func == (lhs: LinkedList, rhs: LinkedList) -> Bool {
+        
+        return lhs.data == rhs.data
+    }
+}
+
+// MARK: - Hashable
+
+extension LinkedList: Hashable {
+    
+    public var hashValue: Int {
+        
+        return data.hashValue
+    }
+}
+
+extension LinkedList: CustomStringConvertible {
+    
+    public var description: String {
+        
+        var stringValues = [String]()
+        
+        self.forEach { stringValues.append($0.string) }
+        
+        /// Print just like an array would
+        return "\(stringValues)"
+    }
+}
+
 // MARK: - Reference
 
 extension LinkedList: ReferenceConvertible {
@@ -178,6 +211,11 @@ extension LinkedList: ReferenceConvertible {
             
             didSet {
                 
+                let newValue = previous
+                
+                //oldValue?.next = nil
+                //newValue?.next = self
+                
                 // remove self from old value
                 oldValue?.rawPointer.pointee.next = nil
                 
@@ -192,6 +230,11 @@ extension LinkedList: ReferenceConvertible {
         internal var next: LinkedList.Reference? {
             
             didSet {
+                
+                let newValue = next
+                
+                //oldValue?.previous = nil
+                //newValue?.previous = self
                 
                 // remove self from old value
                 oldValue?.rawPointer.pointee.prev = nil
@@ -347,20 +390,5 @@ extension LinkedList: ReferenceConvertible {
                 
             } while more
         }
-    }
-}
-
-// MARK: - CustomStringConvertible
-
-extension LinkedList: CustomStringConvertible {
-    
-    public var description: String {
-        
-        var stringValues = [String]()
-        
-        self.forEach { stringValues.append($0.string) }
-        
-        /// Print just like an array would
-        return "\(stringValues)"
     }
 }
