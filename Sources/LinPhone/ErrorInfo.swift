@@ -31,23 +31,29 @@ public struct ErrorInfo {
         
         self.init(Reference())
     }
+    
+    // MARK: - Accessors
+    
+    
 }
 
 // MARK: - ReferenceConvertible
 
 extension ErrorInfo: ReferenceConvertible {
     
-    internal final class Reference: CopyableHandle {
+    internal final class Reference: BelledonneObjectHandle {
+        
+        typealias RawPointer = BelledonneUnmanagedObject.RawPointer
         
         // MARK: - Properties
         
         @_versioned
-        internal let managedPointer: ManagedPointer<UnmanagedPointer>
+        internal let managedPointer: ManagedPointer<BelledonneUnmanagedObject>
         
         // MARK: - Initialization
         
         @inline(__always)
-        internal init(_ managedPointer: ManagedPointer<UnmanagedPointer>) {
+        internal init(_ managedPointer: ManagedPointer<BelledonneUnmanagedObject>) {
             
             self.managedPointer = managedPointer
         }
@@ -57,37 +63,7 @@ extension ErrorInfo: ReferenceConvertible {
             guard let rawPointer = linphone_error_info_new()
                 else { fatalError("Could not allocate instance") }
             
-            self.init(ManagedPointer(UnmanagedPointer(rawPointer)))
-        }
-    }
-}
-
-// MARK: - ManagedHandle
-
-extension ErrorInfo.Reference: ManagedHandle {
-    
-    typealias RawPointer = ErrorInfo.UnmanagedPointer.RawPointer
-}
-
-extension ErrorInfo {
-    
-    struct UnmanagedPointer: LinPhone.UnmanagedPointer {
-        
-        let rawPointer: OpaquePointer
-        
-        @inline(__always)
-        init(_ rawPointer: UnmanagedPointer.RawPointer) {
-            self.rawPointer = rawPointer
-        }
-        
-        @inline(__always)
-        func retain() {
-            linphone_error_info_ref(rawPointer)
-        }
-        
-        @inline(__always)
-        func release() {
-            linphone_error_info_unref(rawPointer)
+            self.init(ManagedPointer(BelledonneUnmanagedObject(rawPointer)))
         }
     }
 }
