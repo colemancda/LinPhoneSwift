@@ -216,6 +216,9 @@ internal enum ReferenceConvertibleMemoryManagement {
     /// A new reference convertible struct cannot point to this reference directly,
     /// and must be immediately copied to avoid invalid shared state and unforeseen mutations.
     case externallyRetainedMutable
+    
+    /// Alias for `.externallyRetainedMutable`
+    static let copy: ReferenceConvertibleMemoryManagement = .copy
 }
 
 internal extension Handle {

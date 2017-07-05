@@ -59,6 +59,30 @@ public final class Call {
         return getManagedHandle(linphone_call_get_replaced_call)
     }
     
+    /// Returns the remote address associated to this call.
+    public var remoteAddress: Address? {
+        
+        return getReferenceConvertible(.externallyRetainedImmutable, linphone_call_get_remote_address)
+    }
+    
+    /// Details about call errors or termination reasons.
+    public var errorInfo: ErrorInfo? {
+        
+        return getReferenceConvertible(.copy, linphone_call_get_error_info)
+    }
+    
+    /// Returns the 'to' address with its headers associated to this call.
+    public var toAddress: Address? {
+        
+        return getReferenceConvertible(.externallyRetainedImmutable, linphone_call_get_to_address)
+    }
+    
+    /// Returns the diversion address associated to this call.
+    public var diversionAddress: Address? {
+        
+        return getReferenceConvertible(.externallyRetainedImmutable, linphone_call_get_diversion_address)
+    }
+    
     /// The call's current state.
     public var state: State {
         
@@ -76,29 +100,10 @@ public final class Call {
     }
     
     /// Returns the remote address associated to this call.
-    public var remoteAddress: Address? {
-        
-        return getReferenceConvertible(.externallyRetainedImmutable, linphone_call_get_remote_address)
-    }
-    
-    /// Returns the remote address associated to this call.
     public var remoteAddressString: String? {
         
         @inline(__always)
         get { return getString(linphone_call_get_remote_address_as_string) }
-    }
-    
-    /*
-    /// Returns the 'to' address with its headers associated to this call.
-    public var toAddress: Address? {
-        
-        return getReferenceConvertible(.externallyRetained, linphone_call_get_to_address)
-    }*/
-    
-    /// Returns the diversion address associated to this call.
-    public var diversionAddress: Address? {
-        
-        return getReferenceConvertible(.externallyRetainedImmutable, linphone_call_get_diversion_address)
     }
     
     /// Returns call's duration in seconds.
@@ -151,6 +156,45 @@ public final class Call {
         get { return Reason(linphone_call_get_reason(rawPointer)) }
     }
     
+    /// Returns the far end's user agent description string, if available.
+    public var remoteUserAgent: String? {
+        
+        @inline(__always)
+        get { return getString(linphone_call_get_remote_user_agent) }
+    }
+    
+    /// Returns the far end's sip contact as a string, if available.
+    public var remoteContact: String? {
+        
+        @inline(__always)
+        get { return getString(linphone_call_get_remote_contact) }
+    }
+    
+    /// The ZRTP authentication token to verify.
+    public var authenticationToken: String? {
+        
+        @inline(__always)
+        get { return getString(linphone_call_get_authentication_token) }
+    }
+    
+    /// Whether ZRTP authentication token is verified. 
+    /// If not, it must be verified by users as described in ZRTP procedure.
+    public var authenticationTokenVerified: Bool {
+        
+        @inline(__always)
+        get { return linphone_call_get_authentication_token_verified(rawPointer).boolValue }
+        
+        @inline(__always)
+        set { linphone_call_set_authentication_token_verified(rawPointer, bool_t(newValue)) }
+    }
+    
+    /*
+    public var isInConference: Bool {
+        
+        @inline(__always)
+        get { return linphone_call_is_in_conference(rawPointer).boolValue }
+    }*/
+    
     // MARK: - Methods
     
     /// Accept an incoming call.
@@ -200,6 +244,22 @@ public final class Call {
     public func takePreviewSnapshot(file: String) -> Bool {
         
         return linphone_call_take_preview_snapshot(rawPointer, file) == .success
+    }
+    
+    /// Request remote side to send us a Video Fast Update.
+    @inline(__always)
+    public func sendVideoFastUpdateRequest() {
+        
+        linphone_call_send_vfu_request(rawPointer)
+    }
+    
+    /// Perform a zoom of the video displayed during a call.
+    /// `center` is updated in return in case their coordinates were too excentrated for the requested zoom factor. 
+    /// The zoom ensures that all the screen is fullfilled with the video
+    @inline(__always)
+    public func zoomVideo(factor: Float, center: inout (x: Float, y: Float)) {
+        
+        linphone_call_zoom_video(rawPointer, factor, &center.x, &center.y)
     }
 }
 
