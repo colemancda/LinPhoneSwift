@@ -38,9 +38,7 @@ internal extension LinphoneStatus {
     @inline(__always)
     func lpAssert(function: String = #function, file: StaticString = #file, line: UInt = #line) {
         
-        assert(self == .success, file: file, line: line)
-        
-        guard  else { linphoneFatalError(function: function, file: file, line: line) }
+        assert(self == .success, lpAssertMessage(function: function, file: file, line: line), file: file, line: line)
     }
 }
 
@@ -49,7 +47,7 @@ internal extension Bool {
     @inline(__always)
     func lpAssert(function: String = #function, file: StaticString = #file, line: UInt = #line) {
         
-        guard self else { linphoneFatalError(function: function, file: file, line: line) }
+        assert(self, lpAssertMessage(function: function, file: file, line: line), file: file, line: line)
     }
 }
 
@@ -59,7 +57,7 @@ internal extension Optional {
     func lpAssert(function: String = #function, file: StaticString = #file, line: UInt = #line) -> Wrapped {
         
         guard let value = self
-            else { linphoneFatalError(function: function, file: file, line: line) }
+            else { linphoneFatalError(function: function, file: file, line: line) } // not really assert
         
         return value
     }
@@ -68,11 +66,17 @@ internal extension Optional {
 @_silgen_name("_linphone_swift_fatal_error")
 internal func linphoneFatalError(function: String = #function, file: StaticString = #file, line: UInt = #line) -> Never {
     
-    fatalError(errorMessage(function), file: file, line: line)
+    fatalError(lpFatalErrorMessage(function: function, file: file, line: line), file: file, line: line)
 }
 
 @inline(__always)
-private func errorMessage(function: String = #function, file: StaticString = #file, line: UInt = #line) -> String {
+func lpFatalErrorMessage(function: String = #function, file: StaticString = #file, line: UInt = #line) -> String {
     
     return "An internal Linphone exception occurred in \(function)"
+}
+
+@inline(__always)
+func lpAssertMessage(function: String = #function, file: StaticString = #file, line: UInt = #line) -> String {
+    
+    return "A Linphone assertion failed in \(function)"
 }

@@ -7,6 +7,7 @@
 //
 
 import CLinPhone
+import struct BelledonneSIP.URI
 
 /// LinPhone Address class.
 public struct Address: RawRepresentable {
@@ -41,11 +42,35 @@ public struct Address: RawRepresentable {
         get { return internalReference.reference.stringValue }
     }
     
+    /// Returns the SIP URI only as a string, that is display name is removed.
+    private var uriString: String? {
+        
+        @inline(__always)
+        get { return internalReference.reference.getString(linphone_address_as_string_uri_only) }
+    }
+    
+    /// Returns the SIP URI only, that is display name is removed.
+    private var sip: URI? {
+        
+        @inline(__always)
+        get { return URI(rawValue: uriString ?? "") }
+    }
+    
     /// Whether address is a routable SIP address.
     public var isSIP: Bool {
         
         @inline(__always)
         get { return linphone_address_is_sip(internalReference.reference.rawPointer).boolValue }
+    }
+    
+    /// Whether the address refers to a secure location (sips).
+    public var isSecure: Bool {
+        
+        @inline(__always)
+        get { return linphone_address_get_secure(internalReference.reference.rawPointer).boolValue }
+        
+        @inline(__always)
+        mutating set { linphone_address_set_secure(internalReference.reference.rawPointer, bool_t(newValue)) }
     }
     
     /// Port number as an integer value.
@@ -71,6 +96,7 @@ public struct Address: RawRepresentable {
         @inline(__always)
         get { return internalReference.reference.getString(linphone_address_get_display_name) }
         
+        @inline(__always)
         mutating set { internalReference.mutatingReference.setString(linphone_address_set_display_name, newValue).lpAssert() }
     }
     
@@ -80,6 +106,7 @@ public struct Address: RawRepresentable {
         @inline(__always)
         get { return internalReference.reference.getString(linphone_address_get_username) }
         
+        @inline(__always)
         mutating set { internalReference.mutatingReference.setString(linphone_address_set_username, newValue).lpAssert() }
     }
     
@@ -89,6 +116,7 @@ public struct Address: RawRepresentable {
         @inline(__always)
         get { return internalReference.reference.getString(linphone_address_get_domain) }
         
+        @inline(__always)
         mutating set { internalReference.mutatingReference.setString(linphone_address_set_domain, newValue).lpAssert() }
     }
     
@@ -98,7 +126,27 @@ public struct Address: RawRepresentable {
         @inline(__always)
         get { return TransportType(linphone_address_get_transport(internalReference.reference.rawPointer)) }
         
+        @inline(__always)
         mutating set { linphone_address_set_transport(internalReference.mutatingReference.rawPointer, newValue.linPhoneType).lpAssert() }
+    }
+    
+    /// The domain name.
+    public var method: String? {
+        
+        @inline(__always)
+        get { return internalReference.reference.getString(linphone_address_get_method_param) }
+        
+        @inline(__always)
+        mutating set { internalReference.mutatingReference.setString(linphone_address_set_method_param, newValue) }
+    }
+    
+    // MARK: - Methods
+    
+    /// Removes address's tags and uri headers so that it is displayable to the user.
+    @inline(__always)
+    public mutating func clean() {
+        
+        linphone_address_clean(internalReference.mutatingReference.rawPointer)
     }
 }
 
@@ -106,6 +154,7 @@ public struct Address: RawRepresentable {
 
 extension Address: Equatable {
     
+    @inline(__always)
     public static func == (lhs: Address, rhs: Address) -> Bool {
         
         // same as `linphone_address_equal`, `linphone_address_weak_equal`, 
@@ -165,6 +214,7 @@ extension Address: ReferenceConvertible {
         
         // MARK: - Initialization
         
+        @inline(__always)
         internal init(_ managedPointer: ManagedPointer<UnmanagedPointer>) {
             
             self.managedPointer = managedPointer

@@ -32,7 +32,7 @@ extension Handle {
         return String(cString: cString)
     }
     
-    /// Get a string that needs to be freed.
+    /// Get a string from a function that returns a C string `CChar` buffer that needs to be freed.
     @inline(__always)
     func getString(_ function: (_ internalPointer: RawPointer?) -> (UnsafeMutablePointer<Int8>?)) -> String? {
         
