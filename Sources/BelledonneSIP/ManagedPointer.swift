@@ -1,1 +1,0 @@
-../LinPhone/ManagedPointer.swift

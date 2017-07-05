@@ -83,12 +83,22 @@ public enum Reason: UInt32, LinPhoneEnumeration {
     static let media: Reason = .unsupportedContent // LinphoneReasonMedia
 }
 
+// MARK: - ErrorCode
+
+public typealias ErrorCode = Int32
+
 public extension Reason {
+    
+    /// Converts an error code to a `Linphone.Reason`.
+    init(errorCode: ErrorCode) {
+        
+        self.init(linphone_error_code_to_reason(errorCode))
+    }
     
     /// Converts a `Linphone.Reason` to an error code.
     /// 
     /// - Returns: The error code corresponding to the specified `Linphone.Reason`.
-    var erroCode: Int32 {
+    var errorCode: ErrorCode {
         
         @inline(__always)
         get { return linphone_reason_to_error_code(linPhoneType) }

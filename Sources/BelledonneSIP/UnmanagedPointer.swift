@@ -1,1 +1,0 @@
-../LinPhone/UnmanagedPointer.swift

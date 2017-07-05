@@ -142,24 +142,10 @@
 		6E25EA8B1F0BEB69005BC42C /* URITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E25EA891F0BEA98005BC42C /* URITests.swift */; };
 		6E5291891F0B543C00D4B765 /* URI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5291881F0B543C00D4B765 /* URI.swift */; };
 		6E52918B1F0B553400D4B765 /* URI.SIP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E52918A1F0B553400D4B765 /* URI.SIP.swift */; };
-		6E52918D1F0B58C000D4B765 /* BelledonneObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E52918C1F0B58C000D4B765 /* BelledonneObject.swift */; };
-		6E5291911F0B5B2B00D4B765 /* CopyableHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E52918E1F0B5B2B00D4B765 /* CopyableHandle.swift */; };
+		6E52918D1F0B58C000D4B765 /* Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E52918C1F0B58C000D4B765 /* Object.swift */; };
 		6E5291921F0B5B2B00D4B765 /* Handle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E52918F1F0B5B2B00D4B765 /* Handle.swift */; };
-		6E5291931F0B5B2B00D4B765 /* ReferenceConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5291901F0B5B2B00D4B765 /* ReferenceConvertible.swift */; };
-		6E5291961F0B5BC200D4B765 /* ManagedPointer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5291941F0B5BC200D4B765 /* ManagedPointer.swift */; };
-		6E5291971F0B5BC200D4B765 /* UnmanagedPointer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5291951F0B5BC200D4B765 /* UnmanagedPointer.swift */; };
-		6E5291991F0B631F00D4B765 /* ManagedHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5291981F0B631F00D4B765 /* ManagedHandle.swift */; };
 		6E569B191F09F74D00BF244A /* LinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E569ADC1F09DA3500BF244A /* LinkedList.swift */; };
-		6E569B1D1F09F9AD00BF244A /* UserDataHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E569B1C1F09F9AD00BF244A /* UserDataHandle.swift */; };
 		6E569B1F1F09F9D500BF244A /* Handle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E569B1E1F09F9D500BF244A /* Handle.swift */; };
-		6E569B211F09F9FF00BF244A /* ManagedPointer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E569B201F09F9FF00BF244A /* ManagedPointer.swift */; };
-		6E569B231F09FA1C00BF244A /* UnmanagedPointer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E569B221F09FA1C00BF244A /* UnmanagedPointer.swift */; };
-		6E569B251F09FA4A00BF244A /* ManagedHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E569B241F09FA4A00BF244A /* ManagedHandle.swift */; };
-		6E569B271F09FA7500BF244A /* ReferenceConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E569B261F09FA7500BF244A /* ReferenceConvertible.swift */; };
-		6E569B291F09FC2B00BF244A /* CopyableHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E569B281F09FC2B00BF244A /* CopyableHandle.swift */; };
-		6E569B2B1F0A063F00BF244A /* Handle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E569B2A1F0A063F00BF244A /* Handle.swift */; };
-		6E569B2E1F0A067800BF244A /* CopyableHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E569B2C1F0A067800BF244A /* CopyableHandle.swift */; };
-		6E569B2F1F0A067800BF244A /* ReferenceConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E569B2D1F0A067800BF244A /* ReferenceConvertible.swift */; };
 		6E58AF091F07221B009A0E68 /* StreamType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E58AF081F07221B009A0E68 /* StreamType.swift */; };
 		6E58AF0B1F07234B009A0E68 /* Enumeration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E58AF0A1F07234B009A0E68 /* Enumeration.swift */; };
 		6E58AF0D1F07CE74009A0E68 /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E58AF0C1F07CE74009A0E68 /* Factory.swift */; };
@@ -174,6 +160,9 @@
 		6EF6A6DA1F0C640F00C39864 /* CallLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6A6D91F0C640F00C39864 /* CallLog.swift */; };
 		6EF6A6DE1F0CACAE00C39864 /* Transport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6A6DD1F0CACAE00C39864 /* Transport.swift */; };
 		6EF6A6E01F0D3E2900C39864 /* Reason.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6A6DF1F0D3E2900C39864 /* Reason.swift */; };
+		6EF6A6E21F0D425300C39864 /* ErrorInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6A6E11F0D425300C39864 /* ErrorInfo.swift */; };
+		6EF6A6E41F0D488400C39864 /* ObjectHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6A6E31F0D488400C39864 /* ObjectHandle.swift */; };
+		6EF6A6E71F0D4F3D00C39864 /* Handle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6A6E51F0D4EC800C39864 /* Handle.swift */; };
 		OBJ_28 /* CoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* CoreTests.swift */; };
 		OBJ_30 /* LinPhone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* LinPhone.framework */; };
 /* End PBXBuildFile section */
@@ -376,26 +365,12 @@
 		6E5291871F0B53B100D4B765 /* BelledonneSIPTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BelledonneSIPTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E5291881F0B543C00D4B765 /* URI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URI.swift; sourceTree = "<group>"; };
 		6E52918A1F0B553400D4B765 /* URI.SIP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URI.SIP.swift; sourceTree = "<group>"; };
-		6E52918C1F0B58C000D4B765 /* BelledonneObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BelledonneObject.swift; sourceTree = "<group>"; };
-		6E52918E1F0B5B2B00D4B765 /* CopyableHandle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CopyableHandle.swift; sourceTree = "<group>"; };
+		6E52918C1F0B58C000D4B765 /* Object.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Object.swift; sourceTree = "<group>"; };
 		6E52918F1F0B5B2B00D4B765 /* Handle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Handle.swift; sourceTree = "<group>"; };
-		6E5291901F0B5B2B00D4B765 /* ReferenceConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReferenceConvertible.swift; sourceTree = "<group>"; };
-		6E5291941F0B5BC200D4B765 /* ManagedPointer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagedPointer.swift; sourceTree = "<group>"; };
-		6E5291951F0B5BC200D4B765 /* UnmanagedPointer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnmanagedPointer.swift; sourceTree = "<group>"; };
-		6E5291981F0B631F00D4B765 /* ManagedHandle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagedHandle.swift; sourceTree = "<group>"; };
 		6E569ADC1F09DA3500BF244A /* LinkedList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkedList.swift; sourceTree = "<group>"; };
 		6E569AF21F09F67200BF244A /* BelledonneToolbox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BelledonneToolbox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E569B171F09F67500BF244A /* BelledonneToolboxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BelledonneToolboxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		6E569B1C1F09F9AD00BF244A /* UserDataHandle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDataHandle.swift; sourceTree = "<group>"; };
 		6E569B1E1F09F9D500BF244A /* Handle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Handle.swift; sourceTree = "<group>"; };
-		6E569B201F09F9FF00BF244A /* ManagedPointer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagedPointer.swift; sourceTree = "<group>"; };
-		6E569B221F09FA1C00BF244A /* UnmanagedPointer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnmanagedPointer.swift; sourceTree = "<group>"; };
-		6E569B241F09FA4A00BF244A /* ManagedHandle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagedHandle.swift; sourceTree = "<group>"; };
-		6E569B261F09FA7500BF244A /* ReferenceConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReferenceConvertible.swift; sourceTree = "<group>"; };
-		6E569B281F09FC2B00BF244A /* CopyableHandle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CopyableHandle.swift; sourceTree = "<group>"; };
-		6E569B2A1F0A063F00BF244A /* Handle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Handle.swift; sourceTree = "<group>"; };
-		6E569B2C1F0A067800BF244A /* CopyableHandle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CopyableHandle.swift; sourceTree = "<group>"; };
-		6E569B2D1F0A067800BF244A /* ReferenceConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReferenceConvertible.swift; sourceTree = "<group>"; };
 		6E58AF081F07221B009A0E68 /* StreamType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreamType.swift; sourceTree = "<group>"; };
 		6E58AF0A1F07234B009A0E68 /* Enumeration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enumeration.swift; sourceTree = "<group>"; };
 		6E58AF0C1F07CE74009A0E68 /* Factory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Factory.swift; sourceTree = "<group>"; };
@@ -411,6 +386,9 @@
 		6EF6A6D91F0C640F00C39864 /* CallLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallLog.swift; sourceTree = "<group>"; };
 		6EF6A6DD1F0CACAE00C39864 /* Transport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transport.swift; sourceTree = "<group>"; };
 		6EF6A6DF1F0D3E2900C39864 /* Reason.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reason.swift; sourceTree = "<group>"; };
+		6EF6A6E11F0D425300C39864 /* ErrorInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorInfo.swift; sourceTree = "<group>"; };
+		6EF6A6E31F0D488400C39864 /* ObjectHandle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectHandle.swift; sourceTree = "<group>"; };
+		6EF6A6E51F0D4EC800C39864 /* Handle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Handle.swift; sourceTree = "<group>"; };
 		OBJ_11 /* CoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreTests.swift; sourceTree = "<group>"; };
 		OBJ_14 /* LinPhone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LinPhone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_15 /* LinPhoneTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = LinPhoneTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -704,13 +682,9 @@
 			children = (
 				6E5291881F0B543C00D4B765 /* URI.swift */,
 				6E52918A1F0B553400D4B765 /* URI.SIP.swift */,
-				6E52918C1F0B58C000D4B765 /* BelledonneObject.swift */,
-				6E5291941F0B5BC200D4B765 /* ManagedPointer.swift */,
-				6E5291951F0B5BC200D4B765 /* UnmanagedPointer.swift */,
+				6E52918C1F0B58C000D4B765 /* Object.swift */,
+				6EF6A6E31F0D488400C39864 /* ObjectHandle.swift */,
 				6E52918F1F0B5B2B00D4B765 /* Handle.swift */,
-				6E5291981F0B631F00D4B765 /* ManagedHandle.swift */,
-				6E52918E1F0B5B2B00D4B765 /* CopyableHandle.swift */,
-				6E5291901F0B5B2B00D4B765 /* ReferenceConvertible.swift */,
 			);
 			path = BelledonneSIP;
 			sourceTree = "<group>";
@@ -718,10 +692,8 @@
 		6E569ADB1F09DA2300BF244A /* BelledonneToolbox */ = {
 			isa = PBXGroup;
 			children = (
+				6EF6A6E51F0D4EC800C39864 /* Handle.swift */,
 				6E569ADC1F09DA3500BF244A /* LinkedList.swift */,
-				6E569B2A1F0A063F00BF244A /* Handle.swift */,
-				6E569B2C1F0A067800BF244A /* CopyableHandle.swift */,
-				6E569B2D1F0A067800BF244A /* ReferenceConvertible.swift */,
 			);
 			path = BelledonneToolbox;
 			sourceTree = "<group>";
@@ -744,17 +716,12 @@
 				6EF6A6D71F0C427B00C39864 /* Address.swift */,
 				6E58AF0C1F07CE74009A0E68 /* Factory.swift */,
 				6E58AF081F07221B009A0E68 /* StreamType.swift */,
+				6EF6A6E11F0D425300C39864 /* ErrorInfo.swift */,
 				6EF6A6DD1F0CACAE00C39864 /* Transport.swift */,
 				6EF6A6DF1F0D3E2900C39864 /* Reason.swift */,
 				6E58AF0A1F07234B009A0E68 /* Enumeration.swift */,
 				6E58AF121F07E9E9009A0E68 /* Internal.swift */,
-				6E569B1C1F09F9AD00BF244A /* UserDataHandle.swift */,
 				6E569B1E1F09F9D500BF244A /* Handle.swift */,
-				6E569B241F09FA4A00BF244A /* ManagedHandle.swift */,
-				6E569B221F09FA1C00BF244A /* UnmanagedPointer.swift */,
-				6E569B201F09F9FF00BF244A /* ManagedPointer.swift */,
-				6E569B281F09FC2B00BF244A /* CopyableHandle.swift */,
-				6E569B261F09FA7500BF244A /* ReferenceConvertible.swift */,
 			);
 			path = LinPhone;
 			sourceTree = "<group>";
@@ -1093,14 +1060,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				6E5291961F0B5BC200D4B765 /* ManagedPointer.swift in Sources */,
 				6E5291891F0B543C00D4B765 /* URI.swift in Sources */,
-				6E5291971F0B5BC200D4B765 /* UnmanagedPointer.swift in Sources */,
-				6E5291931F0B5B2B00D4B765 /* ReferenceConvertible.swift in Sources */,
-				6E52918D1F0B58C000D4B765 /* BelledonneObject.swift in Sources */,
-				6E5291991F0B631F00D4B765 /* ManagedHandle.swift in Sources */,
+				6EF6A6E41F0D488400C39864 /* ObjectHandle.swift in Sources */,
+				6E52918D1F0B58C000D4B765 /* Object.swift in Sources */,
 				6E5291921F0B5B2B00D4B765 /* Handle.swift in Sources */,
-				6E5291911F0B5B2B00D4B765 /* CopyableHandle.swift in Sources */,
 				6E52918B1F0B553400D4B765 /* URI.SIP.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1117,10 +1080,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				6E569B2E1F0A067800BF244A /* CopyableHandle.swift in Sources */,
-				6E569B2F1F0A067800BF244A /* ReferenceConvertible.swift in Sources */,
 				6E569B191F09F74D00BF244A /* LinkedList.swift in Sources */,
-				6E569B2B1F0A063F00BF244A /* Handle.swift in Sources */,
+				6EF6A6E71F0D4F3D00C39864 /* Handle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1153,22 +1114,17 @@
 			files = (
 				6E58AF131F07E9E9009A0E68 /* Internal.swift in Sources */,
 				6EF6A6DE1F0CACAE00C39864 /* Transport.swift in Sources */,
-				6E569B231F09FA1C00BF244A /* UnmanagedPointer.swift in Sources */,
 				6EF6A6E01F0D3E2900C39864 /* Reason.swift in Sources */,
-				6E569B271F09FA7500BF244A /* ReferenceConvertible.swift in Sources */,
-				6E569B291F09FC2B00BF244A /* CopyableHandle.swift in Sources */,
 				6E58AF0D1F07CE74009A0E68 /* Factory.swift in Sources */,
-				6E569B251F09FA4A00BF244A /* ManagedHandle.swift in Sources */,
 				6EF6A6DA1F0C640F00C39864 /* CallLog.swift in Sources */,
-				6E569B1D1F09F9AD00BF244A /* UserDataHandle.swift in Sources */,
 				6E569B1F1F09F9D500BF244A /* Handle.swift in Sources */,
 				6E58AF0B1F07234B009A0E68 /* Enumeration.swift in Sources */,
 				6E58AF091F07221B009A0E68 /* StreamType.swift in Sources */,
-				6E569B211F09F9FF00BF244A /* ManagedPointer.swift in Sources */,
 				6EF6A6D81F0C427B00C39864 /* Address.swift in Sources */,
 				6E58AF0F1F07D245009A0E68 /* Configuration.swift in Sources */,
 				6E76D7401F0705B70017362C /* Core.swift in Sources */,
 				6EF6A6D61F0C3E5100C39864 /* Call.swift in Sources */,
+				6EF6A6E21F0D425300C39864 /* ErrorInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
