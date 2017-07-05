@@ -6,7 +6,7 @@
 //
 //
 
-import CLinPhone
+import struct CLinPhone.LinphoneStreamType
 
 /// Enum describing the Linphone stream types.
 public enum StreamType: UInt32, LinPhoneEnumeration {

@@ -70,13 +70,35 @@ public struct Address: RawRepresentable {
         
         @inline(__always)
         get { return internalReference.reference.getString(linphone_address_get_display_name) }
+        
+        mutating set { internalReference.mutatingReference.setString(linphone_address_set_display_name, newValue).lpAssert() }
     }
     
-    /// Sets the display name.
-    @inline(__always)
-    public mutating func setDisplayName(_ newValue: String?) -> Bool {
+    /// The username.
+    public var username: String? {
         
-        return internalReference.mutatingReference.setString(linphone_address_set_display_name, newValue) == .success
+        @inline(__always)
+        get { return internalReference.reference.getString(linphone_address_get_username) }
+        
+        mutating set { internalReference.mutatingReference.setString(linphone_address_set_username, newValue).lpAssert() }
+    }
+    
+    /// The domain name.
+    public var domain: String? {
+        
+        @inline(__always)
+        get { return internalReference.reference.getString(linphone_address_get_domain) }
+        
+        mutating set { internalReference.mutatingReference.setString(linphone_address_set_domain, newValue).lpAssert() }
+    }
+    
+    /// The transport.
+    public var transportType: TransportType {
+        
+        @inline(__always)
+        get { return TransportType(linphone_address_get_transport(internalReference.reference.rawPointer)) }
+        
+        mutating set { linphone_address_set_transport(internalReference.mutatingReference.rawPointer, newValue.linPhoneType).lpAssert() }
     }
 }
 
@@ -111,6 +133,22 @@ extension Address: CustomStringConvertible {
         
         @inline(__always)
         get { return rawValue }
+    }
+}
+
+// MARK: - Supporting Types
+
+public extension Address {
+    
+    /// Enum describing transport type for `Linphone.Address`.
+    public enum TransportType: UInt32, LinPhoneEnumeration {
+        
+        public typealias LinPhoneType = LinphoneTransportType
+        
+        case udp
+        case tcp
+        case tls
+        case dtls
     }
 }
 
