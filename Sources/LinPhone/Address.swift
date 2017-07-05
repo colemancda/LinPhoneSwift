@@ -78,8 +78,6 @@ public struct Address: RawRepresentable {
         
         return internalReference.mutatingReference.setString(linphone_address_set_display_name, newValue) == .success
     }
-    
-    
 }
 
 // MARK: - Equatable

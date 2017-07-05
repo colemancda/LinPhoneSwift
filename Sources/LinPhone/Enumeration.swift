@@ -17,6 +17,7 @@ public protocol LinPhoneEnumeration: RawRepresentable {
 
 public extension LinPhoneEnumeration where Self.RawValue == LinPhoneType.RawValue {
     
+    @inline(__always)
     init(_ linPhoneType: LinPhoneType) {
         
         self.init(rawValue: linPhoneType.rawValue)!
@@ -24,6 +25,7 @@ public extension LinPhoneEnumeration where Self.RawValue == LinPhoneType.RawValu
     
     var linPhoneType: LinPhoneType {
         
-        return LinPhoneType(rawValue: self.rawValue)!
+        @inline(__always)
+        get { return LinPhoneType(rawValue: self.rawValue)! }
     }
 }
