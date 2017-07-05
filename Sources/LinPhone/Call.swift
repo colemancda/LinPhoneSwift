@@ -14,11 +14,11 @@ public final class Call {
     // MARK: - Properties
     
     @_versioned
-    internal let managedPointer: ManagedPointer<Call.UnmanagedPointer>
+    internal let managedPointer: ManagedPointer<UnmanagedPointer>
     
     // MARK: - Initialization
     
-    internal init(_ managedPointer: ManagedPointer<Call.UnmanagedPointer>) {
+    internal init(_ managedPointer: ManagedPointer<UnmanagedPointer>) {
         
         self.managedPointer = managedPointer
     }
@@ -34,6 +34,15 @@ public final class Call {
     public func accept() -> Bool {
         
         return linphone_call_accept(rawPointer) == .success
+    }
+    
+    /// Pauses the call.
+    /// 
+    /// If a music file has been setup using `Linphone.Core.setPlayFile()`, this file will be played to the remote user.
+    /// The only way to resume a paused call is to call `resume()`.
+    public func pause() -> Bool {
+        
+        return linphone_call_pause(rawPointer) == .success
     }
     
     /// Resumes a call. 

@@ -25,7 +25,7 @@ public struct Address: RawRepresentable {
         self.internalReference = CopyOnWrite(internalReference, externalRetain: externalRetain)
     }
     
-    /// Initialize an address from a string.
+    /// Initialize an `Address` from a string.
     public init?(rawValue: String) {
         
         guard let reference = Reference(string: rawValue)
