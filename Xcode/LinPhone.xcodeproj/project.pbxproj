@@ -171,6 +171,7 @@
 		6EF6A6D41F0C059400C39864 /* BelledonneToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E569AF21F09F67200BF244A /* BelledonneToolbox.framework */; };
 		6EF6A6D61F0C3E5100C39864 /* Call.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6A6D51F0C3E5100C39864 /* Call.swift */; };
 		6EF6A6D81F0C427B00C39864 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6A6D71F0C427B00C39864 /* Address.swift */; };
+		6EF6A6DA1F0C640F00C39864 /* CallLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6A6D91F0C640F00C39864 /* CallLog.swift */; };
 		OBJ_28 /* CoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* CoreTests.swift */; };
 		OBJ_30 /* LinPhone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* LinPhone.framework */; };
 /* End PBXBuildFile section */
@@ -405,6 +406,7 @@
 		6E76D76D1F0710D90017362C /* module.map */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = module.map; sourceTree = "<group>"; };
 		6EF6A6D51F0C3E5100C39864 /* Call.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Call.swift; sourceTree = "<group>"; };
 		6EF6A6D71F0C427B00C39864 /* Address.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
+		6EF6A6D91F0C640F00C39864 /* CallLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallLog.swift; sourceTree = "<group>"; };
 		OBJ_11 /* CoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreTests.swift; sourceTree = "<group>"; };
 		OBJ_14 /* LinPhone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LinPhone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_15 /* LinPhoneTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = LinPhoneTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -733,6 +735,7 @@
 			children = (
 				6E76D73E1F0705B70017362C /* Core.swift */,
 				6EF6A6D51F0C3E5100C39864 /* Call.swift */,
+				6EF6A6D91F0C640F00C39864 /* CallLog.swift */,
 				6E58AF0E1F07D245009A0E68 /* Configuration.swift */,
 				6EF6A6D71F0C427B00C39864 /* Address.swift */,
 				6E58AF0C1F07CE74009A0E68 /* Factory.swift */,
@@ -1142,21 +1145,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
+				6E58AF131F07E9E9009A0E68 /* Internal.swift in Sources */,
 				6E569B231F09FA1C00BF244A /* UnmanagedPointer.swift in Sources */,
 				6E569B271F09FA7500BF244A /* ReferenceConvertible.swift in Sources */,
 				6E569B291F09FC2B00BF244A /* CopyableHandle.swift in Sources */,
 				6E58AF0D1F07CE74009A0E68 /* Factory.swift in Sources */,
 				6E569B251F09FA4A00BF244A /* ManagedHandle.swift in Sources */,
-				6EF6A6D61F0C3E5100C39864 /* Call.swift in Sources */,
-				6E58AF0F1F07D245009A0E68 /* Configuration.swift in Sources */,
+				6EF6A6DA1F0C640F00C39864 /* CallLog.swift in Sources */,
 				6E569B1D1F09F9AD00BF244A /* UserDataHandle.swift in Sources */,
 				6E569B1F1F09F9D500BF244A /* Handle.swift in Sources */,
-				6EF6A6D81F0C427B00C39864 /* Address.swift in Sources */,
 				6E58AF0B1F07234B009A0E68 /* Enumeration.swift in Sources */,
-				6E569B211F09F9FF00BF244A /* ManagedPointer.swift in Sources */,
-				6E58AF131F07E9E9009A0E68 /* Internal.swift in Sources */,
-				6E76D7401F0705B70017362C /* Core.swift in Sources */,
 				6E58AF091F07221B009A0E68 /* StreamType.swift in Sources */,
+				6E569B211F09F9FF00BF244A /* ManagedPointer.swift in Sources */,
+				6EF6A6D81F0C427B00C39864 /* Address.swift in Sources */,
+				6E58AF0F1F07D245009A0E68 /* Configuration.swift in Sources */,
+				6E76D7401F0705B70017362C /* Core.swift in Sources */,
+				6EF6A6D61F0C3E5100C39864 /* Call.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

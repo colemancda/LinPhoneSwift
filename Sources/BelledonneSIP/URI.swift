@@ -18,9 +18,10 @@ public struct URI {
     
     // MARK: - Initialization
     
-    internal init(_ internalReference: Reference) {
+    @inline(__always)
+    internal init(_ internalReference: Reference, externalRetain: Bool = false) {
         
-        self.internalReference = CopyOnWrite(internalReference)
+        self.internalReference = CopyOnWrite(internalReference, externalRetain: externalRetain)
     }
     
     /// Initialize an empty URI.

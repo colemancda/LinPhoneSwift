@@ -114,18 +114,17 @@ public final class Core {
     }
     
     /// Returns the `Configuration` object used to manage the storage (config) file.
-    public lazy var configuration: Configuration? = {
+    public lazy var configuration: Configuration = {
         
         // get handle pointer
         guard let rawPointer = linphone_core_get_config(self.rawPointer)
-            else { return nil }
+            else { fatalError("Core should always have a configuration") }
         
-        // retain handle because we will release it when swift object is released
-        // this will prevent a crash if any other swift object shares the same internal handle,
-        let UnmanagedPointer = Configuration.UnmanagedPointer(rawPointer)
-        UnmanagedPointer.retain()
+        // increment reference count since it will be decremented when swift object is released
+        let unmanagedPointer = Configuration.UnmanagedPointer(rawPointer)
+        unmanagedPointer.retain()
         
-        return Configuration(ManagedPointer(UnmanagedPointer))
+        return Configuration(ManagedPointer(unmanagedPointer))
     }()
     
     /// Returns the `MediaStreamer.Factory` used by the `Linphone.Core` to control mediastreamer2 library.
