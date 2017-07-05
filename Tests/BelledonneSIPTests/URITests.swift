@@ -22,12 +22,12 @@ final class URITests: XCTestCase {
             
             let rawURI = "http://www.linphone.org/index.html"
             
-            guard let sourceURI = URI(string: rawURI)
+            guard let sourceURI = URI(rawValue: rawURI)
                 else { XCTFail(); return }
             
-            XCTAssert(sourceURI.stringValue == rawURI)
+            XCTAssert(sourceURI.rawValue == rawURI)
             
-            guard let firstURI = URI(string: sourceURI.stringValue)
+            guard let firstURI = URI(rawValue: sourceURI.rawValue)
                 else { XCTFail(); return }
             
             let uri = firstURI // no copy since we are using value types
@@ -35,15 +35,15 @@ final class URITests: XCTestCase {
             XCTAssert(uri.scheme == "http")
             XCTAssert(uri.host == "www.linphone.org")
             XCTAssert(uri.path == "/index.html")
-            XCTAssert(uri.stringValue == uri.description)
-            XCTAssert(uri.stringValue == rawURI)
+            XCTAssert(uri.rawValue == uri.description)
+            XCTAssert(uri.rawValue == rawURI)
         }
         
         do {
             
             let rawURI = "http://www.linphone.org/"
             
-            guard let sourceURI = URI(string: rawURI)
+            guard let sourceURI = URI(rawValue: rawURI)
                 else { XCTFail(); return }
             
             XCTAssert(sourceURI.path == "/")
@@ -53,12 +53,12 @@ final class URITests: XCTestCase {
             
             let rawURI = "http://www.linphone.org/a/b/c"
             
-            guard let sourceURI = URI(string: rawURI)
+            guard let sourceURI = URI(rawValue: rawURI)
                 else { XCTFail(); return }
             
             XCTAssert(sourceURI.path == "/a/b/c")
-            XCTAssert(sourceURI.stringValue == "http://www.linphone.org/a/b/c")
-            XCTAssert(sourceURI.description == sourceURI.stringValue)
+            XCTAssert(sourceURI.rawValue == "http://www.linphone.org/a/b/c")
+            XCTAssert(sourceURI.description == sourceURI.rawValue)
         }
     }
     
@@ -66,7 +66,7 @@ final class URITests: XCTestCase {
         
         let rawURI = "http://www.linphone.org/index.html"
         
-        guard let sourceURI = URI(string: rawURI)
+        guard let sourceURI = URI(rawValue: rawURI)
             else { XCTFail(); return }
         
         let unmutatedCopy = sourceURI
