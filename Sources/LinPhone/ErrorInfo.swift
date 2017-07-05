@@ -8,10 +8,7 @@
 
 import CLinPhone
 
-/// Object representing full details about a signaling error or status.
-/// All LinphoneErrorInfo object returned by the liblinphone API are readonly and transcients. 
-/// For safety they must be used immediately after obtaining them.
-/// Any other function call to the liblinphone may change their content or invalidate the pointer.
+/// Struct representing full details about a signaling error or status.
 public struct ErrorInfo {
     
     // MARK: - Properties
@@ -41,6 +38,11 @@ public struct ErrorInfo {
 
 extension ErrorInfo: ReferenceConvertible {
     
+    
+    /// Object representing full details about a signaling error or status.
+    /// All LinphoneErrorInfo object returned by the liblinphone API are readonly and transcients.
+    /// For safety they must be used immediately after obtaining them.
+    /// Any other function call to the liblinphone may change their content or invalidate the pointer.
     internal final class Reference: BelledonneObjectHandle {
         
         typealias RawPointer = BelledonneUnmanagedObject.RawPointer

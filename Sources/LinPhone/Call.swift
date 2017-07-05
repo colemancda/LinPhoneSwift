@@ -78,7 +78,7 @@ public final class Call {
     /// Returns the remote address associated to this call.
     public var remoteAddress: Address? {
         
-        return getReferenceConvertible(linphone_call_get_remote_address)
+        return getReferenceConvertible(.externallyRetainedImmutable, linphone_call_get_remote_address)
     }
     
     /// Returns the remote address associated to this call.
@@ -92,13 +92,13 @@ public final class Call {
     /// Returns the 'to' address with its headers associated to this call.
     public var toAddress: Address? {
         
-        return getReferenceConvertible(linphone_call_get_to_address)
+        return getReferenceConvertible(.externallyRetained, linphone_call_get_to_address)
     }*/
     
     /// Returns the diversion address associated to this call.
     public var diversionAddress: Address? {
         
-        return getReferenceConvertible(linphone_call_get_diversion_address)
+        return getReferenceConvertible(.externallyRetainedImmutable, linphone_call_get_diversion_address)
     }
     
     /// Returns call's duration in seconds.

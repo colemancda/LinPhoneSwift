@@ -135,30 +135,7 @@ internal extension ManagedHandle where RawPointer == Unmanaged.RawPointer  {
     }
 }
 
-internal extension ManagedHandle {
-    
-    @inline(__always)
-    func getReferenceConvertible <Value: ReferenceConvertible> (isRetained: Bool = true, _ function: ((RawPointer?) -> Value.Reference.Unmanaged.RawPointer?)) -> Value? where Value.Reference: ManagedHandle {
-        
-        // get handle pointer
-        guard let rawPointer = function(self.rawPointer)
-            else { return nil }
-        
-        // create swift object for reference convertible struct
-        let reference = Value.Reference(ManagedPointer(Value.Reference.Unmanaged(rawPointer)))
-        
-        // Object is already retained externally by the reciever,
-        // so we must copy / clone the reference object on next mutation regardless of ARC uniqueness / retain count,
-        // this is more efficient than unnecesarily copying right now, since the object may never be mutated.
-        //
-        // If we dont copy or set this flag, and the struct is modified with its reference object
-        // uniquely retained (at least according to ARC), we will be mutating  the internal handle
-        // shared by the reciever and possibly other C objects, which would lead to bugs
-        // and violate value semantics for reference-backed value types.
-        let value = Value(reference, externalRetain: isRetained)
-        
-        return value
-    }
+internal extension Handle {
     
     @inline(__always)
     func getManagedHandle <Handle: ManagedHandle> (_ function: ((RawPointer?) -> Handle.Unmanaged.RawPointer?)) -> Handle? {
@@ -218,6 +195,76 @@ internal protocol ReferenceConvertible {
     var internalReference: CopyOnWrite<Reference> { get }
     
     init(_ internalReference: Reference, externalRetain: Bool)
+}
+
+/// Memory management rules for creating a value type (e.g. structs) backed by a C object pointer.
+internal enum ReferenceConvertibleMemoryManagement {
+    
+    /// Object is new or uniquely retained (e.g. C manual reference count is 1).
+    ///
+    /// A new reference convertible struct can point to this reference directly.
+    case uniqueReference
+    
+    /// Object is already retained externally but is immutable (e.g. C manual reference count > 1).
+    ///
+    /// A new reference convertible struct can point to this reference, but any subsequent mutations
+    /// must copy the internal reference regardless of the current Swift ARC reference count.
+    case externallyRetainedImmutable
+    
+    /// Object is already retained externally and could be mutated (e.g. C manual reference count > 1).
+    /// 
+    /// A new reference convertible struct cannot point to this reference directly,
+    /// and must be immediately copied to avoid invalid shared state and unforeseen mutations.
+    case externallyRetainedMutable
+}
+
+internal extension Handle {
+    
+    @inline(__always)
+    func getReferenceConvertible <Value: ReferenceConvertible> (_ memoryManagement: ReferenceConvertibleMemoryManagement, _ function: ((RawPointer?) -> Value.Reference.Unmanaged.RawPointer?)) -> Value? where Value.Reference: ManagedHandle {
+        
+        // get handle pointer
+        guard let rawPointer = function(self.rawPointer)
+            else { return nil }
+        
+        // create swift object for reference convertible struct
+        let reference = Value.Reference(ManagedPointer(Value.Reference.Unmanaged(rawPointer)))
+        
+        let value: Value
+        
+        switch memoryManagement {
+            
+        case .uniqueReference:
+            
+            // Object is new and is not already retained externally (non-ARC) by the reciever.
+            value = Value(reference, externalRetain: false)
+            
+        case .externallyRetainedImmutable:
+            
+            // Object is already retained externally (non-ARC) by the reciever,
+            // so we must copy / clone the reference object on next mutation regardless of ARC uniqueness / retain count,
+            // this is more efficient than unnecesarily copying right now, since the object may never be mutated.
+            //
+            // If we dont copy or set this flag, and the struct is modified with its reference object
+            // uniquely retained (at least according to ARC), we will be mutating  the internal handle
+            // shared by the reciever and possibly other C objects, which would lead to bugs
+            // and violate value semantics for reference-backed value types.
+            value = Value(reference, externalRetain: true)
+            
+        case .externallyRetainedMutable:
+            
+            // Object is already retained externally (non-ARC) by the reciever,
+            // so we must copy / clone the reference object immediately
+            // to avoid unforeseen mutations
+            
+            guard let referenceCopy = reference.copy
+                else { fatalError("Could not copy reference \(reference)") }
+            
+            value = Value(referenceCopy, externalRetain: false)
+        }
+        
+        return value
+    }
 }
 
 /// Encapsulates behavior surrounding value semantics and copy-on-write behavior
