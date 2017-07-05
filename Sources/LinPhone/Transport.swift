@@ -8,4 +8,7 @@
 
 import CLinPhone
 
-
+public final class Transport {
+    
+    
+}

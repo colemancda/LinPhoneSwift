@@ -110,6 +110,18 @@ public struct Address: RawRepresentable {
         mutating set { internalReference.mutatingReference.setString(linphone_address_set_username, newValue).lpAssert() }
     }
     
+    /// The password encoded in the address. 
+    /// 
+    /// - Note: It is used for basic authentication (not recommended).
+    public var password: String? {
+        
+        @inline(__always)
+        get { return internalReference.reference.getString(linphone_address_get_password) }
+        
+        @inline(__always)
+        mutating set { internalReference.mutatingReference.setString(linphone_address_set_password, newValue) }
+    }
+    
     /// The domain name.
     public var domain: String? {
         
@@ -130,7 +142,7 @@ public struct Address: RawRepresentable {
         mutating set { linphone_address_set_transport(internalReference.mutatingReference.rawPointer, newValue.linPhoneType).lpAssert() }
     }
     
-    /// The domain name.
+    /// the value of the method parameter.
     public var method: String? {
         
         @inline(__always)
@@ -148,6 +160,93 @@ public struct Address: RawRepresentable {
         
         linphone_address_clean(internalReference.mutatingReference.rawPointer)
     }
+    /*
+    /// Get the header encoded in the address.
+    @inline(__always)
+    public func header(_ name: String) -> String? {
+        
+        return internalReference.reference.getString { linphone_address_get_header($0, name) }
+    }*/
+    
+    /// Set a header into the address. 
+    ///
+    /// Headers appear in the URI with '?', such as `<sip:test.org?SomeHeader=SomeValue>`.
+    @inline(__always)
+    public mutating func setHeader(_ name: String, value: String?) {
+        
+        internalReference.mutatingReference.setString({ linphone_address_set_header($0, name, $1) }, value)
+    }
+    
+    /// Whether the address contains the parameter.
+    @inline(__always)
+    public func hasParameter(_ name: String) -> Bool {
+        
+        return linphone_address_has_param(internalReference.reference.rawPointer, name).boolValue
+    }
+    
+    /// Get the parameter encoded in the address.
+    @inline(__always)
+    public func parameter(_ name: String) -> String? {
+        
+        return internalReference.reference.getString { linphone_address_get_param($0, name) }
+    }
+    
+    /// Set a parameter into the address.
+    @inline(__always)
+    public mutating func setParameter(_ name: String, value: String?) {
+        
+        internalReference.mutatingReference.setString({ linphone_address_set_param($0, name, $1) }, value)
+    }
+    
+    /// Whether the address contains the parameter.
+    @inline(__always)
+    public func hasURIParameter(_ name: String) -> Bool {
+        
+        return linphone_address_has_uri_param(internalReference.reference.rawPointer, name).boolValue
+    }
+    
+    /// Get the parameter encoded in the address.
+    @inline(__always)
+    public func uriParameter(_ name: String) -> String? {
+        
+        return internalReference.reference.getString { linphone_address_get_uri_param($0, name) }
+    }
+    
+    /// Set a parameter into the address.
+    @inline(__always)
+    public mutating func setURIParameter(_ name: String, value: String?) {
+        
+        internalReference.mutatingReference.setString({ linphone_address_set_uri_param($0, name, $1) }, value)
+    }
+    
+    // MARK: - Subscripting
+    /*
+    public subscript (header name: String) -> String? {
+        
+        @inline(__always)
+        get { return header(name) }
+        
+        @inline(__always)
+        mutating set { setHeader(name, value: newValue) }
+    }*/
+    
+    public subscript (parameter name: String) -> String? {
+        
+        @inline(__always)
+        get { return parameter(name) }
+        
+        @inline(__always)
+        mutating set { setParameter(name, value: newValue) }
+    }
+    
+    public subscript (uriParameter name: String) -> String? {
+        
+        @inline(__always)
+        get { return uriParameter(name) }
+        
+        @inline(__always)
+        mutating set { setURIParameter(name, value: newValue) }
+    }
 }
 
 // MARK: - Equatable
@@ -157,8 +256,8 @@ extension Address: Equatable {
     @inline(__always)
     public static func == (lhs: Address, rhs: Address) -> Bool {
         
-        // same as `linphone_address_equal`, `linphone_address_weak_equal`, 
-        // compares all properties, not sure which one is more efficient and accurate
+        // same as `linphone_address_equal`. The function `linphone_address_weak_equal`
+        // compares all properties, but not sure which one is more efficient and accurate.
         return lhs.rawValue == rhs.rawValue
     }
 }
