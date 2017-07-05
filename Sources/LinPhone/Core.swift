@@ -89,6 +89,22 @@ public final class Core {
     
     // MARK: - Accessors
     
+    /// Returns the `Configuration` object used to manage the storage (config) file.
+    public lazy var configuration: Configuration = self.getManagedHandle(linphone_core_get_config)! // should never be nil
+    
+    /// Returns the `MediaStreamer.Factory` used by the `Linphone.Core` to control mediastreamer2 library.
+    ///
+    /// - Note: The object is only guarenteed to be valid for the lifetime of the closure.
+    public func withMediaStreamerFactory<Result>(_ body: (MediaStreamer.Factory) throws -> Result) rethrows -> Result {
+        
+        guard let rawPointer = linphone_core_get_ms_factory(self.rawPointer)
+            else { fatalError("Nil pointer") }
+        
+        let factory = MediaStreamer.Factory(rawPointer: rawPointer, isOwner: false)
+        
+        return try body(factory)
+    }
+    
     /// The path to a file or folder containing the trusted root CAs (PEM format)
     public var rootCA: String? {
         
@@ -111,33 +127,6 @@ public final class Core {
     public func setUserAgent(name: String, version: String) {
         
          linphone_core_set_user_agent(rawPointer, name, version)
-    }
-    
-    /// Returns the `Configuration` object used to manage the storage (config) file.
-    public lazy var configuration: Configuration = {
-        
-        // get handle pointer
-        guard let rawPointer = linphone_core_get_config(self.rawPointer)
-            else { fatalError("Core should always have a configuration") }
-        
-        // increment reference count since it will be decremented when swift object is released
-        let unmanagedPointer = Configuration.UnmanagedPointer(rawPointer)
-        unmanagedPointer.retain()
-        
-        return Configuration(ManagedPointer(unmanagedPointer))
-    }()
-    
-    /// Returns the `MediaStreamer.Factory` used by the `Linphone.Core` to control mediastreamer2 library.
-    ///
-    /// - Note: The object is only guarenteed to be valid for the lifetime of the closure.
-    public func withMediaStreamerFactory<Result>(_ body: (MediaStreamer.Factory) throws -> Result) rethrows -> Result {
-        
-        guard let rawPointer = linphone_core_get_ms_factory(self.rawPointer)
-            else { fatalError("Nil pointer") }
-        
-        let factory = MediaStreamer.Factory(rawPointer: rawPointer, isOwner: false)
-        
-        return try body(factory)
     }
     
     /// Specify whether the tls server certificate common name must be verified when connecting to a SIP/TLS server.
@@ -233,6 +222,15 @@ public final class Core {
         set { linphone_core_set_max_calls(rawPointer, Int32(newValue)) }
     }
     
+    /// Get the number of missed calls. 
+    ///
+    /// Once checked, this counter can be reset with `resetMissedCalls()`.
+    public var missedCalls: Int {
+        
+        @inline(__always)
+        get { return Int(linphone_core_get_missed_calls_count(rawPointer)) }
+    }
+    
     // MARK: - Methods
     
     /// Main loop function. It is crucial that your application call it periodically.
@@ -302,6 +300,13 @@ public final class Core {
     public func remove(supportedTag tag: String) {
         
          linphone_core_remove_supported_tag(rawPointer, tag)
+    }
+    
+    /// Reset the counter of missed calls.
+    @inline(__always)
+    public func resetMissedCalls() {
+        
+        linphone_core_reset_missed_calls_count(rawPointer)
     }
 }
 

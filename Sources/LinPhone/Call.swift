@@ -18,6 +18,7 @@ public final class Call {
     
     // MARK: - Initialization
     
+    @inline(__always)
     internal init(_ managedPointer: ManagedPointer<UnmanagedPointer>) {
         
         self.managedPointer = managedPointer
@@ -31,6 +32,7 @@ public final class Call {
     /// where it will receive a `.incoming` event with the associated `Linphone.Call` object.
     ///
     /// The application can later accept the call using this method.
+    @inline(__always)
     public func accept() -> Bool {
         
         return linphone_call_accept(rawPointer) == .success
@@ -40,6 +42,7 @@ public final class Call {
     /// 
     /// If a music file has been setup using `Linphone.Core.setPlayFile()`, this file will be played to the remote user.
     /// The only way to resume a paused call is to call `resume()`.
+    @inline(__always)
     public func pause() -> Bool {
         
         return linphone_call_pause(rawPointer) == .success
@@ -48,6 +51,7 @@ public final class Call {
     /// Resumes a call. 
     ///
     /// The call needs to have been paused previously with `pause()`.
+    @inline(__always)
     public func resume() -> Bool {
         
         return linphone_call_resume(rawPointer) == .success
@@ -55,7 +59,38 @@ public final class Call {
     
     // MARK: - Accessors
     
-    // public var core: Core
+    /// Get the `Linphone.Core` object that has created the specified call.
+    public var core: Core {
+        
+        return getManagedHandle(linphone_call_get_core)!
+    }
+    
+    /// Gets the transferer if this call was started automatically as a result of an incoming transfer request.
+    /// The call in which the transfer request was received is returned in this case.
+    /// 
+    /// - Returns: The transferer call if the specified call was started automatically as a result of
+    /// an incoming transfer request or `nil` otherwise.
+    public var transferer: Call? {
+        
+        return getManagedHandle(linphone_call_get_transferer_call)
+    }
+    
+    /// When this call has received a transfer request, returns the new call that was automatically created 
+    /// as a result of the transfer.
+    public var transferTarget: Call? {
+        
+        return getManagedHandle(linphone_call_get_transfer_target_call)
+    }
+    
+    /// Returns the call object this call is replacing, if any. 
+    ///
+    /// Call replacement can occur during call transfers. 
+    /// By default, the `Core` automatically terminates the replaced call and accept the new one. 
+    /// This property allows the application to know whether a new incoming call is a one that replaces another one.
+    public var replaced: Call? {
+        
+        return getManagedHandle(linphone_call_get_replaced_call)
+    }
     
     /// The call's current state.
     public var state: State {

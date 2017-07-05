@@ -58,4 +58,18 @@ internal extension ManagedHandle {
         
         return value
     }
+    
+    @inline(__always)
+    func getManagedHandle <Handle: ManagedHandle> (_ function: ((RawPointer?) -> Handle.Unmanaged.RawPointer?)) -> Handle? {
+        
+        // get handle pointer
+        guard let rawPointer = function(self.rawPointer)
+            else { return nil }
+        
+        // increment reference count since it will be decremented when swift object is released
+        let unmanagedPointer = Handle.Unmanaged(rawPointer)
+        unmanagedPointer.retain()
+        
+        return Handle(ManagedPointer(unmanagedPointer))
+    }
 }
