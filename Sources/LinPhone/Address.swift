@@ -70,7 +70,7 @@ public struct Address: RawRepresentable {
         get { return linphone_address_get_secure(internalReference.reference.rawPointer).boolValue }
         
         @inline(__always)
-        mutating set { linphone_address_set_secure(internalReference.reference.rawPointer, bool_t(newValue)) }
+        mutating set { linphone_address_set_secure(internalReference.mutatingReference.rawPointer, bool_t(newValue)) }
     }
     
     /// Port number as an integer value.
