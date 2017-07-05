@@ -173,6 +173,7 @@
 		6EF6A6D81F0C427B00C39864 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6A6D71F0C427B00C39864 /* Address.swift */; };
 		6EF6A6DA1F0C640F00C39864 /* CallLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6A6D91F0C640F00C39864 /* CallLog.swift */; };
 		6EF6A6DE1F0CACAE00C39864 /* Transport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6A6DD1F0CACAE00C39864 /* Transport.swift */; };
+		6EF6A6E01F0D3E2900C39864 /* Reason.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6A6DF1F0D3E2900C39864 /* Reason.swift */; };
 		OBJ_28 /* CoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* CoreTests.swift */; };
 		OBJ_30 /* LinPhone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* LinPhone.framework */; };
 /* End PBXBuildFile section */
@@ -409,6 +410,7 @@
 		6EF6A6D71F0C427B00C39864 /* Address.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		6EF6A6D91F0C640F00C39864 /* CallLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallLog.swift; sourceTree = "<group>"; };
 		6EF6A6DD1F0CACAE00C39864 /* Transport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transport.swift; sourceTree = "<group>"; };
+		6EF6A6DF1F0D3E2900C39864 /* Reason.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reason.swift; sourceTree = "<group>"; };
 		OBJ_11 /* CoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreTests.swift; sourceTree = "<group>"; };
 		OBJ_14 /* LinPhone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LinPhone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_15 /* LinPhoneTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = LinPhoneTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -743,6 +745,7 @@
 				6E58AF0C1F07CE74009A0E68 /* Factory.swift */,
 				6E58AF081F07221B009A0E68 /* StreamType.swift */,
 				6EF6A6DD1F0CACAE00C39864 /* Transport.swift */,
+				6EF6A6DF1F0D3E2900C39864 /* Reason.swift */,
 				6E58AF0A1F07234B009A0E68 /* Enumeration.swift */,
 				6E58AF121F07E9E9009A0E68 /* Internal.swift */,
 				6E569B1C1F09F9AD00BF244A /* UserDataHandle.swift */,
@@ -1151,6 +1154,7 @@
 				6E58AF131F07E9E9009A0E68 /* Internal.swift in Sources */,
 				6EF6A6DE1F0CACAE00C39864 /* Transport.swift in Sources */,
 				6E569B231F09FA1C00BF244A /* UnmanagedPointer.swift in Sources */,
+				6EF6A6E01F0D3E2900C39864 /* Reason.swift in Sources */,
 				6E569B271F09FA7500BF244A /* ReferenceConvertible.swift in Sources */,
 				6E569B291F09FC2B00BF244A /* CopyableHandle.swift in Sources */,
 				6E58AF0D1F07CE74009A0E68 /* Factory.swift in Sources */,

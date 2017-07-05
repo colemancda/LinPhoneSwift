@@ -24,39 +24,6 @@ public final class Call {
         self.managedPointer = managedPointer
     }
     
-    // MARK: - Methods
-    
-    /// Accept an incoming call.
-    ///
-    /// Basically the application is notified of incoming calls within the `call state changed` callback, 
-    /// where it will receive a `.incoming` event with the associated `Linphone.Call` object.
-    ///
-    /// The application can later accept the call using this method.
-    @inline(__always)
-    public func accept() -> Bool {
-        
-        return linphone_call_accept(rawPointer) == .success
-    }
-    
-    /// Pauses the call.
-    /// 
-    /// If a music file has been setup using `Linphone.Core.setPlayFile()`, this file will be played to the remote user.
-    /// The only way to resume a paused call is to call `resume()`.
-    @inline(__always)
-    public func pause() -> Bool {
-        
-        return linphone_call_pause(rawPointer) == .success
-    }
-    
-    /// Resumes a call. 
-    ///
-    /// The call needs to have been paused previously with `pause()`.
-    @inline(__always)
-    public func resume() -> Bool {
-        
-        return linphone_call_resume(rawPointer) == .success
-    }
-    
     // MARK: - Accessors
     
     /// Get the `Linphone.Core` object that has created the specified call.
@@ -176,6 +143,64 @@ public final class Call {
         @inline(__always)
         set { linphone_call_enable_camera(rawPointer, bool_t(newValue)) }
     }
+    
+    /// Returns the reason for a call termination (either error or normal termination)
+    public var reason: Reason {
+        
+        @inline(__always)
+        get { return Reason(linphone_call_get_reason(rawPointer)) }
+    }
+    
+    // MARK: - Methods
+    
+    /// Accept an incoming call.
+    ///
+    /// Basically the application is notified of incoming calls within the `call state changed` callback,
+    /// where it will receive a `.incoming` event with the associated `Linphone.Call` object.
+    ///
+    /// The application can later accept the call using this method.
+    @inline(__always)
+    public func accept() -> Bool {
+        
+        return linphone_call_accept(rawPointer) == .success
+    }
+    
+    /// Pauses the call.
+    ///
+    /// If a music file has been setup using `Linphone.Core.setPlayFile()`, this file will be played to the remote user.
+    /// The only way to resume a paused call is to call `resume()`.
+    @inline(__always)
+    public func pause() -> Bool {
+        
+        return linphone_call_pause(rawPointer) == .success
+    }
+    
+    /// Resumes a call.
+    ///
+    /// The call needs to have been paused previously with `pause()`.
+    @inline(__always)
+    public func resume() -> Bool {
+        
+        return linphone_call_resume(rawPointer) == .success
+    }
+    
+    /// Take a photo of currently received video and write it into a jpeg file. 
+    /// Note that the snapshot is asynchronous, an application shall not assume 
+    /// that the file is created when the method returns.
+    @inline(__always)
+    public func takeVideoSnapshot(file: String) -> Bool {
+        
+        return linphone_call_take_video_snapshot(rawPointer, file) == .success
+    }
+    
+    /// Take a photo of currently captured video and write it into a jpeg file. 
+    /// Note that the snapshot is asynchronous, an application shall not assume 
+    /// that the file is created when the function returns.
+    @inline(__always)
+    public func takePreviewSnapshot(file: String) -> Bool {
+        
+        return linphone_call_take_preview_snapshot(rawPointer, file) == .success
+    }
 }
 
 // MARK: - Supporting Types
@@ -187,27 +212,68 @@ public extension Call {
         
         public typealias LinPhoneType = LinphoneCallState
         
-        case idle /**< Initial call state */
-        case incomingReceived /**< This is a new incoming call */
-        case outgoingInit /**< An outgoing call is started */
-        case outgoingProgress /**< An outgoing call is in progress */
-        case outgoingRinging /**< An outgoing call is ringing at remote end */
-        case outgoingEarlyMedia /**< An outgoing call is proposed early media */
-        case connected /**< Connected, the call is answered */
-        case streamsRunning /**< The media streams are established and running */
-        case pausing /**< The call is pausing at the initiative of local end */
-        case paused /**< The call is paused, remote end has accepted the pause */
-        case resuming /**< The call is being resumed by local end */
-        case refered /**< The call is being transfered to another party, resulting in a new outgoing call to follow immediately */
-        case error /**< The call encountered an error */
-        case end /**< The call ended normally */
-        case pausedByRemote /**< The call is paused by remote end */
-        case updatedByRemote /**< The call's parameters change is requested by remote end, used for example when video is added by remote */
-        case incomingEarlyMedia /**< We are proposing early media to an incoming call */
-        case updating /**< A call update has been initiated by us */
-        case released /**< The call object is no more retained by the core */
-        case earlyUpdatedByRemote /**< The call is updated by remote while not yet answered (early dialog SIP UPDATE received) */
-        case earlyUpdating /**< We are updating the call while not yet answered (early dialog SIP UPDATE sent) */
+        /// Initial call state
+        case idle
+        
+        /// This is a new incoming call
+        case incomingReceived
+        
+        /// An outgoing call is started
+        case outgoingInit
+        
+        /// An outgoing call is in progress
+        case outgoingProgress
+        
+        /// An outgoing call is ringing at remote end
+        case outgoingRinging
+        
+        /// An outgoing call is proposed early media
+        case outgoingEarlyMedia
+        
+        /// Connected, the call is answered
+        case connected
+        
+        /// The media streams are established and running
+        case streamsRunning
+        
+        /// The call is pausing at the initiative of local end
+        case pausing
+        
+        /// The call is paused, remote end has accepted the pause
+        case paused
+        
+        /// The call is being resumed by local end
+        case resuming
+        
+        /// The call is being transfered to another party, resulting in a new outgoing call to follow immediately
+        case refered
+        
+        /// The call encountered an error
+        case error
+        
+        /// The call ended normally
+        case end
+        
+        /// The call is paused by remote end
+        case pausedByRemote
+        
+        /// The call's parameters change is requested by remote end, used for example when video is added by remote
+        case updatedByRemote
+        
+        /// We are proposing early media to an incoming call
+        case incomingEarlyMedia
+        
+        /// A call update has been initiated by us
+        case updating
+        
+        /// The call object is no more retained by the core
+        case released
+        
+        /// The call is updated by remote while not yet answered (early dialog SIP UPDATE received)
+        case earlyUpdatedByRemote
+        
+        /// We are updating the call while not yet answered (early dialog SIP UPDATE sent)
+        case earlyUpdating
     }
 }
 
