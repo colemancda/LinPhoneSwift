@@ -40,6 +40,69 @@ public struct Address: RawRepresentable {
         @inline(__always)
         get { return internalReference.reference.stringValue }
     }
+    
+    /// Whether address is a routable SIP address.
+    public var isSIP: Bool {
+        
+        @inline(__always)
+        get { return linphone_address_is_sip(internalReference.reference.rawPointer).boolValue }
+    }
+    
+    /// Port number as an integer value.
+    public var port: Int32 {
+        
+        @inline(__always)
+        get { return linphone_address_get_port(internalReference.reference.rawPointer) }
+        
+        @inline(__always)
+        mutating set { linphone_address_set_port(internalReference.mutatingReference.rawPointer, newValue) }
+    }
+    
+    /// The address scheme, normally "sip".
+    public var scheme: String? {
+        
+        @inline(__always)
+        get { return internalReference.reference.getString(linphone_address_get_scheme) }
+    }
+    
+    /// The display name.
+    public var displayName: String? {
+        
+        @inline(__always)
+        get { return internalReference.reference.getString(linphone_address_get_display_name) }
+    }
+    
+    /// Sets the display name.
+    @inline(__always)
+    public mutating func setDisplayName(_ newValue: String?) -> Bool {
+        
+        return internalReference.mutatingReference.setString(linphone_address_set_display_name, newValue) == .success
+    }
+    
+    
+}
+
+// MARK: - Equatable
+
+extension Address: Equatable {
+    
+    public static func == (lhs: Address, rhs: Address) -> Bool {
+        
+        // same as `linphone_address_equal`, `linphone_address_weak_equal`, 
+        // compares all properties, not sure which one is more efficient and accurate
+        return lhs.rawValue == rhs.rawValue
+    }
+}
+
+// MARK: - Hashable
+
+extension Address: Hashable {
+    
+    public var hashValue: Int {
+        
+        @inline(__always)
+        get { return rawValue.hashValue }
+    }
 }
 
 // MARK: - CustomStringConvertible
