@@ -64,33 +64,10 @@ public final class Call {
         get { return linphone_call_asked_to_autoanswer(rawPointer).boolValue }
     }
     
-    @inline(__always)
-    private func getAddress(_ function: (RawPointer?) -> Address.Reference.RawPointer?) -> Address? {
-        
-        // get handle pointer
-        guard let rawPointer = function(self.rawPointer)
-            else { return nil }
-        
-        // create swift object for address
-        let reference = Address.Reference(ManagedPointer(Address.UnmanagedPointer(rawPointer)))
-        
-        // Object is already retained externally by the reciever,
-        // so we must copy / clone the reference object on next mutation regardless of ARC uniqueness / retain count,
-        // this is more efficient than unnecesarily copying right now, since the object may never be mutated.
-        //
-        // If we dont copy or set this flag, and the struct is modified with its reference object
-        // uniquely retained (at least according to ARC), we will be mutating  the internal handle
-        // shared by the reciever and possibly other C objects, which would lead to bugs
-        // and violate value semantics for reference-backed value types.
-        let address = Address(reference, externalRetain: true)
-        
-        return address
-    }
-    
     /// Returns the remote address associated to this call.
     public var remoteAddress: Address? {
         
-        return getAddress(linphone_call_get_remote_address)
+        return getReferenceConvertible(linphone_call_get_remote_address)
     }
     
     /// Returns the remote address associated to this call.
@@ -104,13 +81,13 @@ public final class Call {
     /// Returns the 'to' address with its headers associated to this call.
     public var toAddress: Address? {
         
-        return getAddress(linphone_call_get_to_address)
+        return getReferenceConvertible(linphone_call_get_to_address)
     }*/
     
     /// Returns the diversion address associated to this call.
     public var diversionAddress: Address? {
         
-        return getAddress(linphone_call_get_diversion_address)
+        return getReferenceConvertible(linphone_call_get_diversion_address)
     }
     
     /// Returns call's duration in seconds.
