@@ -23,11 +23,11 @@ public struct ErrorInfo {
         
         self.internalReference = CopyOnWrite(internalReference, externalRetain: externalRetain)
     }
-    
+    /*
     public init() {
         
         self.init(Reference())
-    }
+    }*/
     
     // MARK: - Accessors
     
@@ -60,12 +60,13 @@ extension ErrorInfo: ReferenceConvertible {
             self.managedPointer = managedPointer
         }
         
+        /*
         convenience init() {
             
             guard let rawPointer = linphone_error_info_new()
                 else { fatalError("Could not allocate instance") }
             
             self.init(ManagedPointer(BelledonneUnmanagedObject(rawPointer)))
-        }
+        }*/
     }
 }

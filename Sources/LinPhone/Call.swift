@@ -71,11 +71,12 @@ public final class Call {
         return getReferenceConvertible(.copy, linphone_call_get_error_info)
     }
     
+    /*
     /// Returns the 'to' address with its headers associated to this call.
     public var toAddress: Address? {
         
         return getReferenceConvertible(.externallyRetainedImmutable, linphone_call_get_to_address)
-    }
+    }*/
     
     /// Returns the diversion address associated to this call.
     public var diversionAddress: Address? {
