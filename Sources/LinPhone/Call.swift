@@ -80,7 +80,7 @@ public final class Call {
         //
         // If we dont copy or set this flag, and the struct is modified with its reference object
         // uniquely retained (at least according to ARC), we will be mutating  the internal handle
-        // shared by the reciever and possible other C objects, which would lead to bugs
+        // shared by the reciever and possibly other C objects, which would lead to bugs
         // and violate value semantics for reference-backed value types.
         let address = Address(reference, externalRetain: true)
         
@@ -116,13 +116,44 @@ public final class Call {
     /// Returns call's duration in seconds.
     public var duration: Int {
         
+        @inline(__always)
         get { return Int(linphone_call_get_duration(rawPointer)) }
     }
     
     /// Returns direction of the call (incoming or outgoing).
     public var direction: Direction {
         
-        return Direction(linphone_call_get_dir(rawPointer))
+        @inline(__always)
+        get { return Direction(linphone_call_get_dir(rawPointer)) }
+    }
+    
+    //public var log: Call.Log 
+    // linphone_call_get_call_log
+    
+    /// Gets the refer-to uri (if the call was transfered).
+    public var referTo: String? {
+        
+        @inline(__always)
+        get { return getString(linphone_call_get_refer_to) }
+    }
+    
+    /// Returns `true` if this calls has received a transfer that has not been executed yet. 
+    /// Pending transfers are executed when this call is being paused or closed, locally or by remote endpoint. 
+    /// If the call is already paused while receiving the transfer request, the transfer immediately occurs.
+    public var hasTransferPending: Bool {
+        
+        @inline(__always)
+        get { return linphone_call_has_transfer_pending(rawPointer).boolValue }
+    }
+    
+    /// Indicates whether camera input should be sent to remote end.
+    public var isCameraEnabled: Bool {
+        
+        @inline(__always)
+        get { return linphone_call_camera_enabled(rawPointer).boolValue }
+        
+        @inline(__always)
+        set { linphone_call_enable_camera(rawPointer, bool_t(newValue)) }
     }
 }
 
