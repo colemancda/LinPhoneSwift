@@ -9,7 +9,7 @@
 import CLinPhone
 
 /// LinPhone Address class.
-public struct Address {
+public struct Address: RawRepresentable {
     
     // MARK: - Properties
     
@@ -25,9 +25,9 @@ public struct Address {
     }
     
     /// Initialize an address from a string.
-    public init?(string: String) {
+    public init?(rawValue: String) {
         
-        guard let reference = Reference(string: string)
+        guard let reference = Reference(string: rawValue)
             else { return nil }
         
         self.init(reference)
@@ -35,7 +35,22 @@ public struct Address {
     
     // MARK: - Accessors
     
+    public var rawValue: String {
+        
+        @inline(__always)
+        get { return internalReference.reference.stringValue }
+    }
+}
+
+// MARK: - CustomStringConvertible
+
+extension Address: CustomStringConvertible {
     
+    public var description: String {
+        
+        @inline(__always)
+        get { return rawValue }
+    }
 }
 
 // MARK: - ReferenceConvertible
@@ -72,6 +87,14 @@ extension Address: ReferenceConvertible {
             let copy = Address.Reference(ManagedPointer(UnmanagedPointer(rawPointer)))
             
             return copy
+        }
+        
+        // MARK: - Accessors
+        
+        internal var stringValue: String {
+            
+            @inline(__always)
+            get { return getString(linphone_address_as_string) ?? "" }
         }
     }
 }

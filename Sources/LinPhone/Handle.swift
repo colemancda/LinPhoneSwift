@@ -6,8 +6,8 @@
 //
 //
 
-#if os(macOS)
-    import Darwin.C
+#if os(macOS) || os(iOS)
+    import Darwin.C.stdlib
 #elseif os(Linux)
     import Glibc
 #endif
@@ -22,6 +22,7 @@ internal protocol Handle: class {
 
 extension Handle {
     
+    /// Get a constant string.
     @inline(__always)
     func getString(_ function: (_ internalPointer: RawPointer?) -> (UnsafePointer<Int8>?)) -> String? {
         
@@ -31,13 +32,14 @@ extension Handle {
         return String(cString: cString)
     }
     
+    /// Get a string that needs to be freed.
     @inline(__always)
     func getString(_ function: (_ internalPointer: RawPointer?) -> (UnsafeMutablePointer<Int8>?)) -> String? {
         
         guard let cString = function(self.rawPointer)
             else { return nil }
         
-        //defer { free(cString) }
+        defer { free(cString) }
         
         return String(cString: cString)
     }

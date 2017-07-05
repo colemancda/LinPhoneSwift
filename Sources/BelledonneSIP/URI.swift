@@ -9,7 +9,7 @@
 import CBelledonneSIP
 
 /// Generic URI used with Belledonne libraries (e.g. Linphone).
-public struct URI {
+public struct URI: RawRepresentable {
     
     // MARK: - Properties
     
@@ -31,9 +31,9 @@ public struct URI {
     }
     
     /// Initialize an URI from a string.
-    public init?(string: String) {
+    public init?(rawValue: String) {
         
-        guard let reference = Reference(string: string)
+        guard let reference = Reference(string: rawValue)
             else { return nil }
         
         self.init(reference)
@@ -41,7 +41,7 @@ public struct URI {
     
     // MARK: - Accessors
     
-    public var stringValue: String {
+    public var rawValue: String {
         
         @inline(__always)
         get { return internalReference.reference.description }
@@ -117,7 +117,7 @@ extension URI: Equatable {
     
     public static func == (lhs: URI, rhs: URI) -> Bool {
         
-        return lhs.stringValue == rhs.stringValue
+        return lhs.rawValue == rhs.rawValue
     }
 }
 
@@ -127,7 +127,8 @@ extension URI: Hashable {
     
     public var hashValue: Int {
         
-        return stringValue.hashValue
+        @inline(__always)
+        get { return rawValue.hashValue }
     }
 }
 
@@ -136,8 +137,8 @@ extension URI: Hashable {
 extension URI: CustomStringConvertible {
     
     public var description: String {
-        
-        return stringValue
+        @inline(__always)
+        get { return rawValue }
     }
 }
 

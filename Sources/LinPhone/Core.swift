@@ -203,10 +203,10 @@ public final class Core {
     public var provisioning: URI? {
         
         @inline(__always)
-        get { return URI(string: provisioningURIString ?? "") }
+        get { return URI(rawValue: provisioningURIString ?? "") }
         
         @inline(__always)
-        set { guard setProvisioningURI(newValue?.stringValue)
+        set { guard setProvisioningURI(newValue?.rawValue)
             else { fatalError("Invalid URI: \(newValue?.description ?? "nil")") } }
     }
     
