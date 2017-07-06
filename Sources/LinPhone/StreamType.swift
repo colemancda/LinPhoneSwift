@@ -24,6 +24,6 @@ extension StreamType: CustomStringConvertible {
     
     public var description: String {
         
-        return String(cString: linphone_stream_type_to_string(self.linPhoneType))
+        return String(lpCString: linphone_stream_type_to_string(self.linPhoneType)) ?? ""
     }
 }

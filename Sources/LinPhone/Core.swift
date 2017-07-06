@@ -20,23 +20,31 @@ public final class Core {
     
     // MARK: - Initialization
     
+    deinit {
+        
+        clearUserData()
+    }
+    
     internal init(_ managedPointer: ManagedPointer<Core.UnmanagedPointer>) {
         
         self.managedPointer = managedPointer
     }
     
     public convenience init?(factory: Factory = Factory.shared,
-                callBacks: Callbacks,
                 configurationPath: String? = nil,
                 factoryConfigurationPath: String? = nil) {
         
+        let callbacks = InternalCallbacks(factory: factory)
+        
         guard let rawPointer = linphone_factory_create_core(factory.rawPointer,
-                                     callBacks.rawPointer,
+                                     callbacks.rawPointer,
                                      configurationPath,
                                      factoryConfigurationPath)
             else { return nil }
         
+        
         self.init(ManagedPointer(UnmanagedPointer(rawPointer)))
+        self.setUserData()
     }
     
     // MARK: - Static Properties / Methods
@@ -273,6 +281,7 @@ public final class Core {
         linphone_core_reload_ms_plugins(rawPointer, path)
     }
     
+    /*
     /// Add a listener in order to be notified of `Linphone.Core` events. 
     /// Once an event is received, registred `Linphone.Callbacks` are invoked sequencially.
     @inline(__always)
@@ -286,7 +295,7 @@ public final class Core {
     public func remove(callbacks: Callbacks) {
         
         linphone_core_remove_callbacks(rawPointer, callbacks.rawPointer)  // releases
-    }
+    }*/
     
     /// Add a supported tag.
     @inline(__always)
@@ -314,45 +323,54 @@ public final class Core {
 
 public extension Core {
     
+    public struct Callbacks {
+        
+        public var stateChanged: ((_ core: Core, _ state: LinphoneGlobalState, _ message: String?) -> ())?
+        
+    }
+}
+
+internal extension Core {
+    
     /// That class holds all the callbacks which are called by `Linphone.Core`.
-    public final class Callbacks {
+    internal final class InternalCallbacks {
         
         // MARK: - Properties
         
         @_versioned
-        internal let managedPointer: ManagedPointer<Core.Callbacks.UnmanagedPointer>
+        internal let managedPointer: ManagedPointer<UnmanagedPointer>
         
         // MARK: - Initialization
         
-        internal init(_ managedPointer: ManagedPointer<Core.Callbacks.UnmanagedPointer>) {
+        @inline(__always)
+        internal init(_ managedPointer: ManagedPointer<UnmanagedPointer>) {
             
             self.managedPointer = managedPointer
         }
         
-        public convenience init?(factory: Factory = Factory.shared) {
+        public convenience init(factory: Factory = Factory.shared) {
             
             guard let rawPointer = linphone_factory_create_core_cbs(factory.rawPointer)
-                else { return nil }
+                else { fatalError("Could not allocate instance") }
             
             self.init(ManagedPointer(UnmanagedPointer(rawPointer)))
         }
         
-        // MARK: - Accessors
+        // MARK: - Methods
         
-        public var stateChanged: ((_ state: LinphoneGlobalState, _ message: String?) -> ())? {
+        private func setupCallbacks() {
             
-            didSet {
+            linphone_core_cbs_set_global_state_changed(self.rawPointer) {
                 
-                linphone_core_cbs_set_global_state_changed(rawPointer) {
-                    
-                    guard let rawPointer = $0.0
-                        let core = Core.from(rawPointer: rawPointer),
-                        else { return }
-                    
-                    
-                    
-                    self.stateChanged?($0.1, String(lpCString: $0.2))
-                }
+                guard let rawPointer = $0.0,
+                    let core = Core.from(rawPointer: rawPointer)
+                    else { return }
+                
+                let state = $0.1
+                
+                let message = String(lpCString: $0.2)
+                
+                core. .stateChanged?(core, state, message)
             }
         }
     }
@@ -419,7 +437,7 @@ extension Core: ManagedHandle {
     }
 }
 
-extension Core.Callbacks: ManagedHandle {
+extension Core.InternalCallbacks: ManagedHandle {
     
     typealias RawPointer = UnmanagedPointer.RawPointer
     
@@ -455,7 +473,7 @@ extension Core: UserDataHandle {
     }
 }
 
-extension Core.Callbacks: UserDataHandle {
+extension Core.InternalCallbacks: UserDataHandle {
     
     static var userDataGetFunction: (OpaquePointer?) -> UnsafeMutableRawPointer? {
         return linphone_core_cbs_get_user_data

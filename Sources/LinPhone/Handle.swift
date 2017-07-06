@@ -6,12 +6,18 @@
 //
 //
 
+#if os(macOS) || os(iOS)
+    import Darwin.C.stdlib
+#elseif os(Linux)
+    import Glibc
+#endif
+
 // MARK: - Handle
 
 /// A Swift class wrapper for a C object.
 internal protocol Handle: class {
     
-    associatedtype RawPointer
+    associatedtype RawPointer: Equatable
     
     var rawPointer: RawPointer { get }
 }
@@ -78,10 +84,25 @@ internal extension UserDataHandle {
     
     func setUserData() {
         
-        Self.userDataSetFunction(rawPointer, userData)
+        Self.userDataSetFunction(rawPointer, createUserData())
     }
     
-    var userData: UnsafeMutableRawPointer {
+    /// Remove opaque pointer to `self` from user data.
+    /// This prevents invalid user data in callbacks after the Swift object
+    /// has been deallocated, but the C object is still retained.
+    func clearUserData() {
+        
+        let userDataRawPointer = Self.userDataGetFunction(rawPointer)
+        
+        if let userData = unsafeBitCast(userDataRawPointer, to: Optional<Self.RawPointer>.self),
+            userData == self.rawPointer {
+            
+            Self.userDataSetFunction(nil, createUserData())
+        }
+    }
+    
+    @inline(__always)
+    private func createUserData() -> UnsafeMutableRawPointer {
         
         let unmanaged = Unmanaged<Self>.passUnretained(self)
         
@@ -386,5 +407,30 @@ internal struct CopyOnWrite <Reference: CopyableHandle> {
         mutating get {
             return isKnownUniquelyReferenced(&_reference) || externalRetain
         }
+    }
+}
+
+// MARK: - Swift stdlib extensions
+
+internal extension String {
+    
+    /// Get a constant string.
+    init?(lpCString cString: UnsafePointer<Int8>?) {
+        
+        guard let cString = cString
+            else { return nil }
+        
+        self.init(cString: cString)
+    }
+    
+    /// Get a string from a C string `CChar` buffer that needs to be freed.
+    init?(lpCString cString: UnsafeMutablePointer<Int8>?) {
+        
+        guard let cString = cString
+            else { return nil }
+        
+        defer { free(cString) }
+        
+        self.init(cString: cString)
     }
 }

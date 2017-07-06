@@ -6,37 +6,8 @@
 //
 //
 
-#if os(macOS) || os(iOS)
-    import Darwin.C.stdlib
-#elseif os(Linux)
-    import Glibc
-#endif
-
 import typealias CLinPhone.bool_t
 import typealias CLinPhone.LinphoneStatus
-
-internal extension String {
-    
-    /// Get a constant string.
-    init?(lpCString cString: UnsafePointer<Int8>?) {
-        
-        guard let cString = cString
-            else { return nil }
-        
-        self.init(cString: cString)
-    }
-    
-    /// Get a string from a C string `CChar` buffer that needs to be freed.
-    init?(lpCString cString: UnsafeMutablePointer<Int8>?) {
-        
-        guard let cString = cString
-            else { return nil }
-        
-        defer { free(cString) }
-        
-        self.init(cString: cString)
-    }
-}
 
 internal extension CLinPhone.bool_t {
     
