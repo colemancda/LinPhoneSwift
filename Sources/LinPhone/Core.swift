@@ -90,7 +90,7 @@ public final class Core {
     // MARK: - Accessors
     
     /// Returns the `Configuration` object used to manage the storage (config) file.
-    public lazy var configuration: Configuration = self.getManagedHandle(linphone_core_get_config)! // should never be nil
+    public lazy var configuration: Configuration = self.getManagedHandle(externalRetain: true, linphone_core_get_config)! // should never be nil
     
     /// Returns the `MediaStreamer.Factory` used by the `Linphone.Core` to control mediastreamer2 library.
     ///

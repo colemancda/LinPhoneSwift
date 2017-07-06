@@ -138,15 +138,17 @@ internal extension ManagedHandle where RawPointer == Unmanaged.RawPointer  {
 internal extension Handle {
     
     @inline(__always)
-    func getManagedHandle <Handle: ManagedHandle> (_ function: ((RawPointer?) -> Handle.Unmanaged.RawPointer?)) -> Handle? {
+    func getManagedHandle <Handle: ManagedHandle> (externalRetain: Bool, _ function: ((RawPointer?) -> Handle.Unmanaged.RawPointer?)) -> Handle? {
         
         // get handle pointer
         guard let rawPointer = function(self.rawPointer)
             else { return nil }
         
-        // increment reference count since it will be decremented when swift object is released
         let unmanagedPointer = Handle.Unmanaged(rawPointer)
-        unmanagedPointer.retain()
+        
+        // if this C object is referenced externally by another object, then
+        // increment reference count since it will be decremented when swift object is released
+        if externalRetain { unmanagedPointer.retain() }
         
         return Handle(ManagedPointer(unmanagedPointer))
     }

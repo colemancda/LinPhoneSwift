@@ -41,7 +41,7 @@ public struct ErrorInfo {
      
         get { return internalReference.reference.getReferenceConvertible(.copy, linphone_error_info_get_sub_error_info) }
      
-        mutating set { internalReference.mutatingReference.setReferenceConvertible(copy: true, linphone_error_info_set_sub_error_info, newValue) }
+        mutating set { internalReference.mutatingReference.setReferenceConvertible(copy: false, linphone_error_info_set_sub_error_info, newValue) }
      }
     
     /// Get reason code from the error info.
