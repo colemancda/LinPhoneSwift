@@ -238,6 +238,13 @@ public final class Core {
         get { return Int(linphone_core_get_missed_calls_count(rawPointer)) }
     }
     
+    /// Tells whether there is a call running.
+    public var activeCall: Bool {
+        
+        @inline(__always)
+        get { return linphone_core_in_call(rawPointer).boolValue }
+    }
+    
     // MARK: - Methods
     
     /// Main loop function. It is crucial that your application call it periodically.
@@ -444,42 +451,6 @@ public extension Core {
                 }
             }
         }
-        
-        
-    }
-}
-
-public extension Core {
-    
-    public final class VTable {
-        
-        // MARK: - Properties
-        
-        internal var rawPointer: UnsafeMutablePointer<LinphoneCoreVTable> { return _rawPointer }
-        
-        private var _rawPointer: UnsafeMutablePointer<LinphoneCoreVTable>!
-        
-        // MARK: - Initialization
-        
-        deinit {
-            
-            linphone_core_v_table_destroy(rawPointer)
-        }
-        
-        private init(dummy: ()) { /* Dummy */ }
-        
-        private convenience init(_ rawPointer: UnsafeMutablePointer<LinphoneCoreVTable>) {
-            
-            self.init(dummy: ())
-            self._rawPointer = rawPointer
-            self.setUserData()
-        }
-        
-        /// Create an empty vTable. 
-        public convenience init() {
-            
-            self.init(linphone_core_v_table_new())
-        }
     }
 }
 
@@ -554,17 +525,5 @@ extension Core.Callbacks: UserDataHandle {
     
     static var userDataSetFunction: (_ UnmanagedPointer: OpaquePointer?, _ userdata: UnsafeMutableRawPointer?) -> () {
         return linphone_core_cbs_set_user_data
-    }
-}
-
-extension Core.VTable: UserDataHandle {
-    
-    static var userDataGetFunction: (UnsafeMutablePointer<LinphoneCoreVTable>?) -> UnsafeMutableRawPointer? {
-        
-        return { linphone_core_v_table_get_user_data(UnsafePointer($0)) }
-    }
-    
-    static var userDataSetFunction: (_ UnmanagedPointer: UnsafeMutablePointer<LinphoneCoreVTable>?, _ userdata: UnsafeMutableRawPointer?) -> () {
-        return linphone_core_v_table_set_user_data
     }
 }

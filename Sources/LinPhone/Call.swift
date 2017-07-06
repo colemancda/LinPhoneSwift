@@ -27,9 +27,13 @@ public final class Call {
     // MARK: - Accessors
     
     /// Get the `Linphone.Core` object that has created the specified call.
-    public var core: Core {
+    public var core: Core? {
         
-        return getManagedHandle(externalRetain: true, linphone_call_get_core)!
+        guard let rawPointer = linphone_call_get_core(self.rawPointer),
+            let handle = Core.from(rawPointer: rawPointer)
+            else { return nil }
+        
+        return handle
     }
     
     /// Gets the transferer if this call was started automatically as a result of an incoming transfer request.
@@ -201,7 +205,7 @@ public final class Call {
     /// Accept an incoming call.
     ///
     /// Basically the application is notified of incoming calls within the `call state changed` callback,
-    /// where it will receive a `.incoming` event with the associated `Linphone.Call` object.
+    /// where it will receive a `.incomingReceived` event with the associated `Linphone.Call` object.
     ///
     /// The application can later accept the call using this method.
     @inline(__always)
