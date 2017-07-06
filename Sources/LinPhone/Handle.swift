@@ -144,8 +144,16 @@ internal extension ManagedHandle where RawPointer == Unmanaged.RawPointer  {
 
 internal extension Handle {
     
+    /// Create new reference for from an object getter function.
+    ///
+    /// - Parameter externalRetain: Specified whether the C object is externally retained by the receiver
+    /// or is a new instance. This should always be `true` unless the instance returned by the 
+    /// specified function is uniquely retained (according to its C manual reference count) or a new instance.
+    ///
+    /// - Parameter function: C getter function for retrieving another object.
     @inline(__always)
-    func getManagedHandle <Handle: ManagedHandle> (externalRetain: Bool, _ function: ((RawPointer?) -> Handle.Unmanaged.RawPointer?)) -> Handle? {
+    func getManagedHandle <Handle: ManagedHandle> (externalRetain: Bool, _ function: ((RawPointer?) -> Handle.RawPointer?)) -> Handle?
+        where Handle.Unmanaged.RawPointer == Handle.RawPointer {
         
         // get handle pointer
         guard let rawPointer = function(self.rawPointer)
@@ -154,10 +162,39 @@ internal extension Handle {
         let unmanagedPointer = Handle.Unmanaged(rawPointer)
         
         // if this C object is referenced externally by another object, then
-        // increment reference count since it will be decremented when swift object is released
+        // increment reference count since it will be decremented when swift object is released.
+        // if the object is a new reference, then an extra retain will cause it to leak.
         if externalRetain { unmanagedPointer.retain() }
         
         return Handle(ManagedPointer(unmanagedPointer))
+    }
+    
+    /// Attempt to get an existing reference for an object getter function, and creates a new reference if necesary.
+    ///
+    /// - Precondition: Assumes the C object returned by the function is externally retained by the reciever.
+    @inline(__always)
+    func getUserDataHandle <Handle: ManagedHandle> (_ function: ((RawPointer?) -> Handle.RawPointer?)) -> Handle?
+        where Handle: UserDataHandle, Handle.Unmanaged.RawPointer == Handle.RawPointer {
+        
+        // get handle pointer
+        guard let rawPointer = function(self.rawPointer)
+            else { return nil }
+        
+        let reference: Handle
+        
+        if let existingReference = Handle.from(rawPointer: rawPointer) {
+            
+            reference = existingReference
+            
+        } else {
+            
+            let unmanagedPointer = Handle.Unmanaged(rawPointer)
+            unmanagedPointer.retain()
+            
+            reference = Handle(ManagedPointer(unmanagedPointer))
+        }
+        
+        return reference
     }
 }
 

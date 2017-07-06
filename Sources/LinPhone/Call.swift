@@ -64,16 +64,16 @@ public final class Call {
     }
     
     /// Returns the remote address associated to this call.
-    public var remoteAddress: Address? {
+    public var remoteAddress: Address {
         
-        return getReferenceConvertible(.externallyRetainedImmutable, linphone_call_get_remote_address)
+        return getReferenceConvertible(.externallyRetainedImmutable, linphone_call_get_remote_address)! // never nil
     }
     
     /*
     /// Returns the 'to' address with its headers associated to this call.
-    public var toAddress: Address? {
+    public var toAddress: Address {
         
-        return getReferenceConvertible(.externallyRetainedImmutable, linphone_call_get_to_address)
+        return getReferenceConvertible(.externallyRetainedImmutable, linphone_call_get_to_address)!
     }*/
     
     /// Returns the diversion address associated to this call.
