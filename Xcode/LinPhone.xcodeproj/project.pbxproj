@@ -142,6 +142,7 @@
 		6E25EA8B1F0BEB69005BC42C /* URITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E25EA891F0BEA98005BC42C /* URITests.swift */; };
 		6E2D5DCF1F0E9B5D003A1EAF /* RegistrationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2D5DCD1F0E9980003A1EAF /* RegistrationState.swift */; };
 		6E2D5DD11F0ED89B003A1EAF /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2D5DD01F0ED89B003A1EAF /* Manager.swift */; };
+		6E2D5DD21F0EF8AF003A1EAF /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E25E9DA1F0B73F1005BC42C /* libstdc++.tbd */; };
 		6E5291891F0B543C00D4B765 /* URI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5291881F0B543C00D4B765 /* URI.swift */; };
 		6E52918B1F0B553400D4B765 /* URI.SIP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E52918A1F0B553400D4B765 /* URI.SIP.swift */; };
 		6E52918D1F0B58C000D4B765 /* Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E52918C1F0B58C000D4B765 /* Object.swift */; };
@@ -456,8 +457,9 @@
 				6E25EA3F1F0B7684005BC42C /* AVFoundation.framework in Frameworks */,
 				6E25EA341F0B758E005BC42C /* UIKit.framework in Frameworks */,
 				6E25EA321F0B7589005BC42C /* CoreGraphics.framework in Frameworks */,
-				6E25E9E81F0B74C8005BC42C /* libxml2.tbd in Frameworks */,
 				6E25E9E21F0B7480005BC42C /* OpenGLES.framework in Frameworks */,
+				6E2D5DD21F0EF8AF003A1EAF /* libstdc++.tbd in Frameworks */,
+				6E25E9E81F0B74C8005BC42C /* libxml2.tbd in Frameworks */,
 				6E25EA0D1F0B7543005BC42C /* libantlr3c.a in Frameworks */,
 				6E25EA0E1F0B7543005BC42C /* libavcodec.a in Frameworks */,
 				6E25EA0F1F0B7543005BC42C /* libavutil.a in Frameworks */,
