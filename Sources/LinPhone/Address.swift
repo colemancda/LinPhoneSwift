@@ -20,9 +20,9 @@ public struct Address: RawRepresentable {
     // MARK: - Initialization
     
     @inline(__always)
-    internal init(_ internalReference: Reference, externalRetain: Bool = false) {
+    internal init(_ internalReference: CopyOnWrite<Reference>) {
         
-        self.internalReference = CopyOnWrite(internalReference, externalRetain: externalRetain)
+        self.internalReference = internalReference
     }
     
     /// Initialize an `Address` from a string.

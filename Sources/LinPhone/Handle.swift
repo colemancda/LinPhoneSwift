@@ -194,7 +194,7 @@ internal protocol ReferenceConvertible {
     
     var internalReference: CopyOnWrite<Reference> { get }
     
-    init(_ internalReference: Reference, externalRetain: Bool)
+    init(_ internalReference: CopyOnWrite<Reference>)
 }
 
 /// Memory management rules for creating a value type (e.g. structs) backed by a C object pointer.
@@ -221,26 +221,28 @@ internal enum ReferenceConvertibleMemoryManagement {
     static let copy: ReferenceConvertibleMemoryManagement = .copy
 }
 
-internal extension Handle {
+internal extension ReferenceConvertible where Reference: ManagedHandle {
     
     @inline(__always)
-    func getReferenceConvertible <Value: ReferenceConvertible> (_ memoryManagement: ReferenceConvertibleMemoryManagement, _ function: ((RawPointer?) -> Value.Reference.Unmanaged.RawPointer?)) -> Value? where Value.Reference: ManagedHandle {
+    init(referencing reference: Reference) {
         
-        // get handle pointer
-        guard let rawPointer = function(self.rawPointer)
-            else { return nil }
+        self.internalReference = CopyOnWrite(reference)
+    }
+    
+    /// Initialize from C object pointer according to the specified memory management rule.
+    init(_ rawPointer: Reference.Unmanaged.RawPointer, _ memoryManagement: ReferenceConvertibleMemoryManagement) {
         
         // create swift object for reference convertible struct
-        let reference = Value.Reference(ManagedPointer(Value.Reference.Unmanaged(rawPointer)))
+        let reference = Reference(ManagedPointer(Reference.Unmanaged(rawPointer)))
         
-        let value: Value
+        let internalReference: CopyOnWrite<Reference>
         
         switch memoryManagement {
             
         case .uniqueReference:
             
             // Object is new and is not already retained externally (non-ARC) by the reciever.
-            value = Value(reference, externalRetain: false)
+            self.init(reference, externalRetain: false)
             
         case .externallyRetainedImmutable:
             
@@ -252,7 +254,7 @@ internal extension Handle {
             // uniquely retained (at least according to ARC), we will be mutating  the internal handle
             // shared by the reciever and possibly other C objects, which would lead to bugs
             // and violate value semantics for reference-backed value types.
-            value = Value(reference, externalRetain: true)
+            self.init(reference, externalRetain: true)
             
         case .externallyRetainedMutable:
             
@@ -263,10 +265,38 @@ internal extension Handle {
             guard let referenceCopy = reference.copy
                 else { fatalError("Could not copy reference \(reference)") }
             
-            value = Value(referenceCopy, externalRetain: false)
+            self.init(referenceCopy, externalRetain: false)
         }
+    }
+}
+
+internal extension Handle {
+    
+    @inline(__always)
+    func getReferenceConvertible <Value: ReferenceConvertible> (_ memoryManagement: ReferenceConvertibleMemoryManagement, _ function: ((RawPointer?) -> Value.Reference.Unmanaged.RawPointer?)) -> Value? where Value.Reference: ManagedHandle {
+        
+        // get handle pointer
+        guard let rawPointer = function(self.rawPointer)
+            else { return nil }
+        
+        let value = Value.init(rawPointer, memoryManagement)
         
         return value
+    }
+    
+    @inline(__always)
+    func setReferenceConvertible <Value: ReferenceConvertible, Result> (copy: Bool, _ function: ((RawPointer?, Value.Reference.RawPointer?) -> Result), _ value: Value?) -> Result where Value.Reference: ManagedHandle {
+        
+        let newValueRawPointer: Value.Reference.RawPointer?
+        
+        if copy {
+            
+            newValueRawPointer = value?.internalReference.reference.copy
+            
+        } else {
+            
+            newValueRawPointer = nil
+        }
     }
 }
 

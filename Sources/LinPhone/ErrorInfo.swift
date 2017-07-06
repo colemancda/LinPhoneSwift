@@ -19,9 +19,9 @@ public struct ErrorInfo {
     // MARK: - Initialization
     
     @inline(__always)
-    internal init(_ internalReference: Reference, externalRetain: Bool = false) {
+    internal init(_ internalReference: CopyOnWrite<Reference>) {
         
-        self.internalReference = CopyOnWrite(internalReference, externalRetain: externalRetain)
+        self.internalReference = internalReference
     }
     /*
     public init() {
@@ -31,13 +31,24 @@ public struct ErrorInfo {
     
     // MARK: - Accessors
     
+    /// Get reason code from the error info.
+    public var reason: Reason {
+        
+        @inline(__always)
+        get { return Reason(linphone_error_info_get_reason(internalReference.reference.rawPointer)) }
+    }
     
+    public var detailedErrorInfo: ErrorInfo? {
+        
+        get { return internalReference.reference.getReferenceConvertible(.copy, linphone_error_info_get_sub_error_info) }
+        
+        mutating set { internalReference.mutatingReference.setReferenceConvertible(.copy, linphone_error_info_set_sub_error_info, newValue) }
+    }
 }
 
 // MARK: - ReferenceConvertible
 
 extension ErrorInfo: ReferenceConvertible {
-    
     
     /// Object representing full details about a signaling error or status.
     /// All LinphoneErrorInfo object returned by the liblinphone API are readonly and transcients.

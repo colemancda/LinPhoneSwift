@@ -65,12 +65,6 @@ public final class Call {
         return getReferenceConvertible(.externallyRetainedImmutable, linphone_call_get_remote_address)
     }
     
-    /// Details about call errors or termination reasons.
-    public var errorInfo: ErrorInfo? {
-        
-        return getReferenceConvertible(.copy, linphone_call_get_error_info)
-    }
-    
     /*
     /// Returns the 'to' address with its headers associated to this call.
     public var toAddress: Address? {
@@ -82,6 +76,12 @@ public final class Call {
     public var diversionAddress: Address? {
         
         return getReferenceConvertible(.externallyRetainedImmutable, linphone_call_get_diversion_address)
+    }
+    
+    /// Details about call errors or termination reasons.
+    public var errorInfo: ErrorInfo? {
+        
+        return getReferenceConvertible(.copy, linphone_call_get_error_info)
     }
     
     /// The call's current state.
@@ -255,8 +255,8 @@ public final class Call {
     }
     
     /// Perform a zoom of the video displayed during a call.
-    /// `center` is updated in return in case their coordinates were too excentrated for the requested zoom factor. 
-    /// The zoom ensures that all the screen is fullfilled with the video
+    /// `center` is updated in case its coordinates were too excentrated for the requested zoom factor.
+    /// The zoom ensures that all the screen is fullfilled with the video. 
     @inline(__always)
     public func zoomVideo(factor: Float, center: inout (x: Float, y: Float)) {
         
