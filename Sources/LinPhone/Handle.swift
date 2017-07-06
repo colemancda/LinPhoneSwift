@@ -249,23 +249,22 @@ internal extension ReferenceConvertible where Reference: ManagedHandle {
         let unmanagedPointer = Reference.Unmanaged(rawPointer)
         
         // increment reference count if externally retained.
-        switch memoryManagement {
-        case .uniqueReference: break
-        case .externallyRetainedImmutable, .externallyRetainedImmutable:
+        if memoryManagement.newReferenceShouldRetain {
+            
             unmanagedPointer.retain()
         }
         
         // create swift object for reference convertible struct
         let reference = Reference(ManagedPointer(unmanagedPointer))
         
-        let internalReference: CopyOnWrite<Reference>
+        let newValueInternalReference: CopyOnWrite<Reference>
         
         switch memoryManagement {
             
         case .uniqueReference:
             
             // Object is new and is not already retained externally (non-ARC) by the reciever.
-            internalReference = CopyOnWrite(reference, externalRetain: false)
+            newValueInternalReference = CopyOnWrite(reference, externalRetain: false)
             
         case .externallyRetainedImmutable:
             
@@ -277,7 +276,7 @@ internal extension ReferenceConvertible where Reference: ManagedHandle {
             // uniquely retained (at least according to ARC), we will be mutating  the internal handle
             // shared by the reciever and possibly other C objects, which would lead to bugs
             // and violate value semantics for reference-backed value types.
-            internalReference = CopyOnWrite(reference, externalRetain: true)
+            newValueInternalReference = CopyOnWrite(reference, externalRetain: true)
             
         case .externallyRetainedMutable:
             
@@ -285,13 +284,17 @@ internal extension ReferenceConvertible where Reference: ManagedHandle {
             // so we must copy / clone the reference object immediately
             // to avoid unforeseen mutations
             let originalInternalReference = CopyOnWrite(reference, externalRetain: true)
-            let referenceCopy = referenceCopy.mutatingReference // copy
+            
+            // copy
+            var internalReferenceCopy = originalInternalReference
+            let referenceCopy = originalInternalReference.mutatingReference
             assert(originalInternalReference.reference !== referenceCopy.reference, "Reference was not copied / cloned")
             
-            internalReference = referenceCopy
+            // new C object is not externally retained
+            newValueInternalReference = CopyOnWrite(reference, externalRetain: false)
         }
         
-        self.init(internalReference)
+        self.init(newValueInternalReference)
     }
 }
 
@@ -322,6 +325,8 @@ internal extension Handle {
             
             newValueRawPointer = nil
         }
+        
+        return function(self.rawPointer, newValueRawPointer)
     }
 }
 
