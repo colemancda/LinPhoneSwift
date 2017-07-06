@@ -31,7 +31,7 @@ public struct Address: RawRepresentable {
         guard let reference = Reference(string: rawValue)
             else { return nil }
         
-        self.init(reference)
+        self.init(referencing: reference)
     }
     
     // MARK: - Accessors

@@ -219,21 +219,44 @@ internal enum ReferenceConvertibleMemoryManagement {
     
     /// Alias for `.externallyRetainedMutable`
     static let copy: ReferenceConvertibleMemoryManagement = .copy
+    
+    /// Whether the C manual reference count should be incremented
+    /// when creating the a new reference object with a `ManagedPointer`.
+    var newReferenceShouldRetain: Bool {
+        
+        switch self {
+        case .uniqueReference: return false
+        case .externallyRetainedImmutable,
+             .externallyRetainedMutable: return true
+        }
+    }
 }
 
 internal extension ReferenceConvertible where Reference: ManagedHandle {
     
+    /// Create reference convertible value type from reference.
+    ///
+    /// - Precondition: Reference's C object must be uniquely referenced (e.g. newly created).
     @inline(__always)
     init(referencing reference: Reference) {
         
-        self.internalReference = CopyOnWrite(reference)
+        self.init(CopyOnWrite(reference, externalRetain: false))
     }
     
     /// Initialize from C object pointer according to the specified memory management rule.
     init(_ rawPointer: Reference.Unmanaged.RawPointer, _ memoryManagement: ReferenceConvertibleMemoryManagement) {
         
+        let unmanagedPointer = Reference.Unmanaged(rawPointer)
+        
+        // increment reference count if externally retained.
+        switch memoryManagement {
+        case .uniqueReference: break
+        case .externallyRetainedImmutable, .externallyRetainedImmutable:
+            unmanagedPointer.retain()
+        }
+        
         // create swift object for reference convertible struct
-        let reference = Reference(ManagedPointer(Reference.Unmanaged(rawPointer)))
+        let reference = Reference(ManagedPointer(unmanagedPointer))
         
         let internalReference: CopyOnWrite<Reference>
         
@@ -242,7 +265,7 @@ internal extension ReferenceConvertible where Reference: ManagedHandle {
         case .uniqueReference:
             
             // Object is new and is not already retained externally (non-ARC) by the reciever.
-            self.init(reference, externalRetain: false)
+            internalReference = CopyOnWrite(reference, externalRetain: false)
             
         case .externallyRetainedImmutable:
             
@@ -254,19 +277,21 @@ internal extension ReferenceConvertible where Reference: ManagedHandle {
             // uniquely retained (at least according to ARC), we will be mutating  the internal handle
             // shared by the reciever and possibly other C objects, which would lead to bugs
             // and violate value semantics for reference-backed value types.
-            self.init(reference, externalRetain: true)
+            internalReference = CopyOnWrite(reference, externalRetain: true)
             
         case .externallyRetainedMutable:
             
             // Object is already retained externally (non-ARC) by the reciever,
             // so we must copy / clone the reference object immediately
             // to avoid unforeseen mutations
+            let originalInternalReference = CopyOnWrite(reference, externalRetain: true)
+            let referenceCopy = referenceCopy.mutatingReference // copy
+            assert(originalInternalReference.reference !== referenceCopy.reference, "Reference was not copied / cloned")
             
-            guard let referenceCopy = reference.copy
-                else { fatalError("Could not copy reference \(reference)") }
-            
-            self.init(referenceCopy, externalRetain: false)
+            internalReference = referenceCopy
         }
+        
+        self.init(internalReference)
     }
 }
 
@@ -365,6 +390,7 @@ internal struct CopyOnWrite <Reference: CopyableHandle> {
     }
     
     /// Helper property to determine whether the reference is uniquely held.
+    /// Checks both Swift ARC and the external C manual reference count. 
     internal var isUniquelyReferenced: Bool {
         @inline(__always)
         mutating get {

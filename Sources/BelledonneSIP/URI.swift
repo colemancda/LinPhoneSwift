@@ -27,7 +27,7 @@ public struct URI: RawRepresentable {
     /// Initialize an empty URI.
     public init() {
         
-        self.init(Reference())
+        self.init(referencing: Reference())
     }
     
     /// Initialize an URI from a string.
@@ -36,7 +36,7 @@ public struct URI: RawRepresentable {
         guard let reference = Reference(string: rawValue)
             else { return nil }
         
-        self.init(reference)
+        self.init(referencing: reference)
     }
     
     // MARK: - Accessors
