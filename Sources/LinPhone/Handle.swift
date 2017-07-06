@@ -6,12 +6,6 @@
 //
 //
 
-#if os(macOS) || os(iOS)
-    import Darwin.C.stdlib
-#elseif os(Linux)
-    import Glibc
-#endif
-
 // MARK: - Handle
 
 /// A Swift class wrapper for a C object.
@@ -28,22 +22,14 @@ extension Handle {
     @inline(__always)
     func getString(_ function: (_ internalPointer: RawPointer?) -> (UnsafePointer<Int8>?)) -> String? {
         
-        guard let cString = function(self.rawPointer)
-            else { return nil }
-        
-        return String(cString: cString)
+        return String(lpCString: function(self.rawPointer))
     }
     
     /// Get a string from a function that returns a C string `CChar` buffer that needs to be freed.
     @inline(__always)
     func getString(_ function: (_ internalPointer: RawPointer?) -> (UnsafeMutablePointer<Int8>?)) -> String? {
         
-        guard let cString = function(self.rawPointer)
-            else { return nil }
-        
-        defer { free(cString) }
-        
-        return String(cString: cString)
+        return String(lpCString: function(self.rawPointer))
     }
     
     @inline(__always)

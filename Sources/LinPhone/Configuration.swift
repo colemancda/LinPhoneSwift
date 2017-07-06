@@ -112,6 +112,21 @@ public final class Configuration {
         return linphone_config_sync(rawPointer) == .success
     }
     
+    /// Dumps the `Linphone.Configuration` in the specified format.
+    public func dump(_ format: Format) -> String {
+        
+        switch format {
+            
+        case .ini:
+            
+            return getString(linphone_config_dump) ?? ""
+            
+        case .xml:
+            
+            return getString(linphone_config_dump_as_xml) ?? ""
+        }
+    }
+    
     // MARK: - Setters
     
     /// Set the value for the specified key and section in the configuration file.
@@ -194,6 +209,27 @@ public final class Configuration {
     // MARK: - Subcripting
     
     
+}
+
+extension Configuration: CustomDebugStringConvertible {
+    
+    /// Dumps the LinphoneConfig as INI into a buffer.
+    public var debugDescription: String {
+        
+        @inline(__always)
+        get { return dump(.ini) }
+    }
+}
+
+// MARK: - Supporting Types
+
+public extension Configuration {
+    
+    public enum Format {
+        
+        case ini
+        case xml
+    }
 }
 
 // MARK: - Internal

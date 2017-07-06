@@ -337,9 +337,24 @@ public extension Core {
             self.init(ManagedPointer(UnmanagedPointer(rawPointer)))
         }
         
-        // MARK: - Methods
+        // MARK: - Accessors
         
-        
+        public var stateChanged: ((_ state: LinphoneGlobalState, _ message: String?) -> ())? {
+            
+            didSet {
+                
+                linphone_core_cbs_set_global_state_changed(rawPointer) {
+                    
+                    guard let rawPointer = $0.0
+                        let core = Core.from(rawPointer: rawPointer),
+                        else { return }
+                    
+                    
+                    
+                    self.stateChanged?($0.1, String(lpCString: $0.2))
+                }
+            }
+        }
     }
 }
 
@@ -462,4 +477,3 @@ extension Core.VTable: UserDataHandle {
         return linphone_core_v_table_set_user_data
     }
 }
-
