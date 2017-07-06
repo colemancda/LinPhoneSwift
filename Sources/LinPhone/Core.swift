@@ -7,6 +7,7 @@
 //
 
 import CLinPhone
+import CBelledonneToolbox
 import class MediaStreamer.Factory
 import struct BelledonneSIP.URI
 
@@ -110,6 +111,37 @@ public final class Core {
         let factory = MediaStreamer.Factory(rawPointer: rawPointer, isOwner: false)
         
         return try body(factory)
+    }
+    
+    /// Gets the current list of calls.
+    public var calls: [Call] {
+        
+        let count = self.callsCount
+        
+        /// Gets the current list of calls. 
+        /// Note that this list is read-only and might be changed by the core after a function call to `iterate()`.
+        /// Similarly the LinphoneCall objects inside it might be destroyed without prior notice. 
+        /// To hold references to LinphoneCall object into your program, you must use linphone_call_ref().
+        
+        guard count > 0,
+            let callsLinkedList = linphone_core_get_calls(self.rawPointer)
+            else { return [] }
+        
+        var calls: [Call] = []
+        calls.reserveCapacity(count) // improves performance
+        
+        for index in 0 ..< count {
+            
+            guard let rawPointer = Call.RawPointer(bctbx_list_nth_data(callsLinkedList, Int32(index))),
+                let call = self.getUserDataHandle({ _ in return rawPointer }) as Call? // fake getter function
+                else { fatalError("Nil pointer") }
+            
+            calls.append(call)
+        }
+        
+        assert(calls.count == count)
+        
+        return calls
     }
     
     /// The path to a file or folder containing the trusted root CAs (PEM format)
@@ -243,6 +275,13 @@ public final class Core {
         
         @inline(__always)
         get { return linphone_core_in_call(rawPointer).boolValue }
+    }
+    
+    /// The current number of calls
+    public var callsCount: Int {
+        
+        @inline(__always)
+        get { return Int(linphone_core_get_calls_nb(rawPointer)) }
     }
     
     // MARK: - Methods
