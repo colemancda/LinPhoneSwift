@@ -473,19 +473,6 @@ public extension Core {
             self.setUserData()
         }
         
-        // MARK: - Methods
-        
-        private static func from(coreRawPointer: Core.RawPointer?) -> (Core, Callbacks)? {
-            
-            guard let coreRawPointer = coreRawPointer,
-                let core = Core.from(rawPointer: coreRawPointer),
-                let callbacksRawPointer = linphone_core_get_current_callbacks(coreRawPointer),
-                let callbacks = Callbacks.from(rawPointer: callbacksRawPointer)
-                else { return nil }
-            
-            return (core, callbacks)
-        }
-        
         // MARK: - Callbacks
         
         /*
@@ -553,7 +540,7 @@ public extension Core {
                 
                 linphone_core_cbs_set_call_state_changed(rawPointer) {
                     
-                    guard let (core, callbacks) = Callbacks.from(coreRawPointer: $0.0),
+                    guard let (core, callbacks) = Core.callbacksFrom(rawPointer: $0.0),
                         let callRawPointer = $0.1,
                         let call = Call.from(rawPointer: callRawPointer)
                         else { return }
@@ -641,4 +628,9 @@ extension Core.Callbacks: UserDataHandle {
     static var userDataSetFunction: (_ UnmanagedPointer: OpaquePointer?, _ userdata: UnsafeMutableRawPointer?) -> () {
         return linphone_core_cbs_set_user_data
     }
+}
+
+extension Core: CallBacksHandle {
+    
+    static var currentCallbacksFunction: (RawPointer?) -> (Callbacks.RawPointer?) { return linphone_core_get_current_callbacks }
 }

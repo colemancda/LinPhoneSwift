@@ -390,6 +390,60 @@ extension Call {
     }
 }
 
+public extension Call {
+    
+    /// That class holds all the callbacks which are called by `Linphone.Core`.
+    public final class Callbacks {
+        
+        // MARK: - Properties
+        
+        @_versioned
+        internal let managedPointer: ManagedPointer<UnmanagedPointer>
+        
+        // MARK: - Initialization
+        
+        deinit {
+            
+            clearUserData()
+        }
+        
+        internal init(_ managedPointer: ManagedPointer<UnmanagedPointer>) {
+            
+            self.managedPointer = managedPointer
+        }
+        
+        public convenience init(factory: Factory = Factory.shared) {
+            
+            guard let rawPointer = linphone_factory_create_core_cbs(factory.rawPointer)
+                else { fatalError("Could not allocate instance") }
+            
+            self.init(ManagedPointer(UnmanagedPointer(rawPointer)))
+            self.setUserData()
+        }
+        
+        // MARK: - Accessors
+        
+        /// Call state notification callback.
+        public var stateChanged: ((_ call: Call, _ state: Call.State, _ message: String?) -> ())? {
+            
+            didSet {
+                
+                linphone_call_cbs_set_state_changed(rawPointer) {
+                    
+                    guard let (call, callbacks) = Call.callbacksFrom(rawPointer: $0.0)
+                        else { return }
+                    
+                    let state = Call.State($0.1)
+                    
+                    let message = String(lpCString: $0.2)
+                    
+                    callbacks.stateChanged?(call, state, message)
+                }
+            }
+        }
+    }
+}
+
 // MARK: - ManagedHandle
 
 extension Call: ManagedHandle {
@@ -417,6 +471,31 @@ extension Call: ManagedHandle {
     }
 }
 
+extension Call.Callbacks: ManagedHandle {
+    
+    typealias RawPointer = UnmanagedPointer.RawPointer
+    
+    struct UnmanagedPointer: LinPhone.UnmanagedPointer {
+        
+        let rawPointer: OpaquePointer
+        
+        @inline(__always)
+        init(_ rawPointer: UnmanagedPointer.RawPointer) {
+            self.rawPointer = rawPointer
+        }
+        
+        @inline(__always)
+        func retain() {
+            linphone_call_cbs_ref(rawPointer)
+        }
+        
+        @inline(__always)
+        func release() {
+            linphone_call_cbs_unref(rawPointer)
+        }
+    }
+}
+
 extension Call: UserDataHandle {
     
     static var userDataGetFunction: (OpaquePointer?) -> UnsafeMutableRawPointer? {
@@ -426,4 +505,20 @@ extension Call: UserDataHandle {
     static var userDataSetFunction: (_ UnmanagedPointer: OpaquePointer?, _ userdata: UnsafeMutableRawPointer?) -> () {
         return linphone_call_set_user_data
     }
+}
+
+extension Call.Callbacks: UserDataHandle {
+    
+    static var userDataGetFunction: (OpaquePointer?) -> UnsafeMutableRawPointer? {
+        return linphone_call_cbs_get_user_data
+    }
+    
+    static var userDataSetFunction: (_ UnmanagedPointer: OpaquePointer?, _ userdata: UnsafeMutableRawPointer?) -> () {
+        return linphone_call_cbs_set_user_data
+    }
+}
+
+extension Call: CallBacksHandle {
+    
+    static var currentCallbacksFunction: (RawPointer?) -> (Callbacks.RawPointer?) { return linphone_call_get_current_callbacks }
 }

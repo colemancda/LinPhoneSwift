@@ -199,6 +199,32 @@ internal extension Handle {
     }
 }
 
+// MARK: - CallBacksHandle
+
+/// A handle object that has a nested callbacks object.
+internal protocol CallBacksHandle: Handle {
+    
+    /// The object that is always returned in callbacks managed by this object.
+    associatedtype Callbacks: Handle
+    
+    /// C function that gets the current callbacks raw pointer.
+    static var currentCallbacksFunction: (RawPointer?) -> (Callbacks.RawPointer?) { get }
+}
+
+extension CallBacksHandle where Self: UserDataHandle, Self: ManagedHandle, Callbacks: UserDataHandle, Callbacks: ManagedHandle  {
+    
+    static func callbacksFrom(rawPointer: RawPointer?) -> (Self, Callbacks)? {
+        
+        guard let rawPointer = rawPointer,
+            let handle = Self.from(rawPointer: rawPointer),
+            let callbacksRawPointer = Self.currentCallbacksFunction(rawPointer),
+            let callbacks = Callbacks.from(rawPointer: callbacksRawPointer)
+            else { return nil }
+        
+        return (handle, callbacks)
+    }
+}
+
 // MARK: - Managed / Unmanaged Pointer
 
 /// A type for propagating an unmanaged C object reference.
@@ -256,6 +282,7 @@ internal enum ReferenceConvertibleMemoryManagement {
     ///
     /// A new reference convertible struct can point to this reference, but any subsequent mutations
     /// must copy the internal reference regardless of the current Swift ARC reference count.
+    /// This is more efficient than unnecesarily copying the reference, since the object may never be mutated.
     case externallyRetainedImmutable
     
     /// Object is already retained externally and could be mutated (e.g. C manual reference count > 1).
@@ -274,6 +301,16 @@ internal enum ReferenceConvertibleMemoryManagement {
         case .uniqueReference: return false
         case .externallyRetainedImmutable,
              .externallyRetainedMutable: return true
+        }
+    }
+    
+    /// Whether the C object should be copied / cloned when initializing a new reference.
+    var shouldCopy: Bool {
+        
+        switch self {
+        case .uniqueReference,
+             .externallyRetainedImmutable: return false
+        case .externallyRetainedMutable: return true
         }
     }
 }
@@ -305,40 +342,16 @@ internal extension ReferenceConvertible where Reference: ManagedHandle {
         // create swift object for reference convertible struct
         let reference = Reference(ManagedPointer(unmanagedPointer))
         
-        let internalReference = CopyOnWrite(reference, externalRetain: externalRetain)
+        var internalReference = CopyOnWrite(reference, externalRetain: externalRetain)
         
-        let newValueInternalReference: CopyOnWrite<Reference>
-        
-        switch memoryManagement {
+        // create copy
+        if memoryManagement.shouldCopy {
             
-        case .uniqueReference:
-            
-            // Object is new and is not already retained externally (non-ARC) by the reciever.
-            newValueInternalReference = internalReference
-            
-        case .externallyRetainedImmutable:
-            
-            // Object is already retained externally (non-ARC) by the reciever,
-            // so we must copy / clone the reference object on next mutation regardless of ARC uniqueness / retain count,
-            // this is more efficient than unnecesarily copying right now, since the object may never be mutated.
-            newValueInternalReference = internalReference
-            
-        case .externallyRetainedMutable:
-            
-            // Object is already retained externally (non-ARC) by the reciever,
-            // so we must copy / clone the reference object immediately
-            // to avoid unforeseen mutations
-            
-            // copy
-            var internalReferenceCopy = internalReference
-            let referenceCopy = internalReferenceCopy.mutatingReference
-            assert(internalReference.reference !== referenceCopy, "Reference was not copied / cloned")
-            
-            // new C object is not externally retained
-            newValueInternalReference = CopyOnWrite(referenceCopy, externalRetain: false)
+            let referenceCopy = internalReference.mutatingReference
+            assert(reference !== referenceCopy, "Reference was not copied / cloned")
         }
         
-        self.init(newValueInternalReference)
+        self.init(internalReference)
     }
 }
 
