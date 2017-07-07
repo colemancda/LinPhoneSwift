@@ -112,6 +112,9 @@ public enum MediaLibrary {
     case silk
     case bcg729
     case webrtc
+    
+    /// All media libraries availible for `MediaStreamer`.
+    public static let all = [amr, x264, openh264, silk, bcg729, webrtc]
 }
 
 /// On iOS, plugins are built as static libraries so Liblinphone will not be able to load them at runtime dynamically. 

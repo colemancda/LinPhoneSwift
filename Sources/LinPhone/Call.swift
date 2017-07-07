@@ -43,14 +43,14 @@ public final class Call {
     /// an incoming transfer request or `nil` otherwise.
     public var transferer: Call? {
         
-        return getManagedHandle(externalRetain: true, linphone_call_get_transferer_call)
+        return getUserDataHandle(linphone_call_get_transferer_call)
     }
     
     /// When this call has received a transfer request, returns the new call that was automatically created 
     /// as a result of the transfer.
     public var transferTarget: Call? {
         
-        return getManagedHandle(externalRetain: true, linphone_call_get_transfer_target_call)
+        return getUserDataHandle(linphone_call_get_transfer_target_call)
     }
     
     /// Returns the call object this call is replacing, if any. 
@@ -60,7 +60,7 @@ public final class Call {
     /// This property allows the application to know whether a new incoming call is a one that replaces another one.
     public var replaced: Call? {
         
-        return getManagedHandle(externalRetain: true, linphone_call_get_replaced_call)
+        return getUserDataHandle(linphone_call_get_replaced_call)
     }
     
     /// Returns the remote address associated to this call.

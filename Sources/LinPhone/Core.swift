@@ -144,6 +144,12 @@ public final class Core {
         return calls
     }
     
+    /// Gets the current call or `nil` if no call is running.
+    public var currentCall: Call? {
+        
+        return getUserDataHandle(linphone_core_get_current_call)
+    }
+    
     /// The path to a file or folder containing the trusted root CAs (PEM format)
     public var rootCA: String? {
         
@@ -282,6 +288,13 @@ public final class Core {
         
         @inline(__always)
         get { return Int(linphone_core_get_calls_nb(rawPointer)) }
+    }
+    
+    /// Tells whether there is an incoming invite pending.
+    public var isIncomingInvitePending: Bool {
+        
+        @inline(__always)
+        get { return linphone_core_is_incoming_invite_pending(rawPointer).boolValue }
     }
     
     // MARK: - Methods

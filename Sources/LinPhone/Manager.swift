@@ -8,8 +8,9 @@
 
 import Foundation
 import AVFoundation
-import CallKit
+import CoreTelephony
 import UIKit
+import MediaStreamer
 
 /// Integrates LinPhone with iOS services (e.g. AVFoundation, CallKit).
 public final class LinPhoneManager {
@@ -22,18 +23,33 @@ public final class LinPhoneManager {
     
     public let factoryConfigurationPath: String?
     
+    public let rootCAPath: String
+    
+    public let userCertificatesPath: String
+    
+    public var iterateTimeInterval: TimeInterval = 0.02 // set timer for 200 ms
+    
     public private(set) var state = State()
+    
+    private lazy var audioSession = AVAudioSession.sharedInstance()
+    
+    private var callCenter: CTCallCenter?
     
     private var core: Core?
     
     private var coreCallbacks: Core.Callbacks?
     
-    private lazy var audioSession = AVAudioSession.sharedInstance()
+    private var iterateTimer: Timer?
     
     // MARK: - Initialization
     
-    public init?(configurationPath: String? = nil, factoryConfigurationPath: String? = nil) {
+    public init?(rootCAPath: String,
+                 userCertificatesPath: String,
+                 configurationPath: String? = nil,
+                 factoryConfigurationPath: String? = nil) {
         
+        self.rootCAPath = rootCAPath
+        self.userCertificatesPath = userCertificatesPath
         self.configurationPath = configurationPath
         self.factoryConfigurationPath = factoryConfigurationPath
     }
@@ -72,6 +88,7 @@ public final class LinPhoneManager {
         self.core = nil
         self.coreCallbacks = nil
         
+        destroyLinphoneCore()
         try createLinphoneCore()
     }
     
@@ -79,21 +96,69 @@ public final class LinPhoneManager {
     
     private func createLinphoneCore() throws {
         
+        // Initialize Core and its callbacks.
+        // Must keep a reference to the callbacks object.
         let coreCallbacks = Core.Callbacks()
         
-        guard let core = Core(callbacks: coreCallbacks, configurationPath: configurationPath, factoryConfigurationPath: factoryConfigurationPath)
+        guard let core = Core(callbacks: coreCallbacks,
+                              configurationPath: configurationPath,
+                              factoryConfigurationPath: factoryConfigurationPath)
             else { throw Error.coreInitializationFailed }
         
         self.coreCallbacks = coreCallbacks
         self.core = core
         
         configureCoreCallbacks()
+        
+        /// Load plugins if available in the linphone SDK - otherwise these calls will do nothing
+        core.withMediaStreamerFactory { $0.load([.amr, .x264, .openh264, .silk, .bcg729, .webrtc]) }
+        core.reloadMediaStreamerPlugins()
+        
+        // Call iterate once immediately in order to initiate background connections with sip server or remote provisioning.
+        core.iterate()
+        
+        let timer: Timer
+        if #available(iOS 10, *) {
+            
+            timer = Timer.scheduledTimer(withTimeInterval: iterateTimeInterval, repeats: true) { [weak self] _ in self?.iterate() }
+            
+        } else {
+            
+            timer = Timer.scheduledTimer(timeInterval: iterateTimeInterval,
+                                         target: self,
+                                         selector: #selector(iterate),
+                                         userInfo: nil,
+                                         repeats: true)
+        }
+        
+        self.iterateTimer = timer
+    }
+    
+    private func destroyLinphoneCore() {
+        
+        self.iterateTimer?.invalidate()
+        self.state = State()
+        
+        guard let core = self.core
+            else { return }
+        
+        self.core = nil
+        self.coreCallbacks = nil
+        self.callCenter?.callEventHandler = nil
+        self.callCenter = nil
     }
     
     private func enterBackgroundMode() {
         
         
     }
+    
+    @objc private func iterate() {
+        
+        self.core?.iterate()
+    }
+    
+    // MARK: Callbacks
     
     private func configureCoreCallbacks() {
         
