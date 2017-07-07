@@ -139,9 +139,6 @@ public final class LinPhoneManager {
         self.iterateTimer?.invalidate()
         self.state = State()
         
-        guard let core = self.core
-            else { return }
-        
         self.core = nil
         self.coreCallbacks = nil
         self.callCenter?.callEventHandler = nil

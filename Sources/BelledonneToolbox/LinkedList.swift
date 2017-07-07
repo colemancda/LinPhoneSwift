@@ -66,9 +66,10 @@ public struct LinkedList {
     
     // MARK: - Accessors
     
-    /// Access the underlying C structure instance.
+    /// Access the underlying C structure instance with read-only access.
     ///
-    /// - Note: The pointer is only guarenteed to be valid for the lifetime of the closure.
+    /// - Warning: The pointer is only guarenteed to be valid for the lifetime of the closure. 
+    /// Do not attempt to use the pointer outside of the closure, or attempt to mutate it in any way.
     @inline(__always)
     public func withUnsafeRawPointer <Result> (_ body: (UnsafePointer<bctbx_list_t>?) throws -> Result) rethrows -> Result {
         

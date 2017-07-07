@@ -8,6 +8,7 @@
 
 import CLinPhone
 import CBelledonneToolbox
+import struct BelledonneToolbox.LinkedList
 import class MediaStreamer.Factory
 import struct BelledonneSIP.URI
 
@@ -18,6 +19,9 @@ public final class Core {
     
     @_versioned
     internal let managedPointer: ManagedPointer<Core.UnmanagedPointer>
+    
+    /// The retained callbacks.
+    public private(set) var callbacks = [Callbacks]()
     
     // MARK: - Initialization
     
@@ -45,6 +49,7 @@ public final class Core {
         
         self.init(ManagedPointer(UnmanagedPointer(rawPointer)))
         self.setUserData()
+        self.callbacks.append(callbacks)
     }
     
     // MARK: - Static Properties / Methods
@@ -369,13 +374,15 @@ public final class Core {
         linphone_core_reload_ms_plugins(rawPointer, path)
     }
     
-    /*
+    
     /// Add a listener in order to be notified of `Linphone.Core` events. 
     /// Once an event is received, registred `Linphone.Callbacks` are invoked sequencially.
     @inline(__always)
     public func add(callbacks: Callbacks) {
         
         linphone_core_add_callbacks(rawPointer, callbacks.rawPointer) // retains
+        
+        self.callbacks.append(callbacks)
     }
     
     /// Remove a listener from the `Linphone.Core` events.
@@ -383,7 +390,12 @@ public final class Core {
     public func remove(callbacks: Callbacks) {
         
         linphone_core_remove_callbacks(rawPointer, callbacks.rawPointer)  // releases
-    }*/
+        
+        guard let index = self.callbacks.index(where: { $0 === callbacks })
+            else { return }
+        
+        self.callbacks.remove(at: index)
+    }
     
     /// Add a supported tag.
     @inline(__always)
@@ -404,6 +416,27 @@ public final class Core {
     public func resetMissedCalls() {
         
         linphone_core_reset_missed_calls_count(rawPointer)
+    }
+    
+    /// Forces `LinPhone` to use the supplied list of DNS servers, instead of system's ones.
+    ///
+    /// - Parameter servers: A list of strings containing the IP addresses of DNS servers to be used.
+    /// Setting to an empty list restores default behaviour, which is to use the DNS server list provided by the system.
+    public func setDNS(_ servers: [String]) {
+        
+        let linkedList = LinkedList(strings: servers)
+        
+        let rawPointer = self.rawPointer
+        
+        /// The list is copied internally.
+        linkedList.withUnsafeRawPointer { linphone_core_set_dns_servers(rawPointer, $0) }
+    }
+    
+    /// Forces `LinPhone` to use the system's supplied list of DNS servers.
+    @inline(__always)
+    public func resetDNS() {
+        
+        setDNS([])
     }
 }
 
