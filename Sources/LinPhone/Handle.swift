@@ -399,9 +399,7 @@ internal struct CopyOnWrite <Reference: CopyableHandle> {
     ///
     /// - Parameters:
     ///   - reference: The object that is to be given value semantics
-    ///   - copier: The function that is responsible for copying the reference if the
-    /// consumer of this API needs it to be copied. This function should create a new
-    /// instance of the referenced type; it should not return the original reference given to it.
+    ///   - externalRetain: Whether the object should be copied on next mutation regardless of Swift ARC uniqueness.
     @inline(__always)
     init(_ reference: Reference, externalRetain: Bool = false) {
         self._reference = Box(reference)
@@ -428,7 +426,7 @@ internal struct CopyOnWrite <Reference: CopyableHandle> {
             if isUniquelyReferenced == false {
                 
                 guard let copy = _reference.unbox.copy
-                    else { fatalError("Coult not duplicate internal reference type") }
+                    else { fatalError("Could not duplicate internal reference type") }
                 
                 _reference = Box(copy)
                 externalRetain = false // reset
