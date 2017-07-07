@@ -192,6 +192,7 @@ internal extension Handle {
             unmanagedPointer.retain()
             
             reference = Handle(ManagedPointer(unmanagedPointer))
+            reference.setUserData() // set pointer to new swift object
         }
         
         return reference

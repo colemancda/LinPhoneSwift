@@ -76,7 +76,8 @@ public final class Core {
     /// Tells whether the linphone core log collection is enabled.
     public var isLogCollectionEnabled: LinphoneLogCollectionState {
         
-        return linphone_core_log_collection_enabled()
+        @inline(__always)
+        get { return linphone_core_log_collection_enabled() }
     }
     
     /// Define the minimum level for logging.
@@ -93,6 +94,35 @@ public final class Core {
         let mask = logLevel.reduce(0, { $0 | $1.rawValue })
         
         linphone_core_set_log_level_mask(mask)
+    }
+    
+    /// The max file size in bytes of the files used for log collection.
+    public static var logCollectionMaxFileSize: Int {
+        
+        @inline(__always)
+        get { return linphone_core_get_log_collection_max_file_size() }
+        
+        @inline(__always)
+        set { linphone_core_set_log_collection_max_file_size(newValue) }
+    }
+    
+    /// The path where the log files will be written.
+    public static var logCollectionPath: String? {
+        
+        @inline(__always)
+        get { return String(lpCString: linphone_core_get_log_collection_path()) }
+        
+        @inline(__always)
+        set { linphone_core_set_log_collection_path(newValue) }
+    }
+    
+    public static var logCollectionPrefix: String {
+        
+        @inline(__always)
+        get { return String(lpCString: linphone_core_get_log_collection_path())! }
+        
+        @inline(__always)
+        set { linphone_core_set_log_collection_path(newValue) }
     }
     
     // MARK: - Accessors

@@ -18,6 +18,11 @@ public final class Call {
     
     // MARK: - Initialization
     
+    deinit {
+        
+        clearUserData()
+    }
+    
     @inline(__always)
     internal init(_ managedPointer: ManagedPointer<UnmanagedPointer>) {
         
