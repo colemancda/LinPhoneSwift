@@ -93,6 +93,23 @@ public final class Call {
         return getReferenceConvertible(.copy, linphone_call_get_error_info)
     }
     
+    /// Execute closure on next video frame decoded.
+    public var nextVideoFrameDecoded: () -> () = { _ in } {
+        
+        didSet {
+            
+            linphone_call_set_next_video_frame_decoded_callback(rawPointer, { (rawPointer, _) in
+                
+                guard let rawPointer = rawPointer,
+                    let call = Call.from(rawPointer: rawPointer)
+                    else { return }
+                
+                call.nextVideoFrameDecoded()
+                
+            }, nil)
+        }
+    }
+    
     /// The call's current state.
     public var state: State {
         
@@ -389,7 +406,7 @@ extension Call {
         case incoming
     }
 }
-
+/*
 public extension Call {
     
     /// That class holds all the callbacks which are called by `Linphone.Core`.
@@ -442,7 +459,7 @@ public extension Call {
             }
         }
     }
-}
+}*/
 
 // MARK: - ManagedHandle
 
@@ -470,7 +487,7 @@ extension Call: ManagedHandle {
         }
     }
 }
-
+/*
 extension Call.Callbacks: ManagedHandle {
     
     typealias RawPointer = UnmanagedPointer.RawPointer
@@ -494,7 +511,7 @@ extension Call.Callbacks: ManagedHandle {
             linphone_call_cbs_unref(rawPointer)
         }
     }
-}
+}*/
 
 extension Call: UserDataHandle {
     
@@ -506,7 +523,7 @@ extension Call: UserDataHandle {
         return linphone_call_set_user_data
     }
 }
-
+/*
 extension Call.Callbacks: UserDataHandle {
     
     static var userDataGetFunction: (OpaquePointer?) -> UnsafeMutableRawPointer? {
@@ -522,3 +539,4 @@ extension Call: CallBacksHandle {
     
     static var currentCallbacksFunction: (RawPointer?) -> (Callbacks.RawPointer?) { return linphone_call_get_current_callbacks }
 }
+*/
