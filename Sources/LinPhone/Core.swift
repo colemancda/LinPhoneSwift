@@ -385,15 +385,14 @@ public final class Core {
     /// The local "from" identity.
     public var primaryContact: Address? {
         
-        // Is this address ever mutated internally? Seems that new values are always created from strings,
-        // so we'll assume that the new values are new instances and the same instance is never mutated.
-        get { return getReferenceConvertible(.externallyRetainedImmutable, linphone_core_get_primary_contact_parsed) }
+        // New values are always created from strings and stored internally as strings.
+        get { return getReferenceConvertible(.uniqueReference, linphone_core_get_primary_contact_parsed) }
         
         // Set new address by parsing string.
         set { self.primaryContactString = newValue?.internalReference.reference.stringValue }
     }
     
-    /// The local "from" identity.
+    /// The local "from" identity, only set valid `LinPhone.Address` strings.
     internal var primaryContactString: String? {
         
         @inline(__always)
@@ -401,13 +400,6 @@ public final class Core {
         
         @inline(__always)
         set { setString(linphone_core_set_primary_contact, newValue).lpAssert() }
-    }
-    
-    /// Set the local "from" identity.
-    @inline(__always)
-    public func setPrimaryContact(_ contact: String) {
-        
-        linphone_core_set_primary_contact(rawPointer, contact)
     }
     
     // MARK: - Methods
@@ -514,6 +506,13 @@ public final class Core {
     public func resetDNS() {
         
         setDNS([])
+    }
+    
+    /// Force registration refresh to be initiated upon next iterate. 
+    @inline(__always)
+    public func refreshRegisters() {
+        
+        linphone_core_refresh_registers(rawPointer)
     }
 }
 
