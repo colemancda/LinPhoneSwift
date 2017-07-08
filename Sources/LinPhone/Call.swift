@@ -23,7 +23,6 @@ public final class Call {
         clearUserData()
     }
     
-    @inline(__always)
     internal init(_ managedPointer: ManagedPointer<UnmanagedPointer>) {
         
         self.managedPointer = managedPointer
@@ -94,7 +93,7 @@ public final class Call {
     }
     
     /// Execute closure on next video frame decoded.
-    public var nextVideoFrameDecoded: () -> () = { _ in } {
+    public var nextVideoFrameDecoded: (Call) -> () = { _ in } {
         
         didSet {
             
@@ -104,7 +103,7 @@ public final class Call {
                     let call = Call.from(rawPointer: rawPointer)
                     else { return }
                 
-                call.nextVideoFrameDecoded()
+                call.nextVideoFrameDecoded(call)
                 
             }, nil)
         }
