@@ -29,17 +29,19 @@ public final class LinPhoneManager {
     
     public var iterateTimeInterval: TimeInterval = 0.02 // set timer for 200 ms
     
-    public private(set) var state = State()
+    public private(set) var started = false
     
     private lazy var audioSession = AVAudioSession.sharedInstance()
     
     private var callCenter: CTCallCenter?
     
-    private var core: Core?
-    
-    private var coreCallbacks: Core.Callbacks?
+    public private(set) var core: Core?
     
     private var iterateTimer: Timer?
+    
+    // MARK: Observable Properties
+    
+    public var lastCallStateChange = Observable<(Call, Call.State, String?)?>()
     
     // MARK: - Initialization
     
@@ -58,7 +60,7 @@ public final class LinPhoneManager {
     
     public func start() throws {
         
-        guard state != .started
+        guard started == false
             else { return }
         
         //connectivity = .none
@@ -80,13 +82,10 @@ public final class LinPhoneManager {
         }
         
         // set new state
-        state = .started
+        started = true
     }
     
     public func reset() throws {
-        
-        self.core = nil
-        self.coreCallbacks = nil
         
         destroyLinphoneCore()
         try createLinphoneCore()
@@ -96,19 +95,14 @@ public final class LinPhoneManager {
     
     private func createLinphoneCore() throws {
         
-        // Initialize Core and its callbacks.
-        // Must keep a reference to the callbacks object.
-        let coreCallbacks = Core.Callbacks()
+        let callbacks = createCoreCallbacks()
         
-        guard let core = Core(callbacks: coreCallbacks,
+        guard let core = Core(callbacks: callbacks,
                               configurationPath: configurationPath,
                               factoryConfigurationPath: factoryConfigurationPath)
             else { throw Error.coreInitializationFailed }
         
-        self.coreCallbacks = coreCallbacks
         self.core = core
-        
-        configureCoreCallbacks()
         
         /// Load plugins if available in the linphone SDK - otherwise these calls will do nothing
         core.withMediaStreamerFactory { $0.load([.amr, .x264, .openh264, .silk, .bcg729, .webrtc]) }
@@ -137,10 +131,9 @@ public final class LinPhoneManager {
     private func destroyLinphoneCore() {
         
         self.iterateTimer?.invalidate()
-        self.state = State()
+        self.started = false
         
         self.core = nil
-        self.coreCallbacks = nil
         self.callCenter?.callEventHandler = nil
         self.callCenter = nil
     }
@@ -157,28 +150,24 @@ public final class LinPhoneManager {
     
     // MARK: Callbacks
     
-    private func configureCoreCallbacks() {
+    private func createCoreCallbacks() -> Core.Callbacks {
         
-        coreCallbacks?.callStateChanged = { [weak self] in self?.call($0.1, stateChanged: $0.2, message: $0.3) }
+        let callbacks = Core.Callbacks()
+        
+        callbacks.callStateChanged = { [weak self] in self?.call($0.1, stateChanged: $0.2, message: $0.3) }
+        
+        return callbacks
     }
     
     private func call(_ call: Call, stateChanged state: Call.State, message: String?) {
         
         let address = call.remoteAddress
-        
-        
+                
+        self.lastCallStateChange.value = (call, state, message)
     }
 }
 
 public extension LinPhoneManager {
-    
-    public enum State {
-        
-        case ready
-        case started
-        
-        public init() { self = .ready }
-    }
     
     public enum Error: Swift.Error {
         

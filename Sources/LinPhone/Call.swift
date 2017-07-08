@@ -109,6 +109,14 @@ public final class Call {
         }
     }
     
+    public var nativeWindow: CallNativeWindow? {
+        
+        didSet {
+            
+            linphone_call_set_native_video_window_id(rawPointer, nativeWindow?.toNativeHandle())
+        }
+    }
+    
     /// The call's current state.
     public var state: State {
         
@@ -387,7 +395,7 @@ extension Call {
         /// The call was missed (unanswered)
         case missed
         
-        /// The call was declined, either locally or by remote end
+        /// The call was declined, either locally or by remote end.
         case declined
         
         /// The call was aborted before being advertised to the application - for protocol reasons.
@@ -405,6 +413,24 @@ extension Call {
         case incoming
     }
 }
+
+public protocol CallNativeWindow {
+    
+    func toNativeHandle() -> UnsafeMutableRawPointer
+}
+
+#if os(iOS)
+    import class UIKit.UIView
+    
+    extension UIView {
+        
+        func toNativeHandle() -> UnsafeMutableRawPointer {
+            
+            return Unmanaged.passUnretained(self).toOpaque()
+        }
+    }
+#endif
+
 /*
 public extension Call {
     

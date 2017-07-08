@@ -332,6 +332,26 @@ public final class Core {
         get { return linphone_core_is_incoming_invite_pending(rawPointer).boolValue }
     }
     
+    /// The microphone gain in db.
+    public var microphoneGain: Float {
+        
+        @inline(__always)
+        get { return linphone_core_get_mic_gain_db(rawPointer) }
+        
+        @inline(__always)
+        set { linphone_core_set_mic_gain_db(rawPointer, newValue) }
+    }
+    
+    /// The current playback gain in db before entering sound card.
+    public var playbackGain: Float {
+        
+        @inline(__always)
+        get { return linphone_core_get_playback_gain_db(rawPointer) }
+        
+        @inline(__always)
+        set { linphone_core_set_playback_gain_db(rawPointer, newValue) }
+    }
+    
     // MARK: - Methods
     
     /// Main loop function. It is crucial that your application call it periodically.
@@ -373,7 +393,6 @@ public final class Core {
         
         linphone_core_reload_ms_plugins(rawPointer, path)
     }
-    
     
     /// Add a listener in order to be notified of `Linphone.Core` events. 
     /// Once an event is received, registred `Linphone.Callbacks` are invoked sequencially.
