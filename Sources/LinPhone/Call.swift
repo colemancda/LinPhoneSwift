@@ -93,7 +93,7 @@ public final class Call {
     }
     
     /// Execute closure on next video frame decoded.
-    public var nextVideoFrameDecoded: (Call) -> () = { _ in } {
+    public var nextVideoFrameDecoded: ((Call) -> ())? {
         
         didSet {
             
@@ -103,12 +103,15 @@ public final class Call {
                     let call = Call.from(rawPointer: rawPointer)
                     else { return }
                 
-                call.nextVideoFrameDecoded(call)
+                call.nextVideoFrameDecoded?(call)
+                
+                call.nextVideoFrameDecoded = nil // reset in Swift, C object already resets internally
                 
             }, nil)
         }
     }
     
+    /// The native video window id where the video is to be displayed.
     public var nativeWindow: CallNativeWindow? {
         
         didSet {

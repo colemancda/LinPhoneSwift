@@ -352,6 +352,64 @@ public final class Core {
         set { linphone_core_set_playback_gain_db(rawPointer, newValue) }
     }
     
+    /// The UDP port used for audio streaming
+    public var audioPort: Int {
+        
+        @inline(__always)
+        get { return Int(linphone_core_get_audio_port(rawPointer)) }
+        
+        @inline(__always)
+        set { linphone_core_set_audio_port(rawPointer, Int32(newValue)) }
+    }
+    
+    /// The UDP port used for video streaming
+    public var videoPort: Int {
+        
+        @inline(__always)
+        get { return Int(linphone_core_get_video_port(rawPointer)) }
+        
+        @inline(__always)
+        set { linphone_core_set_video_port(rawPointer, Int32(newValue)) }
+    }
+    
+    /// The media encryption policy being used for RTP packets.
+    public var mediaEncryption: MediaEncryption {
+        
+        @inline(__always)
+        get { return MediaEncryption(linphone_core_get_media_encryption(rawPointer)) }
+        
+        @inline(__always)
+        set { linphone_core_set_media_encryption(rawPointer, newValue.linPhoneType) }
+    }
+    
+    /// The local "from" identity.
+    public var primaryContact: Address? {
+        
+        // Is this address ever mutated internally? Seems that new values are always created from strings,
+        // so we'll assume that the new values are new instances and the same instance is never mutated.
+        get { return getReferenceConvertible(.externallyRetainedImmutable, linphone_core_get_primary_contact_parsed) }
+        
+        // Set new address by parsing string.
+        set { self.primaryContactString = newValue?.internalReference.reference.stringValue }
+    }
+    
+    /// The local "from" identity.
+    internal var primaryContactString: String? {
+        
+        @inline(__always)
+        get { return getString(linphone_core_get_primary_contact) }
+        
+        @inline(__always)
+        set { setString(linphone_core_set_primary_contact, newValue).lpAssert() }
+    }
+    
+    /// Set the local "from" identity.
+    @inline(__always)
+    public func setPrimaryContact(_ contact: String) {
+        
+        linphone_core_set_primary_contact(rawPointer, contact)
+    }
+    
     // MARK: - Methods
     
     /// Main loop function. It is crucial that your application call it periodically.
