@@ -160,6 +160,7 @@
 		6E59C78C1F11E14B005274EC /* Bool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E59C78B1F11E14B005274EC /* Bool.swift */; };
 		6E59C78D1F11E1DB005274EC /* Bool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E59C7871F11E0C6005274EC /* Bool.swift */; };
 		6E76D7401F0705B70017362C /* Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E76D73E1F0705B70017362C /* Core.swift */; };
+		6E7FEF191F128F5400C27DE9 /* AddressTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7FEF181F128F5400C27DE9 /* AddressTests.swift */; };
 		6EF1B5C91F0D6B5400B65129 /* Conference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF1B5C81F0D6B5400B65129 /* Conference.swift */; };
 		6EF6A6D41F0C059400C39864 /* BelledonneToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E569AF21F09F67200BF244A /* BelledonneToolbox.framework */; };
 		6EF6A6D61F0C3E5100C39864 /* Call.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6A6D51F0C3E5100C39864 /* Call.swift */; };
@@ -394,6 +395,7 @@
 		6E59C78B1F11E14B005274EC /* Bool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bool.swift; sourceTree = "<group>"; };
 		6E76D73E1F0705B70017362C /* Core.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Core.swift; sourceTree = "<group>"; };
 		6E76D76D1F0710D90017362C /* module.map */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = module.map; sourceTree = "<group>"; };
+		6E7FEF181F128F5400C27DE9 /* AddressTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressTests.swift; sourceTree = "<group>"; };
 		6EF1B5C81F0D6B5400B65129 /* Conference.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Conference.swift; sourceTree = "<group>"; };
 		6EF6A6D51F0C3E5100C39864 /* Call.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Call.swift; sourceTree = "<group>"; };
 		6EF6A6D71F0C427B00C39864 /* Address.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
@@ -753,6 +755,7 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_11 /* CoreTests.swift */,
+				6E7FEF181F128F5400C27DE9 /* AddressTests.swift */,
 			);
 			name = LinPhoneTests;
 			path = ../Tests/LinPhoneTests;
@@ -1162,6 +1165,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
+				6E7FEF191F128F5400C27DE9 /* AddressTests.swift in Sources */,
 				OBJ_28 /* CoreTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
