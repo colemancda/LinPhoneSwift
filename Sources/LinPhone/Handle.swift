@@ -94,10 +94,11 @@ internal extension UserDataHandle {
         
         let userDataRawPointer = Self.userDataGetFunction(rawPointer)
         
+        // Only set user data to nil if this Swift object is the user data pointer.
         if let userData = unsafeBitCast(userDataRawPointer, to: Optional<Self.RawPointer>.self),
             userData == self.rawPointer {
             
-            Self.userDataSetFunction(nil, createUserData())
+            Self.userDataSetFunction(rawPointer, nil)
         }
     }
     
@@ -268,7 +269,7 @@ internal protocol ReferenceConvertible {
     init(_ internalReference: CopyOnWrite<Reference>)
 }
 
-/// Memory management rules for creating a value type (e.g. structs) backed by a C object pointer.
+/// Memory management rules for creating a value type (e.g. struct) backed by a C object pointer.
 internal enum ReferenceConvertibleMemoryManagement {
     
     /// Object is new or uniquely retained (e.g. C manual reference count is 1).
@@ -276,17 +277,17 @@ internal enum ReferenceConvertibleMemoryManagement {
     /// A new reference convertible struct can point to this reference directly.
     case uniqueReference
     
-    /// Object is already retained externally but is immutable (e.g. C manual reference count > 1).
+    /// Object is already retained externally but is immutable (e.g. C manual reference count >= 1).
     ///
     /// A new reference convertible struct can point to this reference, but any subsequent mutations
     /// must copy the internal reference regardless of the current Swift ARC reference count.
-    /// This is more efficient than unnecesarily copying the reference, since the object may never be mutated.
+    /// This is more efficient than unnecesarily copying the reference, since the value type may never be mutated.
     case externallyRetainedImmutable
     
-    /// Object is already retained externally and could be mutated (e.g. C manual reference count > 1).
+    /// Object is already retained externally and could be mutated (e.g. C manual reference count >= 1).
     /// 
     /// A new reference convertible struct cannot point to this reference directly,
-    /// and must be immediately copied to avoid invalid shared state and unforeseen mutations.
+    /// and must be point to a copied reference to avoid invalid shared state and unforeseen mutations.
     case externallyRetainedMutable
     
     /// Alias for `.externallyRetainedMutable`
@@ -331,7 +332,8 @@ internal extension ReferenceConvertible where Reference: ManagedHandle {
         
         let unmanagedPointer = Reference.Unmanaged(rawPointer)
         
-        // increment reference count if externally retained.
+        // increment reference count if externally retained, 
+        // to not destroy the C object once the Swift reference is released.
         if externalRetain {
             
             unmanagedPointer.retain()
@@ -374,7 +376,7 @@ internal extension Handle {
         
         if copy {
             
-            newValueRawPointer = value?.internalReference.reference.copy?.rawPointer
+            newValueRawPointer = value?.internalReference.reference.copy!.rawPointer
             
         } else {
             
@@ -427,8 +429,7 @@ internal struct CopyOnWrite <Reference: CopyableHandle> {
     
     /// Returns the reference meant for mutable operations.
     ///
-    /// If necessary, the reference is copied using the `copier` function
-    /// or closure provided to the initializer before returning, in order to preserve value semantics.
+    /// If necessary, the reference is copied before returning, in order to preserve value semantics.
     var mutatingReference: Reference {
         
         mutating get {
