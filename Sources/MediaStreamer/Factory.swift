@@ -80,6 +80,7 @@ public final class Factory {
         ms_factory_init_plugins(rawPointer)
     }
     
+    @inline(__always)
     public func loadPlugins(from directory: String? = nil) {
         
         ms_factory_load_plugins(rawPointer, directory)
@@ -98,6 +99,14 @@ public final class Factory {
             case .webrtc:   libmswebrtc_init(rawPointer)
             }
         }
+    }
+    
+    /// Specify if a filter is enabled or not.
+    @discardableResult
+    @inline(__always)
+    public func enableFilter(_ enable: Bool, for name: String) -> Bool {
+        
+        return ms_factory_enable_filter_from_name(rawPointer, name, bool_t(enable)) == 0
     }
 }
 

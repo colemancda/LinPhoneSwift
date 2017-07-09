@@ -6,23 +6,7 @@
 //
 //
 
-import typealias CLinPhone.bool_t
 import typealias CLinPhone.LinphoneStatus
-
-internal extension CLinPhone.bool_t {
-    
-    @inline(__always)
-    init(_ bool: Bool) {
-        
-        self = bool ? 1 : 0
-    }
-    
-    var boolValue: Bool {
-        
-        @inline(__always)
-        get { return self > 0 }
-    }
-}
 
 internal extension LinphoneStatus {
     

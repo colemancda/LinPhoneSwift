@@ -47,14 +47,14 @@ public final class Call {
     /// an incoming transfer request or `nil` otherwise.
     public var transferer: Call? {
         
-        return getUserDataHandle(linphone_call_get_transferer_call)
+        return getUserDataHandle(externalRetain: true, linphone_call_get_transferer_call)
     }
     
     /// When this call has received a transfer request, returns the new call that was automatically created 
     /// as a result of the transfer.
     public var transferTarget: Call? {
         
-        return getUserDataHandle(linphone_call_get_transfer_target_call)
+        return getUserDataHandle(externalRetain: true, linphone_call_get_transfer_target_call)
     }
     
     /// Returns the call object this call is replacing, if any. 
@@ -64,7 +64,7 @@ public final class Call {
     /// This property allows the application to know whether a new incoming call is a one that replaces another one.
     public var replaced: Call? {
         
-        return getUserDataHandle(linphone_call_get_replaced_call)
+        return getUserDataHandle(externalRetain: true, linphone_call_get_replaced_call)
     }
     
     /// Returns the remote address associated to this call.
@@ -240,6 +240,7 @@ public final class Call {
     /// where it will receive a `.incomingReceived` event with the associated `Linphone.Call` object.
     ///
     /// The application can later accept the call using this method.
+    @discardableResult
     @inline(__always)
     public func accept() -> Bool {
         
@@ -250,6 +251,7 @@ public final class Call {
     ///
     /// If a music file has been setup using `Linphone.Core.setPlayFile()`, this file will be played to the remote user.
     /// The only way to resume a paused call is to call `resume()`.
+    @discardableResult
     @inline(__always)
     public func pause() -> Bool {
         
@@ -259,15 +261,25 @@ public final class Call {
     /// Resumes a call.
     ///
     /// The call needs to have been paused previously with `pause()`.
+    @discardableResult
     @inline(__always)
     public func resume() -> Bool {
         
         return linphone_call_resume(rawPointer) == .success
     }
     
+    /// Terminates a call.
+    @discardableResult
+    @inline(__always)
+    public func terminate() -> Bool {
+        
+        return linphone_call_terminate(rawPointer) == .success
+    }
+    
     /// Take a photo of currently received video and write it into a jpeg file. 
     /// Note that the snapshot is asynchronous, an application shall not assume 
     /// that the file is created when the method returns.
+    @discardableResult
     @inline(__always)
     public func takeVideoSnapshot(file: String) -> Bool {
         
@@ -277,6 +289,7 @@ public final class Call {
     /// Take a photo of currently captured video and write it into a jpeg file. 
     /// Note that the snapshot is asynchronous, an application shall not assume 
     /// that the file is created when the function returns.
+    @discardableResult
     @inline(__always)
     public func takePreviewSnapshot(file: String) -> Bool {
         
@@ -288,6 +301,16 @@ public final class Call {
     public func sendVideoFastUpdateRequest() {
         
         linphone_call_send_vfu_request(rawPointer)
+    }
+    
+    /// Send the specified dtmf.
+    /// The dtmf is automatically played to the user.
+    /// - Parameter dtmf: The dtmf name specified as a char, such as '0', '#' etc...
+    @discardableResult
+    @inline(__always)
+    public func send(dtmf: Int8) -> Bool {
+        
+        return linphone_call_send_dtmf(rawPointer, dtmf) == .success
     }
     
     /// Perform a zoom of the video displayed during a call.
@@ -423,11 +446,12 @@ public protocol CallNativeWindow {
 }
 
 #if os(iOS)
+    
     import class UIKit.UIView
     
-    extension UIView {
+    extension UIView: CallNativeWindow {
         
-        func toNativeHandle() -> UnsafeMutableRawPointer {
+        public func toNativeHandle() -> UnsafeMutableRawPointer {
             
             return Unmanaged.passUnretained(self).toOpaque()
         }

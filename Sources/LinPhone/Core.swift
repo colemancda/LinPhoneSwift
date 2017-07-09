@@ -168,7 +168,7 @@ public final class Core {
         for index in 0 ..< count {
             
             guard let rawPointer = Call.RawPointer(bctbx_list_nth_data(callsLinkedList, Int32(index))),
-                let call = self.getUserDataHandle({ _ in return rawPointer }) as Call? // fake getter function
+                let call = self.getUserDataHandle(externalRetain: true, { _ in return rawPointer }) as Call? // fake getter function
                 else { fatalError("Nil pointer") }
             
             calls.append(call)
@@ -182,7 +182,7 @@ public final class Core {
     /// Gets the current call or `nil` if no call is running.
     public var currentCall: Call? {
         
-        return getUserDataHandle(linphone_core_get_current_call)
+        return getUserDataHandle(externalRetain: true, linphone_core_get_current_call)
     }
     
     /// The path to a file or folder containing the trusted root CAs (PEM format)
@@ -389,7 +389,7 @@ public final class Core {
         get { return getReferenceConvertible(.uniqueReference, linphone_core_get_primary_contact_parsed) }
         
         // Set new address by parsing string.
-        set { self.primaryContactString = newValue?.internalReference.reference.stringValue }
+        set { self.primaryContactString = newValue?.rawValue }
     }
     
     /// The local "from" identity, only set valid `LinPhone.Address` strings.
@@ -400,6 +400,45 @@ public final class Core {
         
         @inline(__always)
         set { setString(linphone_core_set_primary_contact, newValue).lpAssert() }
+    }
+    
+    /// The nominal audio jitter buffer size in milliseconds.
+    public var audioJitter: Int {
+        
+        @inline(__always)
+        get { return Int(linphone_core_get_audio_jittcomp(rawPointer)) }
+        
+        @inline(__always)
+        set { linphone_core_set_audio_jittcomp(rawPointer, Int32(newValue)) }
+    }
+    
+    /// The nominal video jitter buffer size in milliseconds.
+    public var videoJitter: Int {
+        
+        @inline(__always)
+        get { return Int(linphone_core_get_video_jittcomp(rawPointer)) }
+        
+        @inline(__always)
+        set { linphone_core_set_video_jittcomp(rawPointer, Int32(newValue)) }
+    }
+    
+    public var noXmitOnAudioMute: Bool {
+        
+        @inline(__always)
+        get { return linphone_core_get_rtp_no_xmit_on_audio_mute(rawPointer).boolValue }
+        
+        @inline(__always)
+        set { linphone_core_set_rtp_no_xmit_on_audio_mute(rawPointer, bool_t(newValue)) }
+    }
+    
+    /// The SIP transport timeout in milliseconds.
+    public var sipTransportTimeout: Int {
+        
+        @inline(__always)
+        get { return Int(linphone_core_get_sip_transport_timeout(rawPointer)) }
+        
+        @inline(__always)
+        set { linphone_core_set_sip_transport_timeout(rawPointer, Int32(newValue)) }
     }
     
     // MARK: - Methods
@@ -513,6 +552,34 @@ public final class Core {
     public func refreshRegisters() {
         
         linphone_core_refresh_registers(rawPointer)
+    }
+    
+    /// Initiates an outgoing call.
+    /// - Parameter url: The destination of the call (sip address, or phone number).
+    /// - Returns: A `LinPhone.Call` object or `nil` in case of failure.
+    public func invite(_ url: String) -> Call? {
+        
+        // new Call object is created
+        // Initiates an outgoing call 
+        // The application doesn't own a reference to the returned LinphoneCall object.
+        // Use linphone_call_ref() to safely keep the LinphoneCall pointer valid within your application.
+        return getUserDataHandle(externalRetain: false) { linphone_core_invite($0, url) }
+    }
+    
+    /// Initiates an outgoing call.
+    /// - Parameter address: The sip address destination of the call.
+    /// - Returns: A `LinPhone.Call` object or `nil` in case of failure.
+    @inline(__always)
+    public func invite(_ address: Address) -> Call? {
+        
+        return invite(address.rawValue)
+    }
+    
+    /// Pause all currently running calls.
+    @inline(__always)
+    public func pauseAllCalls() {
+        
+        linphone_core_pause_all_calls(rawPointer)
     }
 }
 

@@ -170,10 +170,8 @@ internal extension Handle {
     }
     
     /// Attempt to get an existing reference for an object getter function, and creates a new reference if necesary.
-    ///
-    /// - Precondition: Assumes the C object returned by the function is externally retained by the reciever.
     @inline(__always)
-    func getUserDataHandle <Handle: ManagedHandle> (_ function: ((RawPointer?) -> Handle.RawPointer?)) -> Handle?
+    func getUserDataHandle <Handle: ManagedHandle> (externalRetain: Bool, _ function: ((RawPointer?) -> Handle.RawPointer?)) -> Handle?
         where Handle: UserDataHandle, Handle.Unmanaged.RawPointer == Handle.RawPointer {
         
         // get handle pointer
@@ -189,7 +187,7 @@ internal extension Handle {
         } else {
             
             let unmanagedPointer = Handle.Unmanaged(rawPointer)
-            unmanagedPointer.retain()
+            if externalRetain { unmanagedPointer.retain() }
             
             reference = Handle(ManagedPointer(unmanagedPointer))
             reference.setUserData() // set pointer to new swift object
