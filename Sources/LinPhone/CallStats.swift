@@ -42,14 +42,14 @@ public extension Call {
         }*/
         
         /// The bandwidth measurement of the received stream, expressed in kbit/s, including IP/UDP/RTP headers.
-        public var downloadBandwith: Float {
+        public var downloadBandwidth: Float {
             
             @inline(__always)
             get { return linphone_call_stats_get_download_bandwidth(rawPointer) }
         }
         
         /// The bandwidth measurement of the sent stream, expressed in kbit/s, including IP/UDP/RTP headers.
-        public var uploadBandwith: Float {
+        public var uploadBandwidth: Float {
             
             @inline(__always)
             get { return linphone_call_stats_get_upload_bandwidth(rawPointer) }

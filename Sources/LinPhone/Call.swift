@@ -350,7 +350,7 @@ public final class Call {
     /// Return a copy of the call statistics for a particular stream type.
     public func stats(for type: StreamType) -> Call.Stats? {
         
-        guard let reference = getManagedHandle(externalRetain: false, { linphone_call_get_stats($0, type.linPhoneType) })
+        guard let reference = getManagedHandle(externalRetain: false, { linphone_call_get_stats($0, type.linPhoneType) }) as Call.Stats.Reference?
             else { return nil }
         
         return Call.Stats(referencing: reference)
