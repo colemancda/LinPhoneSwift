@@ -240,6 +240,23 @@ public final class Call {
         get { return linphone_call_is_in_conference(rawPointer).boolValue }
     }*/
     
+    /// Obtain real-time quality rating of the call.
+    ///
+    /// Based on local RTP statistics and RTCP feedback, a quality rating is computed and updated 
+    /// during all the duration of the call. This function returns its value at the time of the function call.
+    /// It is expected that the rating is updated at least every 5 seconds or so. 
+    /// The rating is a floating point number comprised between 0 and 5. For Example:
+    /// * 4-5 = good quality
+    /// * 3-4 = average quality
+    /// * 2-3 = poor quality
+    /// * 1-2 = very poor quality
+    /// * 0-1 = can't be worse, mostly unusable
+    public var currentQuality: Float {
+        
+        @inline(__always)
+        get { return linphone_call_get_current_quality(rawPointer) }
+    }
+    
     // MARK: - Methods
     
     /// Accept an incoming call.
@@ -328,6 +345,15 @@ public final class Call {
     public func zoomVideo(factor: Float, center: inout (x: Float, y: Float)) {
         
         linphone_call_zoom_video(rawPointer, factor, &center.x, &center.y)
+    }
+    
+    /// Return a copy of the call statistics for a particular stream type.
+    public func stats(for type: StreamType) -> Call.Stats? {
+        
+        guard let reference = getManagedHandle(externalRetain: false, { linphone_call_get_stats($0, type.linPhoneType) })
+            else { return nil }
+        
+        return Call.Stats(referencing: reference)
     }
 }
 
