@@ -120,6 +120,14 @@ public final class Call {
         }
     }
     
+    /// The current parameters associated to the call.
+    public var parameters: Parameters {
+        
+        get { return getReferenceConvertible(.copy, linphone_call_get_current_params)! }
+        
+        //set { return setReferenceConvertible(copy: true, linphone_call_set_params, newValue) }
+    }
+    
     /// The call's current state.
     public var state: State {
         
