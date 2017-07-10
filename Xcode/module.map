@@ -4,6 +4,11 @@ module CLinPhone [system] {
         header "linphone/core.h"
         export *
     }
+    
+    module coreutils {
+        header "linphone/core_utils.h"
+        export *
+    }
 }
 
 module CMediaStreamer2 [system] {

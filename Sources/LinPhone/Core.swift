@@ -6,7 +6,8 @@
 //
 //
 
-import CLinPhone
+import CLinPhone.core
+import CLinPhone.coreutils
 import CBelledonneToolbox
 import struct BelledonneToolbox.LinkedList
 import class MediaStreamer.Factory
@@ -441,6 +442,19 @@ public final class Core {
         set { linphone_core_set_sip_transport_timeout(rawPointer, Int32(newValue)) }
     }
     
+    /// The maximum transmission unit size in bytes.
+    /// This information is useful for sending RTP packets.
+    ///
+    /// Default value is 1500.
+    public var maximumTransmissionUnit: Int {
+        
+        @inline(__always)
+        get { return Int(linphone_core_get_mtu(rawPointer)) }
+        
+        @inline(__always)
+        set { linphone_core_set_mtu(rawPointer, Int32(newValue)) }
+    }
+    
     // MARK: - Methods
     
     /// Main loop function. It is crucial that your application call it periodically.
@@ -581,6 +595,55 @@ public final class Core {
         
         linphone_core_pause_all_calls(rawPointer)
     }
+    
+    /// Plays a dtmf sound to the local user.
+    /// - Parameter dtmf: DTMF to play ['0'..'16'] | '#' | '#'
+    /// - Parameter duration: Duration in ms, -1 means play until next further call to `stopDMTF()`.
+    @inline(__always)
+    public func play(dtmf: Int8, duration: Int) {
+        
+        linphone_core_play_dtmf(rawPointer, dtmf, Int32(duration))
+    }
+    
+    /// Stops playing a dtmf.
+    @inline(__always)
+    public func stopPlayingDMTF() {
+        
+        linphone_core_stop_dtmf(rawPointer)
+    }
+    
+    /// Plays an audio file to the local user. 
+    /// This method works at any time, during calls, or when no calls are running.
+    /// It doesn't request the underlying audio system to support multiple playback streams.
+    /// - Parameter filePath: The path to an audio file in wav PCM 16 bit format.
+    @discardableResult
+    @inline(__always)
+    public func play(audio filePath: String) -> Bool {
+        
+        return linphone_core_play_local(rawPointer, filePath) == .success
+    }
+    
+    // MARK: - iOS Specific Methods
+    
+    #if os(iOS)
+    
+    /// Special function to warm up dtmf feeback stream. 
+    /// `stopDTMFStream()` must be called before entering foreground mode.
+    @inline(__always)
+    public func startDTMFStream() {
+        
+        linphone_core_start_dtmf_stream(rawPointer)
+    }
+    
+    /// Special function to stop dtmf feed back function.
+    /// Must be called before entering background mode. 
+    @inline(__always)
+    public func stopDTMFStream() {
+        
+        linphone_core_stop_dtmf_stream(rawPointer)
+    }
+    
+    #endif
 }
 
 // MARK: - Supporting Types
