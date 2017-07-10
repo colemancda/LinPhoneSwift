@@ -333,6 +333,16 @@ public final class Core {
         get { return linphone_core_is_incoming_invite_pending(rawPointer).boolValue }
     }
     
+    /// Tells whether the microphone is enabled.
+    public var isMicrophoneEnabled: Bool {
+        
+        @inline(__always)
+        get { return linphone_core_mic_enabled(rawPointer).boolValue }
+        
+        @inline(__always)
+        set { linphone_core_enable_mic(rawPointer, bool_t(newValue)) }
+    }
+    
     /// The microphone gain in db.
     public var microphoneGain: Float {
         
@@ -453,6 +463,23 @@ public final class Core {
         
         @inline(__always)
         set { linphone_core_set_mtu(rawPointer, Int32(newValue)) }
+    }
+    
+    /// Used to notify the linphone core library when network is reachable.
+    public var networkReachable: Bool {
+        
+        @inline(__always)
+        get { return linphone_core_is_network_reachable(rawPointer).boolValue }
+        
+        @inline(__always)
+        set { linphone_core_set_network_reachable(rawPointer, bool_t(newValue)) }
+    }
+    
+    /// Indicates whether the local participant is part of a conference.
+    public var inConference: Bool {
+        
+        @inline(__always)
+        get { return linphone_core_is_in_conference(rawPointer).boolValue }
     }
     
     // MARK: - Methods
@@ -636,7 +663,7 @@ public final class Core {
     }
     
     /// Special function to stop dtmf feed back function.
-    /// Must be called before entering background mode. 
+    /// Must be called before entering background mode.
     @inline(__always)
     public func stopDTMFStream() {
         
