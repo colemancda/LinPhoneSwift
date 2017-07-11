@@ -47,11 +47,6 @@ internal extension BelledonneObjectHandle {
         return getString { belle_sip_object_describe(📦($0)) } ?? ""
     }
     
-    var description: String {
-        
-        return getString { belle_sip_object_to_string(📦($0)) } ?? ""
-    }
-    
     var copy: Self? {
         
         let belleObjectPointer = unsafeBitCast(self.rawPointer, to: UnsafeMutablePointer<belle_sip_object_t>.self)
@@ -64,6 +59,14 @@ internal extension BelledonneObjectHandle {
         let copy = Self.init(ManagedPointer(BelledonneUnmanagedObject(copyRawPointer)))
         
         return copy
+    }
+}
+
+extension BelledonneObjectHandle {
+    
+    public var description: String {
+        
+        return getString { belle_sip_object_to_string(📦($0)) } ?? ""
     }
 }
 

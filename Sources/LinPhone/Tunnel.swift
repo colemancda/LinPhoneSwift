@@ -13,11 +13,11 @@ public final class Tunnel {
     // MARK: - Properties
     
     @_versioned
-    internal let managedPointer: ManagedPointer<UnmanagedPointer>
+    internal let managedPointer: ManagedPointer<BelledonneUnmanagedObject>
     
     // MARK: - Initialization
     
-    internal init(_ managedPointer: ManagedPointer<UnmanagedPointer>) {
+    internal init(_ managedPointer: ManagedPointer<BelledonneUnmanagedObject>) {
         
         self.managedPointer = managedPointer
     }
@@ -33,19 +33,43 @@ public final class Tunnel {
         set { linphone_tunnel_set_mode(rawPointer, mode.linPhoneType) }
     }
     
-    /*
-    public var enabled: Bool {
+    /// A boolean value telling whether SIP packets shall pass through the tunnel.
+    public var isSIPEnabled: Bool {
         
         @inline(__always)
-        get { return linphone_tunnel_enabled(rawPointer).boolValue }
+        get { return linphone_tunnel_sip_enabled(rawPointer).boolValue }
         
         @inline(__always)
-        set { linphone_tunnel_enable(rawPointer, bool_t(newValue)) }
-    }*/
+        set { linphone_tunnel_enable_sip(rawPointer, bool_t(newValue)) }
+    }
     
+    /// Check whether the tunnel is connected.
+    public var isConnected: Bool {
+        
+        return linphone_tunnel_connected(rawPointer).boolValue
+    }
     
+    /// Returns whether the tunnel is activated. 
+    /// If mode is set to auto, this gives indication whether the automatic detection 
+    /// determined that tunnel was necessary or not.
+    public var isActivated: Bool {
+        
+        return linphone_tunnel_get_activated(rawPointer).boolValue
+    }
     
     // MARK: - Methods
+    
+    /// Force reconnection to the tunnel server. 
+    /// 
+    /// This method is useful when the device switches from wifi to Edge/3G or vice versa. 
+    /// In most cases the tunnel client socket won't be notified promptly that its connection is now zombie, 
+    /// so it is recommended to call this method that will cause the lost connection to be closed 
+    /// and new connection to be issued.
+    @inline(__always)
+    public func reconnect() {
+        
+        linphone_tunnel_reconnect(rawPointer)
+    }
 }
 
 public extension Tunnel {
@@ -121,6 +145,14 @@ extension Tunnel.Mode: CustomStringConvertible {
     }
 }
 
+extension Tunnel: BelledonneObjectHandle {
+    
+    internal typealias UnmanagedPointer = BelledonneUnmanagedObject
+    
+    internal typealias RawPointer = UnmanagedPointer.RawPointer
+}
+
+/*
 extension Tunnel: ManagedHandle {
     
     typealias RawPointer = UnmanagedPointer.RawPointer
@@ -144,7 +176,7 @@ extension Tunnel: ManagedHandle {
             linphone_tunnel_unref(rawPointer)
         }
     }
-}
+}*/
 
 extension Tunnel.Configuration: ManagedHandle {
     
