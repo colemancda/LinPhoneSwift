@@ -186,6 +186,12 @@ public final class Core {
         return getUserDataHandle(externalRetain: true, linphone_core_get_current_call)
     }
     
+    /// Get tunnel instance if available.
+    public var tunnel: Tunnel? {
+        
+        return getManagedHandle(externalRetain: true, linphone_core_get_tunnel)
+    }
+    
     /// The path to a file or folder containing the trusted root CAs (PEM format)
     public var rootCA: String? {
         

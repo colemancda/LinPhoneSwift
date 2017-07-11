@@ -9,6 +9,11 @@ module CLinPhone [system] {
         header "linphone/core_utils.h"
         export *
     }
+    
+    module tunnel {
+        header "linphone/tunnel.h"
+        export *
+    }
 }
 
 module CMediaStreamer2 [system] {
