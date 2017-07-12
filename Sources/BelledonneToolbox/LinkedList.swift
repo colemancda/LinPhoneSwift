@@ -36,11 +36,7 @@ public struct LinkedList {
     /// Initialize linked list from a string array.
     public init(strings: [String]) {
         
-        // convert strings to data
-        
-        let data = strings.map { $0.cStringData }
-        
-        self.init(Reference(mutableData: data))
+        self.init(Reference(strings: strings))
     }
     
     // MARK: - Accessors
@@ -108,11 +104,41 @@ extension LinkedList: Hashable {
     }
 }
 
+// MARK: - CustomStringConvertible
+
 extension LinkedList: CustomStringConvertible {
     
     public var description: String {
         
         return "\(strings)"
+    }
+}
+
+// MARK: - 
+
+public extension LinkedList {
+    
+    /// Extract the string values from a linked list raw pointer.
+    public static func strings(from rawPointer: UnsafePointer<bctbx_list_t>) -> [String] {
+        
+        let count = bctbx_list_size(rawPointer)
+        
+        var values = [String]()
+        values.reserveCapacity(count)
+        
+        for index in 0 ..< count {
+            
+            guard let dataPointer = bctbx_list_nth_data(rawPointer, Int32(index))
+                else { fatalError("No data for linked list at index \(index)") }
+            
+            let cString = dataPointer.assumingMemoryBound(to: CChar.self)
+            
+            let element = String(cString: cString)
+            
+            values.append(element)
+        }
+        
+        return values
     }
 }
 
@@ -153,6 +179,15 @@ extension LinkedList {
             
             self.rawPointer = rawPointer
             self.data = mutableData
+        }
+        
+        convenience init?(strings: [String]) {
+            
+            // convert strings to data
+            
+            let data = strings.map { $0.cStringData }
+            
+            self.init(mutableData: data)
         }
     }
 }

@@ -14,7 +14,8 @@ final class LinkedListTests: XCTestCase {
     static var allTests = [
         ("testStringList", testStringList),
         ("testDataList", testDataList),
-        ("testEmptyList", testEmptyList)
+        ("testEmptyList", testEmptyList),
+        ("testRawPointer", testRawPointer)
         ]
     
     func testStringList() {
@@ -51,5 +52,32 @@ final class LinkedListTests: XCTestCase {
         XCTAssert(list.data.isEmpty)
         XCTAssert(list.description == "\(items)")
         list.withUnsafeRawPointer { XCTAssert($0 == nil) }
+    }
+    
+    func testRawPointer() {
+        
+        let lists = [["1", "2"], ["1"], []]
+            .map { LinkedList(strings: $0) }
+        
+        for list in lists {
+            
+            list.withUnsafeRawPointer { (rawPointer) in
+                
+                if let rawPointer = rawPointer {
+                    
+                    let extractedStrings = LinkedList.strings(from: rawPointer)
+                    
+                    XCTAssert(list.strings == extractedStrings)
+                    
+                    let clonedList = LinkedList(strings: list.strings)
+                    
+                    XCTAssert(clonedList == list)
+                    
+                } else {
+                    
+                    XCTAssert(list.isEmpty)
+                }
+            }
+        }
     }
 }
