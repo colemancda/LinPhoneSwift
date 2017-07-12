@@ -582,10 +582,10 @@ public final class Core {
     public var preferredVideoSizeName: String? {
         
         @inline(__always)
-        get { return String(lpCString: linphone_core_get_preferred_video_size_name(rawPointer)) }
+        get { return getString(linphone_core_get_preferred_video_size_name) }
         
         @inline(__always)
-        set { linphone_core_set_preferred_video_size_by_name(rawPointer, newValue) }
+        set { setString(linphone_core_set_preferred_video_size_by_name, newValue) }
     }
     
     /// Tells whether IPv6 is enabled or not.
@@ -597,6 +597,72 @@ public final class Core {
         @inline(__always)
         set { linphone_core_enable_ipv6(rawPointer, bool_t(newValue)) }
     }
+    
+    /// The path to the image file streamed when "Static picture" is set as the video device.
+    public var staticPicture: String? {
+        
+        @inline(__always)
+        get { return getString(linphone_core_get_static_picture) }
+        
+        @inline(__always)
+        set { setString(linphone_core_set_static_picture, newValue).lpAssert() }
+    }
+    
+    /// The frame rate used for static picture.
+    public var staticPictureFPS: Float {
+        
+        @inline(__always)
+        get { return linphone_core_get_static_picture_fps(rawPointer) }
+        
+        @inline(__always)
+        set { linphone_core_set_static_picture_fps(rawPointer, newValue) }
+    }
+    
+    /// The UDP port range from which to randomly select the port used for text streaming.
+    public var textPortRange: CountableClosedRange<Int> {
+        
+        get {
+            
+            var port: (min: Int32, max: Int32) = (0,0)
+            
+            linphone_core_get_text_port_range(rawPointer, &port.min, &port.max)
+            
+            return Int(port.min) ... Int(port.max)
+        }
+        
+        set {
+            
+            linphone_core_set_text_port_range(rawPointer, Int32(newValue.lowerBound), Int32(newValue.upperBound))
+            
+            assert(newValue.lowerBound ... newValue.upperBound == newValue)
+        }
+    }
+    
+    /// Ask the core to stream audio from and to files, instead of using the soundcard.
+    public var shouldUseFilesForAudioStreaming: Bool {
+        
+        @inline(__always)
+        get { return linphone_core_get_use_files(rawPointer).boolValue }
+        
+        @inline(__always)
+        set { linphone_core_set_use_files(rawPointer, bool_t(newValue)) }
+    }
+    
+    /*
+    public var videoCodecs: [String] {
+        
+        get {
+            
+            
+        }
+        
+        set {
+            
+            let list = LinkedList(strings: newValue)
+            
+            list.withUnsafeRawPointer { linphone_core_set_video_codecs(rawPointer, $0) }
+        }
+    }*/
     
     // MARK: - Methods
     
