@@ -439,6 +439,26 @@ public final class Core {
         set { linphone_core_set_video_jittcomp(rawPointer, Int32(newValue)) }
     }
     
+    /// Enable or disable the audio adaptive jitter compensation.
+    public var isAudioAdaptiveJittCompensationEnabled: Bool {
+        
+        @inline(__always)
+        get { return linphone_core_audio_adaptive_jittcomp_enabled(rawPointer).boolValue }
+        
+        @inline(__always)
+        set { linphone_core_enable_audio_adaptive_jittcomp(rawPointer, bool_t(newValue)) }
+    }
+    
+    /// Enable or disable the audio adaptive jitter compensation.
+    public var isVideoAdaptiveJittCompensationEnabled: Bool {
+        
+        @inline(__always)
+        get { return linphone_core_video_adaptive_jittcomp_enabled(rawPointer).boolValue }
+        
+        @inline(__always)
+        set { linphone_core_enable_video_adaptive_jittcomp(rawPointer, bool_t(newValue)) }
+    }
+    
     public var noXmitOnAudioMute: Bool {
         
         @inline(__always)
@@ -722,7 +742,7 @@ public extension Core {
             
                 linphone_core_cbs_set_global_state_changed(rawPointer) {
                     
-                    guard let (core, callbacks) = Callbacks.from(coreRawPointer: $0.0)
+                    guard let (core, callbacks) = Core.callbacksFrom(rawPointer: $0.0)
                         else { return }
                     
                     let state = $0.1
