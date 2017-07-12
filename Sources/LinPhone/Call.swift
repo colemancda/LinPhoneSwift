@@ -570,7 +570,7 @@ extension Call: ManagedHandle {
     
     typealias RawPointer = UnmanagedPointer.RawPointer
     
-    struct UnmanagedPointer: LinPhone.UnmanagedPointer {
+    struct UnmanagedPointer: LinPhoneSwift.UnmanagedPointer {
         
         let rawPointer: OpaquePointer
         
@@ -595,7 +595,7 @@ extension Call.Callbacks: ManagedHandle {
     
     typealias RawPointer = UnmanagedPointer.RawPointer
     
-    struct UnmanagedPointer: LinPhone.UnmanagedPointer {
+    struct UnmanagedPointer: LinPhoneSwift.UnmanagedPointer {
         
         let rawPointer: OpaquePointer
         

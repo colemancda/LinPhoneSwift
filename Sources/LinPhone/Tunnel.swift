@@ -157,7 +157,7 @@ extension Tunnel: ManagedHandle {
     
     typealias RawPointer = UnmanagedPointer.RawPointer
     
-    struct UnmanagedPointer: LinPhone.UnmanagedPointer {
+    struct UnmanagedPointer: LinPhoneSwift.UnmanagedPointer {
         
         let rawPointer: OpaquePointer
         
@@ -182,7 +182,7 @@ extension Tunnel.Configuration: ManagedHandle {
     
     typealias RawPointer = UnmanagedPointer.RawPointer
     
-    struct UnmanagedPointer: LinPhone.UnmanagedPointer {
+    struct UnmanagedPointer: LinPhoneSwift.UnmanagedPointer {
         
         let rawPointer: OpaquePointer
         

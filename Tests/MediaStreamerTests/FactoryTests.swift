@@ -1,5 +1,5 @@
 //
-//  Factory.swift
+//  FactoryTests.swift
 //  LinPhoneTests
 //
 //  Created by Alsey Coleman Miller on 6/30/17.
@@ -9,18 +9,16 @@
 import XCTest
 @testable import MediaStreamer
 
-final class CoreTests: XCTestCase {
+final class FactoryTests: XCTestCase {
     
     static var allTests = [
-        ("testVersion", testVersion),
+        ("testLibraries", testLibraries),
         ]
     
-    func testVersion() {
+    func testLibraries() {
         
-        let version = LinPhone.Core.version
+        let factory = MediaStreamer.Factory()
         
-        print("Linphone version:", version)
-        
-        XCTAssert(version.isEmpty == false)
+        factory.load(MediaLibrary.all)
     }
 }
