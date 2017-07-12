@@ -73,12 +73,11 @@ public final class Call {
         return getReferenceConvertible(.externallyRetainedImmutable, linphone_call_get_remote_address)! // never nil
     }
     
-    /*
     /// Returns the 'to' address with its headers associated to this call.
     public var toAddress: Address {
         
         return getReferenceConvertible(.externallyRetainedImmutable, linphone_call_get_to_address)!
-    }*/
+    }
     
     /// Returns the diversion address associated to this call.
     public var diversionAddress: Address? {
@@ -509,7 +508,6 @@ public protocol CallNativeWindow {
     }
 #endif
 
-/*
 public extension Call {
     
     /// That class holds all the callbacks which are called by `Linphone.Core`.
@@ -562,7 +560,7 @@ public extension Call {
             }
         }
     }
-}*/
+}
 
 // MARK: - ManagedHandle
 
@@ -590,7 +588,7 @@ extension Call: ManagedHandle {
         }
     }
 }
-/*
+
 extension Call.Callbacks: ManagedHandle {
     
     typealias RawPointer = UnmanagedPointer.RawPointer
@@ -614,7 +612,7 @@ extension Call.Callbacks: ManagedHandle {
             linphone_call_cbs_unref(rawPointer)
         }
     }
-}*/
+}
 
 extension Call: UserDataHandle {
     
@@ -626,7 +624,7 @@ extension Call: UserDataHandle {
         return linphone_call_set_user_data
     }
 }
-/*
+
 extension Call.Callbacks: UserDataHandle {
     
     static var userDataGetFunction: (OpaquePointer?) -> UnsafeMutableRawPointer? {
@@ -642,4 +640,3 @@ extension Call: CallBacksHandle {
     
     static var currentCallbacksFunction: (RawPointer?) -> (Callbacks.RawPointer?) { return linphone_call_get_current_callbacks }
 }
-*/

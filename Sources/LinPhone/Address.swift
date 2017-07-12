@@ -160,13 +160,13 @@ public struct Address: RawRepresentable {
         
         linphone_address_clean(internalReference.mutatingReference.rawPointer)
     }
-    /*
+    
     /// Get the header encoded in the address.
     @inline(__always)
     public func header(_ name: String) -> String? {
         
         return internalReference.reference.getString { linphone_address_get_header($0, name) }
-    }*/
+    }
     
     /// Set a header into the address. 
     ///
@@ -220,7 +220,7 @@ public struct Address: RawRepresentable {
     }
     
     // MARK: - Subscripting
-    /*
+    
     public subscript (header name: String) -> String? {
         
         @inline(__always)
@@ -228,7 +228,7 @@ public struct Address: RawRepresentable {
         
         @inline(__always)
         mutating set { setHeader(name, value: newValue) }
-    }*/
+    }
     
     public subscript (parameter name: String) -> String? {
         

@@ -83,11 +83,15 @@ public final class Core {
         linphone_core_reset_log_collection()
     }
     
+    /// The state of the linphone core log collection.
     /// Tells whether the linphone core log collection is enabled.
     public var isLogCollectionEnabled: LinphoneLogCollectionState {
         
         @inline(__always)
         get { return linphone_core_log_collection_enabled() }
+        
+        @inline(__always)
+        set { linphone_core_enable_log_collection(newValue) }
     }
     
     /// Define the minimum level for logging.
@@ -159,6 +163,13 @@ public final class Core {
                 linphone_core_set_log_handler(nil)
             }
         }
+    }
+    
+    /// True if tunnel support was compiled.
+    public static var tunnelAvailible: Bool {
+        
+        @inline(__always)
+        get { return linphone_core_tunnel_available().boolValue }
     }
     
     // MARK: - Accessors
@@ -648,21 +659,18 @@ public final class Core {
         set { linphone_core_set_use_files(rawPointer, bool_t(newValue)) }
     }
     
-    /*
-    public var videoCodecs: [String] {
+    /// The default policy for video.
+    public var videoPolicy: VideoPolicy {
         
-        get {
-            
-            
-        }
+        @inline(__always)
+        get { return VideoPolicy(linphone_core_get_video_policy(rawPointer).pointee) }
         
+        @inline(__always)
         set {
-            
-            let list = LinkedList(strings: newValue)
-            
-            list.withUnsafeRawPointer { linphone_core_set_video_codecs(rawPointer, $0) }
+            var value = newValue.linPhoneType
+            linphone_core_set_video_policy(rawPointer, &value)
         }
-    }*/
+    }
     
     // MARK: - Methods
     
@@ -890,7 +898,6 @@ public extension Core {
         
         // MARK: - Callbacks
         
-        /*
         /// Global state notification callback.
         public var globalStateChanged: ((_ core: Core, _ state: LinphoneGlobalState, _ message: String?) -> ())? {
             
@@ -908,19 +915,18 @@ public extension Core {
                     callbacks.globalStateChanged?(core, state, message)
                 }
             }
-        }*/
+        }
         
-        /*
         public var registrationStateChanged: ((_ core: Core, _ state: RegistrationState, _ message: String?) -> ())? {
             
             didSet {
                 
                 linphone_core_cbs_set_registration_state_changed(rawPointer) {
                     
-                    guard let (core, callbacks) = Callbacks.from(coreRawPointer: $0.0)
+                    guard let (core, callbacks) = Core.callbacksFrom(rawPointer: $0.0)
                         else { return }
                     
-                    let proxyConfig = $0.1
+                    //let proxyConfig = $0.1
                     
                     let state = RegistrationState($0.2)
                     
@@ -929,8 +935,8 @@ public extension Core {
                     callbacks.registrationStateChanged?(core, state, message)
                 }
             }
-        }*/
-        /*
+        }
+        
         /// Callback notifying that a new `Linphone.Call` (either incoming or outgoing) has been created.
         public var callCreated: ((_ core: Core, _ call: Call) -> ())? {
             
@@ -938,7 +944,7 @@ public extension Core {
                 
                 linphone_core_cbs_set_call_created(rawPointer) {
                     
-                    guard let (core, callbacks) = Callbacks.from(coreRawPointer: $0.0),
+                    guard let (core, callbacks) = Core.callbacksFrom(rawPointer: $0.0),
                         let callRawPointer = $0.1,
                         let call = Call.from(rawPointer: callRawPointer)
                         else { return }
@@ -947,7 +953,7 @@ public extension Core {
                 }
             }
         }
-        */
+        
         /// Call state notification callback.
         public var callStateChanged: ((_ core: Core, _ call: Call, _ state: Call.State, _ message: String?) -> ())? {
             
@@ -1047,5 +1053,7 @@ extension Core.Callbacks: UserDataHandle {
 
 extension Core: CallBacksHandle {
     
-    static var currentCallbacksFunction: (RawPointer?) -> (Callbacks.RawPointer?) { return linphone_core_get_current_callbacks }
+    static var currentCallbacksFunction: (RawPointer?) -> (Callbacks.RawPointer?) {
+        return linphone_core_get_current_callbacks
+    }
 }

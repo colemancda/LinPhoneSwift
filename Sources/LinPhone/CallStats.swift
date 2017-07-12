@@ -33,13 +33,12 @@ public extension Call {
             get { return internalReference.managedPointer.unmanagedPointer.rawPointer }
         }
         
-        /*
         /// The type of the stream the stats refer to.
         public var type: StreamType {
             
             @inline(__always)
             get { return StreamType(linphone_call_stats_get_type(rawPointer)) }
-        }*/
+        }
         
         /// The bandwidth measurement of the received stream, expressed in kbit/s, including IP/UDP/RTP headers.
         public var downloadBandwidth: Float {

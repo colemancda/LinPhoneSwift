@@ -152,32 +152,6 @@ extension Tunnel: BelledonneObjectHandle {
     internal typealias RawPointer = UnmanagedPointer.RawPointer
 }
 
-/*
-extension Tunnel: ManagedHandle {
-    
-    typealias RawPointer = UnmanagedPointer.RawPointer
-    
-    struct UnmanagedPointer: LinPhoneSwift.UnmanagedPointer {
-        
-        let rawPointer: OpaquePointer
-        
-        @inline(__always)
-        init(_ rawPointer: UnmanagedPointer.RawPointer) {
-            self.rawPointer = rawPointer
-        }
-        
-        @inline(__always)
-        func retain() {
-            linphone_tunnel_ref(rawPointer)
-        }
-        
-        @inline(__always)
-        func release() {
-            linphone_tunnel_unref(rawPointer)
-        }
-    }
-}*/
-
 extension Tunnel.Configuration: ManagedHandle {
     
     typealias RawPointer = UnmanagedPointer.RawPointer

@@ -23,21 +23,15 @@ public struct ErrorInfo {
         
         self.internalReference = internalReference
     }
-    /*
-    public init() {
-        
-        self.init(Reference())
-    }
     
     public init(factory: Factory = Factory.shared) {
         
         self.init(referencing: Reference(factory: factory))
-    }*/
+    }
     
     // MARK: - Accessors
     
-    /*
-     public var detailedErrorInfo: ErrorInfo? {
+    public var detailedErrorInfo: ErrorInfo? {
      
         get { return internalReference.reference.getReferenceConvertible(.copy, linphone_error_info_get_sub_error_info) }
      
@@ -94,7 +88,7 @@ public struct ErrorInfo {
         
         @inline(__always)
         mutating set { internalReference.mutatingReference.setString(linphone_error_info_set_warnings, newValue) }
-    }*/
+    }
 }
 
 // MARK: - ReferenceConvertible
@@ -122,7 +116,6 @@ extension ErrorInfo: ReferenceConvertible {
             self.managedPointer = managedPointer
         }
         
-        /*
         convenience init() {
             
             guard let rawPointer = linphone_error_info_new()
@@ -137,6 +130,6 @@ extension ErrorInfo: ReferenceConvertible {
                 else { fatalError("Could not allocate instance") }
             
             self.init(ManagedPointer(BelledonneUnmanagedObject(rawPointer)))
-        }*/
+        }
     }
 }
