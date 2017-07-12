@@ -135,7 +135,6 @@
 		6EFE25FA1F16695000FC4ECC /* ortp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EFE25A71F1660FD00FC4ECC /* ortp.framework */; };
 		6EFE25FB1F16696E00FC4ECC /* bctoolbox.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6EFE259C1F1660FD00FC4ECC /* bctoolbox.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6EFE25FC1F16696E00FC4ECC /* linphone.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6EFE259D1F1660FD00FC4ECC /* linphone.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6EFE25FD1F16696E00FC4ECC /* linphonetester.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6EFE259E1F1660FD00FC4ECC /* linphonetester.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6EFE25FE1F16696E00FC4ECC /* mediastreamer_base.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6EFE259F1F1660FD00FC4ECC /* mediastreamer_base.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6EFE25FF1F16696E00FC4ECC /* mediastreamer_voip.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6EFE25A01F1660FD00FC4ECC /* mediastreamer_voip.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6EFE26001F16696E00FC4ECC /* msamr.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6EFE25A11F1660FD00FC4ECC /* msamr.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -228,6 +227,13 @@
 			remoteGlobalIDString = 6E76D7701F0718580017362C;
 			remoteInfo = CMake;
 		};
+		6E8CF9AC1F167A840012BC9D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6E58AF141F085B4F009A0E68;
+			remoteInfo = MediaStreamer;
+		};
 		6EF6A6D21F0C058C00C39864 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
@@ -268,7 +274,6 @@
 			files = (
 				6EFE25FB1F16696E00FC4ECC /* bctoolbox.framework in Embed Frameworks */,
 				6EFE25FC1F16696E00FC4ECC /* linphone.framework in Embed Frameworks */,
-				6EFE25FD1F16696E00FC4ECC /* linphonetester.framework in Embed Frameworks */,
 				6EFE25FE1F16696E00FC4ECC /* mediastreamer_base.framework in Embed Frameworks */,
 				6EFE25FF1F16696E00FC4ECC /* mediastreamer_voip.framework in Embed Frameworks */,
 				6EFE26001F16696E00FC4ECC /* msamr.framework in Embed Frameworks */,
@@ -377,7 +382,6 @@
 		6EFE259B1F1660F100FC4ECC /* libturbojpeg.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libturbojpeg.a; sourceTree = "<group>"; };
 		6EFE259C1F1660FD00FC4ECC /* bctoolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = bctoolbox.framework; path = ../Frameworks/bctoolbox.framework; sourceTree = "<group>"; };
 		6EFE259D1F1660FD00FC4ECC /* linphone.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = linphone.framework; path = ../Frameworks/linphone.framework; sourceTree = "<group>"; };
-		6EFE259E1F1660FD00FC4ECC /* linphonetester.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = linphonetester.framework; path = ../Frameworks/linphonetester.framework; sourceTree = "<group>"; };
 		6EFE259F1F1660FD00FC4ECC /* mediastreamer_base.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = mediastreamer_base.framework; path = ../Frameworks/mediastreamer_base.framework; sourceTree = "<group>"; };
 		6EFE25A01F1660FD00FC4ECC /* mediastreamer_voip.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = mediastreamer_voip.framework; path = ../Frameworks/mediastreamer_voip.framework; sourceTree = "<group>"; };
 		6EFE25A11F1660FD00FC4ECC /* msamr.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = msamr.framework; path = ../Frameworks/msamr.framework; sourceTree = "<group>"; };
@@ -563,7 +567,6 @@
 				6EFE259B1F1660F100FC4ECC /* libturbojpeg.a */,
 				6EFE259C1F1660FD00FC4ECC /* bctoolbox.framework */,
 				6EFE259D1F1660FD00FC4ECC /* linphone.framework */,
-				6EFE259E1F1660FD00FC4ECC /* linphonetester.framework */,
 				6EFE259F1F1660FD00FC4ECC /* mediastreamer_base.framework */,
 				6EFE25A01F1660FD00FC4ECC /* mediastreamer_voip.framework */,
 				6EFE25A11F1660FD00FC4ECC /* msamr.framework */,
@@ -828,6 +831,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				6E8CF9AD1F167A840012BC9D /* PBXTargetDependency */,
 			);
 			name = MediaStreamerTests;
 			productName = LinPhoneSwiftTests;
@@ -845,10 +849,10 @@
 			buildRules = (
 			);
 			dependencies = (
+				6E76D7761F0718B10017362C /* PBXTargetDependency */,
 				6E25EA4E1F0B7788005BC42C /* PBXTargetDependency */,
 				6E569B1B1F09F7F600BF244A /* PBXTargetDependency */,
 				6E58AF591F085DAB009A0E68 /* PBXTargetDependency */,
-				6E76D7761F0718B10017362C /* PBXTargetDependency */,
 			);
 			name = LinPhoneSwift;
 			productName = LinPhoneSwift;
@@ -1138,6 +1142,11 @@
 			isa = PBXTargetDependency;
 			target = 6E76D7701F0718580017362C /* CMake */;
 			targetProxy = 6E76D7751F0718B10017362C /* PBXContainerItemProxy */;
+		};
+		6E8CF9AD1F167A840012BC9D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6E58AF141F085B4F009A0E68 /* MediaStreamer */;
+			targetProxy = 6E8CF9AC1F167A840012BC9D /* PBXContainerItemProxy */;
 		};
 		6EF6A6D31F0C058C00C39864 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
