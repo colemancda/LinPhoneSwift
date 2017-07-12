@@ -210,7 +210,7 @@ public final class Core {
         for index in 0 ..< count {
             
             guard let rawPointer = Call.RawPointer(bctbx_list_nth_data(callsLinkedList, Int32(index))),
-                let call = self.getUserDataHandle(externalRetain: true, { _ in return rawPointer }) as Call? // fake getter function
+                let call = self.getUserDataHandle(externalRetain: true, { _ in rawPointer }) as Call? // fake getter function
                 else { fatalError("Nil pointer") }
             
             calls.append(call)
@@ -231,6 +231,72 @@ public final class Core {
     public var tunnel: Tunnel? {
         
         return getManagedHandle(externalRetain: true, linphone_core_get_tunnel)
+    }
+    
+    internal func getPayloadTypes(_ function: (RawPointer?) -> UnsafeMutablePointer<bctbx_list_t>?) -> [PayloadType] {
+        
+        // A freshly allocated list of the available payload types.
+        // The list must be destroyed with bctbx_list_free() after usage.
+        // The elements of the list haven't to be unref.
+        // (The payload objects are uniquely retained).
+        guard let linkedList = function(self.rawPointer)
+            else { return [] }
+        
+        defer { bctbx_list_free(linkedList) }
+        
+        let count = bctbx_list_size(linkedList)
+        
+        var values = [PayloadType]()
+        values.reserveCapacity(count) // improves performance
+        
+        for index in 0 ..< count {
+            
+            guard let rawPointer = PayloadType.RawPointer(bctbx_list_nth_data(linkedList, Int32(index))),
+                let payloadType = self.getManagedHandle(externalRetain: false, { _ in rawPointer }) as PayloadType?
+                else { fatalError("Nil pointer") }
+            
+            values.append(payloadType)
+        }
+        
+        assert(values.count == count)
+        
+        return values
+    }
+    
+    internal func setPayloadTypes(_ function: (RawPointer?, UnsafePointer<bctbx_list_t>?) -> (), newValue: [PayloadType]) {
+        
+        // create temporary linked list and temporary payloads
+        
+        
+        
+        
+        // _list{LinphonePayloadType} The new list of codecs. 
+        // The core does not take ownership on it.
+        
+    }
+    
+    /// The list of the available video payload types.
+    public var videoPayloadTypes: [PayloadType] {
+        
+        get { return getPayloadTypes(linphone_core_get_video_payload_types) }
+        
+        set { setPayloadTypes(linphone_core_set_video_payload_types, newValue: newValue) }
+    }
+    
+    /// The list of the available audio payload types.
+    public var audioPayloadTypes: [PayloadType] {
+        
+        get { return getPayloadTypes(linphone_core_get_audio_payload_types) }
+        
+        set { setPayloadTypes(linphone_core_set_audio_payload_types, newValue: newValue) }
+    }
+    
+    /// The list of the available text payload types.
+    public var textPayloadTypes: [PayloadType] {
+        
+        get { return getPayloadTypes(linphone_core_get_text_payload_types) }
+        
+        set { setPayloadTypes(linphone_core_set_text_payload_types, newValue: newValue) }
     }
     
     /// The path to a file or folder containing the trusted root CAs (PEM format)
@@ -838,6 +904,15 @@ public final class Core {
     public func play(audio filePath: String) -> Bool {
         
         return linphone_core_play_local(rawPointer, filePath) == .success
+    }
+    
+    /// Get payload type from mime type and clock rate.
+    public func payloadType(for mimeType: String,
+                            rate: Int = Int(LINPHONE_FIND_PAYLOAD_IGNORE_RATE),
+                            channels: Int = Int(LINPHONE_FIND_PAYLOAD_IGNORE_CHANNELS)) -> LinPhoneSwift.PayloadType? {
+        
+        // payload objects are new instances / uniquely retained
+        return getManagedHandle(externalRetain: false) { linphone_core_get_payload_type($0, mimeType, Int32(rate), Int32(channels)) }
     }
     
     // MARK: - iOS Specific Methods
