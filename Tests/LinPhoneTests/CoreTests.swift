@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import LinPhone
+@testable import LinPhoneSwift
 
 final class CoreTests: XCTestCase {
     
@@ -17,7 +17,7 @@ final class CoreTests: XCTestCase {
     
     func testVersion() {
         
-        let version = LinPhone.Core.version
+        let version = LinPhoneSwift.Core.version
         
         print("Linphone version:", version)
         

@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import LinPhone
+@testable import LinPhoneSwift
 
 final class AddressTests: XCTestCase {
 
