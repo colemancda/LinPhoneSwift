@@ -144,6 +144,20 @@ public final class Configuration {
     }
     
     /// Set the value for the specified key and section in the configuration file.
+    @inline(__always)
+    public func set(_ value: Int32, for key: String, in section: String) {
+        
+        linphone_config_set_int(rawPointer, section, key, value)
+    }
+    
+    /// Set the value for the specified key and section in the configuration file.
+    @inline(__always)
+    public func set(_ value: Bool, for key: String, in section: String) {
+        
+        linphone_config_set_int(rawPointer, section, key, value ? 1 : 0)
+    }
+    
+    /// Set the value for the specified key and section in the configuration file.
     /// 
     /// - Note: Sets an integer config item, but stores it as hexadecimal
     @inline(__always)

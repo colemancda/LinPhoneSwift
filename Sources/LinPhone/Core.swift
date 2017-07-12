@@ -665,6 +665,21 @@ public final class Core {
         set { setString(linphone_core_set_preferred_video_size_by_name, newValue) }
     }
     
+    /// The preferred frame rate for video. 
+    ///
+    /// Based on the available bandwidth constraints and network conditions, 
+    /// the video encoder remains free to lower the framerate.
+    /// There is no warranty that the preferred frame rate be the actual framerate. 
+    /// Used during a call. Default value is 0, which means "use encoder's default fps value".
+    public var preferredFramerate: Float {
+        
+        @inline(__always)
+        get { return linphone_core_get_preferred_framerate(rawPointer) }
+        
+        @inline(__always)
+        set { linphone_core_set_preferred_framerate(rawPointer, newValue) }
+    }
+    
     /// Tells whether IPv6 is enabled or not.
     public var isIPv6Enabled: Bool {
         
@@ -736,6 +751,26 @@ public final class Core {
             var value = newValue.linPhoneType
             linphone_core_set_video_policy(rawPointer, &value)
         }
+    }
+    
+    /// A boolean value telling whether to use RFC2833 to send digits.
+    public var rfc2833DTMF: Bool {
+        
+        @inline(__always)
+        get { return linphone_core_get_use_rfc2833_for_dtmf(rawPointer).boolValue }
+        
+        @inline(__always)
+        set { linphone_core_set_use_rfc2833_for_dtmf(rawPointer, bool_t(newValue)) }
+    }
+    
+    /// A boolean value telling whether to use SIP INFO to send digits.
+    public var sipInfoDTMF: Bool {
+        
+        @inline(__always)
+        get { return linphone_core_get_use_info_for_dtmf(rawPointer).boolValue }
+        
+        @inline(__always)
+        set { linphone_core_set_use_info_for_dtmf(rawPointer, bool_t(newValue)) }
     }
     
     // MARK: - Methods
