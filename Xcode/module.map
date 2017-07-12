@@ -29,6 +29,11 @@ module CBelledonneToolbox [system] {
         export *
     }
     
+    module defs {
+        header "bctoolbox/defs.h"
+        export *
+    }
+    
     module list {
         header "bctoolbox/list.h"
         export *
@@ -41,6 +46,11 @@ module CBelledonneToolbox [system] {
     
     module map {
         header "bctoolbox/map.h"
+        export *
+    }
+    
+    module parser {
+        header "bctoolbox/parser.h"
         export *
     }
     

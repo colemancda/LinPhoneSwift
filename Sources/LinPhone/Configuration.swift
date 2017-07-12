@@ -238,7 +238,7 @@ extension Configuration: ManagedHandle {
     
     typealias RawPointer = UnmanagedPointer.RawPointer
     
-    struct UnmanagedPointer: LinPhone.UnmanagedPointer {
+    struct UnmanagedPointer: LinPhoneSwift.UnmanagedPointer {
         
         let rawPointer: OpaquePointer
         

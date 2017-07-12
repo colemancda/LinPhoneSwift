@@ -95,7 +95,6 @@ public final class Factory {
             case .x264:     libmsx264_init(rawPointer)
             case .openh264: libmsopenh264_init(rawPointer)
             case .silk:     libmssilk_init(rawPointer)
-            case .bcg729:   libmsbcg729_init(rawPointer)
             case .webrtc:   libmswebrtc_init(rawPointer)
             }
         }
@@ -119,11 +118,10 @@ public enum MediaLibrary {
     case x264
     case openh264
     case silk
-    case bcg729
     case webrtc
     
     /// All media libraries availible for `MediaStreamer`.
-    public static let all: Set<MediaLibrary> = [amr, x264, openh264, silk, bcg729, webrtc]
+    public static let all: Set<MediaLibrary> = [amr, x264, openh264, silk, webrtc]
 }
 
 /// On iOS, plugins are built as static libraries so Liblinphone will not be able to load them at runtime dynamically. 
@@ -144,10 +142,6 @@ fileprivate func libmsopenh264_init(_ factory: UnsafeMutablePointer<MSFactory>)
 /// extern void libmssilk_init(MSFactory *factory);
 @_silgen_name("libmssilk_init")
 fileprivate func libmssilk_init(_ factory: UnsafeMutablePointer<MSFactory>)
-
-/// extern void libmsbcg729_init(MSFactory *factory);
-@_silgen_name("libmsbcg729_init")
-fileprivate func libmsbcg729_init(_ factory: UnsafeMutablePointer<MSFactory>)
 
 /// extern void libmswebrtc_init(MSFactory *factory);
 @_silgen_name("libmswebrtc_init")

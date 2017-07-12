@@ -356,7 +356,7 @@ extension Address.Reference: ManagedHandle {
 
 extension Address {
     
-    struct UnmanagedPointer: LinPhone.UnmanagedPointer {
+    struct UnmanagedPointer: LinPhoneSwift.UnmanagedPointer {
         
         let rawPointer: OpaquePointer
         
