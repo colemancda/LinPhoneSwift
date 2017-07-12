@@ -73,7 +73,7 @@ extension Call.Parameters {
     
     typealias RawPointer = UnmanagedPointer.RawPointer
     
-    struct UnmanagedPointer: LinPhoneSwift.UnmanagedPointer {
+    struct UnmanagedPointer: LinPhone.UnmanagedPointer {
         
         let rawPointer: OpaquePointer
         
