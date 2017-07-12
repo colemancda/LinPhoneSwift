@@ -257,6 +257,15 @@ public final class Call {
         get { return linphone_call_get_current_quality(rawPointer) }
     }
     
+    /// Returns the number of stream for the given call. 
+    ///
+    /// Currently there is only two (Audio, Video), but later there will be more.
+    public var streamCount: Int {
+        
+        @inline(__always)
+        get { return Int(linphone_call_get_stream_count(rawPointer)) }
+    }
+    
     // MARK: - Methods
     
     /// Accept an incoming call.
@@ -354,6 +363,14 @@ public final class Call {
             else { return nil }
         
         return Call.Stats(referencing: reference)
+    }
+    
+    /// Returns the type of stream for the given stream index.
+    public func streamType(at index: Int) -> StreamType {
+        
+        let formatType = linphone_call_get_stream_type(rawPointer, Int32(index))
+        
+        return StreamType(rawValue: formatType.rawValue)!
     }
 }
 

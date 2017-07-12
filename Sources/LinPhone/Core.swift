@@ -12,6 +12,7 @@ import CBelledonneToolbox
 import struct BelledonneToolbox.LinkedList
 import class MediaStreamer.Factory
 import struct BelledonneSIP.URI
+import class Foundation.NSString
 
 /// LinPhone Core class
 public final class Core {
@@ -29,6 +30,9 @@ public final class Core {
     deinit {
         
         clearUserData()
+        
+        // remove all callbacks
+        callbacks.forEach { self.remove(callbacks: $0) }
     }
     
     internal init(_ managedPointer: ManagedPointer<Core.UnmanagedPointer>) {
@@ -122,6 +126,7 @@ public final class Core {
         set { linphone_core_set_log_collection_path(newValue) }
     }
     
+    /// The path where the log files will be written.
     public static var logCollectionPrefix: String {
         
         @inline(__always)
@@ -129,6 +134,31 @@ public final class Core {
         
         @inline(__always)
         set { linphone_core_set_log_collection_path(newValue) }
+    }
+    
+    /// Define a log handler.
+    public static var log: ((_ domain: String, _ message: String, _ level: OrtpLogLevel) -> ())? {
+        
+        didSet {
+            
+            if log != nil {
+                
+                linphone_core_set_log_handler { (domainCString, level, formatCString, arguments) in
+                    
+                    let domain = String(lpCString: domainCString) ?? ""
+                    
+                    let format = String(lpCString: formatCString) ?? ""
+                    
+                    let message = NSString(format: format, arguments: arguments) as String
+                    
+                    Core.log?(domain, message, level)
+                }
+                
+            } else {
+                
+                linphone_core_set_log_handler(nil)
+            }
+        }
     }
     
     // MARK: - Accessors
@@ -506,6 +536,66 @@ public final class Core {
         
         @inline(__always)
         get { return linphone_core_is_in_conference(rawPointer).boolValue }
+    }
+    
+    /// A boolean value telling whether echo cancellation is enabled or disabled
+    public var isEchoCancellationEnabled: Bool {
+        
+        @inline(__always)
+        get { return linphone_core_echo_cancellation_enabled(rawPointer).boolValue }
+        
+        @inline(__always)
+        set { linphone_core_enable_echo_cancellation(rawPointer, bool_t(newValue)) }
+    }
+    
+    /// Whether echo limiter is enabled.
+    public var isEchoLimiterEnabled: Bool {
+        
+        @inline(__always)
+        get { return linphone_core_echo_limiter_enabled(rawPointer).boolValue }
+        
+        @inline(__always)
+        set { linphone_core_enable_echo_limiter(rawPointer, bool_t(newValue)) }
+    }
+    
+    /// The name of the currently active video device.
+    public var videoDevice: String? {
+        
+        @inline(__always)
+        get { return String(lpCString: linphone_core_get_video_device(rawPointer)) }
+        
+        @inline(__always)
+        set { linphone_core_set_video_device(rawPointer, newValue).lpAssert() }
+    }
+    
+    /// The current preferred video size for sending.
+    public var preferredVideoSize: MSVideoSize {
+        
+        @inline(__always)
+        get { return linphone_core_get_preferred_video_size(rawPointer) }
+        
+        @inline(__always)
+        set { linphone_core_set_preferred_video_size(rawPointer, newValue) }
+    }
+    
+    /// Get the name of the current preferred video size for sending.
+    public var preferredVideoSizeName: String? {
+        
+        @inline(__always)
+        get { return String(lpCString: linphone_core_get_preferred_video_size_name(rawPointer)) }
+        
+        @inline(__always)
+        set { linphone_core_set_preferred_video_size_by_name(rawPointer, newValue) }
+    }
+    
+    /// Tells whether IPv6 is enabled or not.
+    public var isIPv6Enabled: Bool {
+        
+        @inline(__always)
+        get { return linphone_core_ipv6_enabled(rawPointer).boolValue }
+        
+        @inline(__always)
+        set { linphone_core_enable_ipv6(rawPointer, bool_t(newValue)) }
     }
     
     // MARK: - Methods
