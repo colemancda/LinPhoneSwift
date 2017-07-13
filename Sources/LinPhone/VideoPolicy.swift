@@ -14,10 +14,17 @@ public struct VideoPolicy {
     public typealias LinPhoneType = LinphoneVideoPolicy
     
     /// Video shall be initiated by default for outgoing calls.
-    public var automaticallyAccept: Bool = false
+    public var automaticallyAccept: Bool
     
     /// Video shall be accepter by default for incoming calls. 
-    public var automaticallyStart: Bool = false
+    public var automaticallyStart: Bool
+    
+    public init(automaticallyAccept: Bool = false,
+                automaticallyStart: Bool = false) {
+        
+        self.automaticallyAccept = automaticallyAccept
+        self.automaticallyStart = automaticallyStart
+    }
 }
 
 public extension VideoPolicy {
