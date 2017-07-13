@@ -609,10 +609,18 @@ public final class Core {
     }
     
     /// Indicates whether the local participant is part of a conference.
-    public var inConference: Bool {
+    public var isInConference: Bool {
         
         @inline(__always)
         get { return linphone_core_is_in_conference(rawPointer).boolValue }
+    }
+    
+    /// Get the number of participant in the running conference. 
+    /// The local participant is included in the count only if it is in the conference.
+    public var conferenceSize: Int {
+        
+        @inline(__always)
+        get { return Int(linphone_core_get_conference_size(rawPointer)) }
     }
     
     /// A boolean value telling whether echo cancellation is enabled or disabled
@@ -948,6 +956,33 @@ public final class Core {
         
         // payload objects are new instances / uniquely retained
         return getManagedHandle(externalRetain: false) { linphone_core_get_payload_type($0, mimeType, Int32(rate), Int32(channels)) }
+    }
+    
+    /// Join the local participant to the running conference.
+    @discardableResult
+    @inline(__always)
+    public func enterConference() -> Bool {
+        
+        return linphone_core_enter_conference(rawPointer) == .success
+    }
+    
+    /// Make the local participant leave the running conference.
+    @discardableResult
+    @inline(__always)
+    public func leaveConference() -> Bool {
+        
+        return linphone_core_leave_conference(rawPointer) == .success
+    }
+    
+    /// Terminate the running conference. 
+    /// If it is a local conference, all calls inside it will become back separate calls 
+    /// and will be put in `.paused` state. If it is a conference involving a focus server,
+    /// all calls inside the conference will be terminated.
+    @discardableResult
+    @inline(__always)
+    public func terminateConference() -> Bool {
+        
+        return linphone_core_terminate_conference(rawPointer) == .success
     }
     
     // MARK: - iOS Specific Methods
