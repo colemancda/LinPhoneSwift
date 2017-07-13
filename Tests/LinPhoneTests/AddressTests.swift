@@ -25,7 +25,8 @@ final class AddressTests: XCTestCase {
     
     func testParsing() {
         
-        let rawValues = ["sip:toto@titi",
+        let rawValues = ["sip:5105347@ring.com",
+                         "sip:toto@titi",
                          "sips:toto@titi",
                          "sip:toto@titi;transport=tcp",
                          "sip:toto@titu",

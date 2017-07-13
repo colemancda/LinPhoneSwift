@@ -41,7 +41,9 @@ extension Handle {
     @inline(__always)
     func setString<Result>(_ function: (_ internalPointer: RawPointer?, _ cString: UnsafePointer<Int8>?) -> Result, _ newValue: String?) -> Result {
         
-        return function(self.rawPointer, newValue)
+        let cString = newValue?.lpCString
+        
+        return function(self.rawPointer, cString)
     }
 }
 
@@ -460,6 +462,8 @@ internal struct CopyOnWrite <Reference: CopyableHandle> {
 
 // MARK: - Swift stdlib extensions
 
+import class Foundation.NSString
+
 internal extension String {
     
     /// Get a constant string.
@@ -468,7 +472,17 @@ internal extension String {
         guard let cString = cString
             else { return nil }
         
-        self.init(cString: cString)
+        guard let string = NSString(cString: cString, encoding: String.Encoding.utf8.rawValue)
+            else { fatalError("Invalid string") }
+        
+        self = string as String
+    }
+    
+    var lpCString: UnsafePointer<Int8>? {
+        
+        let cString = (self as NSString).cString(using: String.Encoding.utf8.rawValue)
+        
+        return cString
     }
     
     /// Get a string from a C string `CChar` buffer that needs to be freed.

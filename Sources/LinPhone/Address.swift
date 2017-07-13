@@ -8,6 +8,7 @@
 
 import CLinPhone
 import struct BelledonneSIP.URI
+import class Foundation.NSString
 
 /// LinPhone Address class.
 public struct Address: RawRepresentable {
@@ -142,7 +143,7 @@ public struct Address: RawRepresentable {
         mutating set { linphone_address_set_transport(internalReference.mutatingReference.rawPointer, newValue.linPhoneType).lpAssert() }
     }
     
-    /// the value of the method parameter.
+    /// The value of the method parameter.
     public var method: String? {
         
         @inline(__always)
@@ -320,8 +321,10 @@ extension Address: ReferenceConvertible {
         }
         
         convenience init?(string: String) {
-         
-            guard let rawPointer = linphone_address_new(string)
+            
+            let cString = string.lpCString
+            
+            guard let rawPointer = linphone_address_new(cString)
                 else { return nil }
             
             self.init(ManagedPointer(UnmanagedPointer(rawPointer)))
