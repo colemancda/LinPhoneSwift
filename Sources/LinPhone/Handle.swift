@@ -155,7 +155,7 @@ internal extension Handle {
     ///
     /// - Parameter function: C getter function for retrieving another object.
     @inline(__always)
-    func getManagedHandle <Handle: ManagedHandle> (externalRetain: Bool, _ function: ((RawPointer?) -> Handle.RawPointer?)) -> Handle?
+    func getManagedHandle <Handle: ManagedHandle> (shouldRetain: Bool, _ function: ((RawPointer?) -> Handle.RawPointer?)) -> Handle?
         where Handle.Unmanaged.RawPointer == Handle.RawPointer {
         
         // get handle pointer
@@ -167,14 +167,14 @@ internal extension Handle {
         // if this C object is referenced externally by another object, then
         // increment reference count since it will be decremented when swift object is released.
         // if the object is a new reference, then an extra retain will cause it to leak.
-        if externalRetain { unmanagedPointer.retain() }
+        if shouldRetain { unmanagedPointer.retain() }
         
         return Handle(ManagedPointer(unmanagedPointer))
     }
     
     /// Attempt to get an existing reference for an object getter function, and creates a new reference if necesary.
     @inline(__always)
-    func getUserDataHandle <Handle: ManagedHandle> (externalRetain: Bool, _ function: ((RawPointer?) -> Handle.RawPointer?)) -> Handle?
+    func getUserDataHandle <Handle: ManagedHandle> (shouldRetain: Bool, _ function: ((RawPointer?) -> Handle.RawPointer?)) -> Handle?
         where Handle: UserDataHandle, Handle.Unmanaged.RawPointer == Handle.RawPointer {
         
         // get handle pointer
@@ -190,7 +190,7 @@ internal extension Handle {
         } else {
             
             let unmanagedPointer = Handle.Unmanaged(rawPointer)
-            if externalRetain { unmanagedPointer.retain() }
+            if shouldRetain { unmanagedPointer.retain() }
             
             reference = Handle(ManagedPointer(unmanagedPointer))
             reference.setUserData() // set pointer to new swift object

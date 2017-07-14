@@ -175,7 +175,7 @@ public final class Core {
     // MARK: - Accessors
     
     /// Returns the `Configuration` object used to manage the storage (config) file.
-    public lazy var configuration: Configuration = self.getManagedHandle(externalRetain: true, linphone_core_get_config)! // should never be nil
+    public lazy var configuration: Configuration = self.getManagedHandle(shouldRetain: true, linphone_core_get_config)! // should never be nil
     
     /// Returns the `MediaStreamer.Factory` used by the `Linphone.Core` to control mediastreamer2 library.
     ///
@@ -210,7 +210,7 @@ public final class Core {
         for index in 0 ..< count {
             
             guard let rawPointer = Call.RawPointer(bctbx_list_nth_data(callsLinkedList, Int32(index))),
-                let call = self.getUserDataHandle(externalRetain: true, { _ in rawPointer }) as Call? // fake getter function
+                let call = self.getUserDataHandle(shouldRetain: true, { _ in rawPointer }) as Call? // fake getter function
                 else { fatalError("Nil pointer") }
             
             calls.append(call)
@@ -224,13 +224,13 @@ public final class Core {
     /// Gets the current call or `nil` if no call is running.
     public var currentCall: Call? {
         
-        return getUserDataHandle(externalRetain: true, linphone_core_get_current_call)
+        return getUserDataHandle(shouldRetain: true, linphone_core_get_current_call)
     }
     
     /// Get tunnel instance if available.
     public var tunnel: Tunnel? {
         
-        return getManagedHandle(externalRetain: true, linphone_core_get_tunnel)
+        return getManagedHandle(shouldRetain: true, linphone_core_get_tunnel)
     }
     
     internal func getPayloadTypes(_ function: (RawPointer?) -> UnsafeMutablePointer<bctbx_list_t>?) -> [PayloadType] {
@@ -252,7 +252,7 @@ public final class Core {
         for index in 0 ..< count {
             
             guard let rawPointer = PayloadType.RawPointer(bctbx_list_nth_data(linkedList, Int32(index))),
-                let payloadType = self.getManagedHandle(externalRetain: false, { _ in rawPointer }) as PayloadType?
+                let payloadType = self.getManagedHandle(shouldRetain: false, { _ in rawPointer }) as PayloadType?
                 else { fatalError("Nil pointer") }
             
             values.append(payloadType)
@@ -897,13 +897,14 @@ public final class Core {
     /// Initiates an outgoing call.
     /// - Parameter url: The destination of the call (sip address, or phone number).
     /// - Returns: A `LinPhone.Call` object or `nil` in case of failure.
+    @available(*, deprecated, message: "Use `invite(_: Address) -> Call?` instead")
     public func invite(_ url: String) -> Call? {
         
         // new Call object is created
         // Initiates an outgoing call 
         // The application doesn't own a reference to the returned LinphoneCall object.
         // Use linphone_call_ref() to safely keep the LinphoneCall pointer valid within your application.
-        return getUserDataHandle(externalRetain: false) { linphone_core_invite($0, url) }
+        return getUserDataHandle(shouldRetain: true) { linphone_core_invite($0, url) }
     }
     
     /// Initiates an outgoing call.
@@ -912,7 +913,15 @@ public final class Core {
     @inline(__always)
     public func invite(_ address: Address) -> Call? {
         
-        return invite(address.rawValue)
+        // address is not mutated or retained by the reciever
+        let addressRawPointer = address.internalReference.reference.rawPointer
+        
+        // Initiates an outgoing call given a destination LinphoneAddress
+        // The LinphoneAddress can be constructed directly using linphone_address_new(),
+        // or created by linphone_core_interpret_url(). 
+        // The application doesn't own a reference to the returned LinphoneCall object.
+        // Use linphone_call_ref() to safely keep the LinphoneCall pointer valid within your application.
+        return getUserDataHandle(shouldRetain: true) { linphone_core_invite_address($0, addressRawPointer) }
     }
     
     /// Pause all currently running calls.
@@ -955,7 +964,7 @@ public final class Core {
                             channels: Int = Int(LINPHONE_FIND_PAYLOAD_IGNORE_CHANNELS)) -> LinPhoneSwift.PayloadType? {
         
         // payload objects are new instances / uniquely retained
-        return getManagedHandle(externalRetain: false) { linphone_core_get_payload_type($0, mimeType, Int32(rate), Int32(channels)) }
+        return getManagedHandle(shouldRetain: false) { linphone_core_get_payload_type($0, mimeType, Int32(rate), Int32(channels)) }
     }
     
     /// Join the local participant to the running conference.
