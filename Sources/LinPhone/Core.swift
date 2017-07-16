@@ -141,7 +141,7 @@ public final class Core {
     }
     
     /// Define a log handler.
-    public static var log: ((_ domain: String, _ message: String, _ level: OrtpLogLevel) -> ())? {
+    public static var log: ((_ domain: String?, _ message: String, _ level: OrtpLogLevel) -> ())? {
         
         didSet {
             
@@ -149,7 +149,7 @@ public final class Core {
                 
                 linphone_core_set_log_handler { (domainCString, level, formatCString, arguments) in
                     
-                    let domain = String(lpCString: domainCString) ?? ""
+                    let domain = String(lpCString: domainCString)
                     
                     let format = String(lpCString: formatCString) ?? ""
                     
