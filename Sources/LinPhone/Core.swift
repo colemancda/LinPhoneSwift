@@ -1053,20 +1053,24 @@ public extension Core {
         // MARK: - Callbacks
         
         /// Global state notification callback.
-        public var globalStateChanged: ((_ core: Core, _ state: LinphoneGlobalState, _ message: String?) -> ())? {
+        public var globalStateChanged: ((_ state: LinphoneGlobalState, _ message: String?) -> ())? {
             
             didSet {
             
                 linphone_core_cbs_set_global_state_changed(rawPointer) {
                     
-                    guard let (core, callbacks) = Core.callbacksFrom(rawPointer: $0.0)
-                        else { return }
+                    // special case beacuase Core Swift object is not initialized when 
+                    // first callback is called
+                    guard let rawPointer = $0.0,
+                        let callbacksRawPointer = Core.currentCallbacksFunction(rawPointer),
+                        let callbacks = Callbacks.from(rawPointer: callbacksRawPointer)
+                        else { fatalError("Nil pointer") }
                     
                     let state = $0.1
                     
                     let message = String(lpCString: $0.2)
                     
-                    callbacks.globalStateChanged?(core, state, message)
+                    callbacks.globalStateChanged?(state, message)
                 }
             }
         }
@@ -1078,7 +1082,7 @@ public extension Core {
                 linphone_core_cbs_set_registration_state_changed(rawPointer) {
                     
                     guard let (core, callbacks) = Core.callbacksFrom(rawPointer: $0.0)
-                        else { return }
+                        else { fatalError("Nil pointer") }
                     
                     //let proxyConfig = $0.1
                     
@@ -1092,37 +1096,45 @@ public extension Core {
         }
         
         /// Callback notifying that a new `Linphone.Call` (either incoming or outgoing) has been created.
-        public var callCreated: ((_ core: Core, _ call: Call) -> ())? {
+        public var callCreated: ((_ core: Core) -> ())? {
             
             didSet {
                 
                 linphone_core_cbs_set_call_created(rawPointer) {
                     
-                    guard let (core, callbacks) = Core.callbacksFrom(rawPointer: $0.0),
-                        let callRawPointer = $0.1,
-                        let call = Call.from(rawPointer: callRawPointer)
-                        else { return }
+                    guard let (core, callbacks) = Core.callbacksFrom(rawPointer: $0.0)
+                        else { fatalError("Nil pointer") }
                     
-                    callbacks.callCreated?(core, call)
+                    callbacks.callCreated?(core)
                 }
             }
         }
         
         /// Call state notification callback.
-        public var callStateChanged: ((_ core: Core, _ call: Call, _ state: Call.State, _ message: String?) -> ())? {
+        public var callStateChanged: ((_ core: Core, _ call: Call?, _ state: Call.State, _ message: String?) -> ())? {
             
             didSet {
                 
                 linphone_core_cbs_set_call_state_changed(rawPointer) {
                     
-                    guard let (core, callbacks) = Core.callbacksFrom(rawPointer: $0.0),
-                        let callRawPointer = $0.1,
-                        let call = Call.from(rawPointer: callRawPointer)
-                        else { return }
+                    guard let (core, callbacks) = Core.callbacksFrom(rawPointer: $0.0)
+                        else { fatalError("Nil pointer") }
                     
                     let state = Call.State($0.2)
                     
                     let message = String(lpCString: $0.3)
+                    
+                    let call: Call?
+                    
+                    if let callRawPointer = $0.1,
+                        let existingObject = Call.from(rawPointer: callRawPointer) {
+                        
+                        call = existingObject
+                        
+                    } else {
+                        
+                        call = nil
+                    }
                     
                     callbacks.callStateChanged?(core, call, state, message)
                 }
