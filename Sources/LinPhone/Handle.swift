@@ -293,7 +293,7 @@ internal enum ReferenceConvertibleMemoryManagement {
     case externallyRetainedMutable
     
     /// Alias for `.externallyRetainedMutable`
-    static let copy: ReferenceConvertibleMemoryManagement = .copy
+    static let copy: ReferenceConvertibleMemoryManagement = .externallyRetainedMutable
     
     /// Whether the C object is already externally retained / strongly referenced by another C object.
     var externallyRetained: Bool {
@@ -455,7 +455,7 @@ internal struct CopyOnWrite <Reference: CopyableHandle> {
     internal var isUniquelyReferenced: Bool {
         @inline(__always)
         mutating get {
-            return isKnownUniquelyReferenced(&_reference) || externalRetain
+            return isKnownUniquelyReferenced(&_reference) && externalRetain == false
         }
     }
 }
