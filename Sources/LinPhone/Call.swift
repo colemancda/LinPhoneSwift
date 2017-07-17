@@ -96,17 +96,24 @@ public final class Call {
         
         didSet {
             
-            linphone_call_set_next_video_frame_decoded_callback(rawPointer, { (rawPointer, _) in
+            if nextVideoFrameDecoded != nil {
                 
-                guard let rawPointer = rawPointer,
-                    let call = Call.from(rawPointer: rawPointer)
-                    else { return }
+                linphone_call_set_next_video_frame_decoded_callback(rawPointer, { (rawPointer, _) in
+                    
+                    guard let rawPointer = rawPointer,
+                        let call = Call.from(rawPointer: rawPointer)
+                        else { return }
+                    
+                    call.nextVideoFrameDecoded?(call)
+                    
+                    call.nextVideoFrameDecoded = nil // reset in Swift, C object already resets internally
+                    
+                }, nil)
                 
-                call.nextVideoFrameDecoded?(call)
+            } else {
                 
-                call.nextVideoFrameDecoded = nil // reset in Swift, C object already resets internally
-                
-            }, nil)
+                linphone_call_set_next_video_frame_decoded_callback(rawPointer, nil, nil)
+            }
         }
     }
     
