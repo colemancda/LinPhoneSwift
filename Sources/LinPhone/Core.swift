@@ -172,6 +172,13 @@ public final class Core {
         get { return linphone_core_tunnel_available().boolValue }
     }
     
+    /// Return the availability of uPnP.
+    public static var uPnPAvailible: Bool {
+        
+        @inline(__always)
+        get { return linphone_core_upnp_available().boolValue }
+    }
+    
     // MARK: - Accessors
     
     /// Returns the `Configuration` object used to manage the storage (config) file.
