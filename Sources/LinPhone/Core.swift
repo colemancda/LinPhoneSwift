@@ -1133,7 +1133,7 @@ public extension Core {
                         
                     } else {
                         
-                        call = nil
+                        call = nil // will be nil for new calls
                     }
                     
                     callbacks.callStateChanged?(core, call, state, message)
