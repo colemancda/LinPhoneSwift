@@ -788,6 +788,27 @@ public final class Core {
         set { linphone_core_set_use_info_for_dtmf(rawPointer, bool_t(newValue)) }
     }
     
+    public var sipTransports: SipTransports {
+        
+        @inline(__always)
+        get {
+            
+            var sipTransports = LinphoneSipTransports()
+            
+            linphone_core_get_sip_transports(rawPointer, &sipTransports)
+            
+            return SipTransports(sipTransports)
+        }
+        
+        @inline(__always)
+        set {
+            
+            var trasports = newValue.linPhoneType
+            
+            linphone_core_set_sip_transports(rawPointer, &trasports).lpAssert()
+        }
+    }
+    
     // MARK: - Methods
     
     /// Main loop function. It is crucial that your application call it periodically.

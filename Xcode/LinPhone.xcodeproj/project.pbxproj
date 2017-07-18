@@ -68,6 +68,7 @@
 		6E59C78A1F11E135005274EC /* Bool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E59C7891F11E135005274EC /* Bool.swift */; };
 		6E59C78C1F11E14B005274EC /* Bool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E59C78B1F11E14B005274EC /* Bool.swift */; };
 		6E59C78D1F11E1DB005274EC /* Bool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E59C7871F11E0C6005274EC /* Bool.swift */; };
+		6E5BBE4D1F1EB33600BE69FC /* SipTransports.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5BBE4C1F1EB33600BE69FC /* SipTransports.swift */; };
 		6E676A161F129C7000EF4428 /* CallParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E676A151F129C7000EF4428 /* CallParameters.swift */; };
 		6E676A181F12AD0B00EF4428 /* CallStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E676A171F12AD0B00EF4428 /* CallStats.swift */; };
 		6E76D7401F0705B70017362C /* Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E76D73E1F0705B70017362C /* Core.swift */; };
@@ -354,6 +355,7 @@
 		6E59C7871F11E0C6005274EC /* Bool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bool.swift; sourceTree = "<group>"; };
 		6E59C7891F11E135005274EC /* Bool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bool.swift; sourceTree = "<group>"; };
 		6E59C78B1F11E14B005274EC /* Bool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bool.swift; sourceTree = "<group>"; };
+		6E5BBE4C1F1EB33600BE69FC /* SipTransports.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SipTransports.swift; sourceTree = "<group>"; };
 		6E676A151F129C7000EF4428 /* CallParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallParameters.swift; sourceTree = "<group>"; };
 		6E676A171F12AD0B00EF4428 /* CallStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallStats.swift; sourceTree = "<group>"; };
 		6E76D73E1F0705B70017362C /* Core.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Core.swift; sourceTree = "<group>"; };
@@ -660,6 +662,7 @@
 				6E2D5DCD1F0E9980003A1EAF /* RegistrationState.swift */,
 				6EF6A6E11F0D425300C39864 /* ErrorInfo.swift */,
 				6EF6A6DD1F0CACAE00C39864 /* Transport.swift */,
+				6E5BBE4C1F1EB33600BE69FC /* SipTransports.swift */,
 				6EF6A6DF1F0D3E2900C39864 /* Reason.swift */,
 				6E4508B91F16B58F00B497C8 /* VideoPolicy.swift */,
 				6E4508BB1F16BE1500B497C8 /* PayloadType.swift */,
@@ -1081,6 +1084,7 @@
 				6EA69FA01F150FE500284E24 /* Tunnel.swift in Sources */,
 				6E76D7401F0705B70017362C /* Core.swift in Sources */,
 				6EF1B5C91F0D6B5400B65129 /* Conference.swift in Sources */,
+				6E5BBE4D1F1EB33600BE69FC /* SipTransports.swift in Sources */,
 				6EF6A6D61F0C3E5100C39864 /* Call.swift in Sources */,
 				6E676A161F129C7000EF4428 /* CallParameters.swift in Sources */,
 				6E59C7861F118899005274EC /* MediaEncryption.swift in Sources */,
