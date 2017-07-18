@@ -25,11 +25,11 @@ final class CoreTests: XCTestCase {
         XCTAssert(version.isEmpty == false)
     }
     
-    func testSession() {
+    func testFakeServer() {
         
-        let expectation = self.expectation(description: "Call success")
+        let streamsRunningExpectation = self.expectation(description: "Call streams running")
         
-        let uri = "sip:test1@127.0.0.1;transport=tcp"
+        let videoFrameDecodedExpectation = self.expectation(description: "Video frame decoded")
         
         Core.log = { print("\(self): LinPhoneSwift.Core:", $0.1) }
         
@@ -51,7 +51,9 @@ final class CoreTests: XCTestCase {
                 
                 call?.accept()
                 
-                print("Accepted call")
+            case .streamsRunning:
+                
+                streamsRunningExpectation.fulfill()
                 
             default: break
             }
@@ -59,20 +61,20 @@ final class CoreTests: XCTestCase {
         
         let core = Core(callbacks: callbacks)!
         
-        core.mediaEncryption = .none
+        let destinationURI = "sip:test1@127.0.0.1:8081;transport=tcp"
         
         // parse address and create new call
-        guard let address = Address(rawValue: uri),
+        guard let address = Address(rawValue: destinationURI),
             let call = core.invite(address)
             else { XCTFail(); return }
         
-        call.nextVideoFrameDecoded = { _ in expectation.fulfill() }
+        call.nextVideoFrameDecoded = { _ in videoFrameDecodedExpectation.fulfill() }
         
         // run main loop
         let timer = Timer.scheduledTimer(withTimeInterval: 0.02, repeats: true) { _ in core.iterate() }
         
         defer { timer.invalidate() }
         
-        wait(for: [expectation], timeout: 15)
+        waitForExpectations(timeout: 15, handler: nil)
     }
 }
