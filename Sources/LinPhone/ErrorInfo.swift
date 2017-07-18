@@ -45,7 +45,7 @@ public struct ErrorInfo {
         get { return Reason(linphone_error_info_get_reason(internalReference.reference.rawPointer)) }
         
         @inline(__always)
-        mutating set { linphone_error_info_set_reason(internalReference.reference.rawPointer, newValue.linPhoneType) }
+        mutating set { linphone_error_info_set_reason(internalReference.mutatingReference.rawPointer, newValue.linPhoneType) }
     }
     
     /// The protocol name.
@@ -65,7 +65,7 @@ public struct ErrorInfo {
         get { return linphone_error_info_get_protocol_code(internalReference.reference.rawPointer) }
         
         @inline(__always)
-        mutating set { linphone_error_info_set_protocol_code(internalReference.reference.rawPointer, newValue) }
+        mutating set { linphone_error_info_set_protocol_code(internalReference.mutatingReference.rawPointer, newValue) }
     }
     
     /// The textual phrase from the error info. 
