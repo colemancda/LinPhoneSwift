@@ -809,6 +809,21 @@ public final class Core {
         }
     }
     
+    /// Retrieves the real port number assigned for each sip transport (udp, tcp, tls). 
+    /// A zero value means that the transport is not activated.
+    public var usedSipTransports: SipTransports {
+        
+        @inline(__always)
+        get {
+            
+            var sipTransports = LinphoneSipTransports()
+            
+            linphone_core_get_sip_transports_used(rawPointer, &sipTransports)
+            
+            return SipTransports(sipTransports)
+        }
+    }
+    
     // MARK: - Methods
     
     /// Main loop function. It is crucial that your application call it periodically.
