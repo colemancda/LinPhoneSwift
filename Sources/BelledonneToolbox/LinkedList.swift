@@ -192,6 +192,8 @@ extension LinkedList {
     }
 }
 
+// MARK: - Private Extensions
+
 fileprivate extension String {
     
     var cStringData: NSMutableData {

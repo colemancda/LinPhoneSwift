@@ -51,7 +51,7 @@ public final class Factory {
         
         return Factory(rawPointer: rawPointer)
     }
-    /*
+    
     /// Create a mediastreamer2 `Factory`, initialize all voip related filters, 
     /// cards and webcam managers and load the plugins from the specified directory.
     public convenience init(voip directory: (plugins: String, images: String)) {
@@ -60,7 +60,7 @@ public final class Factory {
             else { fatalError("Nil pointer") }
         
         self.init(rawPointer: rawPointer)
-    }*/
+    }
     
     // MARK: - Accessors
     
