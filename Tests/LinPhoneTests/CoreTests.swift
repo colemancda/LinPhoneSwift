@@ -15,12 +15,15 @@
 import Foundation
 import XCTest
 @testable import LinPhoneSwift
+import MediaStreamer
 import CLinPhone
 
 final class CoreTests: XCTestCase {
     
     static var allTests = [
         ("testVersion", testVersion),
+        ("testOutgoingCallToFakeServer", testOutgoingCallToFakeServer),
+        ("testDirectCall", testDirectCall),
         ]
     
     func testVersion() {
@@ -35,26 +38,6 @@ final class CoreTests: XCTestCase {
     func testOutgoingCallToFakeServer() {
         
         enableCoreLogging()
-        
-        // run server python script
-        
-        let oldCurrentDirectory = FileManager.default.currentDirectoryPath
-        
-        let serverScriptFolder = Bundle(for: type(of: self)).resourceURL!.appendingPathComponent("FakeServer")
-        
-        let serverScriptCommand = serverScriptFolder.appendingPathComponent("server.py").path
-        
-        FileManager.default.changeCurrentDirectoryPath(serverScriptFolder.path)
-        
-        defer { FileManager.default.changeCurrentDirectoryPath(oldCurrentDirectory) }
-        
-        let serverProcess = pid_t.execute(launchPath: "/usr/bin/python", arguments: serverScriptCommand)
-        
-        defer { serverProcess.terminate() }
-        
-        // start LinPhone
-        
-        sleep(1)
         
         let streamsRunningExpectation = self.expectation(description: "Call streams running")
         
@@ -82,14 +65,8 @@ final class CoreTests: XCTestCase {
         
         let core = Core(callbacks: callbacks)!
         
-        core.audioPort = -1
-        core.videoPort = -1
-        core.mediaEncryption = .none
-        core.audioJitter = 0
-        core.videoJitter = 0
-        core.isAudioAdaptiveJittCompensationEnabled = true
-        core.isVideoAdaptiveJittCompensationEnabled = true
-        core.noXmitOnAudioMute = false
+        guard core.configureForFakeServer()
+            else { XCTFail(); return }
         
         let serverIP = "127.0.0.1"
         
@@ -101,6 +78,8 @@ final class CoreTests: XCTestCase {
         // parse address and create new call
         guard let call = core.invite(sipTo)
             else { XCTFail(); return }
+        
+        defer { call.terminate() }
         
         #if os(iOS)
         let view = UIView()
@@ -276,7 +255,7 @@ extension pid_t {
         
         var pid = pid_t()
         
-        guard posix_spawn(&pid, launchPath, nil, nil, argv, nil) == 0
+        guard posix_spawnp(&pid, launchPath, nil, nil, argv, nil) == 0
             else { fatalError("Could not execute \(launchPath): \(errno)") }
         
         return pid
@@ -285,5 +264,63 @@ extension pid_t {
     func terminate() {
         
         kill(self, SIGKILL)
+    }
+}
+
+extension LinPhoneSwift.Core {
+    
+    func configureForFakeServer() -> Bool {
+        
+        self.audioPort = -1
+        self.videoPort = -1
+        self.mediaEncryption = .none
+        self.audioJitter = 0
+        self.videoJitter = 0
+        self.isAudioAdaptiveJittCompensationEnabled = true
+        self.isVideoAdaptiveJittCompensationEnabled = true
+        self.noXmitOnAudioMute = false
+        
+        self.withMediaStreamerFactory { $0.load(MediaLibrary.all) }
+        
+        guard self.withMediaStreamerFactory({ $0.enableFilter(true, for: "MSOpenH264Dec") })
+            else { return false }
+        
+        self.reloadMediaStreamerPlugins()
+        
+        // "accept_video_preference", "start_video_preference"
+        self.videoPolicy = VideoPolicy(automaticallyAccept: true,
+                                       automaticallyStart: true)
+        
+        // "h264_preference"
+        if let h264Payload = self.videoPayloadTypes.first(where: { $0.mimeType == "H264" }) {
+            
+            h264Payload.isEnabled = true
+        }
+        
+        // "sipinfo_dtmf_preference"
+        self.sipInfoDTMF = true
+        
+        // "rfc_dtmf_preference"
+        self.rfc2833DTMF = false
+        
+        // "nowebcam_uses_normal_fps"
+        self.configuration.set(true, for: "nowebcam_uses_normal_fps", in: "video")
+        
+        self.isEchoCancellationEnabled = false
+        self.isEchoLimiterEnabled = false
+        
+        self.shouldVerifyServerCertificates(false)
+        self.sipTransportTimeout = 20000
+        self.videoPort = -1
+        self.audioPort = -1
+        self.videoDevice = "StaticImage: Static picture"
+        self.preferredVideoSize = MSVideoSize(width: MS_VIDEO_SIZE_QCIF_W,
+                                              height: MS_VIDEO_SIZE_QCIF_H)
+        self.preferredFramerate = 5
+        self.isIPv6Enabled = true
+        
+        self.setUserAgent(name: "iOS", version: "1.3")
+        
+        return true
     }
 }
