@@ -69,6 +69,15 @@
 		6E59C78C1F11E14B005274EC /* Bool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E59C78B1F11E14B005274EC /* Bool.swift */; };
 		6E59C78D1F11E1DB005274EC /* Bool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E59C7871F11E0C6005274EC /* Bool.swift */; };
 		6E5BBE4D1F1EB33600BE69FC /* SipTransports.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5BBE4C1F1EB33600BE69FC /* SipTransports.swift */; };
+		6E5BBE631F1F2F5B00BE69FC /* audio_in.pcap in Copy Fake Server */ = {isa = PBXBuildFile; fileRef = 6E5BBE4F1F1F2F0E00BE69FC /* audio_in.pcap */; };
+		6E5BBE641F1F2F5B00BE69FC /* audio_in.pcapng in Copy Fake Server */ = {isa = PBXBuildFile; fileRef = 6E5BBE501F1F2F0E00BE69FC /* audio_in.pcapng */; };
+		6E5BBE651F1F2F5B00BE69FC /* audio_out.pcap in Copy Fake Server */ = {isa = PBXBuildFile; fileRef = 6E5BBE511F1F2F0E00BE69FC /* audio_out.pcap */; };
+		6E5BBE661F1F2F5B00BE69FC /* audio_out.pcapng in Copy Fake Server */ = {isa = PBXBuildFile; fileRef = 6E5BBE521F1F2F0E00BE69FC /* audio_out.pcapng */; };
+		6E5BBE671F1F2F5B00BE69FC /* server.py in Copy Fake Server */ = {isa = PBXBuildFile; fileRef = 6E5BBE531F1F2F0E00BE69FC /* server.py */; };
+		6E5BBE681F1F2F5B00BE69FC /* video_in.pcap in Copy Fake Server */ = {isa = PBXBuildFile; fileRef = 6E5BBE541F1F2F0E00BE69FC /* video_in.pcap */; };
+		6E5BBE691F1F2F5B00BE69FC /* video_in.pcapng in Copy Fake Server */ = {isa = PBXBuildFile; fileRef = 6E5BBE551F1F2F0E00BE69FC /* video_in.pcapng */; };
+		6E5BBE6A1F1F2F5B00BE69FC /* video_out.pcap in Copy Fake Server */ = {isa = PBXBuildFile; fileRef = 6E5BBE561F1F2F0E00BE69FC /* video_out.pcap */; };
+		6E5BBE6B1F1F2F5B00BE69FC /* video_out.pcapng in Copy Fake Server */ = {isa = PBXBuildFile; fileRef = 6E5BBE571F1F2F0E00BE69FC /* video_out.pcapng */; };
 		6E676A161F129C7000EF4428 /* CallParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E676A151F129C7000EF4428 /* CallParameters.swift */; };
 		6E676A181F12AD0B00EF4428 /* CallStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E676A171F12AD0B00EF4428 /* CallStats.swift */; };
 		6E76D7401F0705B70017362C /* Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E76D73E1F0705B70017362C /* Core.swift */; };
@@ -309,6 +318,25 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6E5BBE621F1F2F4400BE69FC /* Copy Fake Server */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = FakeServer;
+			dstSubfolderSpec = 7;
+			files = (
+				6E5BBE631F1F2F5B00BE69FC /* audio_in.pcap in Copy Fake Server */,
+				6E5BBE641F1F2F5B00BE69FC /* audio_in.pcapng in Copy Fake Server */,
+				6E5BBE651F1F2F5B00BE69FC /* audio_out.pcap in Copy Fake Server */,
+				6E5BBE661F1F2F5B00BE69FC /* audio_out.pcapng in Copy Fake Server */,
+				6E5BBE671F1F2F5B00BE69FC /* server.py in Copy Fake Server */,
+				6E5BBE681F1F2F5B00BE69FC /* video_in.pcap in Copy Fake Server */,
+				6E5BBE691F1F2F5B00BE69FC /* video_in.pcapng in Copy Fake Server */,
+				6E5BBE6A1F1F2F5B00BE69FC /* video_out.pcap in Copy Fake Server */,
+				6E5BBE6B1F1F2F5B00BE69FC /* video_out.pcapng in Copy Fake Server */,
+			);
+			name = "Copy Fake Server";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -356,6 +384,15 @@
 		6E59C7891F11E135005274EC /* Bool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bool.swift; sourceTree = "<group>"; };
 		6E59C78B1F11E14B005274EC /* Bool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bool.swift; sourceTree = "<group>"; };
 		6E5BBE4C1F1EB33600BE69FC /* SipTransports.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SipTransports.swift; sourceTree = "<group>"; };
+		6E5BBE4F1F1F2F0E00BE69FC /* audio_in.pcap */ = {isa = PBXFileReference; lastKnownFileType = file; path = audio_in.pcap; sourceTree = "<group>"; };
+		6E5BBE501F1F2F0E00BE69FC /* audio_in.pcapng */ = {isa = PBXFileReference; lastKnownFileType = file; path = audio_in.pcapng; sourceTree = "<group>"; };
+		6E5BBE511F1F2F0E00BE69FC /* audio_out.pcap */ = {isa = PBXFileReference; lastKnownFileType = file; path = audio_out.pcap; sourceTree = "<group>"; };
+		6E5BBE521F1F2F0E00BE69FC /* audio_out.pcapng */ = {isa = PBXFileReference; lastKnownFileType = file; path = audio_out.pcapng; sourceTree = "<group>"; };
+		6E5BBE531F1F2F0E00BE69FC /* server.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = server.py; sourceTree = "<group>"; };
+		6E5BBE541F1F2F0E00BE69FC /* video_in.pcap */ = {isa = PBXFileReference; lastKnownFileType = file; path = video_in.pcap; sourceTree = "<group>"; };
+		6E5BBE551F1F2F0E00BE69FC /* video_in.pcapng */ = {isa = PBXFileReference; lastKnownFileType = file; path = video_in.pcapng; sourceTree = "<group>"; };
+		6E5BBE561F1F2F0E00BE69FC /* video_out.pcap */ = {isa = PBXFileReference; lastKnownFileType = file; path = video_out.pcap; sourceTree = "<group>"; };
+		6E5BBE571F1F2F0E00BE69FC /* video_out.pcapng */ = {isa = PBXFileReference; lastKnownFileType = file; path = video_out.pcapng; sourceTree = "<group>"; };
 		6E676A151F129C7000EF4428 /* CallParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallParameters.swift; sourceTree = "<group>"; };
 		6E676A171F12AD0B00EF4428 /* CallStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallStats.swift; sourceTree = "<group>"; };
 		6E76D73E1F0705B70017362C /* Core.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Core.swift; sourceTree = "<group>"; };
@@ -644,6 +681,23 @@
 			path = MediaStreamer;
 			sourceTree = "<group>";
 		};
+		6E5BBE4E1F1F2F0E00BE69FC /* FakeServer */ = {
+			isa = PBXGroup;
+			children = (
+				6E5BBE4F1F1F2F0E00BE69FC /* audio_in.pcap */,
+				6E5BBE501F1F2F0E00BE69FC /* audio_in.pcapng */,
+				6E5BBE511F1F2F0E00BE69FC /* audio_out.pcap */,
+				6E5BBE521F1F2F0E00BE69FC /* audio_out.pcapng */,
+				6E5BBE531F1F2F0E00BE69FC /* server.py */,
+				6E5BBE541F1F2F0E00BE69FC /* video_in.pcap */,
+				6E5BBE551F1F2F0E00BE69FC /* video_in.pcapng */,
+				6E5BBE561F1F2F0E00BE69FC /* video_out.pcap */,
+				6E5BBE571F1F2F0E00BE69FC /* video_out.pcapng */,
+			);
+			name = FakeServer;
+			path = ../../FakeServer;
+			sourceTree = "<group>";
+		};
 		6E76D73D1F0705B70017362C /* LinPhone */ = {
 			isa = PBXGroup;
 			children = (
@@ -678,6 +732,7 @@
 		OBJ_10 /* LinPhoneTests */ = {
 			isa = PBXGroup;
 			children = (
+				6E5BBE4E1F1F2F0E00BE69FC /* FakeServer */,
 				OBJ_11 /* CoreTests.swift */,
 				6E7FEF181F128F5400C27DE9 /* AddressTests.swift */,
 			);
@@ -875,6 +930,8 @@
 				OBJ_27 /* Sources */,
 				OBJ_29 /* Frameworks */,
 				6E58AEFB1F0720DD009A0E68 /* Embed Frameworks */,
+				6E5BBE581F1F2F2D00BE69FC /* Resources */,
+				6E5BBE621F1F2F4400BE69FC /* Copy Fake Server */,
 			);
 			buildRules = (
 			);
@@ -933,6 +990,16 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6E5BBE581F1F2F2D00BE69FC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
 		6E5291621F0B53AE00D4B765 /* Increment Build */ = {

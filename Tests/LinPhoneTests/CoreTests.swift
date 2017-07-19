@@ -6,6 +6,12 @@
 //
 //
 
+#if os(macOS) || os(iOS)
+    import Darwin.C.stdlib
+#elseif os(Linux)
+    import Glibc
+#endif
+
 import Foundation
 import XCTest
 @testable import LinPhoneSwift
@@ -28,7 +34,27 @@ final class CoreTests: XCTestCase {
     
     func testOutgoingCallToFakeServer() {
         
-        enableCoreLogging(for: self)
+        enableCoreLogging()
+        
+        // run server python script
+        
+        let oldCurrentDirectory = FileManager.default.currentDirectoryPath
+        
+        let serverScriptFolder = Bundle(for: type(of: self)).resourceURL!.appendingPathComponent("FakeServer")
+        
+        let serverScriptCommand = serverScriptFolder.appendingPathComponent("server.py").path
+        
+        FileManager.default.changeCurrentDirectoryPath(serverScriptFolder.path)
+        
+        defer { FileManager.default.changeCurrentDirectoryPath(oldCurrentDirectory) }
+        
+        let serverProcess = pid_t.execute(launchPath: "/usr/bin/python", arguments: serverScriptCommand)
+        
+        defer { serverProcess.terminate() }
+        
+        // start LinPhone
+        
+        sleep(1)
         
         let streamsRunningExpectation = self.expectation(description: "Call streams running")
         
@@ -59,6 +85,8 @@ final class CoreTests: XCTestCase {
         core.audioPort = -1
         core.videoPort = -1
         core.mediaEncryption = .none
+        core.audioJitter = 0
+        core.videoJitter = 0
         core.isAudioAdaptiveJittCompensationEnabled = true
         core.isVideoAdaptiveJittCompensationEnabled = true
         core.noXmitOnAudioMute = false
@@ -89,13 +117,13 @@ final class CoreTests: XCTestCase {
         waitForExpectations(timeout: 15, handler: nil)
     }
     
-    func testCaller() {
+    func testDirectCall() {
         
         // Based on https://github.com/BelledonneCommunications/linphone/blob/e4149d19a8c2f85ebe5933cda34c3bf8dbbd9320/tester/call_single_tester.c#L675
         
-        enableCoreLogging(for: self)
+        enableCoreLogging()
         
-        /// Test core wrapper for making and receiving calls
+        /// Object for making and receiving calls on localhost (.e.g 127.0.0.1)
         class Caller {
             
             let name: String
@@ -208,22 +236,54 @@ final class CoreTests: XCTestCase {
         
         defer { call.terminate() }
         
-        //let videoFrameDecodedExpectation = self.expectation(description: "Video frame decoded")
-        
-        //call.nextVideoFrameDecoded = { _ in videoFrameDecodedExpectation.fulfill() }
-        
         waitForExpectations(timeout: 15, handler: nil)
     }
 }
 
 // MARK: - Helpers
 
-private extension CoreTests {
+private extension XCTestCase {
     
-    func enableCoreLogging(for testCase: XCTestCase) {
+    func enableCoreLogging() {
         
-        Core.log = { print("\(testCase): LinPhone.Core:", $0.1) }
+        Core.log = { print("\(self): LinPhone.Core:", $0.1) }
         
         LinPhoneSwift.Core.setLogLevel([ORTP_DEBUG, ORTP_MESSAGE, ORTP_WARNING, ORTP_ERROR, ORTP_FATAL])
+    }
+}
+
+extension pid_t {
+    
+    static func execute(launchPath: String, arguments: String = "") -> pid_t {
+        
+        var args = [launchPath, arguments]
+        
+        let argv : UnsafeMutablePointer<UnsafeMutablePointer<Int8>?> = args.withUnsafeBufferPointer {
+            let array : UnsafeBufferPointer<String> = $0
+            let buffer = UnsafeMutablePointer<UnsafeMutablePointer<Int8>?>.allocate(capacity: array.count + 1)
+            buffer.initialize(from: array.map { $0.withCString(strdup) })
+            buffer[array.count] = nil
+            return buffer
+        }
+        
+        defer {
+            for arg in argv ..< argv + args.count {
+                free(UnsafeMutableRawPointer(arg.pointee))
+            }
+            
+            argv.deallocate(capacity: args.count + 1)
+        }
+        
+        var pid = pid_t()
+        
+        guard posix_spawn(&pid, launchPath, nil, nil, argv, nil) == 0
+            else { fatalError("Could not execute \(launchPath): \(errno)") }
+        
+        return pid
+    }
+    
+    func terminate() {
+        
+        kill(self, SIGKILL)
     }
 }
