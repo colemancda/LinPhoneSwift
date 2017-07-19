@@ -56,12 +56,28 @@ final class CoreTests: XCTestCase {
         
         let core = Core(callbacks: callbacks)!
         
-        let destinationURI = "sip:testOutgoingCallToFakeServer@127.0.0.1:8081;transport=tcp"
+        core.audioPort = -1
+        core.videoPort = -1
+        core.mediaEncryption = .none
+        core.isAudioAdaptiveJittCompensationEnabled = true
+        core.isVideoAdaptiveJittCompensationEnabled = true
+        core.noXmitOnAudioMute = false
+        
+        let serverIP = "127.0.0.1"
+        
+        let sipFrom = Address(rawValue: "sip:1-2@" + serverIP + ":8081")!
+        core.primaryContact = sipFrom
+        
+        let sipTo = Address(rawValue: "sip:1-2@" + serverIP + ":8081;transport=tcp")!
         
         // parse address and create new call
-        guard let address = Address(rawValue: destinationURI),
-            let call = core.invite(address)
+        guard let call = core.invite(sipTo)
             else { XCTFail(); return }
+        
+        #if os(iOS)
+        let view = UIView()
+        call.nativeWindow = view
+        #endif
         
         call.nextVideoFrameDecoded = { _ in videoFrameDecodedExpectation.fulfill() }
         
@@ -90,21 +106,41 @@ final class CoreTests: XCTestCase {
             
             let streamsRunningExpectation: XCTestExpectation
             
+            let outgoingRingingExpectation: XCTestExpectation?
+            
+            let incomingRecievedExpectation: XCTestExpectation?
+            
             deinit {
                 
                 timer?.invalidate()
             }
             
-            init(name: String,
-                 streamsRunningExpectation: XCTestExpectation) {
+            init(name: String, expectOutgoingCall: Bool, test: XCTestCase) {
+                
+                // create expectations
+                
+                self.streamsRunningExpectation = test.expectation(description: "\(name) Streams running")
+                
+                if expectOutgoingCall {
+                    
+                    self.outgoingRingingExpectation = test.expectation(description: "\(name) Outgoing call")
+                    self.incomingRecievedExpectation = nil
+                    
+                } else {
+                    
+                    self.incomingRecievedExpectation = test.expectation(description: "\(name) incoming call received")
+                    self.outgoingRingingExpectation = nil
+                }
+                
+                // set properties
                 
                 self.name = name
-                self.streamsRunningExpectation = streamsRunningExpectation
                 
                 let callbacks = Core.Callbacks()
                 
                 self.core = Core(callbacks: callbacks)!
-                self.core.isIPv6Enabled = true
+                
+                self.core.sipTransports.tcp = SipTransports.random
                 
                 callbacks.callStateChanged = { [weak self] in self?.call($0.1, stateChanged: $0.2, message: $0.3) }
                 
@@ -114,9 +150,11 @@ final class CoreTests: XCTestCase {
             func call(_ other: Caller) -> Call? {
                 
                 // localhost address
-                var address = Address(rawValue: "sip:[::1];transport=tcp")!
+                var address = Address(rawValue: "sip:127.0.0.1;transport=tcp")!
                 
                 address.port = other.core.usedSipTransports.tcp
+                
+                print("Calling \(other.name) \(address)")
                 
                 return core.invite(address)
             }
@@ -134,7 +172,16 @@ final class CoreTests: XCTestCase {
                     
                 case .incomingReceived:
                     
-                    call?.accept()
+                    incomingRecievedExpectation?.fulfill()
+                    
+                    let call = core.currentCall!
+                    
+                    guard call.accept()
+                        else { XCTFail("Could not accept incoming call"); return }
+                    
+                case .outgoingRinging, .outgoingProgress:
+                    
+                    outgoingRingingExpectation?.fulfill()
                     
                 case .streamsRunning:
                     
@@ -145,15 +192,21 @@ final class CoreTests: XCTestCase {
             }
         }
         
-        let caller = Caller(name: "TestCaller",
-                            streamsRunningExpectation: self.expectation(description: "Streams running"))
+        // create caller and reciever, and make call on local device
         
-        let receiver = Caller(name: "TestReciever",
-                              streamsRunningExpectation: self.expectation(description: "Streams running"))
+        let caller = Caller(name: "TestCaller",
+                            expectOutgoingCall: true,
+                            test: self)
+        
+        let receiver = Caller(name: "TestReceiver",
+                              expectOutgoingCall: false,
+                              test: self)
         
         // parse address and create new call
         guard let call = caller.call(receiver)
             else { XCTFail(); return }
+        
+        defer { call.terminate() }
         
         //let videoFrameDecodedExpectation = self.expectation(description: "Video frame decoded")
         
