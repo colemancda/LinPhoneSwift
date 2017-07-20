@@ -493,6 +493,9 @@ internal extension String {
         
         defer { free(cString) }
         
-        self.init(cString: cString)
+        guard let string = NSString(cString: cString, encoding: String.Encoding.utf8.rawValue)
+            else { fatalError("Invalid string") }
+        
+        self = string as String
     }
 }
