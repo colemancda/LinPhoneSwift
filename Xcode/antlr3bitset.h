@@ -1,1 +1,1 @@
-../linphone-iphone/liblinphone-sdk/apple-darwin/include/antlr3bitset.h
+../liblinphone-sdk/apple-darwin/include/antlr3bitset.h

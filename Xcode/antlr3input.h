@@ -1,1 +1,1 @@
-../linphone-iphone/liblinphone-sdk/apple-darwin/include/antlr3input.h
+../liblinphone-sdk/apple-darwin/include/antlr3input.h

@@ -1,1 +1,1 @@
-../linphone-iphone/liblinphone-sdk/apple-darwin/include/antlr3basetree.h
+../liblinphone-sdk/apple-darwin/include/antlr3basetree.h
