@@ -1,1 +1,1 @@
-../liblinphone-sdk/apple-darwin/include/turbojpeg.h
+../liblinphone-sdk/iOS/apple-darwin/include/turbojpeg.h

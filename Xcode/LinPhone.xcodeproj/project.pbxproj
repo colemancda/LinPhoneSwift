@@ -42,6 +42,17 @@
 		6E52918B1F0B553400D4B765 /* URI.SIP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E52918A1F0B553400D4B765 /* URI.SIP.swift */; };
 		6E52918D1F0B58C000D4B765 /* Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E52918C1F0B58C000D4B765 /* Object.swift */; };
 		6E5291921F0B5B2B00D4B765 /* Handle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E52918F1F0B5B2B00D4B765 /* Handle.swift */; };
+		6E5479171F213C8F0095F023 /* bctoolbox.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6EFE259C1F1660FD00FC4ECC /* bctoolbox.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6E5479181F213C8F0095F023 /* linphone.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6EFE259D1F1660FD00FC4ECC /* linphone.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6E5479191F213C8F0095F023 /* mediastreamer_base.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6EFE259F1F1660FD00FC4ECC /* mediastreamer_base.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6E54791A1F213C8F0095F023 /* mediastreamer_voip.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6EFE25A01F1660FD00FC4ECC /* mediastreamer_voip.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6E54791B1F213C8F0095F023 /* msamr.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6EFE25A11F1660FD00FC4ECC /* msamr.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6E54791C1F213C8F0095F023 /* mscodec2.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6EFE25A21F1660FD00FC4ECC /* mscodec2.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6E54791D1F213C8F0095F023 /* msopenh264.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6EFE25A31F1660FD00FC4ECC /* msopenh264.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6E54791E1F213C8F0095F023 /* mssilk.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6EFE25A41F1660FD00FC4ECC /* mssilk.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6E54791F1F213C8F0095F023 /* mswebrtc.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6EFE25A51F1660FD00FC4ECC /* mswebrtc.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6E5479201F213C8F0095F023 /* msx264.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6EFE25A61F1660FD00FC4ECC /* msx264.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6E5479211F213C8F0095F023 /* ortp.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6EFE25A71F1660FD00FC4ECC /* ortp.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6E569B191F09F74D00BF244A /* LinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E569ADC1F09DA3500BF244A /* LinkedList.swift */; };
 		6E569B1F1F09F9D500BF244A /* Handle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E569B1E1F09F9D500BF244A /* Handle.swift */; };
 		6E58AF091F07221B009A0E68 /* StreamType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E58AF081F07221B009A0E68 /* StreamType.swift */; };
@@ -131,17 +142,6 @@
 		6EFE25F81F16695000FC4ECC /* mswebrtc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EFE25A51F1660FD00FC4ECC /* mswebrtc.framework */; };
 		6EFE25F91F16695000FC4ECC /* msx264.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EFE25A61F1660FD00FC4ECC /* msx264.framework */; };
 		6EFE25FA1F16695000FC4ECC /* ortp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EFE25A71F1660FD00FC4ECC /* ortp.framework */; };
-		6EFE25FB1F16696E00FC4ECC /* bctoolbox.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6EFE259C1F1660FD00FC4ECC /* bctoolbox.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6EFE25FC1F16696E00FC4ECC /* linphone.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6EFE259D1F1660FD00FC4ECC /* linphone.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6EFE25FE1F16696E00FC4ECC /* mediastreamer_base.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6EFE259F1F1660FD00FC4ECC /* mediastreamer_base.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6EFE25FF1F16696E00FC4ECC /* mediastreamer_voip.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6EFE25A01F1660FD00FC4ECC /* mediastreamer_voip.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6EFE26001F16696E00FC4ECC /* msamr.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6EFE25A11F1660FD00FC4ECC /* msamr.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6EFE26011F16696E00FC4ECC /* mscodec2.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6EFE25A21F1660FD00FC4ECC /* mscodec2.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6EFE26021F16696E00FC4ECC /* msopenh264.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6EFE25A31F1660FD00FC4ECC /* msopenh264.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6EFE26031F16696E00FC4ECC /* mssilk.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6EFE25A41F1660FD00FC4ECC /* mssilk.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6EFE26041F16696E00FC4ECC /* mswebrtc.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6EFE25A51F1660FD00FC4ECC /* mswebrtc.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6EFE26051F16696E00FC4ECC /* msx264.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6EFE25A61F1660FD00FC4ECC /* msx264.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6EFE26061F16696E00FC4ECC /* ortp.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6EFE25A71F1660FD00FC4ECC /* ortp.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6EFE26071F166A6600FC4ECC /* linphone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EFE259D1F1660FD00FC4ECC /* linphone.framework */; };
 		OBJ_28 /* CoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* CoreTests.swift */; };
 		OBJ_30 /* LinPhoneSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* LinPhoneSwift.framework */; };
@@ -242,17 +242,17 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				6EFE25FB1F16696E00FC4ECC /* bctoolbox.framework in Embed Frameworks */,
-				6EFE25FC1F16696E00FC4ECC /* linphone.framework in Embed Frameworks */,
-				6EFE25FE1F16696E00FC4ECC /* mediastreamer_base.framework in Embed Frameworks */,
-				6EFE25FF1F16696E00FC4ECC /* mediastreamer_voip.framework in Embed Frameworks */,
-				6EFE26001F16696E00FC4ECC /* msamr.framework in Embed Frameworks */,
-				6EFE26011F16696E00FC4ECC /* mscodec2.framework in Embed Frameworks */,
-				6EFE26021F16696E00FC4ECC /* msopenh264.framework in Embed Frameworks */,
-				6EFE26031F16696E00FC4ECC /* mssilk.framework in Embed Frameworks */,
-				6EFE26041F16696E00FC4ECC /* mswebrtc.framework in Embed Frameworks */,
-				6EFE26051F16696E00FC4ECC /* msx264.framework in Embed Frameworks */,
-				6EFE26061F16696E00FC4ECC /* ortp.framework in Embed Frameworks */,
+				6E5479171F213C8F0095F023 /* bctoolbox.framework in Embed Frameworks */,
+				6E5479181F213C8F0095F023 /* linphone.framework in Embed Frameworks */,
+				6E5479191F213C8F0095F023 /* mediastreamer_base.framework in Embed Frameworks */,
+				6E54791A1F213C8F0095F023 /* mediastreamer_voip.framework in Embed Frameworks */,
+				6E54791B1F213C8F0095F023 /* msamr.framework in Embed Frameworks */,
+				6E54791C1F213C8F0095F023 /* mscodec2.framework in Embed Frameworks */,
+				6E54791D1F213C8F0095F023 /* msopenh264.framework in Embed Frameworks */,
+				6E54791E1F213C8F0095F023 /* mssilk.framework in Embed Frameworks */,
+				6E54791F1F213C8F0095F023 /* mswebrtc.framework in Embed Frameworks */,
+				6E5479201F213C8F0095F023 /* msx264.framework in Embed Frameworks */,
+				6E5479211F213C8F0095F023 /* ortp.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -528,22 +528,7 @@
 		6E25E96D1F0B6DEA005BC42C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				6E25EA481F0B7727005BC42C /* CoreMedia.framework */,
-				6E25EA441F0B7703005BC42C /* CoreVideo.framework */,
-				6E25EA451F0B7703005BC42C /* VideoToolbox.framework */,
-				6E25EA421F0B76E2005BC42C /* QuartzCore.framework */,
-				6E25EA401F0B76BA005BC42C /* AudioToolbox.framework */,
-				6E25EA3E1F0B7684005BC42C /* AVFoundation.framework */,
-				6E25EA331F0B758E005BC42C /* UIKit.framework */,
-				6E25EA311F0B7589005BC42C /* CoreGraphics.framework */,
-				6E25E9E11F0B7480005BC42C /* OpenGLES.framework */,
-				6E25E9E71F0B74C8005BC42C /* libxml2.tbd */,
-				6E25EA821F0B7887005BC42C /* libiconv.tbd */,
-				6E25EA501F0B77AB005BC42C /* libsqlite3.tbd */,
-				6E25E9DC1F0B7413005BC42C /* libz.tbd */,
-				6E25E9DA1F0B73F1005BC42C /* libstdc++.tbd */,
-				6E25E9D81F0B73A5005BC42C /* libresolv.tbd */,
-				6E25EA3D1F0B7628005BC42C /* Linphone */,
+				6E5479221F21436E0095F023 /* iOS */,
 			);
 			name = Frameworks;
 			path = "../linphone-iphone/liblinphone-sdk/apple-darwin/lib";
@@ -579,8 +564,8 @@
 				6EFE25A71F1660FD00FC4ECC /* ortp.framework */,
 			);
 			name = Linphone;
-			path = "../liblinphone-sdk/apple-darwin/lib";
-			sourceTree = "<group>";
+			path = "/Users/coleman/Developer/LinPhoneSwift/liblinphone-sdk/iOS/apple-darwin/lib";
+			sourceTree = "<absolute>";
 		};
 		6E25EA841F0BEA98005BC42C /* MediaStreamerTests */ = {
 			isa = PBXGroup;
@@ -619,6 +604,29 @@
 				6E52918F1F0B5B2B00D4B765 /* Handle.swift */,
 			);
 			path = BelledonneSIP;
+			sourceTree = "<group>";
+		};
+		6E5479221F21436E0095F023 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				6E25EA3D1F0B7628005BC42C /* Linphone */,
+				6E25EA481F0B7727005BC42C /* CoreMedia.framework */,
+				6E25EA441F0B7703005BC42C /* CoreVideo.framework */,
+				6E25EA451F0B7703005BC42C /* VideoToolbox.framework */,
+				6E25EA421F0B76E2005BC42C /* QuartzCore.framework */,
+				6E25EA401F0B76BA005BC42C /* AudioToolbox.framework */,
+				6E25EA3E1F0B7684005BC42C /* AVFoundation.framework */,
+				6E25EA331F0B758E005BC42C /* UIKit.framework */,
+				6E25EA311F0B7589005BC42C /* CoreGraphics.framework */,
+				6E25E9E11F0B7480005BC42C /* OpenGLES.framework */,
+				6E25E9E71F0B74C8005BC42C /* libxml2.tbd */,
+				6E25EA821F0B7887005BC42C /* libiconv.tbd */,
+				6E25EA501F0B77AB005BC42C /* libsqlite3.tbd */,
+				6E25E9DC1F0B7413005BC42C /* libz.tbd */,
+				6E25E9DA1F0B73F1005BC42C /* libstdc++.tbd */,
+				6E25E9D81F0B73A5005BC42C /* libresolv.tbd */,
+			);
+			name = iOS;
 			sourceTree = "<group>";
 		};
 		6E569ADB1F09DA2300BF244A /* BelledonneToolbox */ = {
@@ -1165,7 +1173,10 @@
 				DEFINES_MODULE = YES;
 				ENABLE_BITCODE = NO;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = "$SRCROOT/../liblinphone-sdk/ios/apple-darwin/Frameworks";
+				HEADER_SEARCH_PATHS = "$SRCROOT/../liblinphone-sdk/ios/apple-darwin/include";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "$SRCROOT/../liblinphone-sdk/ios/apple-darwin/lib";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = org.belledonne.bellesip.swift;
@@ -1187,7 +1198,10 @@
 				DEFINES_MODULE = YES;
 				ENABLE_BITCODE = NO;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = "$SRCROOT/../liblinphone-sdk/ios/apple-darwin/Frameworks";
+				HEADER_SEARCH_PATHS = "$SRCROOT/../liblinphone-sdk/ios/apple-darwin/include";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "$SRCROOT/../liblinphone-sdk/ios/apple-darwin/lib";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = org.belledonne.bellesip.swift;
@@ -1248,7 +1262,10 @@
 				DEFINES_MODULE = YES;
 				ENABLE_BITCODE = NO;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = "$SRCROOT/../liblinphone-sdk/ios/apple-darwin/Frameworks";
+				HEADER_SEARCH_PATHS = "$SRCROOT/../liblinphone-sdk/iOS/apple-darwin/include";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "$SRCROOT/../liblinphone-sdk/ios/apple-darwin/lib";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = org.belledonne.bctoolbox.swift;
@@ -1271,7 +1288,10 @@
 				DEFINES_MODULE = YES;
 				ENABLE_BITCODE = NO;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = "$SRCROOT/../liblinphone-sdk/ios/apple-darwin/Frameworks";
+				HEADER_SEARCH_PATHS = "$SRCROOT/../liblinphone-sdk/iOS/apple-darwin/include";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "$SRCROOT/../liblinphone-sdk/ios/apple-darwin/lib";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = org.belledonne.bctoolbox.swift;
@@ -1331,7 +1351,10 @@
 				DEFINES_MODULE = YES;
 				ENABLE_BITCODE = NO;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = "$SRCROOT/../liblinphone-sdk/ios/apple-darwin/Frameworks";
+				HEADER_SEARCH_PATHS = "$SRCROOT/../liblinphone-sdk/ios/apple-darwin/include";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "$SRCROOT/../liblinphone-sdk/ios/apple-darwin/lib";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = org.belledonne.mediastreamer.swift;
@@ -1354,7 +1377,10 @@
 				DEFINES_MODULE = YES;
 				ENABLE_BITCODE = NO;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = "$SRCROOT/../liblinphone-sdk/ios/apple-darwin/Frameworks";
+				HEADER_SEARCH_PATHS = "$SRCROOT/../liblinphone-sdk/ios/apple-darwin/include";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "$SRCROOT/../liblinphone-sdk/ios/apple-darwin/lib";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = org.belledonne.mediastreamer.swift;
@@ -1414,6 +1440,9 @@
 				DEFINES_MODULE = YES;
 				ENABLE_BITCODE = NO;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = "$SRCROOT/../liblinphone-sdk/ios/apple-darwin/Frameworks";
+				HEADER_SEARCH_PATHS = "$SRCROOT/../liblinphone-sdk/ios/apple-darwin/include";
+				LIBRARY_SEARCH_PATHS = "$SRCROOT/../liblinphone-sdk/ios/apple-darwin/lib";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = org.belledonne.linphone.swift;
@@ -1435,6 +1464,9 @@
 				DEFINES_MODULE = YES;
 				ENABLE_BITCODE = NO;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = "$SRCROOT/../liblinphone-sdk/ios/apple-darwin/Frameworks";
+				HEADER_SEARCH_PATHS = "$SRCROOT/../liblinphone-sdk/ios/apple-darwin/include";
+				LIBRARY_SEARCH_PATHS = "$SRCROOT/../liblinphone-sdk/ios/apple-darwin/lib";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = org.belledonne.linphone.swift;
@@ -1490,7 +1522,6 @@
 		OBJ_3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
@@ -1508,7 +1539,6 @@
 				ENABLE_NS_ASSERTIONS = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				FRAMEWORK_SEARCH_PATHS = "$SRCROOT/../liblinphone-sdk/apple-darwin/Frameworks";
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -1517,11 +1547,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "$SRCROOT/../liblinphone-sdk/apple-darwin/include";
 				INFOPLIST_FILE = "LinPhone.xcodeproj/$PRODUCT_NAME-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "$SRCROOT/../liblinphone-sdk/apple-darwin/lib";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_SWIFT_FLAGS = "-DXcode";
@@ -1537,7 +1565,6 @@
 		OBJ_4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
@@ -1553,7 +1580,6 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_SEARCH_PATHS = "$SRCROOT/../liblinphone-sdk/apple-darwin/Frameworks";
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = s;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -1562,11 +1588,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "$SRCROOT/../liblinphone-sdk/apple-darwin/include";
 				INFOPLIST_FILE = "LinPhone.xcodeproj/$PRODUCT_NAME-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "$SRCROOT/../liblinphone-sdk/apple-darwin/lib";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				OTHER_SWIFT_FLAGS = "-DXcode";
 				PRODUCT_NAME = "$(PROJECT_NAME)";
