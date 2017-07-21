@@ -153,7 +153,19 @@ public final class Core {
                     
                     let format = String(lpCString: formatCString) ?? ""
                     
-                    let message = NSString(format: format, arguments: arguments) as String
+                    // FIXME: Swift compiler error
+                    let arguments: CVaListPointer? = arguments
+                    
+                    let message: String
+                    
+                    if let arguments = arguments {
+                        
+                        message = NSString(format: format, arguments: arguments) as String
+                        
+                    } else {
+                        
+                        message = format
+                    }
                     
                     Core.log?(domain, message, level)
                 }
