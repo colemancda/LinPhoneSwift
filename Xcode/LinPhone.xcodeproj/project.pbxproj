@@ -1180,7 +1180,6 @@
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				ENABLE_BITCODE = NO;
-				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = "$SRCROOT/../liblinphone-sdk/ios/apple-darwin/Frameworks";
 				HEADER_SEARCH_PATHS = "$SRCROOT/../liblinphone-sdk/ios/apple-darwin/include";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -1190,7 +1189,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.belledonne.bellesip.swift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_INCLUDE_PATHS = $SRCROOT;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -1205,7 +1204,6 @@
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				ENABLE_BITCODE = NO;
-				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = "$SRCROOT/../liblinphone-sdk/ios/apple-darwin/Frameworks";
 				HEADER_SEARCH_PATHS = "$SRCROOT/../liblinphone-sdk/ios/apple-darwin/include";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -1215,7 +1213,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.belledonne.bellesip.swift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_INCLUDE_PATHS = $SRCROOT;
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1269,7 +1267,6 @@
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				ENABLE_BITCODE = NO;
-				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = "$SRCROOT/../liblinphone-sdk/ios/apple-darwin/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$SRCROOT/../liblinphone-sdk/ios/apple-darwin/lib";
@@ -1279,7 +1276,7 @@
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_INCLUDE_PATHS = $SRCROOT;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -1294,7 +1291,6 @@
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				ENABLE_BITCODE = NO;
-				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = "$SRCROOT/../liblinphone-sdk/ios/apple-darwin/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$SRCROOT/../liblinphone-sdk/ios/apple-darwin/lib";
@@ -1304,7 +1300,7 @@
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_INCLUDE_PATHS = $SRCROOT;
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1354,7 +1350,6 @@
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				ENABLE_BITCODE = NO;
-				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = "$SRCROOT/../liblinphone-sdk/ios/apple-darwin/Frameworks";
 				HEADER_SEARCH_PATHS = "$SRCROOT/../liblinphone-sdk/ios/apple-darwin/include";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -1365,7 +1360,7 @@
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_INCLUDE_PATHS = $SRCROOT;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -1380,7 +1375,6 @@
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				ENABLE_BITCODE = NO;
-				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = "$SRCROOT/../liblinphone-sdk/ios/apple-darwin/Frameworks";
 				HEADER_SEARCH_PATHS = "$SRCROOT/../liblinphone-sdk/ios/apple-darwin/include";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -1391,7 +1385,7 @@
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_INCLUDE_PATHS = $SRCROOT;
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1440,10 +1434,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
+				ARCHS = (
+					"$(ARCHS_STANDARD)",
+					i386,
+					x86_64,
+				);
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				ENABLE_BITCODE = NO;
-				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = "$SRCROOT/../liblinphone-sdk/ios/apple-darwin/Frameworks";
 				HEADER_SEARCH_PATHS = "$SRCROOT/../liblinphone-sdk/ios/apple-darwin/include";
 				LIBRARY_SEARCH_PATHS = "$SRCROOT/../liblinphone-sdk/ios/apple-darwin/lib";
@@ -1452,11 +1450,10 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.belledonne.linphone.swift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_INCLUDE_PATHS = $SRCROOT;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -1464,10 +1461,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
+				ARCHS = (
+					"$(ARCHS_STANDARD)",
+					i386,
+					x86_64,
+				);
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				ENABLE_BITCODE = NO;
-				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = "$SRCROOT/../liblinphone-sdk/ios/apple-darwin/Frameworks";
 				HEADER_SEARCH_PATHS = "$SRCROOT/../liblinphone-sdk/ios/apple-darwin/include";
 				LIBRARY_SEARCH_PATHS = "$SRCROOT/../liblinphone-sdk/ios/apple-darwin/lib";
@@ -1476,10 +1477,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.belledonne.linphone.swift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_INCLUDE_PATHS = $SRCROOT;
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -1558,7 +1558,6 @@
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_SWIFT_FLAGS = "-DXcode";
 				PRODUCT_NAME = "$(PROJECT_NAME)";
-				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator appletvos appletvsimulator watchos watchsimulator";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = SWIFT_PACKAGE;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -1598,7 +1597,6 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				OTHER_SWIFT_FLAGS = "-DXcode";
 				PRODUCT_NAME = "$(PROJECT_NAME)";
-				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator appletvos appletvsimulator watchos watchsimulator";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = SWIFT_PACKAGE;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 3.0;

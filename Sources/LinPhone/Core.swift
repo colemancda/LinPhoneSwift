@@ -41,7 +41,7 @@ public final class Core {
     }
     
     public convenience init?(factory: Factory = Factory.shared,
-                             callbacks: Callbacks,
+                             callbacks: Callbacks = Callbacks(),
                              configurationPath: String? = nil,
                              factoryConfigurationPath: String? = nil) {
         
@@ -50,7 +50,6 @@ public final class Core {
                                      configurationPath,
                                      factoryConfigurationPath)
             else { return nil }
-        
         
         self.init(ManagedPointer(UnmanagedPointer(rawPointer)))
         self.setUserData()
