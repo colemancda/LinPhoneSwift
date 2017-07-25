@@ -85,8 +85,10 @@ public final class Core {
     /// Tells whether the linphone core log collection is enabled.
     public var isLogCollectionEnabled: LinphoneLogCollectionState {
         
+        @inline(__always)
         get { return linphone_core_log_collection_enabled() }
         
+        @inline(__always)
         set { linphone_core_enable_log_collection(newValue) }
     }
     
@@ -321,21 +323,18 @@ public final class Core {
     }
     
     /// Sets the user agent string used in SIP messages.
-    @inline(__always)
     public func setUserAgent(name: String, version: String) {
         
          linphone_core_set_user_agent(rawPointer, name, version)
     }
     
     /// Specify whether the tls server certificate common name must be verified when connecting to a SIP/TLS server.
-    @inline(__always)
     public func shouldVerifyServerConnection(_ newValue: Bool) {
         
         linphone_core_verify_server_cn(rawPointer, bool_t(newValue))
     }
     
     /// Specify whether the tls server certificate must be verified when connecting to a SIP/TLS server.
-    @inline(__always)
     public func shouldVerifyServerCertificates(_ newValue: Bool) {
         
         linphone_core_verify_server_certificates(rawPointer, bool_t(newValue))
@@ -368,7 +367,6 @@ public final class Core {
     /// - Returns: A pointer to an opaque structure which will be provided directly to the crypto library used in `bctoolbox`.
     /// - Warning: Use with extra care. 
     /// This `ssl_config` structure is responsibility of the caller and will not be freed at the connection's end.
-    @inline(__always)
     public func configureSSL(_ config: UnsafeMutableRawPointer?) {
         
         linphone_core_set_ssl_config(rawPointer, config)
@@ -761,28 +759,24 @@ public final class Core {
     /// Be careful that this function must be called from the same thread as other liblinphone methods.
     /// If it is not the case make sure all liblinphone calls are serialized with a mutex. 
     /// For ICE to work properly it should be called every 20ms.
-    @inline(__always)
     public func iterate() {
         
         linphone_core_iterate(rawPointer)
     }
     
     /// Upload the log collection to the configured server url.
-    @inline(__always)
     public func uploadLogCollection() {
         
         linphone_core_upload_log_collection(rawPointer)
     }
     
     /// Whether a media encryption scheme is supported by the `Linphone.Core` engine.
-    @inline(__always)
     public func isMediaEncryptionSupported(_ mediaEncryption: LinphoneMediaEncryption) -> Bool {
         
         return linphone_core_media_encryption_supported(rawPointer, mediaEncryption).boolValue
     }
     
     /// Reload `mediastreamer2` plugins from specified directory.
-    @inline(__always)
     public func reloadMediaStreamerPlugins(from path: String? = nil) {
         
         linphone_core_reload_ms_plugins(rawPointer, path)
@@ -790,7 +784,6 @@ public final class Core {
     
     /// Add a listener in order to be notified of `Linphone.Core` events. 
     /// Once an event is received, registred `Linphone.Callbacks` are invoked sequencially.
-    @inline(__always)
     public func add(callbacks: Callbacks) {
         
         linphone_core_add_callbacks(rawPointer, callbacks.rawPointer) // retains
@@ -799,7 +792,6 @@ public final class Core {
     }
     
     /// Remove a listener from the `Linphone.Core` events.
-    @inline(__always)
     public func remove(callbacks: Callbacks) {
         
         linphone_core_remove_callbacks(rawPointer, callbacks.rawPointer)  // releases
@@ -811,21 +803,18 @@ public final class Core {
     }
     
     /// Add a supported tag.
-    @inline(__always)
     public func add(supportedTag tag: String) {
         
         linphone_core_remove_supported_tag(rawPointer, tag)
     }
     
     /// Remove a supported tag.
-    @inline(__always)
     public func remove(supportedTag tag: String) {
         
          linphone_core_remove_supported_tag(rawPointer, tag)
     }
     
     /// Reset the counter of missed calls.
-    @inline(__always)
     public func resetMissedCalls() {
         
         linphone_core_reset_missed_calls_count(rawPointer)
@@ -853,7 +842,6 @@ public final class Core {
     }
     
     /// Force registration refresh to be initiated upon next iterate. 
-    @inline(__always)
     public func refreshRegisters() {
         
         linphone_core_refresh_registers(rawPointer)
@@ -875,7 +863,6 @@ public final class Core {
     /// Initiates an outgoing call.
     /// - Parameter address: The sip address destination of the call.
     /// - Returns: A `LinPhone.Call` object or `nil` in case of failure.
-    @inline(__always)
     public func invite(_ address: Address) -> Call? {
         
         // address is not mutated or retained by the reciever
@@ -890,7 +877,6 @@ public final class Core {
     }
     
     /// Pause all currently running calls.
-    @inline(__always)
     public func pauseAllCalls() {
         
         linphone_core_pause_all_calls(rawPointer)
@@ -899,14 +885,12 @@ public final class Core {
     /// Plays a dtmf sound to the local user.
     /// - Parameter dtmf: DTMF to play ['0'..'16'] | '#' | '#'
     /// - Parameter duration: Duration in ms, -1 means play until next further call to `stopDMTF()`.
-    @inline(__always)
     public func play(dtmf: Int8, duration: Int) {
         
         linphone_core_play_dtmf(rawPointer, dtmf, Int32(duration))
     }
     
     /// Stops playing a dtmf.
-    @inline(__always)
     public func stopPlayingDMTF() {
         
         linphone_core_stop_dtmf(rawPointer)
@@ -917,7 +901,6 @@ public final class Core {
     /// It doesn't request the underlying audio system to support multiple playback streams.
     /// - Parameter filePath: The path to an audio file in wav PCM 16 bit format.
     @discardableResult
-    @inline(__always)
     public func play(audio filePath: String) -> Bool {
         
         return linphone_core_play_local(rawPointer, filePath) == .success
@@ -934,7 +917,6 @@ public final class Core {
     
     /// Join the local participant to the running conference.
     @discardableResult
-    @inline(__always)
     public func enterConference() -> Bool {
         
         return linphone_core_enter_conference(rawPointer) == .success
@@ -942,7 +924,6 @@ public final class Core {
     
     /// Make the local participant leave the running conference.
     @discardableResult
-    @inline(__always)
     public func leaveConference() -> Bool {
         
         return linphone_core_leave_conference(rawPointer) == .success
@@ -953,7 +934,6 @@ public final class Core {
     /// and will be put in `.paused` state. If it is a conference involving a focus server,
     /// all calls inside the conference will be terminated.
     @discardableResult
-    @inline(__always)
     public func terminateConference() -> Bool {
         
         return linphone_core_terminate_conference(rawPointer) == .success
@@ -965,7 +945,6 @@ public final class Core {
     
     /// Special function to warm up dtmf feeback stream. 
     /// `stopDTMFStream()` must be called before entering foreground mode.
-    @inline(__always)
     public func startDTMFStream() {
         
         linphone_core_start_dtmf_stream(rawPointer)
@@ -973,7 +952,6 @@ public final class Core {
     
     /// Special function to stop dtmf feed back function.
     /// Must be called before entering background mode.
-    @inline(__always)
     public func stopDTMFStream() {
         
         linphone_core_stop_dtmf_stream(rawPointer)

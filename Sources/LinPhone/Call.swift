@@ -263,7 +263,6 @@ public final class Call {
     ///
     /// The application can later accept the call using this method.
     @discardableResult
-    @inline(__always)
     public func accept() -> Bool {
         
         return linphone_call_accept(rawPointer) == .success
@@ -274,7 +273,6 @@ public final class Call {
     /// If a music file has been setup using `Linphone.Core.setPlayFile()`, this file will be played to the remote user.
     /// The only way to resume a paused call is to call `resume()`.
     @discardableResult
-    @inline(__always)
     public func pause() -> Bool {
         
         return linphone_call_pause(rawPointer) == .success
@@ -284,7 +282,6 @@ public final class Call {
     ///
     /// The call needs to have been paused previously with `pause()`.
     @discardableResult
-    @inline(__always)
     public func resume() -> Bool {
         
         return linphone_call_resume(rawPointer) == .success
@@ -292,7 +289,6 @@ public final class Call {
     
     /// Terminates a call.
     @discardableResult
-    @inline(__always)
     public func terminate() -> Bool {
         
         return linphone_call_terminate(rawPointer) == .success
@@ -302,7 +298,6 @@ public final class Call {
     /// Note that the snapshot is asynchronous, an application shall not assume 
     /// that the file is created when the method returns.
     @discardableResult
-    @inline(__always)
     public func takeVideoSnapshot(file: String) -> Bool {
         
         return linphone_call_take_video_snapshot(rawPointer, file) == .success
@@ -312,14 +307,12 @@ public final class Call {
     /// Note that the snapshot is asynchronous, an application shall not assume 
     /// that the file is created when the function returns.
     @discardableResult
-    @inline(__always)
     public func takePreviewSnapshot(file: String) -> Bool {
         
         return linphone_call_take_preview_snapshot(rawPointer, file) == .success
     }
     
     /// Request remote side to send us a Video Fast Update.
-    @inline(__always)
     public func sendVideoFastUpdateRequest() {
         
         linphone_call_send_vfu_request(rawPointer)
@@ -329,7 +322,6 @@ public final class Call {
     /// The dtmf is automatically played to the user.
     /// - Parameter dtmf: The dtmf name specified as a char, such as '0', '#' etc...
     @discardableResult
-    @inline(__always)
     public func send(dtmf: Int8) -> Bool {
         
         return linphone_call_send_dtmf(rawPointer, dtmf) == .success
@@ -338,7 +330,6 @@ public final class Call {
     /// Perform a zoom of the video displayed during a call.
     /// `center` is updated in case its coordinates were too excentrated for the requested zoom factor.
     /// The zoom ensures that all the screen is fullfilled with the video. 
-    @inline(__always)
     public func zoomVideo(factor: Float, center: inout (x: Float, y: Float)) {
         
         linphone_call_zoom_video(rawPointer, factor, &center.x, &center.y)

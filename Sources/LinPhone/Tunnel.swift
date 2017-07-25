@@ -61,7 +61,6 @@ public final class Tunnel {
     /// In most cases the tunnel client socket won't be notified promptly that its connection is now zombie, 
     /// so it is recommended to call this method that will cause the lost connection to be closed 
     /// and new connection to be issued.
-    @inline(__always)
     public func reconnect() {
         
         linphone_tunnel_reconnect(rawPointer)
