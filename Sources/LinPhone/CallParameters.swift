@@ -20,7 +20,6 @@ public extension Call {
         
         // MARK: - Initialization
         
-        @inline(__always)
         internal init(_ internalReference: CopyOnWrite<Reference>) {
             
             self.internalReference = internalReference

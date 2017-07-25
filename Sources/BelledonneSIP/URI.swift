@@ -133,7 +133,6 @@ extension URI: BelledonneObject {
     
     public typealias RawPointer = OpaquePointer
     
-    @inline(__always)
     public mutating func withUnsafeMutableRawPointer <Result> (_ body: (OpaquePointer) throws -> Result) rethrows -> Result {
         
         let rawPointer = internalReference.mutatingReference.rawPointer
@@ -141,7 +140,6 @@ extension URI: BelledonneObject {
         return try body(rawPointer)
     }
     
-    @inline(__always)
     public func withUnsafeRawPointer <Result> (_ body: (OpaquePointer) throws -> Result) rethrows -> Result {
         
         let rawPointer = internalReference.reference.rawPointer

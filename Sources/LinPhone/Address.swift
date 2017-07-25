@@ -20,7 +20,6 @@ public struct Address: RawRepresentable {
     
     // MARK: - Initialization
     
-    @inline(__always)
     internal init(_ internalReference: CopyOnWrite<Reference>) {
         
         self.internalReference = internalReference
@@ -135,14 +134,12 @@ public struct Address: RawRepresentable {
     // MARK: - Methods
     
     /// Removes address's tags and uri headers so that it is displayable to the user.
-    @inline(__always)
     public mutating func clean() {
         
         linphone_address_clean(internalReference.mutatingReference.rawPointer)
     }
     
     /// Get the header encoded in the address.
-    @inline(__always)
     public func header(_ name: String) -> String? {
         
         return internalReference.reference.getString { linphone_address_get_header($0, name) }
@@ -151,49 +148,42 @@ public struct Address: RawRepresentable {
     /// Set a header into the address. 
     ///
     /// Headers appear in the URI with '?', such as `<sip:test.org?SomeHeader=SomeValue>`.
-    @inline(__always)
     public mutating func setHeader(_ name: String, value: String?) {
         
         internalReference.mutatingReference.setString({ linphone_address_set_header($0, name, $1) }, value)
     }
     
     /// Whether the address contains the parameter.
-    @inline(__always)
     public func hasParameter(_ name: String) -> Bool {
         
         return linphone_address_has_param(internalReference.reference.rawPointer, name).boolValue
     }
     
     /// Get the parameter encoded in the address.
-    @inline(__always)
     public func parameter(_ name: String) -> String? {
         
         return internalReference.reference.getString { linphone_address_get_param($0, name) }
     }
     
     /// Set a parameter into the address.
-    @inline(__always)
     public mutating func setParameter(_ name: String, value: String?) {
         
         internalReference.mutatingReference.setString({ linphone_address_set_param($0, name, $1) }, value)
     }
     
     /// Whether the address contains the parameter.
-    @inline(__always)
     public func hasURIParameter(_ name: String) -> Bool {
         
         return linphone_address_has_uri_param(internalReference.reference.rawPointer, name).boolValue
     }
     
     /// Get the parameter encoded in the address.
-    @inline(__always)
     public func uriParameter(_ name: String) -> String? {
         
         return internalReference.reference.getString { linphone_address_get_uri_param($0, name) }
     }
     
     /// Set a parameter into the address.
-    @inline(__always)
     public mutating func setURIParameter(_ name: String, value: String?) {
         
         internalReference.mutatingReference.setString({ linphone_address_set_uri_param($0, name, $1) }, value)
@@ -203,28 +193,22 @@ public struct Address: RawRepresentable {
     
     public subscript (header name: String) -> String? {
         
-        @inline(__always)
         get { return header(name) }
         
-        @inline(__always)
         mutating set { setHeader(name, value: newValue) }
     }
     
     public subscript (parameter name: String) -> String? {
         
-        @inline(__always)
         get { return parameter(name) }
         
-        @inline(__always)
         mutating set { setParameter(name, value: newValue) }
     }
     
     public subscript (uriParameter name: String) -> String? {
         
-        @inline(__always)
         get { return uriParameter(name) }
         
-        @inline(__always)
         mutating set { setURIParameter(name, value: newValue) }
     }
 }

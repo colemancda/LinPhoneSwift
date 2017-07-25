@@ -28,8 +28,7 @@ public extension Call {
         
         internal var rawPointer: UnmanagedPointer.RawPointer {
             
-            @inline(__always)
-            get { return internalReference.managedPointer.unmanagedPointer.rawPointer }
+                get { return internalReference.managedPointer.unmanagedPointer.rawPointer }
         }
         
         /// The type of the stream the stats refer to.

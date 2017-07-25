@@ -61,7 +61,6 @@ public final class Core {
     /// Returns liblinphone's version as a string.
     public static var version: String {
         
-        @inline(__always)
         get { return String(cString: linphone_core_get_version()) }
     }
     
@@ -86,10 +85,8 @@ public final class Core {
     /// Tells whether the linphone core log collection is enabled.
     public var isLogCollectionEnabled: LinphoneLogCollectionState {
         
-        @inline(__always)
         get { return linphone_core_log_collection_enabled() }
         
-        @inline(__always)
         set { linphone_core_enable_log_collection(newValue) }
     }
     
@@ -112,10 +109,8 @@ public final class Core {
     /// The max file size in bytes of the files used for log collection.
     public static var logCollectionMaxFileSize: Int {
         
-        @inline(__always)
         get { return linphone_core_get_log_collection_max_file_size() }
         
-        @inline(__always)
         set { linphone_core_set_log_collection_max_file_size(newValue) }
     }
     
@@ -124,7 +119,6 @@ public final class Core {
         
         get { return String(lpCString: linphone_core_get_log_collection_path()) }
         
-        @inline(__always)
         set { linphone_core_set_log_collection_path(newValue) }
     }
     
@@ -133,7 +127,6 @@ public final class Core {
         
         get { return String(lpCString: linphone_core_get_log_collection_path())! }
         
-        @inline(__always)
         set { linphone_core_set_log_collection_path(newValue) }
     }
     
@@ -177,14 +170,12 @@ public final class Core {
     /// True if tunnel support was compiled.
     public static var tunnelAvailible: Bool {
         
-        @inline(__always)
         get { return linphone_core_tunnel_available().boolValue }
     }
     
     /// Return the availability of uPnP.
     public static var uPnPAvailible: Bool {
         
-        @inline(__always)
         get { return linphone_core_upnp_available().boolValue }
     }
     
