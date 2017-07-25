@@ -40,7 +40,7 @@ public final class Core {
         self.managedPointer = managedPointer
     }
     
-    public convenience init?(factory: Factory = Factory.shared,
+    public convenience init(factory: Factory = Factory.shared,
                              callbacks: Callbacks = Callbacks(),
                              configurationPath: String? = nil,
                              factoryConfigurationPath: String? = nil) {
@@ -49,7 +49,8 @@ public final class Core {
                                      callbacks.rawPointer,
                                      configurationPath,
                                      factoryConfigurationPath)
-            else { return nil }
+            
+            else { fatalError("Could not initialize LinPhone.Core") }
         
         self.init(ManagedPointer(UnmanagedPointer(rawPointer)))
         self.setUserData()
