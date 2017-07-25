@@ -153,9 +153,11 @@ extension LinkedList {
         // MARK: - Properties
         
         /// Underlying `bctbx_list_t` pointer. Always the first element.
+        @_versioned
         internal let rawPointer: RawPointer
         
         /// Keep reference for ARC. `bctbx_list_t` only manages memory of list structure, not the attached data. WTF?
+        @_versioned
         internal let data: [NSMutableData]
         
         // MARK: - Initialization
