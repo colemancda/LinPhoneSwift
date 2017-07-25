@@ -50,14 +50,12 @@ public struct LinkedList {
     /// Get the linked list data.
     public var data: [Data] {
         
-        @inline(__always)
-        get { return internalReference?.data.map { Data(referencing: $0) } ?? [] }
+        return internalReference?.data.map { Data(referencing: $0) } ?? []
     }
     
     public var isEmpty: Bool {
         
-        @inline(__always)
-        get { return internalReference == nil }
+        return internalReference == nil
     }
     
     // MARK: - Accessors
@@ -66,7 +64,6 @@ public struct LinkedList {
     ///
     /// - Warning: The pointer is only guarenteed to be valid for the lifetime of the closure. 
     /// Do not attempt to use the pointer outside of the closure, or attempt to mutate it in any way.
-    @inline(__always)
     public func withUnsafeRawPointer <Result> (_ body: (UnsafePointer<bctbx_list_t>?) throws -> Result) rethrows -> Result {
         
         let rawPointer: UnsafePointer<bctbx_list_t>?

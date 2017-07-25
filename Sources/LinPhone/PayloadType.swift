@@ -27,17 +27,14 @@ public final class PayloadType {
     /// Get the type of a payload type.
     public var category: Category {
         
-        @inline(__always)
         get { return Category(rawValue: linphone_payload_type_get_type(rawPointer))! }
     }
     
     /// Whether a payload type is enabled.
     public var isEnabled: Bool {
         
-        @inline(__always)
         get { return linphone_payload_type_enabled(rawPointer).boolValue }
         
-        @inline(__always)
         set { linphone_payload_type_enable(rawPointer, bool_t(newValue)) }
     }
     
@@ -57,10 +54,8 @@ public final class PayloadType {
     /// Get the normal bitrate in bits/s.
     public var normalBitrate: Int {
         
-        @inline(__always)
         get { return Int(linphone_payload_type_get_normal_bitrate(rawPointer)) }
         
-        @inline(__always)
         set { linphone_payload_type_set_normal_bitrate(rawPointer, Int32(newValue)) }
     }
     
@@ -73,21 +68,18 @@ public final class PayloadType {
     /// The number of channels.
     public var channels: Int {
         
-        @inline(__always)
         get { return Int(linphone_payload_type_get_channels(rawPointer)) }
     }
     
     /// Check whether the payload is usable according the bandwidth targets set in the `Core`.
     public var isUsable: Bool {
         
-        @inline(__always)
         get { return linphone_payload_type_is_usable(rawPointer).boolValue }
     }
     
     /// Whether the specified payload type represents a variable bitrate codec.
     public var isVariableBitrate: Bool {
         
-        @inline(__always)
         get { return linphone_payload_type_is_vbr(rawPointer).boolValue }
     }
 }

@@ -30,8 +30,7 @@ public extension Call {
         
         public var recievedVideoSize: MSVideoSize {
             
-            @inline(__always)
-            get { return linphone_call_params_get_received_video_size(internalReference.reference.rawPointer) }
+                get { return linphone_call_params_get_received_video_size(internalReference.reference.rawPointer) }
         }
     }
 }

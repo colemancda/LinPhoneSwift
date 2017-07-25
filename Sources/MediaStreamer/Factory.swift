@@ -12,8 +12,10 @@ public final class Factory {
     
     // MARK: - Properties
     
+    @_versioned
     internal let rawPointer: UnsafeMutablePointer<MSFactory>
     
+    @_versioned
     internal let isOwner: Bool
     
     // MARK: - Initialization
@@ -102,7 +104,6 @@ public final class Factory {
     
     /// Specify if a filter is enabled or not.
     @discardableResult
-    @inline(__always)
     public func enableFilter(_ enable: Bool, for name: String) -> Bool {
         
         return ms_factory_enable_filter_from_name(rawPointer, name, bool_t(enable)) == 0

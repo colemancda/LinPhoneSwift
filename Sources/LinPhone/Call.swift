@@ -137,7 +137,6 @@ public final class Call {
     /// The call's current state.
     public var state: State {
         
-        @inline(__always)
         get { return State(linphone_call_get_state(rawPointer)) }
     }
     
@@ -146,28 +145,24 @@ public final class Call {
     /// - Returns: A boolean value telling whether the call has been asked to autoanswer.
     public var askedToAutoanswer: Bool {
         
-        @inline(__always)
         get { return linphone_call_asked_to_autoanswer(rawPointer).boolValue }
     }
     
     /// Returns the remote address associated to this call.
     public var remoteAddressString: String? {
         
-        @inline(__always)
         get { return getString(linphone_call_get_remote_address_as_string) }
     }
     
     /// Returns call's duration in seconds.
     public var duration: Int {
         
-        @inline(__always)
         get { return Int(linphone_call_get_duration(rawPointer)) }
     }
     
     /// Returns direction of the call (incoming or outgoing).
     public var direction: Direction {
         
-        @inline(__always)
         get { return Direction(linphone_call_get_dir(rawPointer)) }
     }
     
@@ -177,7 +172,6 @@ public final class Call {
     /// Gets the refer-to uri (if the call was transfered).
     public var referTo: String? {
         
-        @inline(__always)
         get { return getString(linphone_call_get_refer_to) }
     }
     
@@ -186,45 +180,38 @@ public final class Call {
     /// If the call is already paused while receiving the transfer request, the transfer immediately occurs.
     public var hasTransferPending: Bool {
         
-        @inline(__always)
         get { return linphone_call_has_transfer_pending(rawPointer).boolValue }
     }
     
     /// Indicates whether camera input should be sent to remote end.
     public var isCameraEnabled: Bool {
         
-        @inline(__always)
         get { return linphone_call_camera_enabled(rawPointer).boolValue }
         
-        @inline(__always)
         set { linphone_call_enable_camera(rawPointer, bool_t(newValue)) }
     }
     
     /// Returns the reason for a call termination (either error or normal termination)
     public var reason: Reason {
         
-        @inline(__always)
         get { return Reason(linphone_call_get_reason(rawPointer)) }
     }
     
     /// Returns the far end's user agent description string, if available.
     public var remoteUserAgent: String? {
         
-        @inline(__always)
         get { return getString(linphone_call_get_remote_user_agent) }
     }
     
     /// Returns the far end's sip contact as a string, if available.
     public var remoteContact: String? {
         
-        @inline(__always)
         get { return getString(linphone_call_get_remote_contact) }
     }
     
     /// The ZRTP authentication token to verify.
     public var authenticationToken: String? {
         
-        @inline(__always)
         get { return getString(linphone_call_get_authentication_token) }
     }
     
@@ -232,17 +219,14 @@ public final class Call {
     /// If not, it must be verified by users as described in ZRTP procedure.
     public var authenticationTokenVerified: Bool {
         
-        @inline(__always)
         get { return linphone_call_get_authentication_token_verified(rawPointer).boolValue }
         
-        @inline(__always)
         set { linphone_call_set_authentication_token_verified(rawPointer, bool_t(newValue)) }
     }
     
     /*
     public var isInConference: Bool {
         
-        @inline(__always)
         get { return linphone_call_is_in_conference(rawPointer).boolValue }
     }*/
     
@@ -259,7 +243,6 @@ public final class Call {
     /// * 0-1 = can't be worse, mostly unusable
     public var currentQuality: Float {
         
-        @inline(__always)
         get { return linphone_call_get_current_quality(rawPointer) }
     }
     
@@ -268,7 +251,6 @@ public final class Call {
     /// Currently there is only two (Audio, Video), but later there will be more.
     public var streamCount: Int {
         
-        @inline(__always)
         get { return Int(linphone_call_get_stream_count(rawPointer)) }
     }
     

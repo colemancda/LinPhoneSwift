@@ -39,75 +39,62 @@ public struct Address: RawRepresentable {
     
     public var rawValue: String {
         
-        @inline(__always)
         get { return internalReference.reference.stringValue }
     }
     
     /// Returns the SIP URI only as a string, that is display name is removed.
     private var uriString: String? {
         
-        @inline(__always)
         get { return internalReference.reference.getString(linphone_address_as_string_uri_only) }
     }
     
     /// Returns the SIP URI only, that is display name is removed.
     private var sip: URI? {
         
-        @inline(__always)
         get { return URI(rawValue: uriString ?? "") }
     }
     
     /// Whether address is a routable SIP address.
     public var isSIP: Bool {
         
-        @inline(__always)
         get { return linphone_address_is_sip(internalReference.reference.rawPointer).boolValue }
     }
     
     /// Whether the address refers to a secure location (sips).
     public var isSecure: Bool {
         
-        @inline(__always)
         get { return linphone_address_get_secure(internalReference.reference.rawPointer).boolValue }
         
-        @inline(__always)
         mutating set { linphone_address_set_secure(internalReference.mutatingReference.rawPointer, bool_t(newValue)) }
     }
     
     /// Port number as an integer value.
     public var port: Int32 {
         
-        @inline(__always)
         get { return linphone_address_get_port(internalReference.reference.rawPointer) }
         
-        @inline(__always)
         mutating set { linphone_address_set_port(internalReference.mutatingReference.rawPointer, newValue) }
     }
     
     /// The address scheme, normally "sip".
     public var scheme: String? {
         
-        @inline(__always)
         get { return internalReference.reference.getString(linphone_address_get_scheme) }
     }
     
     /// The display name.
     public var displayName: String? {
         
-        @inline(__always)
         get { return internalReference.reference.getString(linphone_address_get_display_name) }
         
-        @inline(__always)
         mutating set { internalReference.mutatingReference.setString(linphone_address_set_display_name, newValue).lpAssert() }
     }
     
     /// The username.
     public var username: String? {
         
-        @inline(__always)
         get { return internalReference.reference.getString(linphone_address_get_username) }
         
-        @inline(__always)
         mutating set { internalReference.mutatingReference.setString(linphone_address_set_username, newValue).lpAssert() }
     }
     
@@ -116,40 +103,32 @@ public struct Address: RawRepresentable {
     /// - Note: It is used for basic authentication (not recommended).
     public var password: String? {
         
-        @inline(__always)
         get { return internalReference.reference.getString(linphone_address_get_password) }
         
-        @inline(__always)
         mutating set { internalReference.mutatingReference.setString(linphone_address_set_password, newValue) }
     }
     
     /// The domain name.
     public var domain: String? {
         
-        @inline(__always)
         get { return internalReference.reference.getString(linphone_address_get_domain) }
         
-        @inline(__always)
         mutating set { internalReference.mutatingReference.setString(linphone_address_set_domain, newValue).lpAssert() }
     }
     
     /// The transport.
     public var transportType: TransportType {
         
-        @inline(__always)
         get { return TransportType(linphone_address_get_transport(internalReference.reference.rawPointer)) }
         
-        @inline(__always)
         mutating set { linphone_address_set_transport(internalReference.mutatingReference.rawPointer, newValue.linPhoneType).lpAssert() }
     }
     
     /// The value of the method parameter.
     public var method: String? {
         
-        @inline(__always)
         get { return internalReference.reference.getString(linphone_address_get_method_param) }
         
-        @inline(__always)
         mutating set { internalReference.mutatingReference.setString(linphone_address_set_method_param, newValue) }
     }
     
@@ -314,7 +293,6 @@ extension Address: ReferenceConvertible {
         
         // MARK: - Initialization
         
-        @inline(__always)
         internal init(_ managedPointer: ManagedPointer<UnmanagedPointer>) {
             
             self.managedPointer = managedPointer
@@ -344,8 +322,7 @@ extension Address: ReferenceConvertible {
         
         internal var stringValue: String {
             
-            @inline(__always)
-            get { return getString(linphone_address_as_string) ?? "" }
+                get { return getString(linphone_address_as_string) ?? "" }
         }
     }
 }

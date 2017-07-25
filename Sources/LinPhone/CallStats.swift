@@ -19,7 +19,6 @@ public extension Call {
         
         // MARK: - Initialization
         
-        @inline(__always)
         internal init(referencing reference: Reference) {
             
             self.internalReference = reference
@@ -36,22 +35,19 @@ public extension Call {
         /// The type of the stream the stats refer to.
         public var type: StreamType {
             
-            @inline(__always)
-            get { return StreamType(linphone_call_stats_get_type(rawPointer)) }
+                get { return StreamType(linphone_call_stats_get_type(rawPointer)) }
         }
         
         /// The bandwidth measurement of the received stream, expressed in kbit/s, including IP/UDP/RTP headers.
         public var downloadBandwidth: Float {
             
-            @inline(__always)
-            get { return linphone_call_stats_get_download_bandwidth(rawPointer) }
+                get { return linphone_call_stats_get_download_bandwidth(rawPointer) }
         }
         
         /// The bandwidth measurement of the sent stream, expressed in kbit/s, including IP/UDP/RTP headers.
         public var uploadBandwidth: Float {
             
-            @inline(__always)
-            get { return linphone_call_stats_get_upload_bandwidth(rawPointer) }
+                get { return linphone_call_stats_get_upload_bandwidth(rawPointer) }
         }
     }
 }

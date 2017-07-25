@@ -26,20 +26,16 @@ public final class Tunnel {
     
     public var mode: Mode {
         
-        @inline(__always)
         get { return Mode(linphone_tunnel_get_mode(rawPointer)) }
         
-        @inline(__always)
         set { linphone_tunnel_set_mode(rawPointer, mode.linPhoneType) }
     }
     
     /// A boolean value telling whether SIP packets shall pass through the tunnel.
     public var isSIPEnabled: Bool {
         
-        @inline(__always)
         get { return linphone_tunnel_sip_enabled(rawPointer).boolValue }
         
-        @inline(__always)
         set { linphone_tunnel_enable_sip(rawPointer, bool_t(newValue)) }
     }
     

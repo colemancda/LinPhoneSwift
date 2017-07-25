@@ -122,7 +122,6 @@ public final class Core {
     /// The path where the log files will be written.
     public static var logCollectionPath: String? {
         
-        @inline(__always)
         get { return String(lpCString: linphone_core_get_log_collection_path()) }
         
         @inline(__always)
@@ -132,7 +131,6 @@ public final class Core {
     /// The path where the log files will be written.
     public static var logCollectionPrefix: String {
         
-        @inline(__always)
         get { return String(lpCString: linphone_core_get_log_collection_path())! }
         
         @inline(__always)
@@ -320,17 +318,14 @@ public final class Core {
     /// The path to a file or folder containing the trusted root CAs (PEM format)
     public var rootCA: String? {
         
-        @inline(__always)
         get { return getString(linphone_core_get_root_ca) }
         
-        @inline(__always)
         set { setString(linphone_core_set_root_ca, newValue) }
     }
     
     /// liblinphone's user agent as a string.
     public var userAgent: String? {
         
-        @inline(__always)
         get { return getString(linphone_core_get_user_agent) }
     }
     
@@ -358,27 +353,22 @@ public final class Core {
     /// Whether video capture is enabled.
     public var isVideoCaptureEnabled: Bool {
         
-        @inline(__always)
         get { return linphone_core_video_capture_enabled(rawPointer).boolValue }
     }
     
     /// The path to the file storing the zrtp secrets cache.
     public var zrtpSecretsFile: String? {
         
-        @inline(__always)
         get { return getString(linphone_core_get_zrtp_secrets_file) }
         
-        @inline(__always)
         set { setString(linphone_core_set_zrtp_secrets_file, newValue) }
     }
     
     ///  Set the path to the directory storing the user's x509 certificates (used by dtls).
     public var userCertificatesPath: String? {
         
-        @inline(__always)
         get { return getString(linphone_core_get_user_certificates_path) }
         
-        @inline(__always)
         set { setString(linphone_core_set_user_certificates_path, newValue) }
     }
     
@@ -403,17 +393,14 @@ public final class Core {
     /// Passing `nil` will disable remote provisioning.
     public var provisioning: URI? {
         
-        @inline(__always)
         get { return URI(rawValue: provisioningURIString ?? "") }
         
-        @inline(__always)
         set { guard setProvisioningURI(newValue?.rawValue)
             else { fatalError("Invalid URI: \(newValue?.description ?? "nil")") } }
     }
     
     internal var provisioningURIString: String? {
         
-        @inline(__always)
         get { return getString(linphone_core_get_provisioning_uri) }
     }
     
@@ -427,10 +414,8 @@ public final class Core {
     /// All new calls above this limit are declined with a busy answer
     public var maxCalls: Int {
         
-        @inline(__always)
         get { return Int(linphone_core_get_max_calls(rawPointer)) }
         
-        @inline(__always)
         set { linphone_core_set_max_calls(rawPointer, Int32(newValue)) }
     }
     
@@ -439,88 +424,72 @@ public final class Core {
     /// Once checked, this counter can be reset with `resetMissedCalls()`.
     public var missedCalls: Int {
         
-        @inline(__always)
         get { return Int(linphone_core_get_missed_calls_count(rawPointer)) }
     }
     
     /// Tells whether there is a call running.
     public var activeCall: Bool {
         
-        @inline(__always)
         get { return linphone_core_in_call(rawPointer).boolValue }
     }
     
     /// The current number of calls
     public var callsCount: Int {
         
-        @inline(__always)
         get { return Int(linphone_core_get_calls_nb(rawPointer)) }
     }
     
     /// Tells whether there is an incoming invite pending.
     public var isIncomingInvitePending: Bool {
         
-        @inline(__always)
         get { return linphone_core_is_incoming_invite_pending(rawPointer).boolValue }
     }
     
     /// Tells whether the microphone is enabled.
     public var isMicrophoneEnabled: Bool {
         
-        @inline(__always)
         get { return linphone_core_mic_enabled(rawPointer).boolValue }
         
-        @inline(__always)
         set { linphone_core_enable_mic(rawPointer, bool_t(newValue)) }
     }
     
     /// The microphone gain in db.
     public var microphoneGain: Float {
         
-        @inline(__always)
         get { return linphone_core_get_mic_gain_db(rawPointer) }
         
-        @inline(__always)
         set { linphone_core_set_mic_gain_db(rawPointer, newValue) }
     }
     
     /// The current playback gain in db before entering sound card.
     public var playbackGain: Float {
         
-        @inline(__always)
         get { return linphone_core_get_playback_gain_db(rawPointer) }
         
-        @inline(__always)
         set { linphone_core_set_playback_gain_db(rawPointer, newValue) }
     }
     
     /// The UDP port used for audio streaming
     public var audioPort: Int {
         
-        @inline(__always)
         get { return Int(linphone_core_get_audio_port(rawPointer)) }
         
-        @inline(__always)
         set { linphone_core_set_audio_port(rawPointer, Int32(newValue)) }
     }
     
     /// The UDP port used for video streaming
     public var videoPort: Int {
         
-        @inline(__always)
         get { return Int(linphone_core_get_video_port(rawPointer)) }
         
-        @inline(__always)
         set { linphone_core_set_video_port(rawPointer, Int32(newValue)) }
     }
     
     /// The media encryption policy being used for RTP packets.
     public var mediaEncryption: MediaEncryption {
         
-        @inline(__always)
         get { return MediaEncryption(linphone_core_get_media_encryption(rawPointer)) }
         
-        @inline(__always)
         set { linphone_core_set_media_encryption(rawPointer, newValue.linPhoneType) }
     }
     
@@ -537,69 +506,55 @@ public final class Core {
     /// The local "from" identity, only set valid `LinPhone.Address` strings.
     internal var primaryContactString: String? {
         
-        @inline(__always)
         get { return getString(linphone_core_get_primary_contact) }
         
-        @inline(__always)
         set { setString(linphone_core_set_primary_contact, newValue).lpAssert() }
     }
     
     /// The nominal audio jitter buffer size in milliseconds.
     public var audioJitter: Int {
         
-        @inline(__always)
         get { return Int(linphone_core_get_audio_jittcomp(rawPointer)) }
         
-        @inline(__always)
         set { linphone_core_set_audio_jittcomp(rawPointer, Int32(newValue)) }
     }
     
     /// The nominal video jitter buffer size in milliseconds.
     public var videoJitter: Int {
         
-        @inline(__always)
         get { return Int(linphone_core_get_video_jittcomp(rawPointer)) }
         
-        @inline(__always)
         set { linphone_core_set_video_jittcomp(rawPointer, Int32(newValue)) }
     }
     
     /// Enable or disable the audio adaptive jitter compensation.
     public var isAudioAdaptiveJittCompensationEnabled: Bool {
         
-        @inline(__always)
         get { return linphone_core_audio_adaptive_jittcomp_enabled(rawPointer).boolValue }
         
-        @inline(__always)
         set { linphone_core_enable_audio_adaptive_jittcomp(rawPointer, bool_t(newValue)) }
     }
     
     /// Enable or disable the audio adaptive jitter compensation.
     public var isVideoAdaptiveJittCompensationEnabled: Bool {
         
-        @inline(__always)
         get { return linphone_core_video_adaptive_jittcomp_enabled(rawPointer).boolValue }
         
-        @inline(__always)
         set { linphone_core_enable_video_adaptive_jittcomp(rawPointer, bool_t(newValue)) }
     }
     
     public var noXmitOnAudioMute: Bool {
         
-        @inline(__always)
         get { return linphone_core_get_rtp_no_xmit_on_audio_mute(rawPointer).boolValue }
         
-        @inline(__always)
         set { linphone_core_set_rtp_no_xmit_on_audio_mute(rawPointer, bool_t(newValue)) }
     }
     
     /// The SIP transport timeout in milliseconds.
     public var sipTransportTimeout: Int {
         
-        @inline(__always)
         get { return Int(linphone_core_get_sip_transport_timeout(rawPointer)) }
         
-        @inline(__always)
         set { linphone_core_set_sip_transport_timeout(rawPointer, Int32(newValue)) }
     }
     
@@ -609,27 +564,22 @@ public final class Core {
     /// Default value is 1500.
     public var maximumTransmissionUnit: Int {
         
-        @inline(__always)
         get { return Int(linphone_core_get_mtu(rawPointer)) }
         
-        @inline(__always)
         set { linphone_core_set_mtu(rawPointer, Int32(newValue)) }
     }
     
     /// Used to notify the linphone core library when network is reachable.
     public var networkReachable: Bool {
         
-        @inline(__always)
         get { return linphone_core_is_network_reachable(rawPointer).boolValue }
         
-        @inline(__always)
         set { linphone_core_set_network_reachable(rawPointer, bool_t(newValue)) }
     }
     
     /// Indicates whether the local participant is part of a conference.
     public var isInConference: Bool {
         
-        @inline(__always)
         get { return linphone_core_is_in_conference(rawPointer).boolValue }
     }
     
@@ -637,57 +587,46 @@ public final class Core {
     /// The local participant is included in the count only if it is in the conference.
     public var conferenceSize: Int {
         
-        @inline(__always)
         get { return Int(linphone_core_get_conference_size(rawPointer)) }
     }
     
     /// A boolean value telling whether echo cancellation is enabled or disabled
     public var isEchoCancellationEnabled: Bool {
         
-        @inline(__always)
         get { return linphone_core_echo_cancellation_enabled(rawPointer).boolValue }
         
-        @inline(__always)
         set { linphone_core_enable_echo_cancellation(rawPointer, bool_t(newValue)) }
     }
     
     /// Whether echo limiter is enabled.
     public var isEchoLimiterEnabled: Bool {
         
-        @inline(__always)
         get { return linphone_core_echo_limiter_enabled(rawPointer).boolValue }
         
-        @inline(__always)
         set { linphone_core_enable_echo_limiter(rawPointer, bool_t(newValue)) }
     }
     
     /// The name of the currently active video device.
     public var videoDevice: String? {
         
-        @inline(__always)
         get { return String(lpCString: linphone_core_get_video_device(rawPointer)) }
         
-        @inline(__always)
         set { linphone_core_set_video_device(rawPointer, newValue).lpAssert() }
     }
     
     /// The current preferred video size for sending.
     public var preferredVideoSize: MSVideoSize {
         
-        @inline(__always)
         get { return linphone_core_get_preferred_video_size(rawPointer) }
         
-        @inline(__always)
         set { linphone_core_set_preferred_video_size(rawPointer, newValue) }
     }
     
     /// Get the name of the current preferred video size for sending.
     public var preferredVideoSizeName: String? {
         
-        @inline(__always)
         get { return getString(linphone_core_get_preferred_video_size_name) }
         
-        @inline(__always)
         set { setString(linphone_core_set_preferred_video_size_by_name, newValue) }
     }
     
@@ -699,40 +638,32 @@ public final class Core {
     /// Used during a call. Default value is 0, which means "use encoder's default fps value".
     public var preferredFramerate: Float {
         
-        @inline(__always)
         get { return linphone_core_get_preferred_framerate(rawPointer) }
         
-        @inline(__always)
         set { linphone_core_set_preferred_framerate(rawPointer, newValue) }
     }
     
     /// Tells whether IPv6 is enabled or not.
     public var isIPv6Enabled: Bool {
         
-        @inline(__always)
         get { return linphone_core_ipv6_enabled(rawPointer).boolValue }
         
-        @inline(__always)
         set { linphone_core_enable_ipv6(rawPointer, bool_t(newValue)) }
     }
     
     /// The path to the image file streamed when "Static picture" is set as the video device.
     public var staticPicture: String? {
         
-        @inline(__always)
         get { return getString(linphone_core_get_static_picture) }
         
-        @inline(__always)
         set { setString(linphone_core_set_static_picture, newValue).lpAssert() }
     }
     
     /// The frame rate used for static picture.
     public var staticPictureFPS: Float {
         
-        @inline(__always)
         get { return linphone_core_get_static_picture_fps(rawPointer) }
         
-        @inline(__always)
         set { linphone_core_set_static_picture_fps(rawPointer, newValue) }
     }
     
@@ -759,20 +690,16 @@ public final class Core {
     /// Ask the core to stream audio from and to files, instead of using the soundcard.
     public var shouldUseFilesForAudioStreaming: Bool {
         
-        @inline(__always)
         get { return linphone_core_get_use_files(rawPointer).boolValue }
         
-        @inline(__always)
         set { linphone_core_set_use_files(rawPointer, bool_t(newValue)) }
     }
     
     /// The default policy for video.
     public var videoPolicy: VideoPolicy {
         
-        @inline(__always)
         get { return VideoPolicy(linphone_core_get_video_policy(rawPointer).pointee) }
         
-        @inline(__always)
         set {
             var value = newValue.linPhoneType
             linphone_core_set_video_policy(rawPointer, &value)
@@ -782,26 +709,21 @@ public final class Core {
     /// A boolean value telling whether to use RFC2833 to send digits.
     public var rfc2833DTMF: Bool {
         
-        @inline(__always)
         get { return linphone_core_get_use_rfc2833_for_dtmf(rawPointer).boolValue }
         
-        @inline(__always)
         set { linphone_core_set_use_rfc2833_for_dtmf(rawPointer, bool_t(newValue)) }
     }
     
     /// A boolean value telling whether to use SIP INFO to send digits.
     public var sipInfoDTMF: Bool {
         
-        @inline(__always)
         get { return linphone_core_get_use_info_for_dtmf(rawPointer).boolValue }
         
-        @inline(__always)
         set { linphone_core_set_use_info_for_dtmf(rawPointer, bool_t(newValue)) }
     }
     
     public var sipTransports: SipTransports {
         
-        @inline(__always)
         get {
             
             var sipTransports = LinphoneSipTransports()
@@ -811,7 +733,6 @@ public final class Core {
             return SipTransports(sipTransports)
         }
         
-        @inline(__always)
         set {
             
             var trasports = newValue.linPhoneType
@@ -824,7 +745,6 @@ public final class Core {
     /// A zero value means that the transport is not activated.
     public var usedSipTransports: SipTransports {
         
-        @inline(__always)
         get {
             
             var sipTransports = LinphoneSipTransports()
