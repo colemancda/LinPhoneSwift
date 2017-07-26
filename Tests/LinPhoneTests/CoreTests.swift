@@ -63,7 +63,7 @@ final class CoreTests: XCTestCase {
             }
         }
         
-        let core = Core(callbacks: callbacks)!
+        let core = Core(callbacks: callbacks)
         
         guard core.configureForFakeServer()
             else { XCTFail(); return }
@@ -145,7 +145,7 @@ final class CoreTests: XCTestCase {
                 
                 let callbacks = Core.Callbacks()
                 
-                self.core = Core(callbacks: callbacks)!
+                self.core = Core(callbacks: callbacks)
                 
                 self.core.sipTransports.tcp = SipTransports.random
                 
