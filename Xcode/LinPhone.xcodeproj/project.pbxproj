@@ -97,6 +97,30 @@
 		6E9BFBA41F3238B7007D7A93 /* URI.SIP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E52918A1F0B553400D4B765 /* URI.SIP.swift */; };
 		6E9BFBB51F3238BA007D7A93 /* URITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E25EA891F0BEA98005BC42C /* URITests.swift */; };
 		6E9BFBC11F323B47007D7A93 /* libbellesip.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD5D1F318A7E00403EFF /* libbellesip.dylib */; };
+		6E9BFBC81F3250BC007D7A93 /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E58AF561F085BB5009A0E68 /* Factory.swift */; };
+		6E9BFBC91F3250BC007D7A93 /* Bool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E59C7891F11E135005274EC /* Bool.swift */; };
+		6E9BFBE81F3250BD007D7A93 /* FactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E25EA851F0BEA98005BC42C /* FactoryTests.swift */; };
+		6E9BFBFE1F3251B9007D7A93 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E9BFBFD1F3251B9007D7A93 /* CoreVideo.framework */; };
+		6E9BFBFF1F3252B5007D7A93 /* libopenh264.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD721F318A7E00403EFF /* libopenh264.dylib */; };
+		6E9BFC001F3252E8007D7A93 /* libmediastreamer_base.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD6E1F318A7E00403EFF /* libmediastreamer_base.dylib */; };
+		6E9BFC011F3252E8007D7A93 /* libmediastreamer_voip.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD701F318A7E00403EFF /* libmediastreamer_voip.dylib */; };
+		6E9BFC021F3252F7007D7A93 /* libmsopenh264.so in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD801F318A7E00403EFF /* libmsopenh264.so */; };
+		6E9BFC031F3252FA007D7A93 /* libmswebrtc.so in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD811F318A7E00403EFF /* libmswebrtc.so */; };
+		6E9BFC041F32624C007D7A93 /* libopenh264.1.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD711F318A7E00403EFF /* libopenh264.1.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		6E9BFC051F326256007D7A93 /* libmediastreamer_base.10.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD6D1F318A7E00403EFF /* libmediastreamer_base.10.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		6E9BFC061F32625A007D7A93 /* libmediastreamer_voip.10.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD6F1F318A7E00403EFF /* libmediastreamer_voip.10.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		6E9BFC071F326263007D7A93 /* libbctoolbox.1.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD581F318A7E00403EFF /* libbctoolbox.1.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		6E9BFC081F32626E007D7A93 /* libortp.13.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD751F318A7E00403EFF /* libortp.13.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		6E9BFC091F32629F007D7A93 /* libmbedtls.10.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD671F318A7E00403EFF /* libmbedtls.10.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		6E9BFC0A1F3262B3007D7A93 /* libmbedx509.0.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD6A1F318A7E00403EFF /* libmbedx509.0.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		6E9BFC0B1F3262C0007D7A93 /* libmbedcrypto.0.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD641F318A7E00403EFF /* libmbedcrypto.0.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		6E9BFC0C1F3262CF007D7A93 /* libbzrtp.0.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD5F1F318A7E00403EFF /* libbzrtp.0.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		6E9BFC0D1F3262DC007D7A93 /* libsrtp.1.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD7B1F318A7E00403EFF /* libsrtp.1.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		6E9BFC0E1F3262E7007D7A93 /* libgsm.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD611F318A7E00403EFF /* libgsm.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		6E9BFC0F1F3262EF007D7A93 /* libopus.5.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD731F318A7E00403EFF /* libopus.5.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		6E9BFC101F3262FA007D7A93 /* libspeex.6.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD771F318A7E00403EFF /* libspeex.6.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		6E9BFC111F326303007D7A93 /* libspeexdsp.6.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD791F318A7E00403EFF /* libspeexdsp.6.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		6E9BFC121F32630F007D7A93 /* libbv16.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD5E1F318A7E00403EFF /* libbv16.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		6EA69FA01F150FE500284E24 /* Tunnel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA69F9F1F150FE500284E24 /* Tunnel.swift */; };
 		6EF1B5C91F0D6B5400B65129 /* Conference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF1B5C81F0D6B5400B65129 /* Conference.swift */; };
 		6EF6A6D61F0C3E5100C39864 /* Call.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6A6D51F0C3E5100C39864 /* Call.swift */; };
@@ -240,6 +264,20 @@
 			remoteGlobalIDString = 6E9BFB9C1F3238B7007D7A93;
 			remoteInfo = "BelledonneSIP macOS";
 		};
+		6E9BFBF91F325165007D7A93 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6E1303961F3185C500C4AEE8;
+			remoteInfo = "BelledonneToolbox macOS";
+		};
+		6E9BFBFB1F325187007D7A93 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6E9BFBC41F3250BC007D7A93;
+			remoteInfo = "MediaStreamer macOS";
+		};
 		6EF6A6D21F0C058C00C39864 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
@@ -355,6 +393,31 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6E9BFBEB1F3250BD007D7A93 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				6E9BFC041F32624C007D7A93 /* libopenh264.1.dylib in Embed Frameworks */,
+				6E9BFC051F326256007D7A93 /* libmediastreamer_base.10.dylib in Embed Frameworks */,
+				6E9BFC061F32625A007D7A93 /* libmediastreamer_voip.10.dylib in Embed Frameworks */,
+				6E9BFC081F32626E007D7A93 /* libortp.13.dylib in Embed Frameworks */,
+				6E9BFC071F326263007D7A93 /* libbctoolbox.1.dylib in Embed Frameworks */,
+				6E9BFC091F32629F007D7A93 /* libmbedtls.10.dylib in Embed Frameworks */,
+				6E9BFC0A1F3262B3007D7A93 /* libmbedx509.0.dylib in Embed Frameworks */,
+				6E9BFC0B1F3262C0007D7A93 /* libmbedcrypto.0.dylib in Embed Frameworks */,
+				6E9BFC0C1F3262CF007D7A93 /* libbzrtp.0.dylib in Embed Frameworks */,
+				6E9BFC0D1F3262DC007D7A93 /* libsrtp.1.dylib in Embed Frameworks */,
+				6E9BFC0E1F3262E7007D7A93 /* libgsm.dylib in Embed Frameworks */,
+				6E9BFC0F1F3262EF007D7A93 /* libopus.5.dylib in Embed Frameworks */,
+				6E9BFC101F3262FA007D7A93 /* libspeex.6.dylib in Embed Frameworks */,
+				6E9BFC111F326303007D7A93 /* libspeexdsp.6.dylib in Embed Frameworks */,
+				6E9BFC121F32630F007D7A93 /* libbv16.dylib in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -463,6 +526,9 @@
 		6E7FEF181F128F5400C27DE9 /* AddressTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressTests.swift; sourceTree = "<group>"; };
 		6E9BFBB01F3238B7007D7A93 /* BelledonneSIP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BelledonneSIP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E9BFBBD1F3238BA007D7A93 /* BelledonneSIPTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BelledonneSIPTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E9BFBE31F3250BC007D7A93 /* MediaStreamer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MediaStreamer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E9BFBF81F3250BD007D7A93 /* MediaStreamerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MediaStreamerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E9BFBFD1F3251B9007D7A93 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		6EA69F9F1F150FE500284E24 /* Tunnel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tunnel.swift; sourceTree = "<group>"; };
 		6EF1B5C81F0D6B5400B65129 /* Conference.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Conference.swift; sourceTree = "<group>"; };
 		6EF6A6D51F0C3E5100C39864 /* Call.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Call.swift; sourceTree = "<group>"; };
@@ -602,6 +668,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		6E9BFBB61F3238BA007D7A93 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6E9BFBCA1F3250BC007D7A93 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
+			files = (
+				6E9BFBFE1F3251B9007D7A93 /* CoreVideo.framework in Frameworks */,
+				6E9BFBFF1F3252B5007D7A93 /* libopenh264.dylib in Frameworks */,
+				6E9BFC001F3252E8007D7A93 /* libmediastreamer_base.dylib in Frameworks */,
+				6E9BFC011F3252E8007D7A93 /* libmediastreamer_voip.dylib in Frameworks */,
+				6E9BFC021F3252F7007D7A93 /* libmsopenh264.so in Frameworks */,
+				6E9BFC031F3252FA007D7A93 /* libmswebrtc.so in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6E9BFBE91F3250BD007D7A93 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
@@ -853,6 +939,7 @@
 		6E77CD521F318A6200403EFF /* System Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6E9BFBFD1F3251B9007D7A93 /* CoreVideo.framework */,
 				6E77CD4D1F318A1700403EFF /* libstdc++.tbd */,
 			);
 			name = "System Frameworks";
@@ -950,6 +1037,8 @@
 				6E1303B01F3185C700C4AEE8 /* BelledonneToolboxTests.xctest */,
 				6E9BFBB01F3238B7007D7A93 /* BelledonneSIP.framework */,
 				6E9BFBBD1F3238BA007D7A93 /* BelledonneSIPTests.xctest */,
+				6E9BFBE31F3250BC007D7A93 /* MediaStreamer.framework */,
+				6E9BFBF81F3250BD007D7A93 /* MediaStreamerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = BUILT_PRODUCTS_DIR;
@@ -1097,9 +1186,9 @@
 			productReference = 6E569B171F09F67500BF244A /* BelledonneToolboxTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		6E58AF141F085B4F009A0E68 /* MediaStreamer */ = {
+		6E58AF141F085B4F009A0E68 /* MediaStreamer iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6E58AF2B1F085B4F009A0E68 /* Build configuration list for PBXNativeTarget "MediaStreamer" */;
+			buildConfigurationList = 6E58AF2B1F085B4F009A0E68 /* Build configuration list for PBXNativeTarget "MediaStreamer iOS" */;
 			buildPhases = (
 				6E58AF171F085B4F009A0E68 /* Sources */,
 				6E58AF1E1F085B4F009A0E68 /* Frameworks */,
@@ -1110,14 +1199,14 @@
 			dependencies = (
 				6E25EA0C1F0B753C005BC42C /* PBXTargetDependency */,
 			);
-			name = MediaStreamer;
+			name = "MediaStreamer iOS";
 			productName = LinPhoneSwift;
 			productReference = 6E58AF2E1F085B4F009A0E68 /* MediaStreamer.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		6E58AF301F085B53009A0E68 /* MediaStreamerTests */ = {
+		6E58AF301F085B53009A0E68 /* MediaStreamerTests iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6E58AF501F085B53009A0E68 /* Build configuration list for PBXNativeTarget "MediaStreamerTests" */;
+			buildConfigurationList = 6E58AF501F085B53009A0E68 /* Build configuration list for PBXNativeTarget "MediaStreamerTests iOS" */;
 			buildPhases = (
 				6E58AF331F085B53009A0E68 /* Sources */,
 				6E58AF351F085B53009A0E68 /* Frameworks */,
@@ -1128,7 +1217,7 @@
 			dependencies = (
 				6E8CF9AD1F167A840012BC9D /* PBXTargetDependency */,
 			);
-			name = MediaStreamerTests;
+			name = "MediaStreamerTests iOS";
 			productName = LinPhoneSwiftTests;
 			productReference = 6E58AF531F085B53009A0E68 /* MediaStreamerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -1167,6 +1256,42 @@
 			name = "BelledonneSIPTests macOS";
 			productName = LinPhoneSwiftTests;
 			productReference = 6E9BFBBD1F3238BA007D7A93 /* BelledonneSIPTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		6E9BFBC41F3250BC007D7A93 /* MediaStreamer macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6E9BFBE01F3250BC007D7A93 /* Build configuration list for PBXNativeTarget "MediaStreamer macOS" */;
+			buildPhases = (
+				6E9BFBC71F3250BC007D7A93 /* Sources */,
+				6E9BFBCA1F3250BC007D7A93 /* Frameworks */,
+				6E9BFBDF1F3250BC007D7A93 /* Increment Build */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6E9BFBFA1F325165007D7A93 /* PBXTargetDependency */,
+			);
+			name = "MediaStreamer macOS";
+			productName = LinPhoneSwift;
+			productReference = 6E9BFBE31F3250BC007D7A93 /* MediaStreamer.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		6E9BFBE41F3250BD007D7A93 /* MediaStreamerTests macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6E9BFBF51F3250BD007D7A93 /* Build configuration list for PBXNativeTarget "MediaStreamerTests macOS" */;
+			buildPhases = (
+				6E9BFBE71F3250BD007D7A93 /* Sources */,
+				6E9BFBE91F3250BD007D7A93 /* Frameworks */,
+				6E9BFBEB1F3250BD007D7A93 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6E9BFBFC1F325187007D7A93 /* PBXTargetDependency */,
+			);
+			name = "MediaStreamerTests macOS";
+			productName = LinPhoneSwiftTests;
+			productReference = 6E9BFBF81F3250BD007D7A93 /* MediaStreamerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		OBJ_16 /* LinPhoneSwift */ = {
@@ -1242,8 +1367,10 @@
 			targets = (
 				OBJ_16 /* LinPhoneSwift */,
 				OBJ_23 /* LinPhoneTests */,
-				6E58AF141F085B4F009A0E68 /* MediaStreamer */,
-				6E58AF301F085B53009A0E68 /* MediaStreamerTests */,
+				6E58AF141F085B4F009A0E68 /* MediaStreamer iOS */,
+				6E58AF301F085B53009A0E68 /* MediaStreamerTests iOS */,
+				6E9BFBC41F3250BC007D7A93 /* MediaStreamer macOS */,
+				6E9BFBE41F3250BD007D7A93 /* MediaStreamerTests macOS */,
 				6E52914E1F0B53AE00D4B765 /* BelledonneSIP iOS */,
 				6E5291671F0B53B100D4B765 /* BelledonneSIPTests iOS */,
 				6E9BFB9C1F3238B7007D7A93 /* BelledonneSIP macOS */,
@@ -1338,6 +1465,20 @@
 			shellScript = "#!/bin/bash\n\n#  update_build_number.sh\n#  Usage: `update_build_number.sh [branch]`\n#  Run this script after the 'Copy Bundle Resources' build phase\n#  Ref: http://tgoode.com/2014/06/05/sensible-way-increment-bundle-version-cfbundleversion-xcode/\n\nif [ $TRAVIS == \"true\" ]\nthen echo \"Updating build number to TRAVISCI.\"\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion TRAVISCI\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\nelse branch=${1:-'master'}\nbuildNumber=$(expr $(git rev-list $branch --count) - $(git rev-list HEAD..$branch --count))\necho \"Updating build number to $buildNumber using branch '$branch'.\"\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\nfi";
 		};
 		6E9BFBAC1F3238B7007D7A93 /* Increment Build */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Increment Build";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/bash\n\n#  update_build_number.sh\n#  Usage: `update_build_number.sh [branch]`\n#  Run this script after the 'Copy Bundle Resources' build phase\n#  Ref: http://tgoode.com/2014/06/05/sensible-way-increment-bundle-version-cfbundleversion-xcode/\n\nif [ $TRAVIS == \"true\" ]\nthen echo \"Updating build number to TRAVISCI.\"\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion TRAVISCI\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\nelse branch=${1:-'master'}\nbuildNumber=$(expr $(git rev-list $branch --count) - $(git rev-list HEAD..$branch --count))\necho \"Updating build number to $buildNumber using branch '$branch'.\"\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\nfi";
+		};
+		6E9BFBDF1F3250BC007D7A93 /* Increment Build */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1447,6 +1588,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6E9BFBC71F3250BC007D7A93 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				6E9BFBC81F3250BC007D7A93 /* Factory.swift in Sources */,
+				6E9BFBC91F3250BC007D7A93 /* Bool.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6E9BFBE71F3250BD007D7A93 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				6E9BFBE81F3250BD007D7A93 /* FactoryTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		OBJ_20 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
@@ -1517,7 +1675,7 @@
 		};
 		6E58AF591F085DAB009A0E68 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 6E58AF141F085B4F009A0E68 /* MediaStreamer */;
+			target = 6E58AF141F085B4F009A0E68 /* MediaStreamer iOS */;
 			targetProxy = 6E58AF581F085DAB009A0E68 /* PBXContainerItemProxy */;
 		};
 		6E77CD501F318A3700403EFF /* PBXTargetDependency */ = {
@@ -1527,7 +1685,7 @@
 		};
 		6E8CF9AD1F167A840012BC9D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 6E58AF141F085B4F009A0E68 /* MediaStreamer */;
+			target = 6E58AF141F085B4F009A0E68 /* MediaStreamer iOS */;
 			targetProxy = 6E8CF9AC1F167A840012BC9D /* PBXContainerItemProxy */;
 		};
 		6E9BFBBF1F3239E6007D7A93 /* PBXTargetDependency */ = {
@@ -1539,6 +1697,16 @@
 			isa = PBXTargetDependency;
 			target = 6E9BFB9C1F3238B7007D7A93 /* BelledonneSIP macOS */;
 			targetProxy = 6E9BFBC21F323B64007D7A93 /* PBXContainerItemProxy */;
+		};
+		6E9BFBFA1F325165007D7A93 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6E1303961F3185C500C4AEE8 /* BelledonneToolbox macOS */;
+			targetProxy = 6E9BFBF91F325165007D7A93 /* PBXContainerItemProxy */;
+		};
+		6E9BFBFC1F325187007D7A93 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6E9BFBC41F3250BC007D7A93 /* MediaStreamer macOS */;
+			targetProxy = 6E9BFBFB1F325187007D7A93 /* PBXContainerItemProxy */;
 		};
 		6EF6A6D31F0C058C00C39864 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1702,8 +1870,7 @@
 				ENABLE_BITCODE = "$(INHERITED)";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.belledonne.mediastreamer.swift;
-				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = MediaStreamer;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1717,8 +1884,7 @@
 				ENABLE_BITCODE = "$(INHERITED)";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.belledonne.mediastreamer.swift;
-				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = MediaStreamer;
 				SDKROOT = iphoneos;
 			};
 			name = Release;
@@ -1727,7 +1893,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ENABLE_BITCODE = "$(INHERITED)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = MediaStreamerTests;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1736,7 +1902,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ENABLE_BITCODE = "$(INHERITED)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = MediaStreamerTests;
 				SDKROOT = iphoneos;
 			};
 			name = Release;
@@ -1781,6 +1947,52 @@
 			buildSettings = {
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $(FRAMEWORK_SEARCH_PATHS) $(CONFIGURATION_BUILD_DIR)";
 				PRODUCT_NAME = BelledonneSIPTests;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		6E9BFBE11F3250BC007D7A93 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				ENABLE_BITCODE = "$(INHERITED)";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = org.belledonne.mediastreamer.swift;
+				PRODUCT_NAME = MediaStreamer;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		6E9BFBE21F3250BC007D7A93 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				ENABLE_BITCODE = "$(INHERITED)";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = org.belledonne.mediastreamer.swift;
+				PRODUCT_NAME = MediaStreamer;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		6E9BFBF61F3250BD007D7A93 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_BITCODE = "$(INHERITED)";
+				PRODUCT_NAME = MediaStreamerTests;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		6E9BFBF71F3250BD007D7A93 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_BITCODE = "$(INHERITED)";
+				PRODUCT_NAME = MediaStreamerTests;
 				SDKROOT = macosx;
 			};
 			name = Release;
@@ -2003,7 +2215,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		6E58AF2B1F085B4F009A0E68 /* Build configuration list for PBXNativeTarget "MediaStreamer" */ = {
+		6E58AF2B1F085B4F009A0E68 /* Build configuration list for PBXNativeTarget "MediaStreamer iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6E58AF2C1F085B4F009A0E68 /* Debug */,
@@ -2012,7 +2224,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		6E58AF501F085B53009A0E68 /* Build configuration list for PBXNativeTarget "MediaStreamerTests" */ = {
+		6E58AF501F085B53009A0E68 /* Build configuration list for PBXNativeTarget "MediaStreamerTests iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6E58AF511F085B53009A0E68 /* Debug */,
@@ -2035,6 +2247,24 @@
 			buildConfigurations = (
 				6E9BFBBB1F3238BA007D7A93 /* Debug */,
 				6E9BFBBC1F3238BA007D7A93 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		6E9BFBE01F3250BC007D7A93 /* Build configuration list for PBXNativeTarget "MediaStreamer macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6E9BFBE11F3250BC007D7A93 /* Debug */,
+				6E9BFBE21F3250BC007D7A93 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		6E9BFBF51F3250BD007D7A93 /* Build configuration list for PBXNativeTarget "MediaStreamerTests macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6E9BFBF61F3250BD007D7A93 /* Debug */,
+				6E9BFBF71F3250BD007D7A93 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;

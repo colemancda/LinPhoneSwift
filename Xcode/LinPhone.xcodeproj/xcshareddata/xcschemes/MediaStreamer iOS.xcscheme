@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6E9BFB9C1F3238B7007D7A93"
-               BuildableName = "BelledonneSIP.framework"
-               BlueprintName = "BelledonneSIP macOS"
+               BlueprintIdentifier = "6E58AF141F085B4F009A0E68"
+               BuildableName = "MediaStreamer iOS.framework"
+               BlueprintName = "MediaStreamer iOS"
                ReferencedContainer = "container:LinPhone.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -32,9 +32,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6E9BFBB11F3238BA007D7A93"
-               BuildableName = "BelledonneSIPTests.xctest"
-               BlueprintName = "BelledonneSIPTests macOS"
+               BlueprintIdentifier = "6E58AF301F085B53009A0E68"
+               BuildableName = "MediaStreamerTests iOS.xctest"
+               BlueprintName = "MediaStreamerTests iOS"
                ReferencedContainer = "container:LinPhone.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -42,9 +42,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6E9BFB9C1F3238B7007D7A93"
-            BuildableName = "BelledonneSIP.framework"
-            BlueprintName = "BelledonneSIP macOS"
+            BlueprintIdentifier = "6E58AF141F085B4F009A0E68"
+            BuildableName = "MediaStreamer iOS.framework"
+            BlueprintName = "MediaStreamer iOS"
             ReferencedContainer = "container:LinPhone.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -64,9 +64,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6E9BFB9C1F3238B7007D7A93"
-            BuildableName = "BelledonneSIP.framework"
-            BlueprintName = "BelledonneSIP macOS"
+            BlueprintIdentifier = "6E58AF141F085B4F009A0E68"
+            BuildableName = "MediaStreamer iOS.framework"
+            BlueprintName = "MediaStreamer iOS"
             ReferencedContainer = "container:LinPhone.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -82,9 +82,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6E9BFB9C1F3238B7007D7A93"
-            BuildableName = "BelledonneSIP.framework"
-            BlueprintName = "BelledonneSIP macOS"
+            BlueprintIdentifier = "6E58AF141F085B4F009A0E68"
+            BuildableName = "MediaStreamer iOS.framework"
+            BlueprintName = "MediaStreamer iOS"
             ReferencedContainer = "container:LinPhone.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

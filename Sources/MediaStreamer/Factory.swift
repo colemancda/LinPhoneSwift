@@ -83,23 +83,15 @@ public final class Factory {
     }
     
     @inline(__always)
+    public func uninitializePlugins() {
+        
+        ms_factory_uninit_plugins(rawPointer)
+    }
+    
+    @inline(__always)
     public func loadPlugins(from directory: String? = nil) {
         
         ms_factory_load_plugins(rawPointer, directory)
-    }
-    
-    public func load(_ mediaLibraries: Set<MediaLibrary>) {
-        
-        for library in mediaLibraries {
-            
-            switch library {
-            case .amr:      libmsamr_init(rawPointer)
-            case .x264:     libmsx264_init(rawPointer)
-            case .openh264: libmsopenh264_init(rawPointer)
-            case .silk:     libmssilk_init(rawPointer)
-            case .webrtc:   libmswebrtc_init(rawPointer)
-            }
-        }
     }
     
     /// Specify if a filter is enabled or not.
@@ -125,7 +117,28 @@ public enum MediaLibrary {
     public static let all: Set<MediaLibrary> = [amr, x264, openh264, silk, webrtc]
 }
 
-/// On iOS, plugins are built as static libraries so Liblinphone will not be able to load them at runtime dynamically. 
+// MARK: - Loading Plugins on iOS
+
+#if os(iOS)
+
+public extension Factory {
+    
+    func load(_ mediaLibraries: Set<MediaLibrary>) {
+        
+        for library in mediaLibraries {
+            
+            switch library {
+            case .amr:      libmsamr_init(rawPointer)
+            case .x264:     libmsx264_init(rawPointer)
+            case .openh264: libmsopenh264_init(rawPointer)
+            case .silk:     libmssilk_init(rawPointer)
+            case .webrtc:   libmswebrtc_init(rawPointer)
+            }
+        }
+    }
+}
+
+/// On iOS, plugins are built as static libraries so Liblinphone will not be able to load them at runtime dynamically.
 /// Instead, you should declare their prototypes
 
 /// extern void libmsamr_init(MSFactory *factory);
@@ -148,3 +161,4 @@ fileprivate func libmssilk_init(_ factory: UnsafeMutablePointer<MSFactory>)
 @_silgen_name("libmswebrtc_init")
 fileprivate func libmswebrtc_init(_ factory: UnsafeMutablePointer<MSFactory>)
 
+#endif

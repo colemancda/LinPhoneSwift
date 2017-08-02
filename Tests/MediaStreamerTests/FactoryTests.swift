@@ -19,6 +19,10 @@ final class FactoryTests: XCTestCase {
         
         let factory = MediaStreamer.Factory()
         
+        factory.loadPlugins()
+        
+        #if os(iOS)
         factory.load(MediaLibrary.all)
+        #endif
     }
 }
