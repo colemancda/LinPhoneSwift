@@ -121,6 +121,119 @@
 		6E9BFC101F3262FA007D7A93 /* libspeex.6.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD771F318A7E00403EFF /* libspeex.6.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		6E9BFC111F326303007D7A93 /* libspeexdsp.6.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD791F318A7E00403EFF /* libspeexdsp.6.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		6E9BFC121F32630F007D7A93 /* libbv16.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD5E1F318A7E00403EFF /* libbv16.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		6E9BFC1B1F3263A3007D7A93 /* Internal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E58AF121F07E9E9009A0E68 /* Internal.swift */; };
+		6E9BFC1C1F3263A3007D7A93 /* VideoPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4508B91F16B58F00B497C8 /* VideoPolicy.swift */; };
+		6E9BFC1D1F3263A3007D7A93 /* Handle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E569B1E1F09F9D500BF244A /* Handle.swift */; };
+		6E9BFC1E1F3263A3007D7A93 /* Transport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6A6DD1F0CACAE00C39864 /* Transport.swift */; };
+		6E9BFC1F1F3263A3007D7A93 /* Reason.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6A6DF1F0D3E2900C39864 /* Reason.swift */; };
+		6E9BFC201F3263A3007D7A93 /* PayloadType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4508BB1F16BE1500B497C8 /* PayloadType.swift */; };
+		6E9BFC211F3263A3007D7A93 /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E58AF0C1F07CE74009A0E68 /* Factory.swift */; };
+		6E9BFC221F3263A3007D7A93 /* CallLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6A6D91F0C640F00C39864 /* CallLog.swift */; };
+		6E9BFC231F3263A3007D7A93 /* Enumeration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E58AF0A1F07234B009A0E68 /* Enumeration.swift */; };
+		6E9BFC241F3263A3007D7A93 /* StreamType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E58AF081F07221B009A0E68 /* StreamType.swift */; };
+		6E9BFC251F3263A3007D7A93 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6A6D71F0C427B00C39864 /* Address.swift */; };
+		6E9BFC261F3263A3007D7A93 /* CallStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E676A171F12AD0B00EF4428 /* CallStats.swift */; };
+		6E9BFC271F3263A3007D7A93 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E58AF0E1F07D245009A0E68 /* Configuration.swift */; };
+		6E9BFC281F3263A3007D7A93 /* Bool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E59C78B1F11E14B005274EC /* Bool.swift */; };
+		6E9BFC291F3263A3007D7A93 /* ObjectHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6A6E81F0D501F00C39864 /* ObjectHandle.swift */; };
+		6E9BFC2A1F3263A3007D7A93 /* Tunnel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA69F9F1F150FE500284E24 /* Tunnel.swift */; };
+		6E9BFC2B1F3263A3007D7A93 /* Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E76D73E1F0705B70017362C /* Core.swift */; };
+		6E9BFC2C1F3263A3007D7A93 /* Conference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF1B5C81F0D6B5400B65129 /* Conference.swift */; };
+		6E9BFC2D1F3263A3007D7A93 /* SipTransports.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5BBE4C1F1EB33600BE69FC /* SipTransports.swift */; };
+		6E9BFC2E1F3263A3007D7A93 /* Call.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6A6D51F0C3E5100C39864 /* Call.swift */; };
+		6E9BFC2F1F3263A3007D7A93 /* CallParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E676A151F129C7000EF4428 /* CallParameters.swift */; };
+		6E9BFC301F3263A3007D7A93 /* MediaEncryption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E59C7851F118899005274EC /* MediaEncryption.swift */; };
+		6E9BFC311F3263A3007D7A93 /* RegistrationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2D5DCD1F0E9980003A1EAF /* RegistrationState.swift */; };
+		6E9BFC321F3263A3007D7A93 /* ErrorInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6A6E11F0D425300C39864 /* ErrorInfo.swift */; };
+		6E9BFC601F3263A5007D7A93 /* AddressTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7FEF181F128F5400C27DE9 /* AddressTests.swift */; };
+		6E9BFC611F3263A5007D7A93 /* CoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* CoreTests.swift */; };
+		6E9BFC721F3263A5007D7A93 /* audio_in.pcap in Copy Fake Server */ = {isa = PBXBuildFile; fileRef = 6E5BBE4F1F1F2F0E00BE69FC /* audio_in.pcap */; };
+		6E9BFC731F3263A5007D7A93 /* audio_in.pcapng in Copy Fake Server */ = {isa = PBXBuildFile; fileRef = 6E5BBE501F1F2F0E00BE69FC /* audio_in.pcapng */; };
+		6E9BFC741F3263A5007D7A93 /* audio_out.pcap in Copy Fake Server */ = {isa = PBXBuildFile; fileRef = 6E5BBE511F1F2F0E00BE69FC /* audio_out.pcap */; };
+		6E9BFC751F3263A5007D7A93 /* audio_out.pcapng in Copy Fake Server */ = {isa = PBXBuildFile; fileRef = 6E5BBE521F1F2F0E00BE69FC /* audio_out.pcapng */; };
+		6E9BFC761F3263A5007D7A93 /* server.py in Copy Fake Server */ = {isa = PBXBuildFile; fileRef = 6E5BBE531F1F2F0E00BE69FC /* server.py */; };
+		6E9BFC771F3263A5007D7A93 /* video_in.pcap in Copy Fake Server */ = {isa = PBXBuildFile; fileRef = 6E5BBE541F1F2F0E00BE69FC /* video_in.pcap */; };
+		6E9BFC781F3263A5007D7A93 /* video_in.pcapng in Copy Fake Server */ = {isa = PBXBuildFile; fileRef = 6E5BBE551F1F2F0E00BE69FC /* video_in.pcapng */; };
+		6E9BFC791F3263A5007D7A93 /* video_out.pcap in Copy Fake Server */ = {isa = PBXBuildFile; fileRef = 6E5BBE561F1F2F0E00BE69FC /* video_out.pcap */; };
+		6E9BFC7A1F3263A5007D7A93 /* video_out.pcapng in Copy Fake Server */ = {isa = PBXBuildFile; fileRef = 6E5BBE571F1F2F0E00BE69FC /* video_out.pcapng */; };
+		6E9BFC811F32642B007D7A93 /* libantlr3c.1.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD541F318A7D00403EFF /* libantlr3c.1.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		6E9BFC821F32642B007D7A93 /* libantlr3c.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD551F318A7D00403EFF /* libantlr3c.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		6E9BFC831F32642B007D7A93 /* libbctoolbox.1.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD581F318A7E00403EFF /* libbctoolbox.1.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		6E9BFC841F32642B007D7A93 /* libbctoolbox.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD591F318A7E00403EFF /* libbctoolbox.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		6E9BFC851F32642C007D7A93 /* libbcunit.1.0.1.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD5A1F318A7E00403EFF /* libbcunit.1.0.1.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		6E9BFC861F32642C007D7A93 /* libbcunit.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD5B1F318A7E00403EFF /* libbcunit.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		6E9BFC871F32642C007D7A93 /* libbellesip.0.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD5C1F318A7E00403EFF /* libbellesip.0.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		6E9BFC881F32642C007D7A93 /* libbellesip.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD5D1F318A7E00403EFF /* libbellesip.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		6E9BFC891F32642C007D7A93 /* libbv16.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD5E1F318A7E00403EFF /* libbv16.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		6E9BFC8A1F32642C007D7A93 /* libbzrtp.0.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD5F1F318A7E00403EFF /* libbzrtp.0.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		6E9BFC8B1F32642C007D7A93 /* libbzrtp.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD601F318A7E00403EFF /* libbzrtp.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		6E9BFC8C1F32642C007D7A93 /* libgsm.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD611F318A7E00403EFF /* libgsm.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		6E9BFC8D1F32642C007D7A93 /* liblinphone.9.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD621F318A7E00403EFF /* liblinphone.9.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		6E9BFC8E1F32642C007D7A93 /* liblinphone.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD631F318A7E00403EFF /* liblinphone.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		6E9BFC8F1F32642C007D7A93 /* libmbedcrypto.0.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD641F318A7E00403EFF /* libmbedcrypto.0.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		6E9BFC901F32642C007D7A93 /* libmbedcrypto.2.4.1.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD651F318A7E00403EFF /* libmbedcrypto.2.4.1.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		6E9BFC911F32642C007D7A93 /* libmbedcrypto.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD661F318A7E00403EFF /* libmbedcrypto.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		6E9BFC921F32642C007D7A93 /* libmbedtls.10.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD671F318A7E00403EFF /* libmbedtls.10.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		6E9BFC931F32642C007D7A93 /* libmbedtls.2.4.1.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD681F318A7E00403EFF /* libmbedtls.2.4.1.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		6E9BFC941F32642C007D7A93 /* libmbedtls.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD691F318A7E00403EFF /* libmbedtls.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		6E9BFC951F32642C007D7A93 /* libmbedx509.0.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD6A1F318A7E00403EFF /* libmbedx509.0.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		6E9BFC961F32642C007D7A93 /* libmbedx509.2.4.1.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD6B1F318A7E00403EFF /* libmbedx509.2.4.1.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		6E9BFC971F32642C007D7A93 /* libmbedx509.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD6C1F318A7E00403EFF /* libmbedx509.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		6E9BFC981F32642C007D7A93 /* libmediastreamer_base.10.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD6D1F318A7E00403EFF /* libmediastreamer_base.10.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		6E9BFC991F32642C007D7A93 /* libmediastreamer_base.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD6E1F318A7E00403EFF /* libmediastreamer_base.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		6E9BFC9A1F32642C007D7A93 /* libmediastreamer_voip.10.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD6F1F318A7E00403EFF /* libmediastreamer_voip.10.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		6E9BFC9B1F32642C007D7A93 /* libmediastreamer_voip.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD701F318A7E00403EFF /* libmediastreamer_voip.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		6E9BFC9C1F32642C007D7A93 /* libopenh264.1.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD711F318A7E00403EFF /* libopenh264.1.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		6E9BFC9D1F32642C007D7A93 /* libopenh264.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD721F318A7E00403EFF /* libopenh264.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		6E9BFC9E1F32642C007D7A93 /* libopus.5.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD731F318A7E00403EFF /* libopus.5.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		6E9BFC9F1F32642C007D7A93 /* libopus.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD741F318A7E00403EFF /* libopus.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		6E9BFCA01F32642C007D7A93 /* libortp.13.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD751F318A7E00403EFF /* libortp.13.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		6E9BFCA11F32642C007D7A93 /* libortp.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD761F318A7E00403EFF /* libortp.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		6E9BFCA21F32642C007D7A93 /* libspeex.6.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD771F318A7E00403EFF /* libspeex.6.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		6E9BFCA31F32642C007D7A93 /* libspeex.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD781F318A7E00403EFF /* libspeex.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		6E9BFCA41F32642C007D7A93 /* libspeexdsp.6.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD791F318A7E00403EFF /* libspeexdsp.6.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		6E9BFCA51F32642C007D7A93 /* libspeexdsp.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD7A1F318A7E00403EFF /* libspeexdsp.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		6E9BFCA61F32642C007D7A93 /* libsrtp.1.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD7B1F318A7E00403EFF /* libsrtp.1.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		6E9BFCA71F32642C007D7A93 /* libsrtp.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD7C1F318A7E00403EFF /* libsrtp.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		6E9BFCB01F32649B007D7A93 /* libantlr3c.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD541F318A7D00403EFF /* libantlr3c.1.dylib */; };
+		6E9BFCB11F32649B007D7A93 /* libantlr3c.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD551F318A7D00403EFF /* libantlr3c.dylib */; };
+		6E9BFCB21F32649B007D7A93 /* libbctoolbox.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD581F318A7E00403EFF /* libbctoolbox.1.dylib */; };
+		6E9BFCB31F32649B007D7A93 /* libbctoolbox.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD591F318A7E00403EFF /* libbctoolbox.dylib */; };
+		6E9BFCB41F32649B007D7A93 /* libbcunit.1.0.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD5A1F318A7E00403EFF /* libbcunit.1.0.1.dylib */; };
+		6E9BFCB51F32649B007D7A93 /* libbcunit.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD5B1F318A7E00403EFF /* libbcunit.dylib */; };
+		6E9BFCB61F32649B007D7A93 /* libbellesip.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD5C1F318A7E00403EFF /* libbellesip.0.dylib */; };
+		6E9BFCB71F32649B007D7A93 /* libbellesip.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD5D1F318A7E00403EFF /* libbellesip.dylib */; };
+		6E9BFCB81F32649B007D7A93 /* libbv16.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD5E1F318A7E00403EFF /* libbv16.dylib */; };
+		6E9BFCB91F32649B007D7A93 /* libbzrtp.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD5F1F318A7E00403EFF /* libbzrtp.0.dylib */; };
+		6E9BFCBA1F32649B007D7A93 /* libbzrtp.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD601F318A7E00403EFF /* libbzrtp.dylib */; };
+		6E9BFCBB1F32649B007D7A93 /* libgsm.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD611F318A7E00403EFF /* libgsm.dylib */; };
+		6E9BFCBC1F32649B007D7A93 /* liblinphone.9.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD621F318A7E00403EFF /* liblinphone.9.dylib */; };
+		6E9BFCBD1F32649B007D7A93 /* liblinphone.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD631F318A7E00403EFF /* liblinphone.dylib */; };
+		6E9BFCBE1F32649B007D7A93 /* libmbedcrypto.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD641F318A7E00403EFF /* libmbedcrypto.0.dylib */; };
+		6E9BFCBF1F32649B007D7A93 /* libmbedcrypto.2.4.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD651F318A7E00403EFF /* libmbedcrypto.2.4.1.dylib */; };
+		6E9BFCC01F32649B007D7A93 /* libmbedcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD661F318A7E00403EFF /* libmbedcrypto.dylib */; };
+		6E9BFCC11F32649B007D7A93 /* libmbedtls.10.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD671F318A7E00403EFF /* libmbedtls.10.dylib */; };
+		6E9BFCC21F32649B007D7A93 /* libmbedtls.2.4.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD681F318A7E00403EFF /* libmbedtls.2.4.1.dylib */; };
+		6E9BFCC31F32649B007D7A93 /* libmbedtls.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD691F318A7E00403EFF /* libmbedtls.dylib */; };
+		6E9BFCC41F32649B007D7A93 /* libmbedx509.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD6A1F318A7E00403EFF /* libmbedx509.0.dylib */; };
+		6E9BFCC51F32649B007D7A93 /* libmbedx509.2.4.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD6B1F318A7E00403EFF /* libmbedx509.2.4.1.dylib */; };
+		6E9BFCC61F32649B007D7A93 /* libmbedx509.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD6C1F318A7E00403EFF /* libmbedx509.dylib */; };
+		6E9BFCC71F32649B007D7A93 /* libmediastreamer_base.10.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD6D1F318A7E00403EFF /* libmediastreamer_base.10.dylib */; };
+		6E9BFCC81F32649B007D7A93 /* libmediastreamer_base.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD6E1F318A7E00403EFF /* libmediastreamer_base.dylib */; };
+		6E9BFCC91F32649B007D7A93 /* libmediastreamer_voip.10.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD6F1F318A7E00403EFF /* libmediastreamer_voip.10.dylib */; };
+		6E9BFCCA1F32649B007D7A93 /* libmediastreamer_voip.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD701F318A7E00403EFF /* libmediastreamer_voip.dylib */; };
+		6E9BFCCB1F32649B007D7A93 /* libopenh264.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD711F318A7E00403EFF /* libopenh264.1.dylib */; };
+		6E9BFCCC1F32649B007D7A93 /* libopenh264.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD721F318A7E00403EFF /* libopenh264.dylib */; };
+		6E9BFCCD1F32649B007D7A93 /* libopus.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD731F318A7E00403EFF /* libopus.5.dylib */; };
+		6E9BFCCE1F32649B007D7A93 /* libopus.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD741F318A7E00403EFF /* libopus.dylib */; };
+		6E9BFCCF1F32649B007D7A93 /* libortp.13.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD751F318A7E00403EFF /* libortp.13.dylib */; };
+		6E9BFCD01F32649B007D7A93 /* libortp.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD761F318A7E00403EFF /* libortp.dylib */; };
+		6E9BFCD11F32649B007D7A93 /* libspeex.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD771F318A7E00403EFF /* libspeex.6.dylib */; };
+		6E9BFCD21F32649B007D7A93 /* libspeex.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD781F318A7E00403EFF /* libspeex.dylib */; };
+		6E9BFCD31F32649B007D7A93 /* libspeexdsp.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD791F318A7E00403EFF /* libspeexdsp.6.dylib */; };
+		6E9BFCD41F32649B007D7A93 /* libspeexdsp.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD7A1F318A7E00403EFF /* libspeexdsp.dylib */; };
+		6E9BFCD51F32649B007D7A93 /* libsrtp.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD7B1F318A7E00403EFF /* libsrtp.1.dylib */; };
+		6E9BFCD61F32649B007D7A93 /* libsrtp.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD7C1F318A7E00403EFF /* libsrtp.dylib */; };
 		6EA69FA01F150FE500284E24 /* Tunnel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA69F9F1F150FE500284E24 /* Tunnel.swift */; };
 		6EF1B5C91F0D6B5400B65129 /* Conference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF1B5C81F0D6B5400B65129 /* Conference.swift */; };
 		6EF6A6D61F0C3E5100C39864 /* Call.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6A6D51F0C3E5100C39864 /* Call.swift */; };
@@ -201,13 +314,6 @@
 			remoteGlobalIDString = 6E52914E1F0B53AE00D4B765;
 			remoteInfo = BelledonneSIP;
 		};
-		6E25EA0B1F0B753C005BC42C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = OBJ_1 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 6E569ADD1F09F67200BF244A;
-			remoteInfo = BelledonneToolbox;
-		};
 		6E25EA4D1F0B7788005BC42C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
@@ -277,6 +383,41 @@
 			proxyType = 1;
 			remoteGlobalIDString = 6E9BFBC41F3250BC007D7A93;
 			remoteInfo = "MediaStreamer macOS";
+		};
+		6E9BFC7F1F326418007D7A93 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6E9BFC131F3263A3007D7A93;
+			remoteInfo = "LinPhoneSwift macOS";
+		};
+		6E9BFCA81F326454007D7A93 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6E569ADD1F09F67200BF244A;
+			remoteInfo = "BelledonneToolbox iOS";
+		};
+		6E9BFCAA1F326464007D7A93 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6E9BFBC41F3250BC007D7A93;
+			remoteInfo = "MediaStreamer macOS";
+		};
+		6E9BFCAC1F326464007D7A93 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6E9BFB9C1F3238B7007D7A93;
+			remoteInfo = "BelledonneSIP macOS";
+		};
+		6E9BFCAE1F326464007D7A93 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6E1303961F3185C500C4AEE8;
+			remoteInfo = "BelledonneToolbox macOS";
 		};
 		6EF6A6D21F0C058C00C39864 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -418,6 +559,74 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6E9BFC641F3263A5007D7A93 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				6E9BFC811F32642B007D7A93 /* libantlr3c.1.dylib in Embed Frameworks */,
+				6E9BFC821F32642B007D7A93 /* libantlr3c.dylib in Embed Frameworks */,
+				6E9BFC831F32642B007D7A93 /* libbctoolbox.1.dylib in Embed Frameworks */,
+				6E9BFC841F32642B007D7A93 /* libbctoolbox.dylib in Embed Frameworks */,
+				6E9BFC851F32642C007D7A93 /* libbcunit.1.0.1.dylib in Embed Frameworks */,
+				6E9BFC861F32642C007D7A93 /* libbcunit.dylib in Embed Frameworks */,
+				6E9BFC871F32642C007D7A93 /* libbellesip.0.dylib in Embed Frameworks */,
+				6E9BFC881F32642C007D7A93 /* libbellesip.dylib in Embed Frameworks */,
+				6E9BFC891F32642C007D7A93 /* libbv16.dylib in Embed Frameworks */,
+				6E9BFC8A1F32642C007D7A93 /* libbzrtp.0.dylib in Embed Frameworks */,
+				6E9BFC8B1F32642C007D7A93 /* libbzrtp.dylib in Embed Frameworks */,
+				6E9BFC8C1F32642C007D7A93 /* libgsm.dylib in Embed Frameworks */,
+				6E9BFC8D1F32642C007D7A93 /* liblinphone.9.dylib in Embed Frameworks */,
+				6E9BFC8E1F32642C007D7A93 /* liblinphone.dylib in Embed Frameworks */,
+				6E9BFC8F1F32642C007D7A93 /* libmbedcrypto.0.dylib in Embed Frameworks */,
+				6E9BFC901F32642C007D7A93 /* libmbedcrypto.2.4.1.dylib in Embed Frameworks */,
+				6E9BFC911F32642C007D7A93 /* libmbedcrypto.dylib in Embed Frameworks */,
+				6E9BFC921F32642C007D7A93 /* libmbedtls.10.dylib in Embed Frameworks */,
+				6E9BFC931F32642C007D7A93 /* libmbedtls.2.4.1.dylib in Embed Frameworks */,
+				6E9BFC941F32642C007D7A93 /* libmbedtls.dylib in Embed Frameworks */,
+				6E9BFC951F32642C007D7A93 /* libmbedx509.0.dylib in Embed Frameworks */,
+				6E9BFC961F32642C007D7A93 /* libmbedx509.2.4.1.dylib in Embed Frameworks */,
+				6E9BFC971F32642C007D7A93 /* libmbedx509.dylib in Embed Frameworks */,
+				6E9BFC981F32642C007D7A93 /* libmediastreamer_base.10.dylib in Embed Frameworks */,
+				6E9BFC991F32642C007D7A93 /* libmediastreamer_base.dylib in Embed Frameworks */,
+				6E9BFC9A1F32642C007D7A93 /* libmediastreamer_voip.10.dylib in Embed Frameworks */,
+				6E9BFC9B1F32642C007D7A93 /* libmediastreamer_voip.dylib in Embed Frameworks */,
+				6E9BFC9C1F32642C007D7A93 /* libopenh264.1.dylib in Embed Frameworks */,
+				6E9BFC9D1F32642C007D7A93 /* libopenh264.dylib in Embed Frameworks */,
+				6E9BFC9E1F32642C007D7A93 /* libopus.5.dylib in Embed Frameworks */,
+				6E9BFC9F1F32642C007D7A93 /* libopus.dylib in Embed Frameworks */,
+				6E9BFCA01F32642C007D7A93 /* libortp.13.dylib in Embed Frameworks */,
+				6E9BFCA11F32642C007D7A93 /* libortp.dylib in Embed Frameworks */,
+				6E9BFCA21F32642C007D7A93 /* libspeex.6.dylib in Embed Frameworks */,
+				6E9BFCA31F32642C007D7A93 /* libspeex.dylib in Embed Frameworks */,
+				6E9BFCA41F32642C007D7A93 /* libspeexdsp.6.dylib in Embed Frameworks */,
+				6E9BFCA51F32642C007D7A93 /* libspeexdsp.dylib in Embed Frameworks */,
+				6E9BFCA61F32642C007D7A93 /* libsrtp.1.dylib in Embed Frameworks */,
+				6E9BFCA71F32642C007D7A93 /* libsrtp.dylib in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6E9BFC711F3263A5007D7A93 /* Copy Fake Server */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = FakeServer;
+			dstSubfolderSpec = 7;
+			files = (
+				6E9BFC721F3263A5007D7A93 /* audio_in.pcap in Copy Fake Server */,
+				6E9BFC731F3263A5007D7A93 /* audio_in.pcapng in Copy Fake Server */,
+				6E9BFC741F3263A5007D7A93 /* audio_out.pcap in Copy Fake Server */,
+				6E9BFC751F3263A5007D7A93 /* audio_out.pcapng in Copy Fake Server */,
+				6E9BFC761F3263A5007D7A93 /* server.py in Copy Fake Server */,
+				6E9BFC771F3263A5007D7A93 /* video_in.pcap in Copy Fake Server */,
+				6E9BFC781F3263A5007D7A93 /* video_in.pcapng in Copy Fake Server */,
+				6E9BFC791F3263A5007D7A93 /* video_out.pcap in Copy Fake Server */,
+				6E9BFC7A1F3263A5007D7A93 /* video_out.pcapng in Copy Fake Server */,
+			);
+			name = "Copy Fake Server";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -529,6 +738,8 @@
 		6E9BFBE31F3250BC007D7A93 /* MediaStreamer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MediaStreamer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E9BFBF81F3250BD007D7A93 /* MediaStreamerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MediaStreamerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E9BFBFD1F3251B9007D7A93 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		6E9BFC5B1F3263A3007D7A93 /* LinPhoneSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LinPhoneSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E9BFC7E1F3263A5007D7A93 /* LinPhoneTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LinPhoneTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EA69F9F1F150FE500284E24 /* Tunnel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tunnel.swift; sourceTree = "<group>"; };
 		6EF1B5C81F0D6B5400B65129 /* Conference.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Conference.swift; sourceTree = "<group>"; };
 		6EF6A6D51F0C3E5100C39864 /* Call.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Call.swift; sourceTree = "<group>"; };
@@ -688,6 +899,59 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		6E9BFBE91F3250BD007D7A93 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6E9BFC331F3263A3007D7A93 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
+			files = (
+				6E9BFCB01F32649B007D7A93 /* libantlr3c.1.dylib in Frameworks */,
+				6E9BFCB11F32649B007D7A93 /* libantlr3c.dylib in Frameworks */,
+				6E9BFCB21F32649B007D7A93 /* libbctoolbox.1.dylib in Frameworks */,
+				6E9BFCB31F32649B007D7A93 /* libbctoolbox.dylib in Frameworks */,
+				6E9BFCB41F32649B007D7A93 /* libbcunit.1.0.1.dylib in Frameworks */,
+				6E9BFCB51F32649B007D7A93 /* libbcunit.dylib in Frameworks */,
+				6E9BFCB61F32649B007D7A93 /* libbellesip.0.dylib in Frameworks */,
+				6E9BFCB71F32649B007D7A93 /* libbellesip.dylib in Frameworks */,
+				6E9BFCB81F32649B007D7A93 /* libbv16.dylib in Frameworks */,
+				6E9BFCB91F32649B007D7A93 /* libbzrtp.0.dylib in Frameworks */,
+				6E9BFCBA1F32649B007D7A93 /* libbzrtp.dylib in Frameworks */,
+				6E9BFCBB1F32649B007D7A93 /* libgsm.dylib in Frameworks */,
+				6E9BFCBC1F32649B007D7A93 /* liblinphone.9.dylib in Frameworks */,
+				6E9BFCBD1F32649B007D7A93 /* liblinphone.dylib in Frameworks */,
+				6E9BFCBE1F32649B007D7A93 /* libmbedcrypto.0.dylib in Frameworks */,
+				6E9BFCBF1F32649B007D7A93 /* libmbedcrypto.2.4.1.dylib in Frameworks */,
+				6E9BFCC01F32649B007D7A93 /* libmbedcrypto.dylib in Frameworks */,
+				6E9BFCC11F32649B007D7A93 /* libmbedtls.10.dylib in Frameworks */,
+				6E9BFCC21F32649B007D7A93 /* libmbedtls.2.4.1.dylib in Frameworks */,
+				6E9BFCC31F32649B007D7A93 /* libmbedtls.dylib in Frameworks */,
+				6E9BFCC41F32649B007D7A93 /* libmbedx509.0.dylib in Frameworks */,
+				6E9BFCC51F32649B007D7A93 /* libmbedx509.2.4.1.dylib in Frameworks */,
+				6E9BFCC61F32649B007D7A93 /* libmbedx509.dylib in Frameworks */,
+				6E9BFCC71F32649B007D7A93 /* libmediastreamer_base.10.dylib in Frameworks */,
+				6E9BFCC81F32649B007D7A93 /* libmediastreamer_base.dylib in Frameworks */,
+				6E9BFCC91F32649B007D7A93 /* libmediastreamer_voip.10.dylib in Frameworks */,
+				6E9BFCCA1F32649B007D7A93 /* libmediastreamer_voip.dylib in Frameworks */,
+				6E9BFCCB1F32649B007D7A93 /* libopenh264.1.dylib in Frameworks */,
+				6E9BFCCC1F32649B007D7A93 /* libopenh264.dylib in Frameworks */,
+				6E9BFCCD1F32649B007D7A93 /* libopus.5.dylib in Frameworks */,
+				6E9BFCCE1F32649B007D7A93 /* libopus.dylib in Frameworks */,
+				6E9BFCCF1F32649B007D7A93 /* libortp.13.dylib in Frameworks */,
+				6E9BFCD01F32649B007D7A93 /* libortp.dylib in Frameworks */,
+				6E9BFCD11F32649B007D7A93 /* libspeex.6.dylib in Frameworks */,
+				6E9BFCD21F32649B007D7A93 /* libspeex.dylib in Frameworks */,
+				6E9BFCD31F32649B007D7A93 /* libspeexdsp.6.dylib in Frameworks */,
+				6E9BFCD41F32649B007D7A93 /* libspeexdsp.dylib in Frameworks */,
+				6E9BFCD51F32649B007D7A93 /* libsrtp.1.dylib in Frameworks */,
+				6E9BFCD61F32649B007D7A93 /* libsrtp.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6E9BFC621F3263A5007D7A93 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
@@ -1039,6 +1303,8 @@
 				6E9BFBBD1F3238BA007D7A93 /* BelledonneSIPTests.xctest */,
 				6E9BFBE31F3250BC007D7A93 /* MediaStreamer.framework */,
 				6E9BFBF81F3250BD007D7A93 /* MediaStreamerTests.xctest */,
+				6E9BFC5B1F3263A3007D7A93 /* LinPhoneSwift.framework */,
+				6E9BFC7E1F3263A5007D7A93 /* LinPhoneTests.xctest */,
 			);
 			name = Products;
 			sourceTree = BUILT_PRODUCTS_DIR;
@@ -1197,7 +1463,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				6E25EA0C1F0B753C005BC42C /* PBXTargetDependency */,
+				6E9BFCA91F326454007D7A93 /* PBXTargetDependency */,
 			);
 			name = "MediaStreamer iOS";
 			productName = LinPhoneSwift;
@@ -1294,9 +1560,49 @@
 			productReference = 6E9BFBF81F3250BD007D7A93 /* MediaStreamerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		OBJ_16 /* LinPhoneSwift */ = {
+		6E9BFC131F3263A3007D7A93 /* LinPhoneSwift macOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_17 /* Build configuration list for PBXNativeTarget "LinPhoneSwift" */;
+			buildConfigurationList = 6E9BFC581F3263A3007D7A93 /* Build configuration list for PBXNativeTarget "LinPhoneSwift macOS" */;
+			buildPhases = (
+				6E9BFC1A1F3263A3007D7A93 /* Sources */,
+				6E9BFC331F3263A3007D7A93 /* Frameworks */,
+				6E9BFC571F3263A3007D7A93 /* Increment Build */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6E9BFCAB1F326464007D7A93 /* PBXTargetDependency */,
+				6E9BFCAD1F326464007D7A93 /* PBXTargetDependency */,
+				6E9BFCAF1F326464007D7A93 /* PBXTargetDependency */,
+			);
+			name = "LinPhoneSwift macOS";
+			productName = LinPhoneSwift;
+			productReference = 6E9BFC5B1F3263A3007D7A93 /* LinPhoneSwift.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		6E9BFC5C1F3263A5007D7A93 /* LinPhoneTests macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6E9BFC7B1F3263A5007D7A93 /* Build configuration list for PBXNativeTarget "LinPhoneTests macOS" */;
+			buildPhases = (
+				6E9BFC5F1F3263A5007D7A93 /* Sources */,
+				6E9BFC621F3263A5007D7A93 /* Frameworks */,
+				6E9BFC641F3263A5007D7A93 /* Embed Frameworks */,
+				6E9BFC701F3263A5007D7A93 /* Resources */,
+				6E9BFC711F3263A5007D7A93 /* Copy Fake Server */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6E9BFC801F326418007D7A93 /* PBXTargetDependency */,
+			);
+			name = "LinPhoneTests macOS";
+			productName = LinPhoneSwiftTests;
+			productReference = 6E9BFC7E1F3263A5007D7A93 /* LinPhoneTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		OBJ_16 /* LinPhoneSwift iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_17 /* Build configuration list for PBXNativeTarget "LinPhoneSwift iOS" */;
 			buildPhases = (
 				OBJ_20 /* Sources */,
 				OBJ_22 /* Frameworks */,
@@ -1309,14 +1615,14 @@
 				6E569B1B1F09F7F600BF244A /* PBXTargetDependency */,
 				6E58AF591F085DAB009A0E68 /* PBXTargetDependency */,
 			);
-			name = LinPhoneSwift;
+			name = "LinPhoneSwift iOS";
 			productName = LinPhoneSwift;
 			productReference = OBJ_14 /* LinPhoneSwift.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		OBJ_23 /* LinPhoneTests */ = {
+		OBJ_23 /* LinPhoneTests iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_24 /* Build configuration list for PBXNativeTarget "LinPhoneTests" */;
+			buildConfigurationList = OBJ_24 /* Build configuration list for PBXNativeTarget "LinPhoneTests iOS" */;
 			buildPhases = (
 				OBJ_27 /* Sources */,
 				OBJ_29 /* Frameworks */,
@@ -1329,7 +1635,7 @@
 			dependencies = (
 				OBJ_31 /* PBXTargetDependency */,
 			);
-			name = LinPhoneTests;
+			name = "LinPhoneTests iOS";
 			productName = LinPhoneSwiftTests;
 			productReference = OBJ_15 /* LinPhoneTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -1365,8 +1671,10 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				OBJ_16 /* LinPhoneSwift */,
-				OBJ_23 /* LinPhoneTests */,
+				OBJ_16 /* LinPhoneSwift iOS */,
+				OBJ_23 /* LinPhoneTests iOS */,
+				6E9BFC131F3263A3007D7A93 /* LinPhoneSwift macOS */,
+				6E9BFC5C1F3263A5007D7A93 /* LinPhoneTests macOS */,
 				6E58AF141F085B4F009A0E68 /* MediaStreamer iOS */,
 				6E58AF301F085B53009A0E68 /* MediaStreamerTests iOS */,
 				6E9BFBC41F3250BC007D7A93 /* MediaStreamer macOS */,
@@ -1385,6 +1693,13 @@
 
 /* Begin PBXResourcesBuildPhase section */
 		6E5BBE581F1F2F2D00BE69FC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6E9BFC701F3263A5007D7A93 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1479,6 +1794,20 @@
 			shellScript = "#!/bin/bash\n\n#  update_build_number.sh\n#  Usage: `update_build_number.sh [branch]`\n#  Run this script after the 'Copy Bundle Resources' build phase\n#  Ref: http://tgoode.com/2014/06/05/sensible-way-increment-bundle-version-cfbundleversion-xcode/\n\nif [ $TRAVIS == \"true\" ]\nthen echo \"Updating build number to TRAVISCI.\"\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion TRAVISCI\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\nelse branch=${1:-'master'}\nbuildNumber=$(expr $(git rev-list $branch --count) - $(git rev-list HEAD..$branch --count))\necho \"Updating build number to $buildNumber using branch '$branch'.\"\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\nfi";
 		};
 		6E9BFBDF1F3250BC007D7A93 /* Increment Build */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Increment Build";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/bash\n\n#  update_build_number.sh\n#  Usage: `update_build_number.sh [branch]`\n#  Run this script after the 'Copy Bundle Resources' build phase\n#  Ref: http://tgoode.com/2014/06/05/sensible-way-increment-bundle-version-cfbundleversion-xcode/\n\nif [ $TRAVIS == \"true\" ]\nthen echo \"Updating build number to TRAVISCI.\"\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion TRAVISCI\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\nelse branch=${1:-'master'}\nbuildNumber=$(expr $(git rev-list $branch --count) - $(git rev-list HEAD..$branch --count))\necho \"Updating build number to $buildNumber using branch '$branch'.\"\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\nfi";
+		};
+		6E9BFC571F3263A3007D7A93 /* Increment Build */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1605,6 +1934,46 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6E9BFC1A1F3263A3007D7A93 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				6E9BFC1B1F3263A3007D7A93 /* Internal.swift in Sources */,
+				6E9BFC1C1F3263A3007D7A93 /* VideoPolicy.swift in Sources */,
+				6E9BFC1D1F3263A3007D7A93 /* Handle.swift in Sources */,
+				6E9BFC1E1F3263A3007D7A93 /* Transport.swift in Sources */,
+				6E9BFC1F1F3263A3007D7A93 /* Reason.swift in Sources */,
+				6E9BFC201F3263A3007D7A93 /* PayloadType.swift in Sources */,
+				6E9BFC211F3263A3007D7A93 /* Factory.swift in Sources */,
+				6E9BFC221F3263A3007D7A93 /* CallLog.swift in Sources */,
+				6E9BFC231F3263A3007D7A93 /* Enumeration.swift in Sources */,
+				6E9BFC241F3263A3007D7A93 /* StreamType.swift in Sources */,
+				6E9BFC251F3263A3007D7A93 /* Address.swift in Sources */,
+				6E9BFC261F3263A3007D7A93 /* CallStats.swift in Sources */,
+				6E9BFC271F3263A3007D7A93 /* Configuration.swift in Sources */,
+				6E9BFC281F3263A3007D7A93 /* Bool.swift in Sources */,
+				6E9BFC291F3263A3007D7A93 /* ObjectHandle.swift in Sources */,
+				6E9BFC2A1F3263A3007D7A93 /* Tunnel.swift in Sources */,
+				6E9BFC2B1F3263A3007D7A93 /* Core.swift in Sources */,
+				6E9BFC2C1F3263A3007D7A93 /* Conference.swift in Sources */,
+				6E9BFC2D1F3263A3007D7A93 /* SipTransports.swift in Sources */,
+				6E9BFC2E1F3263A3007D7A93 /* Call.swift in Sources */,
+				6E9BFC2F1F3263A3007D7A93 /* CallParameters.swift in Sources */,
+				6E9BFC301F3263A3007D7A93 /* MediaEncryption.swift in Sources */,
+				6E9BFC311F3263A3007D7A93 /* RegistrationState.swift in Sources */,
+				6E9BFC321F3263A3007D7A93 /* ErrorInfo.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6E9BFC5F1F3263A5007D7A93 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				6E9BFC601F3263A5007D7A93 /* AddressTests.swift in Sources */,
+				6E9BFC611F3263A5007D7A93 /* CoreTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		OBJ_20 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
@@ -1658,11 +2027,6 @@
 			target = 6E52914E1F0B53AE00D4B765 /* BelledonneSIP iOS */;
 			targetProxy = 6E25E9D11F0B6EA1005BC42C /* PBXContainerItemProxy */;
 		};
-		6E25EA0C1F0B753C005BC42C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 6E569ADD1F09F67200BF244A /* BelledonneToolbox iOS */;
-			targetProxy = 6E25EA0B1F0B753C005BC42C /* PBXContainerItemProxy */;
-		};
 		6E25EA4E1F0B7788005BC42C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 6E52914E1F0B53AE00D4B765 /* BelledonneSIP iOS */;
@@ -1708,6 +2072,31 @@
 			target = 6E9BFBC41F3250BC007D7A93 /* MediaStreamer macOS */;
 			targetProxy = 6E9BFBFB1F325187007D7A93 /* PBXContainerItemProxy */;
 		};
+		6E9BFC801F326418007D7A93 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6E9BFC131F3263A3007D7A93 /* LinPhoneSwift macOS */;
+			targetProxy = 6E9BFC7F1F326418007D7A93 /* PBXContainerItemProxy */;
+		};
+		6E9BFCA91F326454007D7A93 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6E569ADD1F09F67200BF244A /* BelledonneToolbox iOS */;
+			targetProxy = 6E9BFCA81F326454007D7A93 /* PBXContainerItemProxy */;
+		};
+		6E9BFCAB1F326464007D7A93 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6E9BFBC41F3250BC007D7A93 /* MediaStreamer macOS */;
+			targetProxy = 6E9BFCAA1F326464007D7A93 /* PBXContainerItemProxy */;
+		};
+		6E9BFCAD1F326464007D7A93 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6E9BFB9C1F3238B7007D7A93 /* BelledonneSIP macOS */;
+			targetProxy = 6E9BFCAC1F326464007D7A93 /* PBXContainerItemProxy */;
+		};
+		6E9BFCAF1F326464007D7A93 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6E1303961F3185C500C4AEE8 /* BelledonneToolbox macOS */;
+			targetProxy = 6E9BFCAE1F326464007D7A93 /* PBXContainerItemProxy */;
+		};
 		6EF6A6D31F0C058C00C39864 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 6E569ADD1F09F67200BF244A /* BelledonneToolbox iOS */;
@@ -1715,7 +2104,7 @@
 		};
 		OBJ_31 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = OBJ_16 /* LinPhoneSwift */;
+			target = OBJ_16 /* LinPhoneSwift iOS */;
 			targetProxy = 6E76D7371F06F8BB0017362C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1997,6 +2386,52 @@
 			};
 			name = Release;
 		};
+		6E9BFC591F3263A3007D7A93 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				ENABLE_BITCODE = "$(INHERITED)";
+				PRODUCT_BUNDLE_IDENTIFIER = org.belledonne.linphone.swift;
+				PRODUCT_NAME = LinPhoneSwift;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		6E9BFC5A1F3263A3007D7A93 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				ENABLE_BITCODE = "$(INHERITED)";
+				PRODUCT_BUNDLE_IDENTIFIER = org.belledonne.linphone.swift;
+				PRODUCT_NAME = LinPhoneSwift;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		6E9BFC7C1F3263A5007D7A93 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_BITCODE = "$(INHERITED)";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_NAME = LinPhoneTests;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		6E9BFC7D1F3263A5007D7A93 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_BITCODE = "$(INHERITED)";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_NAME = LinPhoneTests;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
 		OBJ_18 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -2005,7 +2440,7 @@
 				DEFINES_MODULE = YES;
 				ENABLE_BITCODE = "$(INHERITED)";
 				PRODUCT_BUNDLE_IDENTIFIER = org.belledonne.linphone.swift;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = LinPhoneSwift;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -2018,7 +2453,7 @@
 				DEFINES_MODULE = YES;
 				ENABLE_BITCODE = "$(INHERITED)";
 				PRODUCT_BUNDLE_IDENTIFIER = org.belledonne.linphone.swift;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = LinPhoneSwift;
 				SDKROOT = iphoneos;
 			};
 			name = Release;
@@ -2269,7 +2704,25 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		OBJ_17 /* Build configuration list for PBXNativeTarget "LinPhoneSwift" */ = {
+		6E9BFC581F3263A3007D7A93 /* Build configuration list for PBXNativeTarget "LinPhoneSwift macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6E9BFC591F3263A3007D7A93 /* Debug */,
+				6E9BFC5A1F3263A3007D7A93 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		6E9BFC7B1F3263A5007D7A93 /* Build configuration list for PBXNativeTarget "LinPhoneTests macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6E9BFC7C1F3263A5007D7A93 /* Debug */,
+				6E9BFC7D1F3263A5007D7A93 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		OBJ_17 /* Build configuration list for PBXNativeTarget "LinPhoneSwift iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				OBJ_18 /* Debug */,
@@ -2287,7 +2740,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		OBJ_24 /* Build configuration list for PBXNativeTarget "LinPhoneTests" */ = {
+		OBJ_24 /* Build configuration list for PBXNativeTarget "LinPhoneTests iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				OBJ_25 /* Debug */,

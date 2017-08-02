@@ -244,7 +244,11 @@ extension LinPhoneSwift.Core {
         self.isVideoAdaptiveJittCompensationEnabled = true
         self.noXmitOnAudioMute = false
         
+        #if os(iOS)
         self.withMediaStreamerFactory { $0.load(MediaLibrary.all) }
+        #else
+        self.withMediaStreamerFactory { $0.loadPlugins() }
+        #endif
         
         guard self.withMediaStreamerFactory({ $0.enableFilter(true, for: "MSOpenH264Dec") })
             else { return false }

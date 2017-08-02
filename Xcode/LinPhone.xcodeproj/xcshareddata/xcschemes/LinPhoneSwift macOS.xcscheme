@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
    LastUpgradeVersion = "0830"
-   version = "1.7">
+   version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
       buildImplicitDependencies = "YES">
@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "OBJ_16"
-               BuildableName = "LinPhoneSwift.framework"
-               BlueprintName = "LinPhoneSwift"
+               BlueprintIdentifier = "6E9BFC131F3263A3007D7A93"
+               BuildableName = "LinPhoneSwift macOS.framework"
+               BlueprintName = "LinPhoneSwift macOS"
                ReferencedContainer = "container:LinPhone.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -32,13 +32,22 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "OBJ_23"
+               BlueprintIdentifier = "6E9BFC5C1F3263A5007D7A93"
                BuildableName = "LinPhoneTests.xctest"
-               BlueprintName = "LinPhoneTests"
+               BlueprintName = "LinPhoneTests macOS"
                ReferencedContainer = "container:LinPhone.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "6E9BFC131F3263A3007D7A93"
+            BuildableName = "LinPhoneSwift macOS.framework"
+            BlueprintName = "LinPhoneSwift macOS"
+            ReferencedContainer = "container:LinPhone.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -55,9 +64,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "OBJ_16"
-            BuildableName = "LinPhoneSwift.framework"
-            BlueprintName = "LinPhoneSwift"
+            BlueprintIdentifier = "6E9BFC131F3263A3007D7A93"
+            BuildableName = "LinPhoneSwift macOS.framework"
+            BlueprintName = "LinPhoneSwift macOS"
             ReferencedContainer = "container:LinPhone.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -70,6 +79,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "6E9BFC131F3263A3007D7A93"
+            BuildableName = "LinPhoneSwift macOS.framework"
+            BlueprintName = "LinPhoneSwift macOS"
+            ReferencedContainer = "container:LinPhone.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
@@ -77,23 +95,5 @@
    <ArchiveAction
       buildConfiguration = "Release"
       revealArchiveInOrganizer = "YES">
-      <PostActions>
-         <ExecutionAction
-            ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
-            <ActionContent
-               title = "Run Script"
-               scriptText = "">
-               <EnvironmentBuildable>
-                  <BuildableReference
-                     BuildableIdentifier = "primary"
-                     BlueprintIdentifier = "OBJ_16"
-                     BuildableName = "LinPhoneSwift.framework"
-                     BlueprintName = "LinPhoneSwift"
-                     ReferencedContainer = "container:LinPhone.xcodeproj">
-                  </BuildableReference>
-               </EnvironmentBuildable>
-            </ActionContent>
-         </ExecutionAction>
-      </PostActions>
    </ArchiveAction>
 </Scheme>
