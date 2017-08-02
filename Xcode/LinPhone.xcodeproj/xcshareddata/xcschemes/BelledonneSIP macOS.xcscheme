@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6E52914E1F0B53AE00D4B765"
-               BuildableName = "BelledonneSIP.framework"
-               BlueprintName = "BelledonneSIP"
+               BlueprintIdentifier = "6E9BFB9C1F3238B7007D7A93"
+               BuildableName = "BelledonneSIP macOS.framework"
+               BlueprintName = "BelledonneSIP macOS"
                ReferencedContainer = "container:LinPhone.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -32,9 +32,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6E5291671F0B53B100D4B765"
-               BuildableName = "BelledonneSIPTests.xctest"
-               BlueprintName = "BelledonneSIPTests"
+               BlueprintIdentifier = "6E9BFBB11F3238BA007D7A93"
+               BuildableName = "BelledonneSIPTests macOS.xctest"
+               BlueprintName = "BelledonneSIPTests macOS"
                ReferencedContainer = "container:LinPhone.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -42,9 +42,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6E52914E1F0B53AE00D4B765"
-            BuildableName = "BelledonneSIP.framework"
-            BlueprintName = "BelledonneSIP"
+            BlueprintIdentifier = "6E9BFB9C1F3238B7007D7A93"
+            BuildableName = "BelledonneSIP macOS.framework"
+            BlueprintName = "BelledonneSIP macOS"
             ReferencedContainer = "container:LinPhone.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -64,9 +64,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6E52914E1F0B53AE00D4B765"
-            BuildableName = "BelledonneSIP.framework"
-            BlueprintName = "BelledonneSIP"
+            BlueprintIdentifier = "6E9BFB9C1F3238B7007D7A93"
+            BuildableName = "BelledonneSIP macOS.framework"
+            BlueprintName = "BelledonneSIP macOS"
             ReferencedContainer = "container:LinPhone.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -82,9 +82,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6E52914E1F0B53AE00D4B765"
-            BuildableName = "BelledonneSIP.framework"
-            BlueprintName = "BelledonneSIP"
+            BlueprintIdentifier = "6E9BFB9C1F3238B7007D7A93"
+            BuildableName = "BelledonneSIP macOS.framework"
+            BlueprintName = "BelledonneSIP macOS"
             ReferencedContainer = "container:LinPhone.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

@@ -90,9 +90,15 @@
 		6E77CD4E1F318A1700403EFF /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD4D1F318A1700403EFF /* libstdc++.tbd */; };
 		6E77CD8B1F318ADA00403EFF /* libbctoolbox.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD591F318A7E00403EFF /* libbctoolbox.dylib */; };
 		6E7FEF191F128F5400C27DE9 /* AddressTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7FEF181F128F5400C27DE9 /* AddressTests.swift */; };
+		6E9BFBA01F3238B7007D7A93 /* URI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5291881F0B543C00D4B765 /* URI.swift */; };
+		6E9BFBA11F3238B7007D7A93 /* ObjectHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6A6E31F0D488400C39864 /* ObjectHandle.swift */; };
+		6E9BFBA21F3238B7007D7A93 /* Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E52918C1F0B58C000D4B765 /* Object.swift */; };
+		6E9BFBA31F3238B7007D7A93 /* Handle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E52918F1F0B5B2B00D4B765 /* Handle.swift */; };
+		6E9BFBA41F3238B7007D7A93 /* URI.SIP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E52918A1F0B553400D4B765 /* URI.SIP.swift */; };
+		6E9BFBB51F3238BA007D7A93 /* URITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E25EA891F0BEA98005BC42C /* URITests.swift */; };
+		6E9BFBC11F323B47007D7A93 /* libbellesip.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD5D1F318A7E00403EFF /* libbellesip.dylib */; };
 		6EA69FA01F150FE500284E24 /* Tunnel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA69F9F1F150FE500284E24 /* Tunnel.swift */; };
 		6EF1B5C91F0D6B5400B65129 /* Conference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF1B5C81F0D6B5400B65129 /* Conference.swift */; };
-		6EF6A6D41F0C059400C39864 /* BelledonneToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E569AF21F09F67200BF244A /* BelledonneToolbox.framework */; };
 		6EF6A6D61F0C3E5100C39864 /* Call.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6A6D51F0C3E5100C39864 /* Call.swift */; };
 		6EF6A6D81F0C427B00C39864 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6A6D71F0C427B00C39864 /* Address.swift */; };
 		6EF6A6DA1F0C640F00C39864 /* CallLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6A6D91F0C640F00C39864 /* CallLog.swift */; };
@@ -104,7 +110,6 @@
 		6EF6A6E91F0D501F00C39864 /* ObjectHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6A6E81F0D501F00C39864 /* ObjectHandle.swift */; };
 		6EFE258D1F165E8B00FC4ECC /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E25EA501F0B77AB005BC42C /* libsqlite3.tbd */; };
 		6EFE25A81F16611500FC4ECC /* bctoolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EFE259C1F1660FD00FC4ECC /* bctoolbox.framework */; };
-		6EFE25A91F16613500FC4ECC /* bctoolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EFE259C1F1660FD00FC4ECC /* bctoolbox.framework */; };
 		6EFE25AB1F1661A900FC4ECC /* libbellesip.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EFE25901F1660F100FC4ECC /* libbellesip.a */; };
 		6EFE25AC1F1664D500FC4ECC /* bctoolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EFE259C1F1660FD00FC4ECC /* bctoolbox.framework */; };
 		6EFE25AD1F1664E700FC4ECC /* libantlr3c.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EFE258E1F1660F100FC4ECC /* libantlr3c.a */; };
@@ -221,6 +226,20 @@
 			remoteGlobalIDString = 6E58AF141F085B4F009A0E68;
 			remoteInfo = MediaStreamer;
 		};
+		6E9BFBBE1F3239E6007D7A93 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6E1303961F3185C500C4AEE8;
+			remoteInfo = "BelledonneToolbox macOS";
+		};
+		6E9BFBC21F323B64007D7A93 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6E9BFB9C1F3238B7007D7A93;
+			remoteInfo = "BelledonneSIP macOS";
+		};
 		6EF6A6D21F0C058C00C39864 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
@@ -324,6 +343,16 @@
 				6E5BBE6B1F1F2F5B00BE69FC /* video_out.pcapng in Copy Fake Server */,
 			);
 			name = "Copy Fake Server";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6E9BFBB81F3238BA007D7A93 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -432,6 +461,8 @@
 		6E77CD801F318A7E00403EFF /* libmsopenh264.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; path = libmsopenh264.so; sourceTree = "<group>"; };
 		6E77CD811F318A7E00403EFF /* libmswebrtc.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; path = libmswebrtc.so; sourceTree = "<group>"; };
 		6E7FEF181F128F5400C27DE9 /* AddressTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressTests.swift; sourceTree = "<group>"; };
+		6E9BFBB01F3238B7007D7A93 /* BelledonneSIP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BelledonneSIP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E9BFBBD1F3238BA007D7A93 /* BelledonneSIPTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BelledonneSIPTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EA69F9F1F150FE500284E24 /* Tunnel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tunnel.swift; sourceTree = "<group>"; };
 		6EF1B5C81F0D6B5400B65129 /* Conference.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Conference.swift; sourceTree = "<group>"; };
 		6EF6A6D51F0C3E5100C39864 /* Call.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Call.swift; sourceTree = "<group>"; };
@@ -524,8 +555,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
-				6EF6A6D41F0C059400C39864 /* BelledonneToolbox.framework in Frameworks */,
-				6EFE25A91F16613500FC4ECC /* bctoolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -561,6 +590,21 @@
 			buildActionMask = 0;
 			files = (
 				6EFE25D61F1667D200FC4ECC /* MediaStreamer.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6E9BFBA51F3238B7007D7A93 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
+			files = (
+				6E9BFBC11F323B47007D7A93 /* libbellesip.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6E9BFBB61F3238BA007D7A93 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -904,6 +948,8 @@
 				6E5291871F0B53B100D4B765 /* BelledonneSIPTests.xctest */,
 				6E1303A21F3185C500C4AEE8 /* BelledonneToolbox.framework */,
 				6E1303B01F3185C700C4AEE8 /* BelledonneToolboxTests.xctest */,
+				6E9BFBB01F3238B7007D7A93 /* BelledonneSIP.framework */,
+				6E9BFBBD1F3238BA007D7A93 /* BelledonneSIPTests.xctest */,
 			);
 			name = Products;
 			sourceTree = BUILT_PRODUCTS_DIR;
@@ -980,9 +1026,9 @@
 			productReference = 6E1303B01F3185C700C4AEE8 /* BelledonneToolboxTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		6E52914E1F0B53AE00D4B765 /* BelledonneSIP */ = {
+		6E52914E1F0B53AE00D4B765 /* BelledonneSIP iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6E5291631F0B53AE00D4B765 /* Build configuration list for PBXNativeTarget "BelledonneSIP" */;
+			buildConfigurationList = 6E5291631F0B53AE00D4B765 /* Build configuration list for PBXNativeTarget "BelledonneSIP iOS" */;
 			buildPhases = (
 				6E5291511F0B53AE00D4B765 /* Sources */,
 				6E5291561F0B53AE00D4B765 /* Frameworks */,
@@ -993,14 +1039,14 @@
 			dependencies = (
 				6E25E9CF1F0B6E95005BC42C /* PBXTargetDependency */,
 			);
-			name = BelledonneSIP;
+			name = "BelledonneSIP iOS";
 			productName = LinPhoneSwift;
 			productReference = 6E5291661F0B53AE00D4B765 /* BelledonneSIP.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		6E5291671F0B53B100D4B765 /* BelledonneSIPTests */ = {
+		6E5291671F0B53B100D4B765 /* BelledonneSIPTests iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6E5291841F0B53B100D4B765 /* Build configuration list for PBXNativeTarget "BelledonneSIPTests" */;
+			buildConfigurationList = 6E5291841F0B53B100D4B765 /* Build configuration list for PBXNativeTarget "BelledonneSIPTests iOS" */;
 			buildPhases = (
 				6E5291681F0B53B100D4B765 /* Sources */,
 				6E5291691F0B53B100D4B765 /* Frameworks */,
@@ -1011,7 +1057,7 @@
 			dependencies = (
 				6E25E9D21F0B6EA1005BC42C /* PBXTargetDependency */,
 			);
-			name = BelledonneSIPTests;
+			name = "BelledonneSIPTests iOS";
 			productName = LinPhoneSwiftTests;
 			productReference = 6E5291871F0B53B100D4B765 /* BelledonneSIPTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -1085,6 +1131,42 @@
 			name = MediaStreamerTests;
 			productName = LinPhoneSwiftTests;
 			productReference = 6E58AF531F085B53009A0E68 /* MediaStreamerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		6E9BFB9C1F3238B7007D7A93 /* BelledonneSIP macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6E9BFBAD1F3238B7007D7A93 /* Build configuration list for PBXNativeTarget "BelledonneSIP macOS" */;
+			buildPhases = (
+				6E9BFB9F1F3238B7007D7A93 /* Sources */,
+				6E9BFBA51F3238B7007D7A93 /* Frameworks */,
+				6E9BFBAC1F3238B7007D7A93 /* Increment Build */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6E9BFBBF1F3239E6007D7A93 /* PBXTargetDependency */,
+			);
+			name = "BelledonneSIP macOS";
+			productName = LinPhoneSwift;
+			productReference = 6E9BFBB01F3238B7007D7A93 /* BelledonneSIP.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		6E9BFBB11F3238BA007D7A93 /* BelledonneSIPTests macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6E9BFBBA1F3238BA007D7A93 /* Build configuration list for PBXNativeTarget "BelledonneSIPTests macOS" */;
+			buildPhases = (
+				6E9BFBB41F3238BA007D7A93 /* Sources */,
+				6E9BFBB61F3238BA007D7A93 /* Frameworks */,
+				6E9BFBB81F3238BA007D7A93 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6E9BFBC31F323B64007D7A93 /* PBXTargetDependency */,
+			);
+			name = "BelledonneSIPTests macOS";
+			productName = LinPhoneSwiftTests;
+			productReference = 6E9BFBBD1F3238BA007D7A93 /* BelledonneSIPTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		OBJ_16 /* LinPhoneSwift */ = {
@@ -1162,8 +1244,10 @@
 				OBJ_23 /* LinPhoneTests */,
 				6E58AF141F085B4F009A0E68 /* MediaStreamer */,
 				6E58AF301F085B53009A0E68 /* MediaStreamerTests */,
-				6E52914E1F0B53AE00D4B765 /* BelledonneSIP */,
-				6E5291671F0B53B100D4B765 /* BelledonneSIPTests */,
+				6E52914E1F0B53AE00D4B765 /* BelledonneSIP iOS */,
+				6E5291671F0B53B100D4B765 /* BelledonneSIPTests iOS */,
+				6E9BFB9C1F3238B7007D7A93 /* BelledonneSIP macOS */,
+				6E9BFBB11F3238BA007D7A93 /* BelledonneSIPTests macOS */,
 				6E569ADD1F09F67200BF244A /* BelledonneToolbox iOS */,
 				6E569AF41F09F67500BF244A /* BelledonneToolboxTests iOS */,
 				6E1303961F3185C500C4AEE8 /* BelledonneToolbox macOS */,
@@ -1253,6 +1337,20 @@
 			shellPath = /bin/sh;
 			shellScript = "#!/bin/bash\n\n#  update_build_number.sh\n#  Usage: `update_build_number.sh [branch]`\n#  Run this script after the 'Copy Bundle Resources' build phase\n#  Ref: http://tgoode.com/2014/06/05/sensible-way-increment-bundle-version-cfbundleversion-xcode/\n\nif [ $TRAVIS == \"true\" ]\nthen echo \"Updating build number to TRAVISCI.\"\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion TRAVISCI\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\nelse branch=${1:-'master'}\nbuildNumber=$(expr $(git rev-list $branch --count) - $(git rev-list HEAD..$branch --count))\necho \"Updating build number to $buildNumber using branch '$branch'.\"\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\nfi";
 		};
+		6E9BFBAC1F3238B7007D7A93 /* Increment Build */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Increment Build";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/bash\n\n#  update_build_number.sh\n#  Usage: `update_build_number.sh [branch]`\n#  Run this script after the 'Copy Bundle Resources' build phase\n#  Ref: http://tgoode.com/2014/06/05/sensible-way-increment-bundle-version-cfbundleversion-xcode/\n\nif [ $TRAVIS == \"true\" ]\nthen echo \"Updating build number to TRAVISCI.\"\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion TRAVISCI\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\nelse branch=${1:-'master'}\nbuildNumber=$(expr $(git rev-list $branch --count) - $(git rev-list HEAD..$branch --count))\necho \"Updating build number to $buildNumber using branch '$branch'.\"\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\nfi";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -1329,6 +1427,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6E9BFB9F1F3238B7007D7A93 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				6E9BFBA01F3238B7007D7A93 /* URI.swift in Sources */,
+				6E9BFBA11F3238B7007D7A93 /* ObjectHandle.swift in Sources */,
+				6E9BFBA21F3238B7007D7A93 /* Object.swift in Sources */,
+				6E9BFBA31F3238B7007D7A93 /* Handle.swift in Sources */,
+				6E9BFBA41F3238B7007D7A93 /* URI.SIP.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6E9BFBB41F3238BA007D7A93 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				6E9BFBB51F3238BA007D7A93 /* URITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		OBJ_20 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
@@ -1379,7 +1497,7 @@
 		};
 		6E25E9D21F0B6EA1005BC42C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 6E52914E1F0B53AE00D4B765 /* BelledonneSIP */;
+			target = 6E52914E1F0B53AE00D4B765 /* BelledonneSIP iOS */;
 			targetProxy = 6E25E9D11F0B6EA1005BC42C /* PBXContainerItemProxy */;
 		};
 		6E25EA0C1F0B753C005BC42C /* PBXTargetDependency */ = {
@@ -1389,7 +1507,7 @@
 		};
 		6E25EA4E1F0B7788005BC42C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 6E52914E1F0B53AE00D4B765 /* BelledonneSIP */;
+			target = 6E52914E1F0B53AE00D4B765 /* BelledonneSIP iOS */;
 			targetProxy = 6E25EA4D1F0B7788005BC42C /* PBXContainerItemProxy */;
 		};
 		6E569B1B1F09F7F600BF244A /* PBXTargetDependency */ = {
@@ -1411,6 +1529,16 @@
 			isa = PBXTargetDependency;
 			target = 6E58AF141F085B4F009A0E68 /* MediaStreamer */;
 			targetProxy = 6E8CF9AC1F167A840012BC9D /* PBXContainerItemProxy */;
+		};
+		6E9BFBBF1F3239E6007D7A93 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6E1303961F3185C500C4AEE8 /* BelledonneToolbox macOS */;
+			targetProxy = 6E9BFBBE1F3239E6007D7A93 /* PBXContainerItemProxy */;
+		};
+		6E9BFBC31F323B64007D7A93 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6E9BFB9C1F3238B7007D7A93 /* BelledonneSIP macOS */;
+			targetProxy = 6E9BFBC21F323B64007D7A93 /* PBXContainerItemProxy */;
 		};
 		6EF6A6D31F0C058C00C39864 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1478,7 +1606,7 @@
 				ENABLE_BITCODE = "$(INHERITED)";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.belledonne.bellesip.swift;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = BelledonneSIP;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1492,7 +1620,7 @@
 				ENABLE_BITCODE = "$(INHERITED)";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.belledonne.bellesip.swift;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = BelledonneSIP;
 				SDKROOT = iphoneos;
 			};
 			name = Release;
@@ -1502,7 +1630,7 @@
 			buildSettings = {
 				ENABLE_BITCODE = "$(INHERITED)";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $(FRAMEWORK_SEARCH_PATHS) $(CONFIGURATION_BUILD_DIR)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = BelledonneSIPTests;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1512,7 +1640,7 @@
 			buildSettings = {
 				ENABLE_BITCODE = "$(INHERITED)";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $(FRAMEWORK_SEARCH_PATHS) $(CONFIGURATION_BUILD_DIR)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = BelledonneSIPTests;
 				SDKROOT = iphoneos;
 			};
 			name = Release;
@@ -1613,6 +1741,50 @@
 			};
 			name = Release;
 		};
+		6E9BFBAE1F3238B7007D7A93 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = org.belledonne.bellesip.swift;
+				PRODUCT_NAME = BelledonneSIP;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		6E9BFBAF1F3238B7007D7A93 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = org.belledonne.bellesip.swift;
+				PRODUCT_NAME = BelledonneSIP;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		6E9BFBBB1F3238BA007D7A93 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $(FRAMEWORK_SEARCH_PATHS) $(CONFIGURATION_BUILD_DIR)";
+				PRODUCT_NAME = BelledonneSIPTests;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		6E9BFBBC1F3238BA007D7A93 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $(FRAMEWORK_SEARCH_PATHS) $(CONFIGURATION_BUILD_DIR)";
+				PRODUCT_NAME = BelledonneSIPTests;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
 		OBJ_18 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1708,6 +1880,7 @@
 				SWIFT_INCLUDE_PATHS = $SRCROOT;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				USE_HEADERMAP = NO;
 				VALID_ARCHS = "";
 				"VALID_ARCHS[sdk=iphoneos*]" = "arm64 armv7 armv7s";
@@ -1764,6 +1937,7 @@
 				SWIFT_INCLUDE_PATHS = $SRCROOT;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				USE_HEADERMAP = NO;
 				VALID_ARCHS = "";
 				"VALID_ARCHS[sdk=iphoneos*]" = "arm64 armv7 armv7s";
@@ -1793,7 +1967,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		6E5291631F0B53AE00D4B765 /* Build configuration list for PBXNativeTarget "BelledonneSIP" */ = {
+		6E5291631F0B53AE00D4B765 /* Build configuration list for PBXNativeTarget "BelledonneSIP iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6E5291641F0B53AE00D4B765 /* Debug */,
@@ -1802,7 +1976,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		6E5291841F0B53B100D4B765 /* Build configuration list for PBXNativeTarget "BelledonneSIPTests" */ = {
+		6E5291841F0B53B100D4B765 /* Build configuration list for PBXNativeTarget "BelledonneSIPTests iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6E5291851F0B53B100D4B765 /* Debug */,
@@ -1843,6 +2017,24 @@
 			buildConfigurations = (
 				6E58AF511F085B53009A0E68 /* Debug */,
 				6E58AF521F085B53009A0E68 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		6E9BFBAD1F3238B7007D7A93 /* Build configuration list for PBXNativeTarget "BelledonneSIP macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6E9BFBAE1F3238B7007D7A93 /* Debug */,
+				6E9BFBAF1F3238B7007D7A93 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		6E9BFBBA1F3238BA007D7A93 /* Build configuration list for PBXNativeTarget "BelledonneSIPTests macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6E9BFBBB1F3238BA007D7A93 /* Debug */,
+				6E9BFBBC1F3238BA007D7A93 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
