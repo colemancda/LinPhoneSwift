@@ -11,7 +11,6 @@
 		6E1303991F3185C500C4AEE8 /* Handle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6A6E51F0D4EC800C39864 /* Handle.swift */; };
 		6E13039A1F3185C500C4AEE8 /* Bool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E59C7871F11E0C6005274EC /* Bool.swift */; };
 		6E1303A71F3185C700C4AEE8 /* LinkedListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E25EA871F0BEA98005BC42C /* LinkedListTests.swift */; };
-		6E1303AC1F3185C700C4AEE8 /* bctoolbox.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6EFE259C1F1660FD00FC4ECC /* bctoolbox.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6E1EF48B1F232901009A5B5B /* bctoolbox.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6EFE259C1F1660FD00FC4ECC /* bctoolbox.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6E25E9D01F0B6E9C005BC42C /* BelledonneSIP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E5291661F0B53AE00D4B765 /* BelledonneSIP.framework */; };
 		6E25E9D91F0B73A5005BC42C /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E25E9D81F0B73A5005BC42C /* libresolv.tbd */; };
@@ -83,6 +82,10 @@
 		6E5BBE6B1F1F2F5B00BE69FC /* video_out.pcapng in Copy Fake Server */ = {isa = PBXBuildFile; fileRef = 6E5BBE571F1F2F0E00BE69FC /* video_out.pcapng */; };
 		6E676A161F129C7000EF4428 /* CallParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E676A151F129C7000EF4428 /* CallParameters.swift */; };
 		6E676A181F12AD0B00EF4428 /* CallStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E676A171F12AD0B00EF4428 /* CallStats.swift */; };
+		6E728E151F3191FC00E0A796 /* libbctoolbox.1.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD581F318A7E00403EFF /* libbctoolbox.1.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		6E728E161F31924A00E0A796 /* libmbedtls.10.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD671F318A7E00403EFF /* libmbedtls.10.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		6E728E171F31925700E0A796 /* libmbedx509.0.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD6A1F318A7E00403EFF /* libmbedx509.0.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		6E728E181F31926200E0A796 /* libmbedcrypto.0.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD641F318A7E00403EFF /* libmbedcrypto.0.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		6E76D7401F0705B70017362C /* Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E76D73E1F0705B70017362C /* Core.swift */; };
 		6E77CD4E1F318A1700403EFF /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD4D1F318A1700403EFF /* libstdc++.tbd */; };
 		6E77CD8B1F318ADA00403EFF /* libbctoolbox.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD591F318A7E00403EFF /* libbctoolbox.dylib */; };
@@ -234,7 +237,10 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				6E1303AC1F3185C700C4AEE8 /* bctoolbox.framework in Embed Frameworks */,
+				6E728E151F3191FC00E0A796 /* libbctoolbox.1.dylib in Embed Frameworks */,
+				6E728E161F31924A00E0A796 /* libmbedtls.10.dylib in Embed Frameworks */,
+				6E728E171F31925700E0A796 /* libmbedx509.0.dylib in Embed Frameworks */,
+				6E728E181F31926200E0A796 /* libmbedcrypto.0.dylib in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1425,16 +1431,11 @@
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
-				ENABLE_BITCODE = "$(INHERITED)";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = org.belledonne.bctoolbox.swift;
 				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)";
 				PRODUCT_NAME = BelledonneToolbox;
 				SDKROOT = macosx;
-				SWIFT_INCLUDE_PATHS = $SRCROOT;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -1444,26 +1445,18 @@
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
-				ENABLE_BITCODE = "$(INHERITED)";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = org.belledonne.bctoolbox.swift;
 				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)";
 				PRODUCT_NAME = BelledonneToolbox;
 				SDKROOT = macosx;
-				SWIFT_INCLUDE_PATHS = $SRCROOT;
-				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
 		6E1303AE1F3185C700C4AEE8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				DEVELOPMENT_TEAM = "";
-				ENABLE_BITCODE = "$(INHERITED)";
-				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_NAME = BelledonneToolboxTests;
-				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = macosx;
 			};
 			name = Debug;
@@ -1471,11 +1464,7 @@
 		6E1303AF1F3185C700C4AEE8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				DEVELOPMENT_TEAM = "";
-				ENABLE_BITCODE = "$(INHERITED)";
-				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_NAME = BelledonneToolboxTests;
-				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = macosx;
 			};
 			name = Release;
@@ -1488,13 +1477,9 @@
 				DEFINES_MODULE = YES;
 				ENABLE_BITCODE = "$(INHERITED)";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = org.belledonne.bellesip.swift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
-				SWIFT_INCLUDE_PATHS = $SRCROOT;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -1506,24 +1491,18 @@
 				DEFINES_MODULE = YES;
 				ENABLE_BITCODE = "$(INHERITED)";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = org.belledonne.bellesip.swift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
-				SWIFT_INCLUDE_PATHS = $SRCROOT;
-				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
 		6E5291851F0B53B100D4B765 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = "$(INHERITED)";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $(FRAMEWORK_SEARCH_PATHS) $(CONFIGURATION_BUILD_DIR)";
-				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1531,12 +1510,9 @@
 		6E5291861F0B53B100D4B765 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = "$(INHERITED)";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $(FRAMEWORK_SEARCH_PATHS) $(CONFIGURATION_BUILD_DIR)";
-				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 			};
 			name = Release;
@@ -1549,14 +1525,10 @@
 				DEFINES_MODULE = YES;
 				ENABLE_BITCODE = "$(INHERITED)";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = org.belledonne.bctoolbox.swift;
 				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)";
 				PRODUCT_NAME = BelledonneToolbox;
 				SDKROOT = iphoneos;
-				SWIFT_INCLUDE_PATHS = $SRCROOT;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -1568,24 +1540,18 @@
 				DEFINES_MODULE = YES;
 				ENABLE_BITCODE = "$(INHERITED)";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = org.belledonne.bctoolbox.swift;
 				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)";
 				PRODUCT_NAME = BelledonneToolbox;
 				SDKROOT = iphoneos;
-				SWIFT_INCLUDE_PATHS = $SRCROOT;
-				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
 		6E569B151F09F67500BF244A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = "$(INHERITED)";
-				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_NAME = BelledonneToolboxTests;
-				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1593,11 +1559,8 @@
 		6E569B161F09F67500BF244A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = "$(INHERITED)";
-				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_NAME = BelledonneToolboxTests;
-				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 			};
 			name = Release;
@@ -1610,14 +1573,10 @@
 				DEFINES_MODULE = YES;
 				ENABLE_BITCODE = "$(INHERITED)";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = org.belledonne.mediastreamer.swift;
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
-				SWIFT_INCLUDE_PATHS = $SRCROOT;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -1629,24 +1588,18 @@
 				DEFINES_MODULE = YES;
 				ENABLE_BITCODE = "$(INHERITED)";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = org.belledonne.mediastreamer.swift;
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
-				SWIFT_INCLUDE_PATHS = $SRCROOT;
-				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
 		6E58AF511F085B53009A0E68 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = "$(INHERITED)";
-				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1654,11 +1607,8 @@
 		6E58AF521F085B53009A0E68 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = "$(INHERITED)";
-				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 			};
 			name = Release;
@@ -1670,13 +1620,9 @@
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				ENABLE_BITCODE = "$(INHERITED)";
-				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = org.belledonne.linphone.swift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
-				SWIFT_INCLUDE_PATHS = $SRCROOT;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -1687,23 +1633,17 @@
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				ENABLE_BITCODE = "$(INHERITED)";
-				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = org.belledonne.linphone.swift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
-				SWIFT_INCLUDE_PATHS = $SRCROOT;
-				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
 		OBJ_25 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = "$(INHERITED)";
-				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_NAME = LinPhoneTests;
-				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1711,11 +1651,8 @@
 		OBJ_26 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = "$(INHERITED)";
-				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_NAME = LinPhoneTests;
-				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 			};
 			name = Release;
@@ -1756,6 +1693,11 @@
 				INFOPLIST_FILE = "LinPhone.xcodeproj/$PRODUCT_NAME-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=iphoneos*]" = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=iphonesimulator*]" = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				"LIBRARY_SEARCH_PATHS[sdk=iphoneos*]" = "$SRCROOT/../liblinphone-sdk/ios/apple-darwin/lib";
+				"LIBRARY_SEARCH_PATHS[sdk=iphonesimulator*]" = "$SRCROOT/../liblinphone-sdk/ios/apple-darwin/lib";
 				"LIBRARY_SEARCH_PATHS[sdk=macosx*]" = "$SRCROOT/../liblinphone-sdk/macOS/lib";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1763,6 +1705,7 @@
 				PRODUCT_NAME = "$(PROJECT_NAME)";
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_INCLUDE_PATHS = $SRCROOT;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				USE_HEADERMAP = NO;
@@ -1807,10 +1750,18 @@
 				INFOPLIST_FILE = "LinPhone.xcodeproj/$PRODUCT_NAME-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=iphoneos*]" = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=iphonesimulator*]" = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				"LIBRARY_SEARCH_PATHS[sdk=iphoneos*]" = "$SRCROOT/../liblinphone-sdk/ios/apple-darwin/lib";
+				"LIBRARY_SEARCH_PATHS[sdk=iphonesimulator*]" = "$SRCROOT/../liblinphone-sdk/ios/apple-darwin/lib";
+				"LIBRARY_SEARCH_PATHS[sdk=macosx*]" = "$SRCROOT/../liblinphone-sdk/macOS/lib";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				OTHER_SWIFT_FLAGS = "-DXCode";
 				PRODUCT_NAME = "$(PROJECT_NAME)";
 				SDKROOT = macosx;
+				SWIFT_DISABLE_SAFETY_CHECKS = YES;
+				SWIFT_INCLUDE_PATHS = $SRCROOT;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 3.0;
 				USE_HEADERMAP = NO;
