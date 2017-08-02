@@ -231,42 +231,6 @@ private extension XCTestCase {
     }
 }
 
-extension pid_t {
-    
-    static func execute(launchPath: String, arguments: String = "") -> pid_t {
-        
-        var args = [launchPath, arguments]
-        
-        let argv : UnsafeMutablePointer<UnsafeMutablePointer<Int8>?> = args.withUnsafeBufferPointer {
-            let array : UnsafeBufferPointer<String> = $0
-            let buffer = UnsafeMutablePointer<UnsafeMutablePointer<Int8>?>.allocate(capacity: array.count + 1)
-            buffer.initialize(from: array.map { $0.withCString(strdup) })
-            buffer[array.count] = nil
-            return buffer
-        }
-        
-        defer {
-            for arg in argv ..< argv + args.count {
-                free(UnsafeMutableRawPointer(arg.pointee))
-            }
-            
-            argv.deallocate(capacity: args.count + 1)
-        }
-        
-        var pid = pid_t()
-        
-        guard posix_spawnp(&pid, launchPath, nil, nil, argv, nil) == 0
-            else { fatalError("Could not execute \(launchPath): \(errno)") }
-        
-        return pid
-    }
-    
-    func terminate() {
-        
-        kill(self, SIGKILL)
-    }
-}
-
 extension LinPhoneSwift.Core {
     
     func configureForFakeServer() -> Bool {

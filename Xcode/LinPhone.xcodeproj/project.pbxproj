@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6E1303981F3185C500C4AEE8 /* LinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E569ADC1F09DA3500BF244A /* LinkedList.swift */; };
+		6E1303991F3185C500C4AEE8 /* Handle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6A6E51F0D4EC800C39864 /* Handle.swift */; };
+		6E13039A1F3185C500C4AEE8 /* Bool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E59C7871F11E0C6005274EC /* Bool.swift */; };
+		6E1303A71F3185C700C4AEE8 /* LinkedListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E25EA871F0BEA98005BC42C /* LinkedListTests.swift */; };
+		6E1303AC1F3185C700C4AEE8 /* bctoolbox.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6EFE259C1F1660FD00FC4ECC /* bctoolbox.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6E1EF48B1F232901009A5B5B /* bctoolbox.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6EFE259C1F1660FD00FC4ECC /* bctoolbox.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6E25E9D01F0B6E9C005BC42C /* BelledonneSIP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E5291661F0B53AE00D4B765 /* BelledonneSIP.framework */; };
 		6E25E9D91F0B73A5005BC42C /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E25E9D81F0B73A5005BC42C /* libresolv.tbd */; };
@@ -79,6 +84,8 @@
 		6E676A161F129C7000EF4428 /* CallParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E676A151F129C7000EF4428 /* CallParameters.swift */; };
 		6E676A181F12AD0B00EF4428 /* CallStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E676A171F12AD0B00EF4428 /* CallStats.swift */; };
 		6E76D7401F0705B70017362C /* Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E76D73E1F0705B70017362C /* Core.swift */; };
+		6E77CD4E1F318A1700403EFF /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD4D1F318A1700403EFF /* libstdc++.tbd */; };
+		6E77CD8B1F318ADA00403EFF /* libbctoolbox.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD591F318A7E00403EFF /* libbctoolbox.dylib */; };
 		6E7FEF191F128F5400C27DE9 /* AddressTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7FEF181F128F5400C27DE9 /* AddressTests.swift */; };
 		6EA69FA01F150FE500284E24 /* Tunnel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA69F9F1F150FE500284E24 /* Tunnel.swift */; };
 		6EF1B5C91F0D6B5400B65129 /* Conference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF1B5C81F0D6B5400B65129 /* Conference.swift */; };
@@ -197,6 +204,13 @@
 			remoteGlobalIDString = OBJ_16;
 			remoteInfo = LinPhoneSwift;
 		};
+		6E77CD4F1F318A3700403EFF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6E1303961F3185C500C4AEE8;
+			remoteInfo = "BelledonneToolbox macOS";
+		};
 		6E8CF9AC1F167A840012BC9D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
@@ -214,6 +228,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		6E1303AB1F3185C700C4AEE8 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				6E1303AC1F3185C700C4AEE8 /* bctoolbox.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6E5291771F0B53B100D4B765 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -298,6 +323,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6E1303A21F3185C500C4AEE8 /* BelledonneToolbox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BelledonneToolbox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E1303B01F3185C700C4AEE8 /* BelledonneToolboxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BelledonneToolboxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E25E9D81F0B73A5005BC42C /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/usr/lib/libresolv.tbd; sourceTree = DEVELOPER_DIR; };
 		6E25E9DA1F0B73F1005BC42C /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/usr/lib/libstdc++.tbd"; sourceTree = DEVELOPER_DIR; };
 		6E25E9DC1F0B7413005BC42C /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/usr/lib/libz.tbd; sourceTree = DEVELOPER_DIR; };
@@ -355,6 +382,49 @@
 		6E676A171F12AD0B00EF4428 /* CallStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallStats.swift; sourceTree = "<group>"; };
 		6E76D73E1F0705B70017362C /* Core.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Core.swift; sourceTree = "<group>"; };
 		6E76D76D1F0710D90017362C /* module.map */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = module.map; sourceTree = "<group>"; };
+		6E77CD4D1F318A1700403EFF /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
+		6E77CD541F318A7D00403EFF /* libantlr3c.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libantlr3c.1.dylib; sourceTree = "<group>"; };
+		6E77CD551F318A7D00403EFF /* libantlr3c.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libantlr3c.dylib; sourceTree = "<group>"; };
+		6E77CD581F318A7E00403EFF /* libbctoolbox.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libbctoolbox.1.dylib; sourceTree = "<group>"; };
+		6E77CD591F318A7E00403EFF /* libbctoolbox.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libbctoolbox.dylib; sourceTree = "<group>"; };
+		6E77CD5A1F318A7E00403EFF /* libbcunit.1.0.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libbcunit.1.0.1.dylib; sourceTree = "<group>"; };
+		6E77CD5B1F318A7E00403EFF /* libbcunit.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libbcunit.dylib; sourceTree = "<group>"; };
+		6E77CD5C1F318A7E00403EFF /* libbellesip.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libbellesip.0.dylib; sourceTree = "<group>"; };
+		6E77CD5D1F318A7E00403EFF /* libbellesip.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libbellesip.dylib; sourceTree = "<group>"; };
+		6E77CD5E1F318A7E00403EFF /* libbv16.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libbv16.dylib; sourceTree = "<group>"; };
+		6E77CD5F1F318A7E00403EFF /* libbzrtp.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libbzrtp.0.dylib; sourceTree = "<group>"; };
+		6E77CD601F318A7E00403EFF /* libbzrtp.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libbzrtp.dylib; sourceTree = "<group>"; };
+		6E77CD611F318A7E00403EFF /* libgsm.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libgsm.dylib; sourceTree = "<group>"; };
+		6E77CD621F318A7E00403EFF /* liblinphone.9.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = liblinphone.9.dylib; sourceTree = "<group>"; };
+		6E77CD631F318A7E00403EFF /* liblinphone.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = liblinphone.dylib; sourceTree = "<group>"; };
+		6E77CD641F318A7E00403EFF /* libmbedcrypto.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libmbedcrypto.0.dylib; sourceTree = "<group>"; };
+		6E77CD651F318A7E00403EFF /* libmbedcrypto.2.4.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libmbedcrypto.2.4.1.dylib; sourceTree = "<group>"; };
+		6E77CD661F318A7E00403EFF /* libmbedcrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libmbedcrypto.dylib; sourceTree = "<group>"; };
+		6E77CD671F318A7E00403EFF /* libmbedtls.10.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libmbedtls.10.dylib; sourceTree = "<group>"; };
+		6E77CD681F318A7E00403EFF /* libmbedtls.2.4.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libmbedtls.2.4.1.dylib; sourceTree = "<group>"; };
+		6E77CD691F318A7E00403EFF /* libmbedtls.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libmbedtls.dylib; sourceTree = "<group>"; };
+		6E77CD6A1F318A7E00403EFF /* libmbedx509.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libmbedx509.0.dylib; sourceTree = "<group>"; };
+		6E77CD6B1F318A7E00403EFF /* libmbedx509.2.4.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libmbedx509.2.4.1.dylib; sourceTree = "<group>"; };
+		6E77CD6C1F318A7E00403EFF /* libmbedx509.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libmbedx509.dylib; sourceTree = "<group>"; };
+		6E77CD6D1F318A7E00403EFF /* libmediastreamer_base.10.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libmediastreamer_base.10.dylib; sourceTree = "<group>"; };
+		6E77CD6E1F318A7E00403EFF /* libmediastreamer_base.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libmediastreamer_base.dylib; sourceTree = "<group>"; };
+		6E77CD6F1F318A7E00403EFF /* libmediastreamer_voip.10.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libmediastreamer_voip.10.dylib; sourceTree = "<group>"; };
+		6E77CD701F318A7E00403EFF /* libmediastreamer_voip.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libmediastreamer_voip.dylib; sourceTree = "<group>"; };
+		6E77CD711F318A7E00403EFF /* libopenh264.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libopenh264.1.dylib; sourceTree = "<group>"; };
+		6E77CD721F318A7E00403EFF /* libopenh264.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libopenh264.dylib; sourceTree = "<group>"; };
+		6E77CD731F318A7E00403EFF /* libopus.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libopus.5.dylib; sourceTree = "<group>"; };
+		6E77CD741F318A7E00403EFF /* libopus.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libopus.dylib; sourceTree = "<group>"; };
+		6E77CD751F318A7E00403EFF /* libortp.13.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libortp.13.dylib; sourceTree = "<group>"; };
+		6E77CD761F318A7E00403EFF /* libortp.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libortp.dylib; sourceTree = "<group>"; };
+		6E77CD771F318A7E00403EFF /* libspeex.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libspeex.6.dylib; sourceTree = "<group>"; };
+		6E77CD781F318A7E00403EFF /* libspeex.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libspeex.dylib; sourceTree = "<group>"; };
+		6E77CD791F318A7E00403EFF /* libspeexdsp.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libspeexdsp.6.dylib; sourceTree = "<group>"; };
+		6E77CD7A1F318A7E00403EFF /* libspeexdsp.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libspeexdsp.dylib; sourceTree = "<group>"; };
+		6E77CD7B1F318A7E00403EFF /* libsrtp.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libsrtp.1.dylib; sourceTree = "<group>"; };
+		6E77CD7C1F318A7E00403EFF /* libsrtp.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libsrtp.dylib; sourceTree = "<group>"; };
+		6E77CD7D1F318A7E00403EFF /* libturbojpeg.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libturbojpeg.a; sourceTree = "<group>"; };
+		6E77CD801F318A7E00403EFF /* libmsopenh264.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; path = libmsopenh264.so; sourceTree = "<group>"; };
+		6E77CD811F318A7E00403EFF /* libmswebrtc.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; path = libmswebrtc.so; sourceTree = "<group>"; };
 		6E7FEF181F128F5400C27DE9 /* AddressTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressTests.swift; sourceTree = "<group>"; };
 		6EA69F9F1F150FE500284E24 /* Tunnel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tunnel.swift; sourceTree = "<group>"; };
 		6EF1B5C81F0D6B5400B65129 /* Conference.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Conference.swift; sourceTree = "<group>"; };
@@ -398,6 +468,22 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		6E13039B1F3185C500C4AEE8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
+			files = (
+				6E77CD4E1F318A1700403EFF /* libstdc++.tbd in Frameworks */,
+				6E77CD8B1F318ADA00403EFF /* libbctoolbox.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6E1303A81F3185C700C4AEE8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6E5291561F0B53AE00D4B765 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
@@ -560,6 +646,7 @@
 		6E1EF48F1F23297F009A5B5B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6E77CD511F318A5B00403EFF /* macOS */,
 				6E1EF48E1F23297A009A5B5B /* iOS */,
 			);
 			name = Frameworks;
@@ -704,6 +791,89 @@
 			path = LinPhone;
 			sourceTree = "<group>";
 		};
+		6E77CD511F318A5B00403EFF /* macOS */ = {
+			isa = PBXGroup;
+			children = (
+				6E77CD521F318A6200403EFF /* System Frameworks */,
+				6E77CD531F318A7D00403EFF /* Linphone */,
+			);
+			name = macOS;
+			sourceTree = "<group>";
+		};
+		6E77CD521F318A6200403EFF /* System Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6E77CD4D1F318A1700403EFF /* libstdc++.tbd */,
+			);
+			name = "System Frameworks";
+			sourceTree = "<group>";
+		};
+		6E77CD531F318A7D00403EFF /* Linphone */ = {
+			isa = PBXGroup;
+			children = (
+				6E77CD541F318A7D00403EFF /* libantlr3c.1.dylib */,
+				6E77CD551F318A7D00403EFF /* libantlr3c.dylib */,
+				6E77CD581F318A7E00403EFF /* libbctoolbox.1.dylib */,
+				6E77CD591F318A7E00403EFF /* libbctoolbox.dylib */,
+				6E77CD5A1F318A7E00403EFF /* libbcunit.1.0.1.dylib */,
+				6E77CD5B1F318A7E00403EFF /* libbcunit.dylib */,
+				6E77CD5C1F318A7E00403EFF /* libbellesip.0.dylib */,
+				6E77CD5D1F318A7E00403EFF /* libbellesip.dylib */,
+				6E77CD5E1F318A7E00403EFF /* libbv16.dylib */,
+				6E77CD5F1F318A7E00403EFF /* libbzrtp.0.dylib */,
+				6E77CD601F318A7E00403EFF /* libbzrtp.dylib */,
+				6E77CD611F318A7E00403EFF /* libgsm.dylib */,
+				6E77CD621F318A7E00403EFF /* liblinphone.9.dylib */,
+				6E77CD631F318A7E00403EFF /* liblinphone.dylib */,
+				6E77CD641F318A7E00403EFF /* libmbedcrypto.0.dylib */,
+				6E77CD651F318A7E00403EFF /* libmbedcrypto.2.4.1.dylib */,
+				6E77CD661F318A7E00403EFF /* libmbedcrypto.dylib */,
+				6E77CD671F318A7E00403EFF /* libmbedtls.10.dylib */,
+				6E77CD681F318A7E00403EFF /* libmbedtls.2.4.1.dylib */,
+				6E77CD691F318A7E00403EFF /* libmbedtls.dylib */,
+				6E77CD6A1F318A7E00403EFF /* libmbedx509.0.dylib */,
+				6E77CD6B1F318A7E00403EFF /* libmbedx509.2.4.1.dylib */,
+				6E77CD6C1F318A7E00403EFF /* libmbedx509.dylib */,
+				6E77CD6D1F318A7E00403EFF /* libmediastreamer_base.10.dylib */,
+				6E77CD6E1F318A7E00403EFF /* libmediastreamer_base.dylib */,
+				6E77CD6F1F318A7E00403EFF /* libmediastreamer_voip.10.dylib */,
+				6E77CD701F318A7E00403EFF /* libmediastreamer_voip.dylib */,
+				6E77CD711F318A7E00403EFF /* libopenh264.1.dylib */,
+				6E77CD721F318A7E00403EFF /* libopenh264.dylib */,
+				6E77CD731F318A7E00403EFF /* libopus.5.dylib */,
+				6E77CD741F318A7E00403EFF /* libopus.dylib */,
+				6E77CD751F318A7E00403EFF /* libortp.13.dylib */,
+				6E77CD761F318A7E00403EFF /* libortp.dylib */,
+				6E77CD771F318A7E00403EFF /* libspeex.6.dylib */,
+				6E77CD781F318A7E00403EFF /* libspeex.dylib */,
+				6E77CD791F318A7E00403EFF /* libspeexdsp.6.dylib */,
+				6E77CD7A1F318A7E00403EFF /* libspeexdsp.dylib */,
+				6E77CD7B1F318A7E00403EFF /* libsrtp.1.dylib */,
+				6E77CD7C1F318A7E00403EFF /* libsrtp.dylib */,
+				6E77CD7D1F318A7E00403EFF /* libturbojpeg.a */,
+				6E77CD7E1F318A7E00403EFF /* mediastreamer */,
+			);
+			name = Linphone;
+			path = "../liblinphone-sdk/macOS/lib";
+			sourceTree = "<group>";
+		};
+		6E77CD7E1F318A7E00403EFF /* mediastreamer */ = {
+			isa = PBXGroup;
+			children = (
+				6E77CD7F1F318A7E00403EFF /* plugins */,
+			);
+			path = mediastreamer;
+			sourceTree = "<group>";
+		};
+		6E77CD7F1F318A7E00403EFF /* plugins */ = {
+			isa = PBXGroup;
+			children = (
+				6E77CD801F318A7E00403EFF /* libmsopenh264.so */,
+				6E77CD811F318A7E00403EFF /* libmswebrtc.so */,
+			);
+			path = plugins;
+			sourceTree = "<group>";
+		};
 		OBJ_10 /* LinPhoneTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -726,6 +896,8 @@
 				6E569B171F09F67500BF244A /* BelledonneToolboxTests.xctest */,
 				6E5291661F0B53AE00D4B765 /* BelledonneSIP.framework */,
 				6E5291871F0B53B100D4B765 /* BelledonneSIPTests.xctest */,
+				6E1303A21F3185C500C4AEE8 /* BelledonneToolbox.framework */,
+				6E1303B01F3185C700C4AEE8 /* BelledonneToolboxTests.xctest */,
 			);
 			name = Products;
 			sourceTree = BUILT_PRODUCTS_DIR;
@@ -767,6 +939,41 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		6E1303961F3185C500C4AEE8 /* BelledonneToolbox macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6E13039F1F3185C500C4AEE8 /* Build configuration list for PBXNativeTarget "BelledonneToolbox macOS" */;
+			buildPhases = (
+				6E1303971F3185C500C4AEE8 /* Sources */,
+				6E13039B1F3185C500C4AEE8 /* Frameworks */,
+				6E13039E1F3185C500C4AEE8 /* Increment Build */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "BelledonneToolbox macOS";
+			productName = LinPhoneSwift;
+			productReference = 6E1303A21F3185C500C4AEE8 /* BelledonneToolbox.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		6E1303A31F3185C700C4AEE8 /* BelledonneToolboxTests macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6E1303AD1F3185C700C4AEE8 /* Build configuration list for PBXNativeTarget "BelledonneToolboxTests macOS" */;
+			buildPhases = (
+				6E1303A61F3185C700C4AEE8 /* Sources */,
+				6E1303A81F3185C700C4AEE8 /* Frameworks */,
+				6E1303AB1F3185C700C4AEE8 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6E77CD501F318A3700403EFF /* PBXTargetDependency */,
+			);
+			name = "BelledonneToolboxTests macOS";
+			productName = LinPhoneSwiftTests;
+			productReference = 6E1303B01F3185C700C4AEE8 /* BelledonneToolboxTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		6E52914E1F0B53AE00D4B765 /* BelledonneSIP */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6E5291631F0B53AE00D4B765 /* Build configuration list for PBXNativeTarget "BelledonneSIP" */;
@@ -803,9 +1010,9 @@
 			productReference = 6E5291871F0B53B100D4B765 /* BelledonneSIPTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		6E569ADD1F09F67200BF244A /* BelledonneToolbox */ = {
+		6E569ADD1F09F67200BF244A /* BelledonneToolbox iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6E569AEF1F09F67200BF244A /* Build configuration list for PBXNativeTarget "BelledonneToolbox" */;
+			buildConfigurationList = 6E569AEF1F09F67200BF244A /* Build configuration list for PBXNativeTarget "BelledonneToolbox iOS" */;
 			buildPhases = (
 				6E569AE01F09F67200BF244A /* Sources */,
 				6E569AE21F09F67200BF244A /* Frameworks */,
@@ -815,14 +1022,14 @@
 			);
 			dependencies = (
 			);
-			name = BelledonneToolbox;
+			name = "BelledonneToolbox iOS";
 			productName = LinPhoneSwift;
 			productReference = 6E569AF21F09F67200BF244A /* BelledonneToolbox.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		6E569AF41F09F67500BF244A /* BelledonneToolboxTests */ = {
+		6E569AF41F09F67500BF244A /* BelledonneToolboxTests iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6E569B141F09F67500BF244A /* Build configuration list for PBXNativeTarget "BelledonneToolboxTests" */;
+			buildConfigurationList = 6E569B141F09F67500BF244A /* Build configuration list for PBXNativeTarget "BelledonneToolboxTests iOS" */;
 			buildPhases = (
 				6E569AF71F09F67500BF244A /* Sources */,
 				6E569AF91F09F67500BF244A /* Frameworks */,
@@ -833,7 +1040,7 @@
 			dependencies = (
 				6EF6A6D31F0C058C00C39864 /* PBXTargetDependency */,
 			);
-			name = BelledonneToolboxTests;
+			name = "BelledonneToolboxTests iOS";
 			productName = LinPhoneSwiftTests;
 			productReference = 6E569B171F09F67500BF244A /* BelledonneToolboxTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -951,8 +1158,10 @@
 				6E58AF301F085B53009A0E68 /* MediaStreamerTests */,
 				6E52914E1F0B53AE00D4B765 /* BelledonneSIP */,
 				6E5291671F0B53B100D4B765 /* BelledonneSIPTests */,
-				6E569ADD1F09F67200BF244A /* BelledonneToolbox */,
-				6E569AF41F09F67500BF244A /* BelledonneToolboxTests */,
+				6E569ADD1F09F67200BF244A /* BelledonneToolbox iOS */,
+				6E569AF41F09F67500BF244A /* BelledonneToolboxTests iOS */,
+				6E1303961F3185C500C4AEE8 /* BelledonneToolbox macOS */,
+				6E1303A31F3185C700C4AEE8 /* BelledonneToolboxTests macOS */,
 			);
 		};
 /* End PBXProject section */
@@ -968,6 +1177,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		6E13039E1F3185C500C4AEE8 /* Increment Build */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Increment Build";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/bash\n\n#  update_build_number.sh\n#  Usage: `update_build_number.sh [branch]`\n#  Run this script after the 'Copy Bundle Resources' build phase\n#  Ref: http://tgoode.com/2014/06/05/sensible-way-increment-bundle-version-cfbundleversion-xcode/\n\nif [ $TRAVIS == \"true\" ]\nthen echo \"Updating build number to TRAVISCI.\"\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion TRAVISCI\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\nelse branch=${1:-'master'}\nbuildNumber=$(expr $(git rev-list $branch --count) - $(git rev-list HEAD..$branch --count))\necho \"Updating build number to $buildNumber using branch '$branch'.\"\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\nfi";
+		};
 		6E5291621F0B53AE00D4B765 /* Increment Build */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1027,6 +1250,24 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		6E1303971F3185C500C4AEE8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				6E1303981F3185C500C4AEE8 /* LinkedList.swift in Sources */,
+				6E1303991F3185C500C4AEE8 /* Handle.swift in Sources */,
+				6E13039A1F3185C500C4AEE8 /* Bool.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6E1303A61F3185C700C4AEE8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				6E1303A71F3185C700C4AEE8 /* LinkedListTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6E5291511F0B53AE00D4B765 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
@@ -1127,7 +1368,7 @@
 /* Begin PBXTargetDependency section */
 		6E25E9CF1F0B6E95005BC42C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 6E569ADD1F09F67200BF244A /* BelledonneToolbox */;
+			target = 6E569ADD1F09F67200BF244A /* BelledonneToolbox iOS */;
 			targetProxy = 6E25E9CE1F0B6E95005BC42C /* PBXContainerItemProxy */;
 		};
 		6E25E9D21F0B6EA1005BC42C /* PBXTargetDependency */ = {
@@ -1137,7 +1378,7 @@
 		};
 		6E25EA0C1F0B753C005BC42C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 6E569ADD1F09F67200BF244A /* BelledonneToolbox */;
+			target = 6E569ADD1F09F67200BF244A /* BelledonneToolbox iOS */;
 			targetProxy = 6E25EA0B1F0B753C005BC42C /* PBXContainerItemProxy */;
 		};
 		6E25EA4E1F0B7788005BC42C /* PBXTargetDependency */ = {
@@ -1147,13 +1388,18 @@
 		};
 		6E569B1B1F09F7F600BF244A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 6E569ADD1F09F67200BF244A /* BelledonneToolbox */;
+			target = 6E569ADD1F09F67200BF244A /* BelledonneToolbox iOS */;
 			targetProxy = 6E569B1A1F09F7F600BF244A /* PBXContainerItemProxy */;
 		};
 		6E58AF591F085DAB009A0E68 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 6E58AF141F085B4F009A0E68 /* MediaStreamer */;
 			targetProxy = 6E58AF581F085DAB009A0E68 /* PBXContainerItemProxy */;
+		};
+		6E77CD501F318A3700403EFF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6E1303961F3185C500C4AEE8 /* BelledonneToolbox macOS */;
+			targetProxy = 6E77CD4F1F318A3700403EFF /* PBXContainerItemProxy */;
 		};
 		6E8CF9AD1F167A840012BC9D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1162,7 +1408,7 @@
 		};
 		6EF6A6D31F0C058C00C39864 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 6E569ADD1F09F67200BF244A /* BelledonneToolbox */;
+			target = 6E569ADD1F09F67200BF244A /* BelledonneToolbox iOS */;
 			targetProxy = 6EF6A6D21F0C058C00C39864 /* PBXContainerItemProxy */;
 		};
 		OBJ_31 /* PBXTargetDependency */ = {
@@ -1173,28 +1419,82 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		6E1303A01F3185C500C4AEE8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				ENABLE_BITCODE = "$(INHERITED)";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = org.belledonne.bctoolbox.swift;
+				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)";
+				PRODUCT_NAME = BelledonneToolbox;
+				SDKROOT = macosx;
+				SWIFT_INCLUDE_PATHS = $SRCROOT;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		6E1303A11F3185C500C4AEE8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				ENABLE_BITCODE = "$(INHERITED)";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = org.belledonne.bctoolbox.swift;
+				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)";
+				PRODUCT_NAME = BelledonneToolbox;
+				SDKROOT = macosx;
+				SWIFT_INCLUDE_PATHS = $SRCROOT;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		6E1303AE1F3185C700C4AEE8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = "";
+				ENABLE_BITCODE = "$(INHERITED)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_NAME = BelledonneToolboxTests;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		6E1303AF1F3185C700C4AEE8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = "";
+				ENABLE_BITCODE = "$(INHERITED)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_NAME = BelledonneToolboxTests;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
 		6E5291641F0B53AE00D4B765 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
-				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = "$SRCROOT/../liblinphone-sdk/ios/apple-darwin/Frameworks";
-				HEADER_SEARCH_PATHS = "$SRCROOT/../liblinphone-sdk/ios/apple-darwin/include";
+				ENABLE_BITCODE = "$(INHERITED)";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "$SRCROOT/../liblinphone-sdk/ios/apple-darwin/lib";
-				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = org.belledonne.bellesip.swift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
-				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_INCLUDE_PATHS = $SRCROOT;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				"VALID_ARCHS[sdk=iphonesimulator*]" = x86_64;
 			};
 			name = Debug;
 		};
@@ -1204,37 +1504,23 @@
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
-				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = "$SRCROOT/../liblinphone-sdk/ios/apple-darwin/Frameworks";
-				HEADER_SEARCH_PATHS = "$SRCROOT/../liblinphone-sdk/ios/apple-darwin/include";
+				ENABLE_BITCODE = "$(INHERITED)";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "$SRCROOT/../liblinphone-sdk/ios/apple-darwin/lib";
-				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = org.belledonne.bellesip.swift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
-				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_INCLUDE_PATHS = $SRCROOT;
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				"VALID_ARCHS[sdk=iphonesimulator*]" = x86_64;
 			};
 			name = Release;
 		};
 		6E5291851F0B53B100D4B765 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = "";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
-				);
-				HEADER_SEARCH_PATHS = "$(inherited)";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				ENABLE_BITCODE = "$(INHERITED)";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $(FRAMEWORK_SEARCH_PATHS) $(CONFIGURATION_BUILD_DIR)";
-				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1245,16 +1531,9 @@
 		6E5291861F0B53B100D4B765 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = "";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
-				);
-				HEADER_SEARCH_PATHS = "$(inherited)";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				ENABLE_BITCODE = "$(INHERITED)";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $(FRAMEWORK_SEARCH_PATHS) $(CONFIGURATION_BUILD_DIR)";
-				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1268,22 +1547,16 @@
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
-				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = "$SRCROOT/../liblinphone-sdk/ios/apple-darwin/Frameworks";
+				ENABLE_BITCODE = "$(INHERITED)";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "$SRCROOT/../liblinphone-sdk/ios/apple-darwin/lib";
-				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = org.belledonne.bctoolbox.swift;
-				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)";
+				PRODUCT_NAME = BelledonneToolbox;
 				SDKROOT = iphoneos;
-				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_INCLUDE_PATHS = $SRCROOT;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				"VALID_ARCHS[sdk=iphonesimulator*]" = x86_64;
 			};
 			name = Debug;
 		};
@@ -1293,37 +1566,25 @@
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
-				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = "$SRCROOT/../liblinphone-sdk/ios/apple-darwin/Frameworks";
+				ENABLE_BITCODE = "$(INHERITED)";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "$SRCROOT/../liblinphone-sdk/ios/apple-darwin/lib";
-				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = org.belledonne.bctoolbox.swift;
-				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)";
+				PRODUCT_NAME = BelledonneToolbox;
 				SDKROOT = iphoneos;
-				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_INCLUDE_PATHS = $SRCROOT;
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				"VALID_ARCHS[sdk=iphonesimulator*]" = x86_64;
 			};
 			name = Release;
 		};
 		6E569B151F09F67500BF244A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = "";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$SRCROOT/../liblinphone-sdk/ios/apple-darwin/Frameworks",
-				);
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				OTHER_LDFLAGS = "$(inherited)";
+				ENABLE_BITCODE = "$(INHERITED)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = BelledonneToolboxTests;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 			};
@@ -1332,16 +1593,10 @@
 		6E569B161F09F67500BF244A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = "";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$SRCROOT/../liblinphone-sdk/ios/apple-darwin/Frameworks",
-				);
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				OTHER_LDFLAGS = "$(inherited)";
+				ENABLE_BITCODE = "$(INHERITED)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = BelledonneToolboxTests;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 			};
@@ -1353,23 +1608,16 @@
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
-				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = "$SRCROOT/../liblinphone-sdk/ios/apple-darwin/Frameworks";
-				HEADER_SEARCH_PATHS = "$SRCROOT/../liblinphone-sdk/ios/apple-darwin/include";
+				ENABLE_BITCODE = "$(INHERITED)";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "$SRCROOT/../liblinphone-sdk/ios/apple-darwin/lib";
-				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = org.belledonne.mediastreamer.swift;
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
-				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_INCLUDE_PATHS = $SRCROOT;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				"VALID_ARCHS[sdk=iphonesimulator*]" = x86_64;
 			};
 			name = Debug;
 		};
@@ -1379,37 +1627,23 @@
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
-				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = "$SRCROOT/../liblinphone-sdk/ios/apple-darwin/Frameworks";
-				HEADER_SEARCH_PATHS = "$SRCROOT/../liblinphone-sdk/ios/apple-darwin/include";
+				ENABLE_BITCODE = "$(INHERITED)";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "$SRCROOT/../liblinphone-sdk/ios/apple-darwin/lib";
-				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = org.belledonne.mediastreamer.swift;
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
-				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_INCLUDE_PATHS = $SRCROOT;
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				"VALID_ARCHS[sdk=iphonesimulator*]" = x86_64;
 			};
 			name = Release;
 		};
 		6E58AF511F085B53009A0E68 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = "";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
-				);
-				HEADER_SEARCH_PATHS = "$(inherited)";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				OTHER_LDFLAGS = "$(inherited)";
+				ENABLE_BITCODE = "$(INHERITED)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1420,15 +1654,8 @@
 		6E58AF521F085B53009A0E68 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = "";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
-				);
-				HEADER_SEARCH_PATHS = "$(inherited)";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				OTHER_LDFLAGS = "$(inherited)";
+				ENABLE_BITCODE = "$(INHERITED)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1442,20 +1669,14 @@
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
-				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = "$SRCROOT/../liblinphone-sdk/ios/apple-darwin/Frameworks";
-				HEADER_SEARCH_PATHS = "$SRCROOT/../liblinphone-sdk/ios/apple-darwin/include";
-				LIBRARY_SEARCH_PATHS = "$SRCROOT/../liblinphone-sdk/ios/apple-darwin/lib";
-				OTHER_LDFLAGS = "$(inherited)";
+				ENABLE_BITCODE = "$(INHERITED)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = org.belledonne.linphone.swift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
-				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_INCLUDE_PATHS = $SRCROOT;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
-				"VALID_ARCHS[sdk=iphonesimulator*]" = x86_64;
 			};
 			name = Debug;
 		};
@@ -1465,35 +1686,21 @@
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
-				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = "$SRCROOT/../liblinphone-sdk/ios/apple-darwin/Frameworks";
-				HEADER_SEARCH_PATHS = "$SRCROOT/../liblinphone-sdk/ios/apple-darwin/include";
-				LIBRARY_SEARCH_PATHS = "$SRCROOT/../liblinphone-sdk/ios/apple-darwin/lib";
-				OTHER_LDFLAGS = "$(inherited)";
+				ENABLE_BITCODE = "$(INHERITED)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = org.belledonne.linphone.swift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
-				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_INCLUDE_PATHS = $SRCROOT;
 				SWIFT_VERSION = 3.0;
-				"VALID_ARCHS[sdk=iphonesimulator*]" = x86_64;
 			};
 			name = Release;
 		};
 		OBJ_25 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = "";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
-				);
-				HEADER_SEARCH_PATHS = "$(inherited)";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LIBRARY_SEARCH_PATHS = "$SRCROOT/../liblinphone-sdk/ios/apple-darwin/lib";
-				OTHER_LDFLAGS = "$(inherited)";
+				ENABLE_BITCODE = "$(INHERITED)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_NAME = LinPhoneTests;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1504,16 +1711,8 @@
 		OBJ_26 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = "";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
-				);
-				HEADER_SEARCH_PATHS = "$(inherited)";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LIBRARY_SEARCH_PATHS = "$SRCROOT/../liblinphone-sdk/ios/apple-darwin/lib";
-				OTHER_LDFLAGS = "$(inherited)";
+				ENABLE_BITCODE = "$(INHERITED)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_NAME = LinPhoneTests;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1524,6 +1723,7 @@
 		OBJ_3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
@@ -1541,6 +1741,10 @@
 				ENABLE_NS_ASSERTIONS = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = "";
+				"FRAMEWORK_SEARCH_PATHS[sdk=iphoneos*]" = "$SRCROOT/../liblinphone-sdk/ios/apple-darwin/Frameworks";
+				"FRAMEWORK_SEARCH_PATHS[sdk=iphonesimulator*]" = "$SRCROOT/../liblinphone-sdk/ios/apple-darwin/Frameworks";
+				"FRAMEWORK_SEARCH_PATHS[sdk=macosx*]" = "$SRCROOT/../liblinphone-sdk/macOS/lib";
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -1552,20 +1756,27 @@
 				INFOPLIST_FILE = "LinPhone.xcodeproj/$PRODUCT_NAME-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				"LIBRARY_SEARCH_PATHS[sdk=macosx*]" = "$SRCROOT/../liblinphone-sdk/macOS/lib";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_SWIFT_FLAGS = "-DXcode";
+				OTHER_SWIFT_FLAGS = "-DXCode";
 				PRODUCT_NAME = "$(PROJECT_NAME)";
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = SWIFT_PACKAGE;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				USE_HEADERMAP = NO;
+				VALID_ARCHS = "";
+				"VALID_ARCHS[sdk=iphoneos*]" = "arm64 armv7 armv7s";
+				"VALID_ARCHS[sdk=iphonesimulator*]" = x86_64;
+				"VALID_ARCHS[sdk=macosx*]" = x86_64;
 			};
 			name = Debug;
 		};
 		OBJ_4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
@@ -1581,6 +1792,10 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = "";
+				"FRAMEWORK_SEARCH_PATHS[sdk=iphoneos*]" = "$SRCROOT/../liblinphone-sdk/ios/apple-darwin/Frameworks";
+				"FRAMEWORK_SEARCH_PATHS[sdk=iphonesimulator*]" = "$SRCROOT/../liblinphone-sdk/ios/apple-darwin/Frameworks";
+				"FRAMEWORK_SEARCH_PATHS[sdk=macosx*]" = "$SRCROOT/../liblinphone-sdk/macOS/lib";
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = s;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -1593,18 +1808,40 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				OTHER_SWIFT_FLAGS = "-DXcode";
+				OTHER_SWIFT_FLAGS = "-DXCode";
 				PRODUCT_NAME = "$(PROJECT_NAME)";
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = SWIFT_PACKAGE;
+				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 3.0;
 				USE_HEADERMAP = NO;
+				VALID_ARCHS = "";
+				"VALID_ARCHS[sdk=iphoneos*]" = "arm64 armv7 armv7s";
+				"VALID_ARCHS[sdk=iphonesimulator*]" = x86_64;
+				"VALID_ARCHS[sdk=macosx*]" = x86_64;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		6E13039F1F3185C500C4AEE8 /* Build configuration list for PBXNativeTarget "BelledonneToolbox macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6E1303A01F3185C500C4AEE8 /* Debug */,
+				6E1303A11F3185C500C4AEE8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		6E1303AD1F3185C700C4AEE8 /* Build configuration list for PBXNativeTarget "BelledonneToolboxTests macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6E1303AE1F3185C700C4AEE8 /* Debug */,
+				6E1303AF1F3185C700C4AEE8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
 		6E5291631F0B53AE00D4B765 /* Build configuration list for PBXNativeTarget "BelledonneSIP" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1623,7 +1860,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		6E569AEF1F09F67200BF244A /* Build configuration list for PBXNativeTarget "BelledonneToolbox" */ = {
+		6E569AEF1F09F67200BF244A /* Build configuration list for PBXNativeTarget "BelledonneToolbox iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6E569AF01F09F67200BF244A /* Debug */,
@@ -1632,7 +1869,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		6E569B141F09F67500BF244A /* Build configuration list for PBXNativeTarget "BelledonneToolboxTests" */ = {
+		6E569B141F09F67500BF244A /* Build configuration list for PBXNativeTarget "BelledonneToolboxTests iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6E569B151F09F67500BF244A /* Debug */,

@@ -6,7 +6,7 @@
 //
 //
 
-import CLinPhone
+import CLinPhone.core
 
 public final class PayloadType {
     
