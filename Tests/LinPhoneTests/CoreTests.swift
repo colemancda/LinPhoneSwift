@@ -154,11 +154,11 @@ final class CoreTests: XCTestCase {
                     
                     self.core.withMediaStreamerFactory { $0.load(MediaLibrary.all) }
                     
-                    self.core.withMediaStreamerFactory { $0.enableHardwareH264Decoder(false) }
+                    self.core.withMediaStreamerFactory { $0.enableHardwareH264(false) }
                     
                 #else
                     
-                    self.core.withMediaStreamerFactory { $0.enableHardwareH264Decoder() }
+                    self.core.withMediaStreamerFactory { $0.enableHardwareH264() }
                     
                 #endif
                 
@@ -261,11 +261,11 @@ extension LinPhoneSwift.Core {
             
         self.withMediaStreamerFactory { $0.load(MediaLibrary.all) }
         
-        self.withMediaStreamerFactory { $0.enableHardwareH264Decoder(false) }
+        self.withMediaStreamerFactory { $0.enableHardwareH264(false) }
             
         #else
             
-        self.withMediaStreamerFactory { $0.enableHardwareH264Decoder() }
+        self.withMediaStreamerFactory { $0.enableHardwareH264() }
             
         #endif
         
@@ -314,13 +314,13 @@ extension LinPhoneSwift.Core {
 
 extension MediaStreamer.Factory {
     
-    func enableHardwareH264Decoder(_ hardwareOn: Bool = true) {
+    func enableHardwareH264(_ hardwareOn: Bool = true) {
         
-        enableFilter(hardwareOn, for: "VideoToolboxH264Decoder")
-        enableFilter(hardwareOn, for: "VideoToolboxH264Encoder")
-        
-        enableFilter(hardwareOn == false, for: "MSOpenH264Dec")
-        enableFilter(hardwareOn == false, for: "MSOpenH264Enc")
+        guard enableFilter(hardwareOn, for: "VideoToolboxH264Decoder"),
+            enableFilter(hardwareOn, for: "VideoToolboxH264Encoder"),
+            enableFilter(hardwareOn == false, for: "MSOpenH264Dec"),
+            enableFilter(hardwareOn == false, for: "MSOpenH264Enc")
+            else { fatalError("Could not \(hardwareOn ? "enable" : "disable") hardware H264") }
     }
 }
 

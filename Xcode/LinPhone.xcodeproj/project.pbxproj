@@ -239,6 +239,7 @@
 		6E9BFCDD1F32CADE007D7A93 /* libmediastreamer_base.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD6E1F318A7E00403EFF /* libmediastreamer_base.dylib */; };
 		6E9BFCDE1F32CADE007D7A93 /* libmediastreamer_voip.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD701F318A7E00403EFF /* libmediastreamer_voip.dylib */; };
 		6E9BFCE11F32CAF2007D7A93 /* liblinphone.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD631F318A7E00403EFF /* liblinphone.dylib */; };
+		6E9BFCE31F32CE36007D7A93 /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E9BFCE21F32CE36007D7A93 /* VideoToolbox.framework */; };
 		6EA69FA01F150FE500284E24 /* Tunnel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA69F9F1F150FE500284E24 /* Tunnel.swift */; };
 		6EF1B5C91F0D6B5400B65129 /* Conference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF1B5C81F0D6B5400B65129 /* Conference.swift */; };
 		6EF6A6D61F0C3E5100C39864 /* Call.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6A6D51F0C3E5100C39864 /* Call.swift */; };
@@ -745,6 +746,7 @@
 		6E9BFBFD1F3251B9007D7A93 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		6E9BFC5B1F3263A3007D7A93 /* LinPhoneSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LinPhoneSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E9BFC7E1F3263A5007D7A93 /* LinPhoneTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LinPhoneTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E9BFCE21F32CE36007D7A93 /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
 		6EA69F9F1F150FE500284E24 /* Tunnel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tunnel.swift; sourceTree = "<group>"; };
 		6EF1B5C81F0D6B5400B65129 /* Conference.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Conference.swift; sourceTree = "<group>"; };
 		6EF6A6D51F0C3E5100C39864 /* Call.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Call.swift; sourceTree = "<group>"; };
@@ -960,6 +962,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
+				6E9BFCE31F32CE36007D7A93 /* VideoToolbox.framework in Frameworks */,
 				6E9BFCE11F32CAF2007D7A93 /* liblinphone.dylib in Frameworks */,
 				6E9BFCDD1F32CADE007D7A93 /* libmediastreamer_base.dylib in Frameworks */,
 				6E9BFCDE1F32CADE007D7A93 /* libmediastreamer_voip.dylib in Frameworks */,
@@ -1213,6 +1216,7 @@
 		6E77CD521F318A6200403EFF /* System Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6E9BFCE21F32CE36007D7A93 /* VideoToolbox.framework */,
 				6E9BFBFD1F3251B9007D7A93 /* CoreVideo.framework */,
 				6E77CD4D1F318A1700403EFF /* libstdc++.tbd */,
 			);
