@@ -2462,6 +2462,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ENABLE_BITCODE = "$(INHERITED)";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				PRODUCT_NAME = LinPhoneTests;
 				SDKROOT = iphoneos;
 			};
@@ -2471,6 +2472,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ENABLE_BITCODE = "$(INHERITED)";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				PRODUCT_NAME = LinPhoneTests;
 				SDKROOT = iphoneos;
 			};

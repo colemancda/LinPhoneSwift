@@ -149,6 +149,18 @@ final class CoreTests: XCTestCase {
                 
                 self.core.sipTransports.tcp = SipTransports.random
                 
+                #if os(iOS)
+                    
+                    self.core.withMediaStreamerFactory { $0.load(MediaLibrary.all) }
+                    
+                    self.core.withMediaStreamerFactory { $0.enableHardwareH264Decoder(false) }
+                    
+                #else
+                    
+                    self.core.withMediaStreamerFactory { $0.enableHardwareH264Decoder() }
+                    
+                #endif
+                
                 callbacks.callStateChanged = { [weak self] in self?.call($0.1, stateChanged: $0.2, message: $0.3) }
                 
                 self.timer = Timer.scheduledTimer(withTimeInterval: 0.02, repeats: true) { [weak self] _ in self?.iterate() }
@@ -245,13 +257,16 @@ extension LinPhoneSwift.Core {
         self.noXmitOnAudioMute = false
         
         #if os(iOS)
+            
         self.withMediaStreamerFactory { $0.load(MediaLibrary.all) }
-        #else
-        self.withMediaStreamerFactory { $0.loadPlugins() }
-        #endif
         
-        guard self.withMediaStreamerFactory({ $0.enableFilter(true, for: "MSOpenH264Dec") })
-            else { return false }
+        self.withMediaStreamerFactory { $0.enableHardwareH264Decoder(false) }
+            
+        #else
+            
+        self.withMediaStreamerFactory { $0.enableHardwareH264Decoder() }
+            
+        #endif
         
         self.reloadMediaStreamerPlugins()
         
@@ -290,5 +305,17 @@ extension LinPhoneSwift.Core {
         self.setUserAgent(name: "iOS", version: "1.3")
         
         return true
+    }
+}
+
+extension MediaStreamer.Factory {
+    
+    func enableHardwareH264Decoder(_ hardwareOn: Bool = true) {
+        
+        enableFilter(hardwareOn, for: "VideoToolboxH264Decoder")
+        enableFilter(hardwareOn, for: "VideoToolboxH264Encoder")
+        
+        enableFilter(hardwareOn == false, for: "MSOpenH264Dec")
+        enableFilter(hardwareOn == false, for: "MSOpenH264Enc")
     }
 }
