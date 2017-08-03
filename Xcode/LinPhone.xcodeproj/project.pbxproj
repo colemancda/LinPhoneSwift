@@ -234,6 +234,11 @@
 		6E9BFCD41F32649B007D7A93 /* libspeexdsp.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD7A1F318A7E00403EFF /* libspeexdsp.dylib */; };
 		6E9BFCD51F32649B007D7A93 /* libsrtp.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD7B1F318A7E00403EFF /* libsrtp.1.dylib */; };
 		6E9BFCD61F32649B007D7A93 /* libsrtp.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD7C1F318A7E00403EFF /* libsrtp.dylib */; };
+		6E9BFCD71F32CAB6007D7A93 /* mediastreamer_base.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EFE259F1F1660FD00FC4ECC /* mediastreamer_base.framework */; };
+		6E9BFCD81F32CAB6007D7A93 /* mediastreamer_voip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EFE25A01F1660FD00FC4ECC /* mediastreamer_voip.framework */; };
+		6E9BFCDD1F32CADE007D7A93 /* libmediastreamer_base.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD6E1F318A7E00403EFF /* libmediastreamer_base.dylib */; };
+		6E9BFCDE1F32CADE007D7A93 /* libmediastreamer_voip.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD701F318A7E00403EFF /* libmediastreamer_voip.dylib */; };
+		6E9BFCE11F32CAF2007D7A93 /* liblinphone.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD631F318A7E00403EFF /* liblinphone.dylib */; };
 		6EA69FA01F150FE500284E24 /* Tunnel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA69F9F1F150FE500284E24 /* Tunnel.swift */; };
 		6EF1B5C91F0D6B5400B65129 /* Conference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF1B5C81F0D6B5400B65129 /* Conference.swift */; };
 		6EF6A6D61F0C3E5100C39864 /* Call.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6A6D51F0C3E5100C39864 /* Call.swift */; };
@@ -955,6 +960,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
+				6E9BFCE11F32CAF2007D7A93 /* liblinphone.dylib in Frameworks */,
+				6E9BFCDD1F32CADE007D7A93 /* libmediastreamer_base.dylib in Frameworks */,
+				6E9BFCDE1F32CADE007D7A93 /* libmediastreamer_voip.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1005,6 +1013,8 @@
 			buildActionMask = 0;
 			files = (
 				OBJ_30 /* LinPhoneSwift.framework in Frameworks */,
+				6E9BFCD71F32CAB6007D7A93 /* mediastreamer_base.framework in Frameworks */,
+				6E9BFCD81F32CAB6007D7A93 /* mediastreamer_voip.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

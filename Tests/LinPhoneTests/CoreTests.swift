@@ -17,6 +17,7 @@ import XCTest
 @testable import LinPhoneSwift
 import MediaStreamer
 import CLinPhone
+import func CMediaStreamer2.ms_video_set_scaler_impl
 
 final class CoreTests: XCTestCase {
     
@@ -304,6 +305,9 @@ extension LinPhoneSwift.Core {
         
         self.setUserAgent(name: "iOS", version: "1.3")
         
+        /// Set fake media streamer scaler implementation
+        ms_video_set_scaler_impl(&FakeMediaStreamerScaler)
+        
         return true
     }
 }
@@ -319,3 +323,22 @@ extension MediaStreamer.Factory {
         enableFilter(hardwareOn == false, for: "MSOpenH264Enc")
     }
 }
+
+private var FakeMediaStreamerScaler = MSScalerDesc(create_context: FakeMediaStreamerScalerContextCreate,
+                                                          context_process: FakeMediaStreamerScalerContextProcess,
+                                                          context_free: FakeMediaStreamerScalerContextFree)
+
+/// MSScalerContext * ms_fake_scaler_create_context(int src_w, int src_h, MSPixFmt src_fmt,
+/// int dst_w, int dst_h, MSPixFmt dst_fmt, int flags) { return NULL; }
+@_silgen_name("ms_fake_scaler_create_context")
+private func FakeMediaStreamerScalerContextCreate(src_w: CInt , src_h: CInt , src_fmt: MSPixFmt,
+                   dst_w: CInt , dst_h: CInt , dst_fmt: MSPixFmt, flags: CInt) -> OpaquePointer? { return nil }
+
+/// int ms_fake_scaler_context_process(MSScalerContext *ctx, uint8_t *src[], int src_strides[],
+/// uint8_t *dst[], int dst_strides[]) { return 0; }
+@_silgen_name("ms_fake_scaler_context_process")
+private func FakeMediaStreamerScalerContextProcess(_: OpaquePointer?, _: UnsafeMutablePointer<UnsafeMutablePointer<UInt8>?>?, _: UnsafeMutablePointer<Int32>?, _: UnsafeMutablePointer<UnsafeMutablePointer<UInt8>?>?, _: UnsafeMutablePointer<Int32>?) -> Int32 { return 0 }
+
+/// void ms_fake_scaler_context_free(MSScalerContext *ctx) {}
+@_silgen_name("ms_fake_scaler_context_free")
+private func FakeMediaStreamerScalerContextFree(_: OpaquePointer?) { }
