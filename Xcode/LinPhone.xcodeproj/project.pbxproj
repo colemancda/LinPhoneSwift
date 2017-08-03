@@ -239,7 +239,12 @@
 		6E9BFCDD1F32CADE007D7A93 /* libmediastreamer_base.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD6E1F318A7E00403EFF /* libmediastreamer_base.dylib */; };
 		6E9BFCDE1F32CADE007D7A93 /* libmediastreamer_voip.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD701F318A7E00403EFF /* libmediastreamer_voip.dylib */; };
 		6E9BFCE11F32CAF2007D7A93 /* liblinphone.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD631F318A7E00403EFF /* liblinphone.dylib */; };
-		6E9BFCE31F32CE36007D7A93 /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E9BFCE21F32CE36007D7A93 /* VideoToolbox.framework */; };
+		6E9BFCE41F32CFCE007D7A93 /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E9BFCE21F32CE36007D7A93 /* VideoToolbox.framework */; };
+		6E9BFCE51F32CFD9007D7A93 /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E25EA451F0B7703005BC42C /* VideoToolbox.framework */; };
+		6E9BFCE61F32CFFF007D7A93 /* BelledonneSIP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E9BFBB01F3238B7007D7A93 /* BelledonneSIP.framework */; };
+		6E9BFCE71F32CFFF007D7A93 /* BelledonneToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E1303A21F3185C500C4AEE8 /* BelledonneToolbox.framework */; };
+		6E9BFCE81F32CFFF007D7A93 /* MediaStreamer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E9BFBE31F3250BC007D7A93 /* MediaStreamer.framework */; };
+		6E9BFCE91F32D023007D7A93 /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E25EA451F0B7703005BC42C /* VideoToolbox.framework */; };
 		6EA69FA01F150FE500284E24 /* Tunnel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA69F9F1F150FE500284E24 /* Tunnel.swift */; };
 		6EF1B5C91F0D6B5400B65129 /* Conference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF1B5C81F0D6B5400B65129 /* Conference.swift */; };
 		6EF6A6D61F0C3E5100C39864 /* Call.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6A6D51F0C3E5100C39864 /* Call.swift */; };
@@ -916,6 +921,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
+				6E9BFCE61F32CFFF007D7A93 /* BelledonneSIP.framework in Frameworks */,
+				6E9BFCE71F32CFFF007D7A93 /* BelledonneToolbox.framework in Frameworks */,
+				6E9BFCE81F32CFFF007D7A93 /* MediaStreamer.framework in Frameworks */,
+				6E9BFCE41F32CFCE007D7A93 /* VideoToolbox.framework in Frameworks */,
 				6E9BFCB01F32649B007D7A93 /* libantlr3c.1.dylib in Frameworks */,
 				6E9BFCB11F32649B007D7A93 /* libantlr3c.dylib in Frameworks */,
 				6E9BFCB21F32649B007D7A93 /* libbctoolbox.1.dylib in Frameworks */,
@@ -962,7 +971,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
-				6E9BFCE31F32CE36007D7A93 /* VideoToolbox.framework in Frameworks */,
 				6E9BFCE11F32CAF2007D7A93 /* liblinphone.dylib in Frameworks */,
 				6E9BFCDD1F32CADE007D7A93 /* libmediastreamer_base.dylib in Frameworks */,
 				6E9BFCDE1F32CADE007D7A93 /* libmediastreamer_voip.dylib in Frameworks */,
@@ -973,6 +981,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
+				6E9BFCE51F32CFD9007D7A93 /* VideoToolbox.framework in Frameworks */,
 				6EFE26071F166A6600FC4ECC /* linphone.framework in Frameworks */,
 				6E25EA831F0B7887005BC42C /* libiconv.tbd in Frameworks */,
 				6E25EA521F0B77B7005BC42C /* libxml2.tbd in Frameworks */,
@@ -1015,6 +1024,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
+				6E9BFCE91F32D023007D7A93 /* VideoToolbox.framework in Frameworks */,
 				OBJ_30 /* LinPhoneSwift.framework in Frameworks */,
 				6E9BFCD71F32CAB6007D7A93 /* mediastreamer_base.framework in Frameworks */,
 				6E9BFCD81F32CAB6007D7A93 /* mediastreamer_voip.framework in Frameworks */,

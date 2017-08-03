@@ -488,6 +488,19 @@ public protocol CallNativeWindow {
     }
 #endif
 
+#if os(macOS)
+    
+    import class AppKit.NSView
+    
+    extension NSView: CallNativeWindow {
+        
+        public func toNativeHandle() -> UnsafeMutableRawPointer {
+            
+            return Unmanaged.passUnretained(self).toOpaque()
+        }
+    }
+#endif
+
 public extension Call {
     
     /// That class holds all the callbacks which are called by `Linphone.Core`.

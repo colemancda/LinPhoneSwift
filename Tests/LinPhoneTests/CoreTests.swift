@@ -85,6 +85,9 @@ final class CoreTests: XCTestCase {
         #if os(iOS)
         let view = UIView()
         call.nativeWindow = view
+        #elseif os(macOS)
+        let view = NSView()
+        call.nativeWindow = view
         #endif
         
         call.nextVideoFrameDecoded = { _ in videoFrameDecodedExpectation.fulfill() }
@@ -263,13 +266,13 @@ extension LinPhoneSwift.Core {
         
         self.withMediaStreamerFactory { $0.enableHardwareH264(false) }
             
+        self.reloadMediaStreamerPlugins()
+            
         #else
             
         self.withMediaStreamerFactory { $0.enableHardwareH264() }
             
         #endif
-        
-        self.reloadMediaStreamerPlugins()
         
         // "accept_video_preference", "start_video_preference"
         self.videoPolicy = VideoPolicy(automaticallyAccept: true,
@@ -316,11 +319,24 @@ extension MediaStreamer.Factory {
     
     func enableHardwareH264(_ hardwareOn: Bool = true) {
         
-        guard enableFilter(hardwareOn, for: "VideoToolboxH264Decoder"),
-            enableFilter(hardwareOn, for: "VideoToolboxH264Encoder"),
-            enableFilter(hardwareOn == false, for: "MSOpenH264Dec"),
-            enableFilter(hardwareOn == false, for: "MSOpenH264Enc")
-            else { fatalError("Could not \(hardwareOn ? "enable" : "disable") hardware H264") }
+        func forceFilter(_ filterName: String, _ isEnabled: Bool) {
+            
+            guard enableFilter(isEnabled, for: filterName) else {
+                
+                // only crash if trying to enable
+                if isEnabled {
+                    
+                    fatalError("Could not enable filter \(filterName)")
+                }
+                
+                return
+            }
+        }
+        
+        forceFilter("VideoToolboxH264Decoder", hardwareOn)
+        forceFilter("VideoToolboxH264Encoder", hardwareOn)
+        forceFilter("MSOpenH264Dec", hardwareOn == false)
+        forceFilter("MSOpenH264Enc", hardwareOn == false)
     }
 }
 
