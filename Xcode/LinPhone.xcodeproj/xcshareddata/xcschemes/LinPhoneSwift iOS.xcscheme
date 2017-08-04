@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "OBJ_16"
-               BuildableName = "LinPhoneSwift iOS.framework"
+               BuildableName = "LinPhoneSwift.framework"
                BlueprintName = "LinPhoneSwift iOS"
                ReferencedContainer = "container:LinPhone.xcodeproj">
             </BuildableReference>
@@ -56,7 +56,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "OBJ_16"
-            BuildableName = "LinPhoneSwift iOS.framework"
+            BuildableName = "LinPhoneSwift.framework"
             BlueprintName = "LinPhoneSwift iOS"
             ReferencedContainer = "container:LinPhone.xcodeproj">
          </BuildableReference>
@@ -87,7 +87,7 @@
                   <BuildableReference
                      BuildableIdentifier = "primary"
                      BlueprintIdentifier = "OBJ_16"
-                     BuildableName = "LinPhoneSwift iOS.framework"
+                     BuildableName = "LinPhoneSwift.framework"
                      BlueprintName = "LinPhoneSwift iOS"
                      ReferencedContainer = "container:LinPhone.xcodeproj">
                   </BuildableReference>
