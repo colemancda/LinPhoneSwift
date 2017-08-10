@@ -74,6 +74,13 @@ public final class Factory {
         get { return Int(ms_factory_get_cpu_count(rawPointer)) }
     }
     
+    public var maximumTransmissionUnit: Int {
+        
+        get { return ms_factory_get_mtu(rawPointer) }
+        
+        set { return ms_factory_set_mtu(rawPointer, Int32(newValue)) }
+    }
+    
     // MARK: - Methods
     
     @inline(__always)
