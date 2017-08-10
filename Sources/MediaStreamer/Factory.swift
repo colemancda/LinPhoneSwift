@@ -76,9 +76,9 @@ public final class Factory {
     
     public var maximumTransmissionUnit: Int {
         
-        get { return ms_factory_get_mtu(rawPointer) }
+        get { return Int(ms_factory_get_mtu(rawPointer)) }
         
-        set { return ms_factory_set_mtu(rawPointer, Int32(newValue)) }
+        set { ms_factory_set_mtu(rawPointer, Int32(newValue)) }
     }
     
     // MARK: - Methods

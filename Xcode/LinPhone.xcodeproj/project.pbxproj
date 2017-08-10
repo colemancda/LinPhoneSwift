@@ -80,6 +80,7 @@
 		6E5BBE691F1F2F5B00BE69FC /* video_in.pcapng in Copy Fake Server */ = {isa = PBXBuildFile; fileRef = 6E5BBE551F1F2F0E00BE69FC /* video_in.pcapng */; };
 		6E5BBE6A1F1F2F5B00BE69FC /* video_out.pcap in Copy Fake Server */ = {isa = PBXBuildFile; fileRef = 6E5BBE561F1F2F0E00BE69FC /* video_out.pcap */; };
 		6E5BBE6B1F1F2F5B00BE69FC /* video_out.pcapng in Copy Fake Server */ = {isa = PBXBuildFile; fileRef = 6E5BBE571F1F2F0E00BE69FC /* video_out.pcapng */; };
+		6E612A591F3D1209003C5A3F /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E612A581F3D1209003C5A3F /* Filter.swift */; };
 		6E676A161F129C7000EF4428 /* CallParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E676A151F129C7000EF4428 /* CallParameters.swift */; };
 		6E676A181F12AD0B00EF4428 /* CallStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E676A171F12AD0B00EF4428 /* CallStats.swift */; };
 		6E728E151F3191FC00E0A796 /* libbctoolbox.1.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD581F318A7E00403EFF /* libbctoolbox.1.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
@@ -696,6 +697,7 @@
 		6E5BBE551F1F2F0E00BE69FC /* video_in.pcapng */ = {isa = PBXFileReference; lastKnownFileType = file; path = video_in.pcapng; sourceTree = "<group>"; };
 		6E5BBE561F1F2F0E00BE69FC /* video_out.pcap */ = {isa = PBXFileReference; lastKnownFileType = file; path = video_out.pcap; sourceTree = "<group>"; };
 		6E5BBE571F1F2F0E00BE69FC /* video_out.pcapng */ = {isa = PBXFileReference; lastKnownFileType = file; path = video_out.pcapng; sourceTree = "<group>"; };
+		6E612A581F3D1209003C5A3F /* Filter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
 		6E676A151F129C7000EF4428 /* CallParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallParameters.swift; sourceTree = "<group>"; };
 		6E676A171F12AD0B00EF4428 /* CallStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallStats.swift; sourceTree = "<group>"; };
 		6E76D73E1F0705B70017362C /* Core.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Core.swift; sourceTree = "<group>"; };
@@ -1161,6 +1163,7 @@
 			isa = PBXGroup;
 			children = (
 				6E58AF561F085BB5009A0E68 /* Factory.swift */,
+				6E612A581F3D1209003C5A3F /* Filter.swift */,
 				6E59C7891F11E135005274EC /* Bool.swift */,
 			);
 			path = MediaStreamer;
@@ -2003,6 +2006,7 @@
 			buildActionMask = 0;
 			files = (
 				6E58AF131F07E9E9009A0E68 /* Internal.swift in Sources */,
+				6E612A591F3D1209003C5A3F /* Filter.swift in Sources */,
 				6E4508BA1F16B58F00B497C8 /* VideoPolicy.swift in Sources */,
 				6E569B1F1F09F9D500BF244A /* Handle.swift in Sources */,
 				6EF6A6DE1F0CACAE00C39864 /* Transport.swift in Sources */,
