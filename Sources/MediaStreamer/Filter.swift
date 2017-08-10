@@ -29,7 +29,7 @@ public final class Filter {
     }
     
     /// Instantiate from raw C pointer and specify whether the object will own (manage) the raw pointer.
-    public init(rawPointer: UnsafeMutablePointer<MSFactory>, isOwner: Bool = true) {
+    public init(rawPointer: UnsafeMutablePointer<MSFilter>, isOwner: Bool = true) {
         
         self.rawPointer = rawPointer
         self.isOwner = isOwner
@@ -56,14 +56,9 @@ public final class Filter {
     // MARK: - Accessors
     
     /// The identifier of the filter.
-    public var identifier: Identifier? {
+    public var identifier: Identifier {
         
-        let identifier = ms_filter_get_id(rawPointer)
-        
-        guard identifier.rawValue != -1
-            else { return nil }
-        
-        return identifier as Identifier
+        return ms_filter_get_id(rawPointer)
     }
     
     /// The name of the filter.
@@ -83,14 +78,14 @@ public final class Filter {
         return ms_filter_link(rawPointer, pin, filter.rawPointer, pin2) == 0
     }
     
-    /// Unlink one OUTPUT pin from a filter to an INPUT pin of another filter. 
+    /// Unlink one OUTPUT pin from a filter to an INPUT pin of another filter.
     public func unlink(pin: CInt, to filter: Filter, pin pin2: CInt) -> Bool {
         
         return ms_filter_unlink(rawPointer, pin, filter.rawPointer, pin2) == 0
     }
     
     /// Returns whether the filter implements a given method.
-    public func hasMethod(_ method: CUnsignedInt) {
+    public func hasMethod(_ method: CUnsignedInt) -> Bool {
         
         return ms_filter_has_method(rawPointer, method).boolValue
     }
