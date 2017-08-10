@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   s.source = { :path => '*' }
   s.source_files = 'Sources/BelledonneToolbox/*.swift'
   s.ios.vendored_frameworks = '$SRCROOT/../liblinphone-sdk/iOS/apple-darwin/Frameworks/*.framework'
-  s.xcconfig = { 
+  s.ios.xcconfig = { 
     'ENABLE_BITCODE' => 'NO', 
     'SWIFT_INCLUDE_PATHS' => '$SRCROOT/../liblinphone-sdk/iOS/apple-darwin/include', 
     'FRAMEWORK_SEARCH_PATHS' => '$SRCROOT/../liblinphone-sdk/iOS/apple-darwin/Frameworks', 
