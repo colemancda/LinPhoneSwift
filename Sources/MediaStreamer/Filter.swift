@@ -10,10 +10,12 @@ import CMediaStreamer2
 
 public final class Filter {
     
+    public typealias RawPointer = UnsafeMutablePointer<MSFilter>
+    
     // MARK: - Properties
     
     @_versioned
-    internal let rawPointer: UnsafeMutablePointer<MSFilter>
+    internal let rawPointer: RawPointer
     
     @_versioned
     internal let isOwner: Bool
@@ -29,7 +31,7 @@ public final class Filter {
     }
     
     /// Instantiate from raw C pointer and specify whether the object will own (manage) the raw pointer.
-    public init(rawPointer: UnsafeMutablePointer<MSFilter>, isOwner: Bool = true) {
+    public init(rawPointer: RawPointer, isOwner: Bool = true) {
         
         self.rawPointer = rawPointer
         self.isOwner = isOwner
@@ -48,6 +50,33 @@ public final class Filter {
     public convenience init?(name: String, factory: Factory) {
         
         guard let rawPointer = ms_factory_create_filter_from_name(factory.rawPointer, name)
+            else { return nil }
+        
+        self.init(rawPointer: rawPointer)
+    }
+    
+    /// Create encoder filter according to codec name.
+    public convenience init?(encoder name: String, factory: Factory) {
+        
+        guard let rawPointer = ms_factory_create_encoder(factory.rawPointer, name)
+            else { return nil }
+        
+        self.init(rawPointer: rawPointer)
+    }
+    
+    /// Create decoder filter according to codec name.
+    public convenience init?(decoder name: String, factory: Factory) {
+        
+        guard let rawPointer = ms_factory_create_decoder(factory.rawPointer, name)
+            else { return nil }
+        
+        self.init(rawPointer: rawPointer)
+    }
+    
+    /// Create decoder filter according to a filter's description.
+    public convenience init?(description: Description, factory: Factory) {
+        
+        guard let rawPointer = ms_factory_create_filter_from_desc(factory.rawPointer, description.rawPointer)
             else { return nil }
         
         self.init(rawPointer: rawPointer)

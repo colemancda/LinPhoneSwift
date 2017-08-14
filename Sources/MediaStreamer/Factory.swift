@@ -10,10 +10,12 @@ import CMediaStreamer2
 
 public final class Factory {
     
+    public typealias RawPointer = UnsafeMutablePointer<MSFactory>
+    
     // MARK: - Properties
     
     @_versioned
-    internal let rawPointer: UnsafeMutablePointer<MSFactory>
+    internal let rawPointer: RawPointer
     
     @_versioned
     internal let isOwner: Bool
@@ -29,7 +31,7 @@ public final class Factory {
     }
     
     /// Instantiate from raw C pointer and specify whether the object will own (manage) the raw pointer.
-    public init(rawPointer: UnsafeMutablePointer<MSFactory>, isOwner: Bool = true) {
+    public init(rawPointer: RawPointer, isOwner: Bool = true) {
         
         self.rawPointer = rawPointer
         self.isOwner = isOwner
@@ -68,16 +70,21 @@ public final class Factory {
     
     /// Get number of available cpus for processing.
     /// The factory initializes this value to the number of logicial processors available on the machine where it runs.
-    public var cpuCount: Int {
+    public var cpuCount: UInt {
         
         @inline(__always)
-        get { return Int(ms_factory_get_cpu_count(rawPointer)) }
+        get { return UInt(ms_factory_get_cpu_count(rawPointer)) }
+        
+        @inline(__always)
+        set { ms_factory_set_cpu_count(rawPointer, UInt32(newValue)) }
     }
     
-    public var maximumTransmissionUnit: Int {
+    public var maximumTransmissionUnit: UInt {
         
-        get { return Int(ms_factory_get_mtu(rawPointer)) }
+        @inline(__always)
+        get { return UInt(ms_factory_get_mtu(rawPointer)) }
         
+        @inline(__always)
         set { ms_factory_set_mtu(rawPointer, Int32(newValue)) }
     }
     
@@ -106,6 +113,12 @@ public final class Factory {
     public func enableFilter(_ enable: Bool, for name: String) -> Bool {
         
         return ms_factory_enable_filter_from_name(rawPointer, name, bool_t(enable)) == 0
+    }
+    
+    /// Register a filter description.
+    public func register(filter description: Filter.Description) {
+        
+        ms_factory_register_filter(rawPointer, description.rawPointer)
     }
 }
 
