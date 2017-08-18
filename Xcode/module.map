@@ -47,6 +47,11 @@ module CMediaStreamer2 [system] {
         header "mediastreamer2/rfc3984.h"
         export *
     }
+    
+    module queue {
+        header "mediastreamer2/msqueue.h"
+        export *
+    }
 }
 
 module CBelledonneToolbox [system] {

@@ -64,5 +64,8 @@ public final class Rfc3984Context {
     
     // MARK: - Methods
     
-    
+    public func pack() {
+        
+        
+    }
 }

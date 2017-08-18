@@ -97,6 +97,20 @@ public final class Factory {
         return LinkedList.strings(from: listRawPointer)
     }
     
+    public var payloadMaxSize: Int {
+        
+        get { return Int(ms_factory_get_payload_max_size(rawPointer)) }
+        
+        set { ms_factory_set_payload_max_size(rawPointer, Int32(newValue)) }
+    }
+    
+    public var echoCancellerFilterName: String {
+        
+        get { return String(cString: ms_factory_get_echo_canceller_filter_name(rawPointer)) }
+        
+        set { ms_factory_set_echo_canceller_filter_name(rawPointer, newValue) }
+    }
+    
     // MARK: - Methods
     
     @inline(__always)
