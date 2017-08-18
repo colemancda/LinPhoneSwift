@@ -6,7 +6,7 @@
 //
 //
 
-import CMediaStreamer2
+import CMediaStreamer2.filter
 
 public extension Filter {
     

@@ -6,7 +6,8 @@
 //
 //
 
-import CMediaStreamer2
+import CMediaStreamer2.factory
+import struct BelledonneToolbox.LinkedList
 
 public final class Factory {
     
@@ -88,6 +89,14 @@ public final class Factory {
         set { ms_factory_set_mtu(rawPointer, Int32(newValue)) }
     }
     
+    public var platformTags: [String] {
+        
+        guard let listRawPointer = ms_factory_get_platform_tags(rawPointer)
+            else { return [] }
+        
+        return LinkedList.strings(from: listRawPointer)
+    }
+    
     // MARK: - Methods
     
     @inline(__always)
@@ -119,6 +128,27 @@ public final class Factory {
     public func register(filter description: Filter.Description) {
         
         ms_factory_register_filter(rawPointer, description.rawPointer)
+    }
+    
+    /// Add platform tag.
+    @inline(__always)
+    public func add(platform tag: String) {
+        
+        ms_factory_add_platform_tag(rawPointer, tag)
+    }
+    
+    /// Initialize VOIP features (registration of codecs, sound card and webcam managers).
+    @inline(__always)
+    public func initializeVoip() {
+        
+        ms_factory_init_voip(rawPointer)
+    }
+    
+    /// Uninitialize VOIP features (registration of codecs, sound card and webcam managers).
+    @inline(__always)
+    public func uninitializeVoip() {
+        
+        ms_factory_uninit_voip(rawPointer)
     }
 }
 
@@ -158,8 +188,8 @@ public extension Factory {
     }
 }
 
-/// On iOS, plugins are built as static libraries so Liblinphone will not be able to load them at runtime dynamically.
-/// Instead, you should declare their prototypes
+// On iOS, plugins are built as static libraries so Liblinphone will not be able to load them at runtime dynamically.
+// Instead, you should declare their prototypes
 
 /// extern void libmsamr_init(MSFactory *factory);
 @_silgen_name("libmsamr_init")

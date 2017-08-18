@@ -18,8 +18,35 @@ module CLinPhone [system] {
 
 module CMediaStreamer2 [system] {
     
-    header "mediastreamer2/mediastream.h"
-    export *
+    module factory {
+        header "mediastreamer2/msfactory.h"
+        export *
+    }
+    
+    module filter {
+        header "mediastreamer2/msfilter.h"
+        export *
+    }
+    
+    module mediastream {
+        header "mediastreamer2/mediastream.h"
+        export *
+    }
+    
+    module common {
+        header "mediastreamer2/mscommon.h"
+        export *
+    }
+    
+    module eventqueue {
+        header "mediastreamer2/mseventqueue.h"
+        export *
+    }
+    
+    module rfc3984 {
+        header "mediastreamer2/rfc3984.h"
+        export *
+    }
 }
 
 module CBelledonneToolbox [system] {
