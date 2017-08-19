@@ -66,6 +66,6 @@ public final class Rfc3984Context {
     
     public func pack() {
         
-        
+        //rfc3984_pack(rawPointer, <#T##naluq: UnsafeMutablePointer<MSQueue>!##UnsafeMutablePointer<MSQueue>!#>, <#T##rtpq: UnsafeMutablePointer<MSQueue>!##UnsafeMutablePointer<MSQueue>!#>, <#T##ts: UInt32##UInt32#>)
     }
 }

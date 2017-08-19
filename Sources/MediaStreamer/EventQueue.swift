@@ -17,26 +17,20 @@ public final class EventQueue {
     @_versioned
     internal let rawPointer: RawPointer
     
-    @_versioned
-    internal let factory: Factory
-    
     // MARK: - Initialization
     
     deinit {
         
-        ms_factory_destroy_event_queue(factory.rawPointer)
+        ms_event_queue_destroy(rawPointer)
     }
     
-    /// Creates an event queue. 
-    ///
-    /// Only one can exist so if it has already been created the same one will be returned.
-    public init?(factory: Factory) {
+    /// Creates an event queue to receive notifications from MSFilters.
+    public init?() {
         
-        guard let rawPointer = ms_factory_create_event_queue(factory.rawPointer)
+        guard let rawPointer = ms_event_queue_new()
             else { return nil }
         
         self.rawPointer = rawPointer
-        self.factory = factory
     }
     
     // MARK: - Methods

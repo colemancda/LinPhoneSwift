@@ -104,6 +104,7 @@ public final class Factory {
         set { ms_factory_set_payload_max_size(rawPointer, Int32(newValue)) }
     }
     
+    /// The name of the echo canceller filter to use.
     public var echoCancellerFilterName: String {
         
         get { return String(cString: ms_factory_get_echo_canceller_filter_name(rawPointer)) }
