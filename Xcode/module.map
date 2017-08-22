@@ -14,6 +14,11 @@ module CLinPhone [system] {
         header "linphone/tunnel.h"
         export *
     }
+    
+    module factory {
+        header "linphone/factory.h"
+        export *
+    }
 }
 
 module CMediaStreamer2 [system] {
@@ -61,6 +66,9 @@ module CBelledonneSIP [system] {
 }
 
 module CBelledonneRTP [system] {
+    
+    umbrella header "ortp/ortp.h"
+    export *
     
     module port {
         header "ortp/port.h"

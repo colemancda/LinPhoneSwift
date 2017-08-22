@@ -6,7 +6,7 @@
 //
 //
 
-import CLinPhone
+import CLinPhone.factory
 
 /// `LinPhone.Factory` is a singleton object devoted to the creation of all the objects of
 /// LinPhone that cannot created by `Linphone.Core` itself.
