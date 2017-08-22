@@ -64,9 +64,15 @@ public final class Rfc3984Context {
     
     // MARK: - Methods
     
-    /*
+    /// Process NALUs and pack them into rtp payload.
     public func pack(nalu: Queue, rtp: Queue, ts: UInt) {
         
-        rfc3984_pack(rawPointer, <#T##naluq: UnsafeMutablePointer<MSQueue>!##UnsafeMutablePointer<MSQueue>!#>, <#T##rtpq: UnsafeMutablePointer<MSQueue>!##UnsafeMutablePointer<MSQueue>!#>, UInt32(ts))
-    }*/
+        rfc3984_pack(rawPointer, nalu.rawPointer, rtp.rawPointer, UInt32(ts))
+    }
+    
+    /// Process incoming rtp data and output NALUs, whenever possible.
+    public func unpack(packet: mblk_t, nalu: Queue) {
+        
+        rfc3984_unpack2(rawPointer, packet, nalu.rawPointer)
+    }
 }

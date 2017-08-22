@@ -28,19 +28,10 @@ public final class Queue {
         ms_queue_destroy(rawPointer)
     }
     
-    public init() {
+    public init(previous: ControlPoint, next: ControlPoint) {
         
-        self.rawPointer = RawPointer.allocate(capacity: 1)
-        
-        ms_queue_init(rawPointer)
-        
-        self.next = nil
-        self.previous = nil
-    }
-    
-    public init(previous: (filter: Filter, pin: Int), next: (filter: Filter, pin: Int)) {
-        
-        self.rawPointer = ms_queue_new(previous.filter.rawPointer, Int32(previous.pin), next.filter.rawPointer, Int32(next.pin))
+        self.rawPointer = ms_queue_new(previous.filter.rawPointer, Int32(previous.pin),
+                                       next.filter.rawPointer, Int32(next.pin))
         
         self.previous = previous
         self.next = next
@@ -59,11 +50,11 @@ public final class Queue {
 
 public extension Queue {
     
-    public struct ControlPoint {
+    public class ControlPoint {
         
-        public var filter: Filter
+        public let filter: Filter
         
-        public var pin: Int
+        public let pin: Int
         
         public init(filter: Filter, pin: Int) {
             
