@@ -259,6 +259,12 @@
 		6EABA99C1F4771EF004B0DA4 /* RFC3984.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EABA99A1F4771EF004B0DA4 /* RFC3984.swift */; };
 		6EABA99E1F479021004B0DA4 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EABA99D1F479021004B0DA4 /* Queue.swift */; };
 		6EABA99F1F479021004B0DA4 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EABA99D1F479021004B0DA4 /* Queue.swift */; };
+		6EE364101F4C95B400867353 /* bctoolbox.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6EFE259C1F1660FD00FC4ECC /* bctoolbox.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6EE3641C1F4C95C500867353 /* bctoolbox.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6EFE259C1F1660FD00FC4ECC /* bctoolbox.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6EE364291F4CADBB00867353 /* ortp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EFE25A71F1660FD00FC4ECC /* ortp.framework */; };
+		6EE3642A1F4CADE300867353 /* libortp.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E77CD761F318A7E00403EFF /* libortp.dylib */; };
+		6EE3642D1F4CAE5E00867353 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE3642C1F4CAE5E00867353 /* Log.swift */; };
+		6EE3642E1F4CAE5E00867353 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE3642C1F4CAE5E00867353 /* Log.swift */; };
 		6EF1B5C91F0D6B5400B65129 /* Conference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF1B5C81F0D6B5400B65129 /* Conference.swift */; };
 		6EF6A6D61F0C3E5100C39864 /* Call.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6A6D51F0C3E5100C39864 /* Call.swift */; };
 		6EF6A6D81F0C427B00C39864 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6A6D71F0C427B00C39864 /* Address.swift */; };
@@ -442,6 +448,34 @@
 			proxyType = 1;
 			remoteGlobalIDString = 6E1303961F3185C500C4AEE8;
 			remoteInfo = "BelledonneToolbox macOS";
+		};
+		6EE364211F4C967A00867353 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6E569ADD1F09F67200BF244A;
+			remoteInfo = "BelledonneToolbox iOS";
+		};
+		6EE364231F4C968C00867353 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6E1303961F3185C500C4AEE8;
+			remoteInfo = "BelledonneToolbox macOS";
+		};
+		6EE364251F4C971C00867353 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6EE363EF1F4C959700867353;
+			remoteInfo = "oRTP iOS";
+		};
+		6EE364271F4C972500867353 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6EE363FC1F4C95A200867353;
+			remoteInfo = "oRTP macOS";
 		};
 		6EF6A6D21F0C058C00C39864 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -651,6 +685,28 @@
 			name = "Copy Fake Server";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6EE3640F1F4C95B400867353 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				6EE364101F4C95B400867353 /* bctoolbox.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6EE3641B1F4C95C500867353 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				6EE3641C1F4C95C500867353 /* bctoolbox.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -773,6 +829,11 @@
 		6EABA9971F474C75004B0DA4 /* EventQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventQueue.swift; sourceTree = "<group>"; };
 		6EABA99A1F4771EF004B0DA4 /* RFC3984.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RFC3984.swift; sourceTree = "<group>"; };
 		6EABA99D1F479021004B0DA4 /* Queue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
+		6EE363FB1F4C959700867353 /* BelledonneRTP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BelledonneRTP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6EE364081F4C95A200867353 /* BelledonneRTP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BelledonneRTP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6EE364141F4C95B400867353 /* BelledonneRTPTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BelledonneRTPTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6EE364201F4C95C500867353 /* BelledonneRTPTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BelledonneRTPTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6EE3642C1F4CAE5E00867353 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		6EF1B5C81F0D6B5400B65129 /* Conference.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Conference.swift; sourceTree = "<group>"; };
 		6EF6A6D51F0C3E5100C39864 /* Call.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Call.swift; sourceTree = "<group>"; };
 		6EF6A6D71F0C427B00C39864 /* Address.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
@@ -994,6 +1055,36 @@
 				6E9BFCE11F32CAF2007D7A93 /* liblinphone.dylib in Frameworks */,
 				6E9BFCDD1F32CADE007D7A93 /* libmediastreamer_base.dylib in Frameworks */,
 				6E9BFCDE1F32CADE007D7A93 /* libmediastreamer_voip.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6EE363F41F4C959700867353 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
+			files = (
+				6EE364291F4CADBB00867353 /* ortp.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6EE364011F4C95A200867353 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
+			files = (
+				6EE3642A1F4CADE300867353 /* libortp.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6EE3640E1F4C95B400867353 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6EE3641A1F4C95C500867353 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1326,6 +1417,14 @@
 			path = plugins;
 			sourceTree = "<group>";
 		};
+		6EE3642B1F4CAE3D00867353 /* BelledonneRTP */ = {
+			isa = PBXGroup;
+			children = (
+				6EE3642C1F4CAE5E00867353 /* Log.swift */,
+			);
+			path = BelledonneRTP;
+			sourceTree = "<group>";
+		};
 		OBJ_10 /* LinPhoneTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -1356,6 +1455,10 @@
 				6E9BFBF81F3250BD007D7A93 /* MediaStreamerTests.xctest */,
 				6E9BFC5B1F3263A3007D7A93 /* LinPhoneSwift.framework */,
 				6E9BFC7E1F3263A5007D7A93 /* LinPhoneTests.xctest */,
+				6EE363FB1F4C959700867353 /* BelledonneRTP.framework */,
+				6EE364081F4C95A200867353 /* BelledonneRTP.framework */,
+				6EE364141F4C95B400867353 /* BelledonneRTPTests.xctest */,
+				6EE364201F4C95C500867353 /* BelledonneRTPTests.xctest */,
 			);
 			name = Products;
 			sourceTree = BUILT_PRODUCTS_DIR;
@@ -1376,8 +1479,9 @@
 			children = (
 				6E76D73D1F0705B70017362C /* LinPhone */,
 				6E58AF551F085B8A009A0E68 /* MediaStreamer */,
-				6E569ADB1F09DA2300BF244A /* BelledonneToolbox */,
 				6E52914D1F0B53A800D4B765 /* BelledonneSIP */,
+				6EE3642B1F4CAE3D00867353 /* BelledonneRTP */,
+				6E569ADB1F09DA2300BF244A /* BelledonneToolbox */,
 			);
 			name = Sources;
 			path = ../Sources;
@@ -1651,6 +1755,78 @@
 			productReference = 6E9BFC7E1F3263A5007D7A93 /* LinPhoneTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		6EE363EF1F4C959700867353 /* BelledonneRTP iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6EE363F81F4C959700867353 /* Build configuration list for PBXNativeTarget "BelledonneRTP iOS" */;
+			buildPhases = (
+				6EE363F01F4C959700867353 /* Sources */,
+				6EE363F41F4C959700867353 /* Frameworks */,
+				6EE363F71F4C959700867353 /* Increment Build */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6EE364221F4C967A00867353 /* PBXTargetDependency */,
+			);
+			name = "BelledonneRTP iOS";
+			productName = LinPhoneSwift;
+			productReference = 6EE363FB1F4C959700867353 /* BelledonneRTP.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		6EE363FC1F4C95A200867353 /* BelledonneRTP macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6EE364051F4C95A200867353 /* Build configuration list for PBXNativeTarget "BelledonneRTP macOS" */;
+			buildPhases = (
+				6EE363FD1F4C95A200867353 /* Sources */,
+				6EE364011F4C95A200867353 /* Frameworks */,
+				6EE364041F4C95A200867353 /* Increment Build */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6EE364241F4C968C00867353 /* PBXTargetDependency */,
+			);
+			name = "BelledonneRTP macOS";
+			productName = LinPhoneSwift;
+			productReference = 6EE364081F4C95A200867353 /* BelledonneRTP.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		6EE364091F4C95B400867353 /* BelledonneRTPTests iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6EE364111F4C95B400867353 /* Build configuration list for PBXNativeTarget "BelledonneRTPTests iOS" */;
+			buildPhases = (
+				6EE3640C1F4C95B400867353 /* Sources */,
+				6EE3640E1F4C95B400867353 /* Frameworks */,
+				6EE3640F1F4C95B400867353 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6EE364261F4C971C00867353 /* PBXTargetDependency */,
+			);
+			name = "BelledonneRTPTests iOS";
+			productName = LinPhoneSwiftTests;
+			productReference = 6EE364141F4C95B400867353 /* BelledonneRTPTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		6EE364151F4C95C500867353 /* BelledonneRTPTests macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6EE3641D1F4C95C500867353 /* Build configuration list for PBXNativeTarget "BelledonneRTPTests macOS" */;
+			buildPhases = (
+				6EE364181F4C95C500867353 /* Sources */,
+				6EE3641A1F4C95C500867353 /* Frameworks */,
+				6EE3641B1F4C95C500867353 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6EE364281F4C972500867353 /* PBXTargetDependency */,
+			);
+			name = "BelledonneRTPTests macOS";
+			productName = LinPhoneSwiftTests;
+			productReference = 6EE364201F4C95C500867353 /* BelledonneRTPTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		OBJ_16 /* LinPhoneSwift iOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = OBJ_17 /* Build configuration list for PBXNativeTarget "LinPhoneSwift iOS" */;
@@ -1702,6 +1878,12 @@
 					6E58AF141F085B4F009A0E68 = {
 						LastSwiftMigration = 0830;
 					};
+					6EE363EF1F4C959700867353 = {
+						LastSwiftMigration = 0830;
+					};
+					6EE363FC1F4C95A200867353 = {
+						LastSwiftMigration = 0830;
+					};
 					OBJ_16 = {
 						LastSwiftMigration = 0830;
 					};
@@ -1734,6 +1916,10 @@
 				6E5291671F0B53B100D4B765 /* BelledonneSIPTests iOS */,
 				6E9BFB9C1F3238B7007D7A93 /* BelledonneSIP macOS */,
 				6E9BFBB11F3238BA007D7A93 /* BelledonneSIPTests macOS */,
+				6EE363EF1F4C959700867353 /* BelledonneRTP iOS */,
+				6EE364091F4C95B400867353 /* BelledonneRTPTests iOS */,
+				6EE363FC1F4C95A200867353 /* BelledonneRTP macOS */,
+				6EE364151F4C95C500867353 /* BelledonneRTPTests macOS */,
 				6E569ADD1F09F67200BF244A /* BelledonneToolbox iOS */,
 				6E569AF41F09F67500BF244A /* BelledonneToolboxTests iOS */,
 				6E1303961F3185C500C4AEE8 /* BelledonneToolbox macOS */,
@@ -1859,6 +2045,34 @@
 			shellScript = "#!/bin/bash\n\n#  update_build_number.sh\n#  Usage: `update_build_number.sh [branch]`\n#  Run this script after the 'Copy Bundle Resources' build phase\n#  Ref: http://tgoode.com/2014/06/05/sensible-way-increment-bundle-version-cfbundleversion-xcode/\n\nif [ $TRAVIS == \"true\" ]\nthen echo \"Updating build number to TRAVISCI.\"\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion TRAVISCI\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\nelse branch=${1:-'master'}\nbuildNumber=$(expr $(git rev-list $branch --count) - $(git rev-list HEAD..$branch --count))\necho \"Updating build number to $buildNumber using branch '$branch'.\"\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\nfi";
 		};
 		6E9BFC571F3263A3007D7A93 /* Increment Build */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Increment Build";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/bash\n\n#  update_build_number.sh\n#  Usage: `update_build_number.sh [branch]`\n#  Run this script after the 'Copy Bundle Resources' build phase\n#  Ref: http://tgoode.com/2014/06/05/sensible-way-increment-bundle-version-cfbundleversion-xcode/\n\nif [ $TRAVIS == \"true\" ]\nthen echo \"Updating build number to TRAVISCI.\"\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion TRAVISCI\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\nelse branch=${1:-'master'}\nbuildNumber=$(expr $(git rev-list $branch --count) - $(git rev-list HEAD..$branch --count))\necho \"Updating build number to $buildNumber using branch '$branch'.\"\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\nfi";
+		};
+		6EE363F71F4C959700867353 /* Increment Build */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Increment Build";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/bash\n\n#  update_build_number.sh\n#  Usage: `update_build_number.sh [branch]`\n#  Run this script after the 'Copy Bundle Resources' build phase\n#  Ref: http://tgoode.com/2014/06/05/sensible-way-increment-bundle-version-cfbundleversion-xcode/\n\nif [ $TRAVIS == \"true\" ]\nthen echo \"Updating build number to TRAVISCI.\"\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion TRAVISCI\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\nelse branch=${1:-'master'}\nbuildNumber=$(expr $(git rev-list $branch --count) - $(git rev-list HEAD..$branch --count))\necho \"Updating build number to $buildNumber using branch '$branch'.\"\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\nfi";
+		};
+		6EE364041F4C95A200867353 /* Increment Build */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2038,6 +2252,36 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6EE363F01F4C959700867353 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				6EE3642D1F4CAE5E00867353 /* Log.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6EE363FD1F4C95A200867353 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				6EE3642E1F4CAE5E00867353 /* Log.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6EE3640C1F4C95B400867353 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6EE364181F4C95C500867353 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		OBJ_20 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
@@ -2160,6 +2404,26 @@
 			isa = PBXTargetDependency;
 			target = 6E1303961F3185C500C4AEE8 /* BelledonneToolbox macOS */;
 			targetProxy = 6E9BFCAE1F326464007D7A93 /* PBXContainerItemProxy */;
+		};
+		6EE364221F4C967A00867353 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6E569ADD1F09F67200BF244A /* BelledonneToolbox iOS */;
+			targetProxy = 6EE364211F4C967A00867353 /* PBXContainerItemProxy */;
+		};
+		6EE364241F4C968C00867353 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6E1303961F3185C500C4AEE8 /* BelledonneToolbox macOS */;
+			targetProxy = 6EE364231F4C968C00867353 /* PBXContainerItemProxy */;
+		};
+		6EE364261F4C971C00867353 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6EE363EF1F4C959700867353 /* BelledonneRTP iOS */;
+			targetProxy = 6EE364251F4C971C00867353 /* PBXContainerItemProxy */;
+		};
+		6EE364281F4C972500867353 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6EE363FC1F4C95A200867353 /* BelledonneRTP macOS */;
+			targetProxy = 6EE364271F4C972500867353 /* PBXContainerItemProxy */;
 		};
 		6EF6A6D31F0C058C00C39864 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -2496,6 +2760,108 @@
 			};
 			name = Release;
 		};
+		6EE363F91F4C959700867353 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				ENABLE_BITCODE = "$(INHERITED)";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = org.belledonne.ortp.swift;
+				PRODUCT_NAME = BelledonneRTP;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		6EE363FA1F4C959700867353 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				ENABLE_BITCODE = "$(INHERITED)";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = org.belledonne.ortp.swift;
+				PRODUCT_NAME = BelledonneRTP;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		6EE364061F4C95A200867353 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				ENABLE_BITCODE = "$(INHERITED)";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = org.belledonne.ortp.swift;
+				PRODUCT_NAME = BelledonneRTP;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		6EE364071F4C95A200867353 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				ENABLE_BITCODE = "$(INHERITED)";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = org.belledonne.ortp.swift;
+				PRODUCT_NAME = BelledonneRTP;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		6EE364121F4C95B400867353 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ENABLE_BITCODE = "$(INHERITED)";
+				PRODUCT_NAME = BelledonneRTPTests;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		6EE364131F4C95B400867353 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ENABLE_BITCODE = "$(INHERITED)";
+				PRODUCT_NAME = BelledonneRTPTests;
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+		6EE3641E1F4C95C500867353 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ENABLE_BITCODE = "$(INHERITED)";
+				PRODUCT_NAME = BelledonneRTPTests;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		6EE3641F1F4C95C500867353 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ENABLE_BITCODE = "$(INHERITED)";
+				PRODUCT_NAME = BelledonneRTPTests;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
 		OBJ_18 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -2784,6 +3150,42 @@
 			buildConfigurations = (
 				6E9BFC7C1F3263A5007D7A93 /* Debug */,
 				6E9BFC7D1F3263A5007D7A93 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		6EE363F81F4C959700867353 /* Build configuration list for PBXNativeTarget "BelledonneRTP iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6EE363F91F4C959700867353 /* Debug */,
+				6EE363FA1F4C959700867353 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		6EE364051F4C95A200867353 /* Build configuration list for PBXNativeTarget "BelledonneRTP macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6EE364061F4C95A200867353 /* Debug */,
+				6EE364071F4C95A200867353 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		6EE364111F4C95B400867353 /* Build configuration list for PBXNativeTarget "BelledonneRTPTests iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6EE364121F4C95B400867353 /* Debug */,
+				6EE364131F4C95B400867353 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		6EE3641D1F4C95C500867353 /* Build configuration list for PBXNativeTarget "BelledonneRTPTests macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6EE3641E1F4C95C500867353 /* Debug */,
+				6EE3641F1F4C95C500867353 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;

@@ -54,7 +54,91 @@ module CMediaStreamer2 [system] {
     }
 }
 
+module CBelledonneSIP [system] {
+    
+    umbrella header "belle-sip/belle-sip.h"
+    export *
+}
+
+module CBelledonneRTP [system] {
+    
+    module port {
+        header "ortp/port.h"
+        export *
+    }
+    
+    module b64 {
+        header "ortp/b64.h"
+        export *
+    }
+    
+    module event {
+        header "ortp/event.h"
+        export *
+    }
+    
+    module logging {
+        header "ortp/logging.h"
+        export *
+    }
+    
+    module payloadtype {
+        header "ortp/payloadtype.h"
+        export *
+    }    
+    
+    module rtcp {
+        header "ortp/rtcp.h"
+        export *
+    }
+    
+    module rtp {
+        header "ortp/rtp.h"
+        export *
+    }
+    
+    module rtpprofile {
+        header "ortp/rtpprofile.h"
+        export *
+    }
+    
+    module rtpsession {
+        header "ortp/rtpsession.h"
+        export *
+    }
+    
+    module rtpsignaltable {
+        header "ortp/rtpsignaltable.h"
+        export *
+    }
+    
+    module sessionset {
+        header "ortp/sessionset.h"
+        export *
+    }
+    
+    module stringutils {
+        header "ortp/str_utils.h"
+        export *
+    }
+    
+    module telephonyevents {
+        header "ortp/telephonyevents.h"
+        export *
+    }
+    
+    module utils {
+        header "ortp/utils.h"
+        export *
+    }
+}
+
 module CBelledonneToolbox [system] {
+    
+    module port {
+        header "bctoolbox/port.h"
+        export *
+    }
     
     module crypto {
         header "bctoolbox/crypto.h"
@@ -86,11 +170,6 @@ module CBelledonneToolbox [system] {
         export *
     }
     
-    module port {
-        header "bctoolbox/port.h"
-        export *
-    }
-    
     module vconnect {
         header "bctoolbox/vconnect.h"
         export *
@@ -100,10 +179,4 @@ module CBelledonneToolbox [system] {
         header "bctoolbox/vfs.h"
         export *
     }
-}
-
-module CBelledonneSIP [system] {
-    
-    umbrella header "belle-sip/belle-sip.h"
-    export *
 }
