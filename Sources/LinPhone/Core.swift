@@ -13,7 +13,7 @@ import CMediaStreamer2
 import CBelledonneRTP
 
 // Swift modules
-import class BelledonneRTP.Log
+import struct BelledonneRTP.Log
 import struct BelledonneToolbox.LinkedList
 import class MediaStreamer.Factory
 import struct BelledonneSIP.URI

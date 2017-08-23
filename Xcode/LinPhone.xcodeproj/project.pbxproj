@@ -1311,11 +1311,11 @@
 		6E00E0CD1F4E1B43008B6C29 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				6E00E0CE1F4E1B43008B6C29 /* CBelledonneRTP */,
-				6E00E0E01F4E1B43008B6C29 /* CBelledonneSIP */,
-				6E00E0FF1F4E1B43008B6C29 /* CBelledonneToolbox */,
 				6E00E10C1F4E1B43008B6C29 /* CLinPhone */,
 				6E00E1401F4E1B44008B6C29 /* CMediaStreamer2 */,
+				6E00E0E01F4E1B43008B6C29 /* CBelledonneSIP */,
+				6E00E0CE1F4E1B43008B6C29 /* CBelledonneRTP */,
+				6E00E0FF1F4E1B43008B6C29 /* CBelledonneToolbox */,
 			);
 			path = Modules;
 			sourceTree = "<group>";

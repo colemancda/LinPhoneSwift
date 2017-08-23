@@ -7,10 +7,33 @@
 //
 
 import CBelledonneRTP.logging
+import CBelledonneRTP.port
 
-public class Log {
+public struct Log {
     
+    // MARK: - Static Properties
     
+    /// Tell oRTP the id of the thread used to output the logs.
+    /// This is meant to output all the logs from the same thread to prevent deadlock problems at the application level.
+    public static var threadIdentifier: UInt {
+        
+        @inline(__always)
+        get { return __ortp_thread_self() }
+        
+        @inline(__always)
+        set { ortp_set_log_thread_id(newValue) }
+    }
+    
+    // MARK: - Static Methods
+    
+    /// Flushes the log output queue.
+    /// 
+    /// - Warning: Must be called from the thread that has been defined with `threadIdentifier`.
+    @inline(__always)
+    public static func flush() {
+        
+        ortp_logv_flush()
+    }
 }
 
 // MARK: - Supporting Types
