@@ -1,74 +1,45 @@
-module CLinPhone [system] {
+module CBelledonneToolbox [system] {
     
-    module core {
-        header "linphone/core.h"
-        export *
+    module port {
+        header "bctoolbox/port.h"
     }
     
-    module coreutils {
-        header "linphone/core_utils.h"
-        export *
+    module crypto {
+        header "bctoolbox/crypto.h"
     }
     
-    module tunnel {
-        header "linphone/tunnel.h"
-        export *
+    module defs {
+        header "bctoolbox/defs.h"
     }
     
-    module factory {
-        header "linphone/factory.h"
-        export *
-    }
-}
-
-module CMediaStreamer2 [system] {
-    
-    module factory {
-        header "mediastreamer2/msfactory.h"
-        export *
+    module list {
+        header "bctoolbox/list.h"
     }
     
-    module filter {
-        header "mediastreamer2/msfilter.h"
-        export *
+    module logging {
+        header "bctoolbox/logging.h"
     }
     
-    module mediastream {
-        header "mediastreamer2/mediastream.h"
-        export *
+    module map {
+        header "bctoolbox/map.h"
     }
     
-    module common {
-        header "mediastreamer2/mscommon.h"
-        export *
+    module parser {
+        header "bctoolbox/parser.h"
     }
     
-    module eventqueue {
-        header "mediastreamer2/mseventqueue.h"
-        export *
+    module vconnect {
+        header "bctoolbox/vconnect.h"
     }
     
-    module rfc3984 {
-        header "mediastreamer2/rfc3984.h"
-        export *
+    module vfs {
+        header "bctoolbox/vfs.h"
     }
-    
-    module queue {
-        header "mediastreamer2/msqueue.h"
-        export *
-    }
-}
-
-module CBelledonneSIP [system] {
-    
-    umbrella header "belle-sip/belle-sip.h"
-    export *
 }
 
 module CBelledonneRTP [system] {
     
-    umbrella header "ortp/ortp.h"
-    export *
+    header "ortp/ortp.h"
     
     module port {
         header "ortp/port.h"
@@ -93,7 +64,7 @@ module CBelledonneRTP [system] {
     module payloadtype {
         header "ortp/payloadtype.h"
         export *
-    }    
+    }
     
     module rtcp {
         header "ortp/rtcp.h"
@@ -141,50 +112,61 @@ module CBelledonneRTP [system] {
     }
 }
 
-module CBelledonneToolbox [system] {
+module CBelledonneSIP [system] {
     
-    module port {
-        header "bctoolbox/port.h"
-        export *
+    umbrella header "belle-sip/belle-sip.h"
+    
+    module * { export * }
+    export *
+}
+
+module CMediaStreamer2 [system] {
+    
+    module factory {
+        header "mediastreamer2/msfactory.h"
     }
     
-    module crypto {
-        header "bctoolbox/crypto.h"
-        export *
+    module filter {
+        header "mediastreamer2/msfilter.h"
     }
     
-    module defs {
-        header "bctoolbox/defs.h"
-        export *
+    module mediastream {
+        header "mediastreamer2/mediastream.h"
     }
     
-    module list {
-        header "bctoolbox/list.h"
-        export *
+    module common {
+        header "mediastreamer2/mscommon.h"
     }
     
-    module logging {
-        header "bctoolbox/logging.h"
-        export *
+    module eventqueue {
+        header "mediastreamer2/mseventqueue.h"
     }
     
-    module map {
-        header "bctoolbox/map.h"
-        export *
+    module rfc3984 {
+        header "mediastreamer2/rfc3984.h"
     }
     
-    module parser {
-        header "bctoolbox/parser.h"
-        export *
-    }
-    
-    module vconnect {
-        header "bctoolbox/vconnect.h"
-        export *
-    }
-    
-    module vfs {
-        header "bctoolbox/vfs.h"
-        export *
+    module queue {
+        header "mediastreamer2/msqueue.h"
     }
 }
+
+module CLinPhone [system] {
+    
+    module core {
+        header "linphone/core.h"
+    }
+    
+    module coreutils {
+        header "linphone/core_utils.h"
+    }
+    
+    module tunnel {
+        header "linphone/tunnel.h"
+    }
+    
+    module factory {
+        header "linphone/factory.h"
+    }
+}
+
