@@ -68,3 +68,10 @@ fastlane/test_output
 
 # Linphone SDK
 liblinphone-sdk/*
+
+# Linphone SDK headers
+Xcode/Modules/CBelledonneToolbox/bctoolbox
+Xcode/Modules/CBelledonneRTP/ortp
+Xcode/Modules/CBelledonneSIP/belle-sip
+Xcode/Modules/CMediaStreamer2/mediastreamer2
+Xcode/Modules/CLinPhone/linphone

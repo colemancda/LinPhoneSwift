@@ -1,0 +1,60 @@
+module CBelledonneRTP [system] {
+    
+    header "ortp/ortp.h"
+    
+    module port {
+        header "ortp/port.h"
+    }
+    
+    module b64 {
+        header "ortp/b64.h"
+    }
+    
+    module event {
+        header "ortp/event.h"
+    }
+    
+    module logging {
+        header "ortp/logging.h"
+    }
+    
+    module payloadtype {
+        header "ortp/payloadtype.h"
+    }
+    
+    module rtcp {
+        header "ortp/rtcp.h"
+    }
+    
+    module rtp {
+        header "ortp/rtp.h"
+    }
+    
+    module rtpprofile {
+        header "ortp/rtpprofile.h"
+    }
+    
+    module rtpsession {
+        header "ortp/rtpsession.h"
+    }
+    
+    module rtpsignaltable {
+        header "ortp/rtpsignaltable.h"
+    }
+    
+    module sessionset {
+        header "ortp/sessionset.h"
+    }
+    
+    module stringutils {
+        header "ortp/str_utils.h"
+    }
+    
+    module telephonyevents {
+        header "ortp/telephonyevents.h"
+    }
+    
+    module utils {
+        header "ortp/utils.h"
+    }
+}

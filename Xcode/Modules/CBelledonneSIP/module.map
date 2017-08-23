@@ -1,0 +1,7 @@
+module CBelledonneSIP [system] {
+    
+    umbrella header "belle-sip/belle-sip.h"
+    
+    module * { export * }
+    export *
+}

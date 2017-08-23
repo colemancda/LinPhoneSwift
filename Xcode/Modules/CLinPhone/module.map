@@ -1,0 +1,18 @@
+module CLinPhone [system] {
+    
+    module core {
+        header "linphone/core.h"
+    }
+    
+    module coreutils {
+        header "linphone/core_utils.h"
+    }
+    
+    module tunnel {
+        header "linphone/tunnel.h"
+    }
+    
+    module factory {
+        header "linphone/factory.h"
+    }
+}

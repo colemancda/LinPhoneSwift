@@ -1,0 +1,38 @@
+module CBelledonneToolbox [system] {
+    
+    module port {
+        header "bctoolbox/port.h"
+    }
+    
+    module crypto {
+        header "bctoolbox/crypto.h"
+    }
+    
+    module defs {
+        header "bctoolbox/defs.h"
+    }
+    
+    module list {
+        header "bctoolbox/list.h"
+    }
+    
+    module logging {
+        header "bctoolbox/logging.h"
+    }
+    
+    module map {
+        header "bctoolbox/map.h"
+    }
+    
+    module parser {
+        header "bctoolbox/parser.h"
+    }
+    
+    module vconnect {
+        header "bctoolbox/vconnect.h"
+    }
+    
+    module vfs {
+        header "bctoolbox/vfs.h"
+    }
+}

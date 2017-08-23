@@ -773,7 +773,6 @@
 		6E676A151F129C7000EF4428 /* CallParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallParameters.swift; sourceTree = "<group>"; };
 		6E676A171F12AD0B00EF4428 /* CallStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallStats.swift; sourceTree = "<group>"; };
 		6E76D73E1F0705B70017362C /* Core.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Core.swift; sourceTree = "<group>"; };
-		6E76D76D1F0710D90017362C /* module.map */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = module.map; sourceTree = "<group>"; };
 		6E77CD4D1F318A1700403EFF /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
 		6E77CD541F318A7D00403EFF /* libantlr3c.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libantlr3c.1.dylib; sourceTree = "<group>"; };
 		6E77CD551F318A7D00403EFF /* libantlr3c.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libantlr3c.dylib; sourceTree = "<group>"; };
@@ -1467,7 +1466,6 @@
 		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
-				6E76D76D1F0710D90017362C /* module.map */,
 				6E1EF48F1F23297F009A5B5B /* Frameworks */,
 				OBJ_7 /* Sources */,
 				OBJ_9 /* Tests */,
@@ -2958,7 +2956,7 @@
 				PRODUCT_NAME = "$(PROJECT_NAME)";
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_INCLUDE_PATHS = $SRCROOT;
+				SWIFT_INCLUDE_PATHS = "$SRCROOT/Modules/CBelledonneToolbox $SRCROOT/Modules/CBelledonneRTP $SRCROOT/Modules/CBelledonneSIP $SRCROOT/Modules/CMediaStreamer2 $SRCROOT/Modules/CLinPhone";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -3015,7 +3013,7 @@
 				PRODUCT_NAME = "$(PROJECT_NAME)";
 				SDKROOT = macosx;
 				SWIFT_DISABLE_SAFETY_CHECKS = YES;
-				SWIFT_INCLUDE_PATHS = $SRCROOT;
+				SWIFT_INCLUDE_PATHS = "$SRCROOT/Modules/CBelledonneToolbox $SRCROOT/Modules/CBelledonneRTP $SRCROOT/Modules/CBelledonneSIP $SRCROOT/Modules/CMediaStreamer2 $SRCROOT/Modules/CLinPhone";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

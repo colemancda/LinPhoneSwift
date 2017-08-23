@@ -1,0 +1,30 @@
+module CMediaStreamer2 [system] {
+    
+    module factory {
+        header "mediastreamer2/msfactory.h"
+    }
+    
+    module filter {
+        header "mediastreamer2/msfilter.h"
+    }
+    
+    module mediastream {
+        header "mediastreamer2/mediastream.h"
+    }
+    
+    module common {
+        header "mediastreamer2/mscommon.h"
+    }
+    
+    module eventqueue {
+        header "mediastreamer2/mseventqueue.h"
+    }
+    
+    module rfc3984 {
+        header "mediastreamer2/rfc3984.h"
+    }
+    
+    module queue {
+        header "mediastreamer2/msqueue.h"
+    }
+}
