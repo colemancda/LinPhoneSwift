@@ -45,6 +45,7 @@
 		6E27091B1F3FA9760097A764 /* FilterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2709191F3FA9760097A764 /* FilterInterface.swift */; };
 		6E27091D1F3FA9A30097A764 /* Enumeration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E27091C1F3FA9A30097A764 /* Enumeration.swift */; };
 		6E27091E1F3FA9A30097A764 /* Enumeration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E27091C1F3FA9A30097A764 /* Enumeration.swift */; };
+		6E2B03051F4CF000008B7F98 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E612A581F3D1209003C5A3F /* Filter.swift */; };
 		6E2D5DCF1F0E9B5D003A1EAF /* RegistrationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2D5DCD1F0E9980003A1EAF /* RegistrationState.swift */; };
 		6E2D5DD21F0EF8AF003A1EAF /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E25E9DA1F0B73F1005BC42C /* libstdc++.tbd */; };
 		6E4508BA1F16B58F00B497C8 /* VideoPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4508B91F16B58F00B497C8 /* VideoPolicy.swift */; };
@@ -2200,6 +2201,7 @@
 				6E9BFBC91F3250BC007D7A93 /* Bool.swift in Sources */,
 				6EABA99C1F4771EF004B0DA4 /* RFC3984.swift in Sources */,
 				6EABA9991F474C75004B0DA4 /* EventQueue.swift in Sources */,
+				6E2B03051F4CF000008B7F98 /* Filter.swift in Sources */,
 				6E27091B1F3FA9760097A764 /* FilterInterface.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
