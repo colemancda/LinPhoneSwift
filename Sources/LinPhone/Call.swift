@@ -6,7 +6,8 @@
 //
 //
 
-import CLinPhone
+import CLinPhone.core
+import CBelledonneToolbox.port
 
 /// LinPhone Call class.
 public final class Call {

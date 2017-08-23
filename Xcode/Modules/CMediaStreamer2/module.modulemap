@@ -1,21 +1,13 @@
 module CMediaStreamer2 [system] {
     
-    module factory {
-        header "mediastreamer2/msfactory.h"
-    }
-    
-    module filter {
-        header "mediastreamer2/msfilter.h"
+    module common {
+        header "mediastreamer2/mscommon.h"
     }
     
     module mediastream {
         header "mediastreamer2/mediastream.h"
     }
-    
-    module common {
-        header "mediastreamer2/mscommon.h"
-    }
-    
+        
     module eventqueue {
         header "mediastreamer2/mseventqueue.h"
     }
@@ -26,5 +18,25 @@ module CMediaStreamer2 [system] {
     
     module queue {
         header "mediastreamer2/msqueue.h"
+    }
+    
+    module codecutils {
+        header "mediastreamer2/mscodecutils.h"
+    }
+    
+    module interfaces {
+        header "mediastreamer2/msinterfaces.h"
+    }
+    
+    module video {
+        header "mediastreamer2/msvideo.h"
+    }
+    
+    module factory {
+        header "mediastreamer2/msfactory.h"
+    }
+    
+    module filter {
+        header "mediastreamer2/msfilter.h"
     }
 }

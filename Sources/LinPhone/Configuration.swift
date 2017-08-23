@@ -6,7 +6,8 @@
 //
 //
 
-import CLinPhone
+import CLinPhone.core
+import CBelledonneToolbox.port
 import BelledonneToolbox
 
 /// The `LinPhone.Configuration` object is used to manipulate a configuration file.

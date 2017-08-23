@@ -6,9 +6,14 @@
 //
 //
 
-import CLinPhone.core
-import CLinPhone.coreutils
+// C modules
+import CLinPhone
 import CBelledonneToolbox
+import CMediaStreamer2
+import CBelledonneRTP
+
+// Swift modules
+import class BelledonneRTP.Log
 import struct BelledonneToolbox.LinkedList
 import class MediaStreamer.Factory
 import struct BelledonneSIP.URI
@@ -95,16 +100,16 @@ public final class Core {
     
     /// Define the minimum level for logging.
     @inline(__always)
-    public static func setLogLevel(_ logLevel: OrtpLogLevel) {
+    public static func setLogLevel(_ logLevel: Log.Level) {
         
-        linphone_core_set_log_level(logLevel)
+        linphone_core_set_log_level(logLevel.ortpLevel)
     }
     
     /// Define the minimum level for logging.
     @inline(__always)
-    public static func setLogLevel(_ logLevel: [OrtpLogLevel]) {
+    public static func setLogLevel(_ logLevels: Set<Log.Level>) {
         
-        let mask = logLevel.reduce(0, { $0 | $1.rawValue })
+        let mask = Log.Level.ortpLevelMask(from: logLevels)
         
         linphone_core_set_log_level_mask(mask)
     }
@@ -605,7 +610,7 @@ public final class Core {
     }
     
     /// The current preferred video size for sending.
-    public var preferredVideoSize: MSVideoSize {
+    public var preferredVideoSize: CMediaStreamer2.MSVideoSize {
         
         get { return linphone_core_get_preferred_video_size(rawPointer) }
         

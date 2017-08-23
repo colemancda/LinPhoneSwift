@@ -6,7 +6,8 @@
 //
 //
 
-import CLinPhone
+import CLinPhone.types
+import CBelledonneToolbox.port
 
 /// Structure describing policy regarding video streams establishments.
 public struct VideoPolicy {

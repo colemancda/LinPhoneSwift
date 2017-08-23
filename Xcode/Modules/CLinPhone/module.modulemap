@@ -1,5 +1,13 @@
 module CLinPhone [system] {
     
+    module types {
+        header "linphone/types.h"
+    }
+    
+    module address {
+        header "linphone/address.h"
+    }
+    
     module core {
         header "linphone/core.h"
     }
