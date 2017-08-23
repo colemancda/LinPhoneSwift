@@ -691,6 +691,7 @@ public final class Core {
     }
     
     /// The default policy for video.
+    @available(*, deprecated)
     public var videoPolicy: VideoPolicy {
         
         get { return VideoPolicy(linphone_core_get_video_policy(rawPointer).pointee) }

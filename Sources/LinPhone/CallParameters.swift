@@ -27,9 +27,10 @@ public extension Call {
         
         // MARK: - Accessors
         
+        @available(*, deprecated)
         public var recievedVideoSize: MSVideoSize {
             
-                get { return linphone_call_params_get_received_video_size(internalReference.reference.rawPointer) }
+            get { return linphone_call_params_get_received_video_size(internalReference.reference.rawPointer) }
         }
     }
 }
