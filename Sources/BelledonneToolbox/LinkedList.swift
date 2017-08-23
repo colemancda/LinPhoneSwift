@@ -6,6 +6,12 @@
 //
 //
 
+#if os(macOS) || os(iOS)
+    import Darwin.C
+#elseif os(Linux)
+    import Glibc
+#endif
+
 import CBelledonneToolbox.list
 import struct Foundation.Data
 import class Foundation.NSMutableData
