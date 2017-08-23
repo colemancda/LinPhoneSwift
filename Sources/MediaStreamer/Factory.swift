@@ -7,6 +7,7 @@
 //
 
 import CMediaStreamer2.factory
+import CBelledonneToolbox.port
 import struct BelledonneToolbox.LinkedList
 
 public final class Factory {
