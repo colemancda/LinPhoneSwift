@@ -450,6 +450,20 @@
 			remoteGlobalIDString = 6E1303961F3185C500C4AEE8;
 			remoteInfo = "BelledonneToolbox macOS";
 		};
+		6EBC75FE1F4F91CE003B9865 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6EE363EF1F4C959700867353;
+			remoteInfo = "BelledonneRTP iOS";
+		};
+		6EBC76001F4F91D3003B9865 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6EE363FC1F4C95A200867353;
+			remoteInfo = "BelledonneRTP macOS";
+		};
 		6EE364211F4C967A00867353 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
@@ -2139,6 +2153,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				6EBC76011F4F91D3003B9865 /* PBXTargetDependency */,
 				6E9BFCAB1F326464007D7A93 /* PBXTargetDependency */,
 				6E9BFCAD1F326464007D7A93 /* PBXTargetDependency */,
 				6E9BFCAF1F326464007D7A93 /* PBXTargetDependency */,
@@ -2251,6 +2266,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				6EBC75FF1F4F91CE003B9865 /* PBXTargetDependency */,
 				6E25EA4E1F0B7788005BC42C /* PBXTargetDependency */,
 				6E569B1B1F09F7F600BF244A /* PBXTargetDependency */,
 				6E58AF591F085DAB009A0E68 /* PBXTargetDependency */,
@@ -2818,6 +2834,16 @@
 			isa = PBXTargetDependency;
 			target = 6E1303961F3185C500C4AEE8 /* BelledonneToolbox macOS */;
 			targetProxy = 6E9BFCAE1F326464007D7A93 /* PBXContainerItemProxy */;
+		};
+		6EBC75FF1F4F91CE003B9865 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6EE363EF1F4C959700867353 /* BelledonneRTP iOS */;
+			targetProxy = 6EBC75FE1F4F91CE003B9865 /* PBXContainerItemProxy */;
+		};
+		6EBC76011F4F91D3003B9865 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6EE363FC1F4C95A200867353 /* BelledonneRTP macOS */;
+			targetProxy = 6EBC76001F4F91D3003B9865 /* PBXContainerItemProxy */;
 		};
 		6EE364221F4C967A00867353 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
