@@ -13,7 +13,7 @@ import CMediaStreamer2
 import CBelledonneRTP
 
 // Swift modules
-import struct BelledonneRTP.Log
+import BelledonneRTP
 import struct BelledonneToolbox.LinkedList
 import class MediaStreamer.Factory
 import struct BelledonneSIP.URI
@@ -610,6 +610,7 @@ public final class Core {
     }
     
     /// The current preferred video size for sending.
+    @available(*, deprecated)
     public var preferredVideoSize: CMediaStreamer2.MSVideoSize {
         
         get { return linphone_core_get_preferred_video_size(rawPointer) }
