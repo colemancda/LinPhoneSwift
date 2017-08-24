@@ -1,4 +1,4 @@
-module CLinPhone [system] {
+module CLinPhone {
     
     module types {
         header "linphone/types.h"

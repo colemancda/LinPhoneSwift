@@ -1,4 +1,4 @@
-module CMediaStreamer2 [system] {
+module CMediaStreamer2 {
     
     module common {
         header "mediastreamer2/mscommon.h"

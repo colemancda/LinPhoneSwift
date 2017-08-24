@@ -1,4 +1,4 @@
-module CBelledonneSIP [system] {
+module CBelledonneSIP {
     
     umbrella header "belle-sip/belle-sip.h"
     

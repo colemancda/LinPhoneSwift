@@ -1,4 +1,4 @@
-module CBelledonneRTP [system] {
+module CBelledonneRTP {
     
     header "ortp/ortp.h"
     

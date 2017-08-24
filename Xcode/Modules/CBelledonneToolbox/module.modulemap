@@ -1,4 +1,4 @@
-module CBelledonneToolbox [system] {
+module CBelledonneToolbox {
     
     module port {
         header "bctoolbox/port.h"
