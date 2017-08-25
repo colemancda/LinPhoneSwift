@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   s.ios.vendored_frameworks = '$SRCROOT/../liblinphone-sdk/iOS/apple-darwin/Frameworks/*.framework'
   s.ios.xcconfig = { 
     'ENABLE_BITCODE' => 'NO', 
-    'SWIFT_INCLUDE_PATHS' => '$SRCROOT/../liblinphone-sdk/iOS/apple-darwin/include', 
+    'SWIFT_INCLUDE_PATHS' => '$SRCROOT/../liblinphone-sdk/Modules/CBelledonneToolbox', 
     'FRAMEWORK_SEARCH_PATHS' => '$SRCROOT/../liblinphone-sdk/iOS/apple-darwin/Frameworks', 
     'OTHER_LDFLAGS' => '-framework bctoolbox'
   }
