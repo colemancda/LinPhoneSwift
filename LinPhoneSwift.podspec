@@ -26,8 +26,8 @@ Pod::Spec.new do |s|
    s.dependency 'MediaStreamer'
    s.user_target_xcconfig = { 
      'ENABLE_BITCODE' => 'NO', 
-     'SWIFT_INCLUDE_PATHS' => '$SRCROOT/../liblinphone-sdk/Modules/CBelledonneRTP $SRCROOT/../liblinphone-sdk/Modules/CBelledonneSIP $SRCROOT/../liblinphone-sdk/Modules/CBelledonneToolbox $SRCROOT/../liblinphone-sdk/Modules/CLinPhone $SRCROOT/../liblinphone-sdk/Modules/CMediaStreamer2', 
-     'LIBRARY_SEARCH_PATHS' => '$SRCROOT/../liblinphone-sdk/iOS/apple-darwin/lib',
-     'FRAMEWORK_SEARCH_PATHS' => '$SRCROOT/../liblinphone-sdk/iOS/apple-darwin/Frameworks'
+     'SWIFT_INCLUDE_PATHS' => '$SRCROOT/liblinphone-sdk/Modules/CBelledonneRTP $SRCROOT/liblinphone-sdk/Modules/CBelledonneSIP $SRCROOT/liblinphone-sdk/Modules/CBelledonneToolbox $SRCROOT/liblinphone-sdk/Modules/CLinPhone $SRCROOT/liblinphone-sdk/Modules/CMediaStreamer2', 
+     'LIBRARY_SEARCH_PATHS' => '$SRCROOT/liblinphone-sdk/iOS/apple-darwin/lib',
+     'FRAMEWORK_SEARCH_PATHS' => '$SRCROOT/liblinphone-sdk/iOS/apple-darwin/Frameworks'
    }
 end
