@@ -139,13 +139,13 @@ public final class Core {
     }
     
     /// Define a log handler.
-    public static var log: ((_ domain: String?, _ message: String, _ level: OrtpLogLevel) -> ())? {
+    public static var log: ((_ domain: String?, _ message: String, _ level: Log.Level) -> ())? {
         
         didSet {
             
             if log != nil {
                 
-                linphone_core_set_log_handler { (domainCString, level, formatCString, arguments) in
+                linphone_core_set_log_handler { (domainCString, ortpLogLevel, formatCString, arguments) in
                     
                     let domain = String(lpCString: domainCString)
                     
@@ -164,6 +164,9 @@ public final class Core {
                         
                         message = format
                     }
+                    
+                    guard let level = Log.Level(ortpLogLevel)
+                        else { fatalError("Invalid log level \(ortpLogLevel.rawValue)") }
                     
                     Core.log?(domain, message, level)
                 }

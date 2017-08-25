@@ -58,6 +58,19 @@ public extension Log {
 
 public extension Log.Level {
     
+    public init?(_ ortpLevel: OrtpLogLevel) {
+        
+        switch ortpLevel {
+        case ORTP_DEBUG: self = .debug
+        case ORTP_TRACE: self = .trace
+        case ORTP_MESSAGE: self = .message
+        case ORTP_WARNING: self = .warning
+        case ORTP_ERROR: self = .error
+        case ORTP_FATAL: self = .fatal
+        default: return nil
+        }
+    }
+    
     public var ortpLevel: OrtpLogLevel {
         
         switch self {
