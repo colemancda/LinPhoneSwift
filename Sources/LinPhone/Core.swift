@@ -1080,7 +1080,8 @@ public extension Core {
                     
                     let call: Call?
                     
-                    if let callRawPointer = $0.1,
+                    if state != .released,
+                        let callRawPointer = $0.1,
                         let existingObject = Call.from(rawPointer: callRawPointer) {
                         
                         call = existingObject
