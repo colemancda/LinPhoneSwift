@@ -50,7 +50,7 @@ public final class Queue {
 
 public extension Queue {
     
-    public class ControlPoint {
+    public final class ControlPoint {
         
         public let filter: Filter
         
