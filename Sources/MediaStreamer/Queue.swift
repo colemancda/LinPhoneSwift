@@ -37,6 +37,13 @@ public final class Queue {
         self.next = next
     }
     
+    // MARK: - Accessors
+    
+    public var isEmpty: Bool {
+        
+        return ms_queue_empty(rawPointer).boolValue
+    }
+    
     // MARK: - Methods
     
     @inline(__always)

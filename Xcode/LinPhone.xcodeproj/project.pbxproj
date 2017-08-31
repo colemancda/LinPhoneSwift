@@ -102,6 +102,10 @@
 		6E77F6501F568A0100C355D3 /* Packet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E77F64F1F568A0100C355D3 /* Packet.swift */; };
 		6E77F6511F568A0100C355D3 /* Packet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E77F64F1F568A0100C355D3 /* Packet.swift */; };
 		6E7FEF191F128F5400C27DE9 /* AddressTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7FEF181F128F5400C27DE9 /* AddressTests.swift */; };
+		6E83DE721F57C7E300F84689 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E83DE711F57C7E300F84689 /* Data.swift */; };
+		6E83DE731F57C7E300F84689 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E83DE711F57C7E300F84689 /* Data.swift */; };
+		6E83DE741F57C84600F84689 /* Handle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E569B1E1F09F9D500BF244A /* Handle.swift */; };
+		6E83DE751F57C84700F84689 /* Handle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E569B1E1F09F9D500BF244A /* Handle.swift */; };
 		6E9BFBA01F3238B7007D7A93 /* URI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5291881F0B543C00D4B765 /* URI.swift */; };
 		6E9BFBA11F3238B7007D7A93 /* ObjectHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6A6E31F0D488400C39864 /* ObjectHandle.swift */; };
 		6E9BFBA21F3238B7007D7A93 /* Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E52918C1F0B58C000D4B765 /* Object.swift */; };
@@ -383,6 +387,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 6E1303961F3185C500C4AEE8;
 			remoteInfo = "BelledonneToolbox macOS";
+		};
+		6E83DE761F57EA6200F84689 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6EE363EF1F4C959700867353;
+			remoteInfo = "BelledonneRTP iOS";
 		};
 		6E8CF9AC1F167A840012BC9D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -1000,6 +1011,7 @@
 		6E77F64C1F5688D500C355D3 /* Queue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
 		6E77F64F1F568A0100C355D3 /* Packet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Packet.swift; sourceTree = "<group>"; };
 		6E7FEF181F128F5400C27DE9 /* AddressTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressTests.swift; sourceTree = "<group>"; };
+		6E83DE711F57C7E300F84689 /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		6E9BFBB01F3238B7007D7A93 /* BelledonneSIP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BelledonneSIP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E9BFBBD1F3238BA007D7A93 /* BelledonneSIPTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BelledonneSIPTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E9BFBE31F3250BC007D7A93 /* MediaStreamer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MediaStreamer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1856,6 +1868,7 @@
 				6EE3642C1F4CAE5E00867353 /* Log.swift */,
 				6E77F64C1F5688D500C355D3 /* Queue.swift */,
 				6E77F64F1F568A0100C355D3 /* Packet.swift */,
+				6E83DE711F57C7E300F84689 /* Data.swift */,
 			);
 			path = BelledonneRTP;
 			sourceTree = "<group>";
@@ -2053,6 +2066,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				6E83DE771F57EA6200F84689 /* PBXTargetDependency */,
 				6E9BFCA91F326454007D7A93 /* PBXTargetDependency */,
 			);
 			name = "MediaStreamer iOS";
@@ -2696,7 +2710,9 @@
 			files = (
 				6E77F6501F568A0100C355D3 /* Packet.swift in Sources */,
 				6EE3642D1F4CAE5E00867353 /* Log.swift in Sources */,
+				6E83DE741F57C84600F84689 /* Handle.swift in Sources */,
 				6E77F64D1F5688D500C355D3 /* Queue.swift in Sources */,
+				6E83DE721F57C7E300F84689 /* Data.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2706,7 +2722,9 @@
 			files = (
 				6E77F6511F568A0100C355D3 /* Packet.swift in Sources */,
 				6EE3642E1F4CAE5E00867353 /* Log.swift in Sources */,
+				6E83DE751F57C84700F84689 /* Handle.swift in Sources */,
 				6E77F64E1F5688D500C355D3 /* Queue.swift in Sources */,
+				6E83DE731F57C7E300F84689 /* Data.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2796,6 +2814,11 @@
 			isa = PBXTargetDependency;
 			target = 6E1303961F3185C500C4AEE8 /* BelledonneToolbox macOS */;
 			targetProxy = 6E77CD4F1F318A3700403EFF /* PBXContainerItemProxy */;
+		};
+		6E83DE771F57EA6200F84689 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6EE363EF1F4C959700867353 /* BelledonneRTP iOS */;
+			targetProxy = 6E83DE761F57EA6200F84689 /* PBXContainerItemProxy */;
 		};
 		6E8CF9AD1F167A840012BC9D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;

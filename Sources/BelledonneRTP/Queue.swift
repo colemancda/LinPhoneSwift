@@ -35,6 +35,11 @@ public final class Queue {
         return Int(internalData.q_mcount)
     }
     
+    public var isEmpty: Bool {
+        
+        return count == 0
+    }
+    
     // MARK: - Methods
     
     /// Remove and free all messages in the queue.
@@ -46,7 +51,11 @@ public final class Queue {
     /// Push an item to the queue.
     public func push(_ packet: Packet) {
         
-        putq(&internalData, <#T##m: UnsafeMutablePointer<mblk_t>!##UnsafeMutablePointer<mblk_t>!#>)
+        // copy packet
+        
+        let copy = packet.duplicateRawPointer
+        
+        putq(&internalData, copy)
     }
 }
 

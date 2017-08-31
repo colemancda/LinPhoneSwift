@@ -9,6 +9,7 @@
 import CBelledonneToolbox.port
 import CBelledonneRTP.stringutils
 import CMediaStreamer2.rfc3984
+import class BelledonneRTP.Packet
 
 /// Used to pack/unpack H264 nals as described in RFC3984
 public final class Rfc3984Context {
@@ -37,13 +38,13 @@ public final class Rfc3984Context {
     
     // MARK: - Accessors
     
-    public var mode: UInt8 {
+    public var mode: Bool {
         
         @inline(__always)
-        get { return rawPointer.pointee.mode }
+        get { return rawPointer.pointee.mode.boolValue }
         
         @inline(__always)
-        set { rawPointer.pointee.mode = newValue }
+        set { rawPointer.pointee.mode = bool_t(newValue) }
     }
     
     public var isSingleTimeAggregationPacketAEnabled: Bool {
@@ -73,8 +74,14 @@ public final class Rfc3984Context {
     }
     
     /// Process incoming rtp data and output NALUs, whenever possible.
-    public func unpack(packet: mblk_t, nalu: Queue) {
+    ///
+    /// - Parameter packet: A new H264 packet to process. 
+    /// - Parameter nalu: A `Queue` into which a frame ready to be decoded will be output, 
+    /// in the form of a sequence of NAL units.
+    public func unpack(packet: Packet, nalu: Queue) -> Rfc3984Status {
         
-        //rfc3984_unpack2(rawPointer, packet, nalu.rawPointer)
+        let status = packet.withUnsafeRawPointer { rfc3984_unpack2(rawPointer, UnsafeMutablePointer($0), nalu.rawPointer) }
+        
+        return Rfc3984Status(status)
     }
 }
