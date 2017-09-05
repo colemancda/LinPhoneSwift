@@ -268,6 +268,10 @@
 		6EABA99C1F4771EF004B0DA4 /* RFC3984.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EABA99A1F4771EF004B0DA4 /* RFC3984.swift */; };
 		6EABA99E1F479021004B0DA4 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EABA99D1F479021004B0DA4 /* Queue.swift */; };
 		6EABA99F1F479021004B0DA4 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EABA99D1F479021004B0DA4 /* Queue.swift */; };
+		6EBB16431F5F26A0001B4752 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EBB16421F5F26A0001B4752 /* Tests.swift */; };
+		6EBB16441F5F26A0001B4752 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EBB16421F5F26A0001B4752 /* Tests.swift */; };
+		6EBB16461F5F3D86001B4752 /* FilterCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EBB16451F5F3D86001B4752 /* FilterCategory.swift */; };
+		6EBB16471F5F3D86001B4752 /* FilterCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EBB16451F5F3D86001B4752 /* FilterCategory.swift */; };
 		6EE364101F4C95B400867353 /* bctoolbox.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6EFE259C1F1660FD00FC4ECC /* bctoolbox.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6EE3641C1F4C95C500867353 /* bctoolbox.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6EFE259C1F1660FD00FC4ECC /* bctoolbox.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6EE364291F4CADBB00867353 /* ortp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EFE25A71F1660FD00FC4ECC /* ortp.framework */; };
@@ -1024,6 +1028,8 @@
 		6EABA9971F474C75004B0DA4 /* EventQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventQueue.swift; sourceTree = "<group>"; };
 		6EABA99A1F4771EF004B0DA4 /* RFC3984.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RFC3984.swift; sourceTree = "<group>"; };
 		6EABA99D1F479021004B0DA4 /* Queue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
+		6EBB16421F5F26A0001B4752 /* Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
+		6EBB16451F5F3D86001B4752 /* FilterCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterCategory.swift; sourceTree = "<group>"; };
 		6EE363FB1F4C959700867353 /* BelledonneRTP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BelledonneRTP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EE364081F4C95A200867353 /* BelledonneRTP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BelledonneRTP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EE364141F4C95B400867353 /* BelledonneRTPTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BelledonneRTPTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1720,6 +1726,7 @@
 				6E612A581F3D1209003C5A3F /* Filter.swift */,
 				6E2709161F3FA11E0097A764 /* FilterDescription.swift */,
 				6E2709191F3FA9760097A764 /* FilterInterface.swift */,
+				6EBB16451F5F3D86001B4752 /* FilterCategory.swift */,
 				6E27091C1F3FA9A30097A764 /* Enumeration.swift */,
 				6EABA9971F474C75004B0DA4 /* EventQueue.swift */,
 				6EABA99A1F4771EF004B0DA4 /* RFC3984.swift */,
@@ -1862,6 +1869,15 @@
 			path = plugins;
 			sourceTree = "<group>";
 		};
+		6EBB16411F5F26A0001B4752 /* BelledonneRTPTests */ = {
+			isa = PBXGroup;
+			children = (
+				6EBB16421F5F26A0001B4752 /* Tests.swift */,
+			);
+			name = BelledonneRTPTests;
+			path = ../Tests/BelledonneRTPTests;
+			sourceTree = "<group>";
+		};
 		6EE3642B1F4CAE3D00867353 /* BelledonneRTP */ = {
 			isa = PBXGroup;
 			children = (
@@ -1941,6 +1957,7 @@
 				OBJ_10 /* LinPhoneTests */,
 				6E25EA841F0BEA98005BC42C /* MediaStreamerTests */,
 				6E25EA881F0BEA98005BC42C /* BelledonneSIPTests */,
+				6EBB16411F5F26A0001B4752 /* BelledonneRTPTests */,
 				6E25EA861F0BEA98005BC42C /* BelledonneToolboxTests */,
 			);
 			name = Tests;
@@ -2335,6 +2352,12 @@
 					6EE363FC1F4C95A200867353 = {
 						LastSwiftMigration = 0830;
 					};
+					6EE364091F4C95B400867353 = {
+						LastSwiftMigration = 0830;
+					};
+					6EE364151F4C95C500867353 = {
+						LastSwiftMigration = 0830;
+					};
 					OBJ_16 = {
 						LastSwiftMigration = 0830;
 					};
@@ -2605,6 +2628,7 @@
 				6E58AF571F085BB5009A0E68 /* Factory.swift in Sources */,
 				6EABA99B1F4771EF004B0DA4 /* RFC3984.swift in Sources */,
 				6E612A5A1F3D1787003C5A3F /* Filter.swift in Sources */,
+				6EBB16461F5F3D86001B4752 /* FilterCategory.swift in Sources */,
 				6E59C78A1F11E135005274EC /* Bool.swift in Sources */,
 				6EABA9981F474C75004B0DA4 /* EventQueue.swift in Sources */,
 				6EABA99E1F479021004B0DA4 /* Queue.swift in Sources */,
@@ -2649,6 +2673,7 @@
 				6E2709181F3FA11E0097A764 /* FilterDescription.swift in Sources */,
 				6EABA99F1F479021004B0DA4 /* Queue.swift in Sources */,
 				6E9BFBC91F3250BC007D7A93 /* Bool.swift in Sources */,
+				6EBB16471F5F3D86001B4752 /* FilterCategory.swift in Sources */,
 				6EABA99C1F4771EF004B0DA4 /* RFC3984.swift in Sources */,
 				6EABA9991F474C75004B0DA4 /* EventQueue.swift in Sources */,
 				6E2B03051F4CF000008B7F98 /* Filter.swift in Sources */,
@@ -2732,6 +2757,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
+				6EBB16431F5F26A0001B4752 /* Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2739,6 +2765,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
+				6EBB16441F5F26A0001B4752 /* Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3283,9 +3310,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				ENABLE_BITCODE = "$(INHERITED)";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = BelledonneRTPTests;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -3293,9 +3324,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				ENABLE_BITCODE = "$(INHERITED)";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = BelledonneRTPTests;
 				SDKROOT = iphoneos;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -3303,9 +3337,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				ENABLE_BITCODE = "$(INHERITED)";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_NAME = BelledonneRTPTests;
 				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -3313,9 +3351,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				ENABLE_BITCODE = "$(INHERITED)";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_NAME = BelledonneRTPTests;
 				SDKROOT = macosx;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

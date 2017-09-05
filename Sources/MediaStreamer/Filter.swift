@@ -20,6 +20,8 @@ public final class Filter {
     @_versioned
     internal let isOwner: Bool
     
+    public let description: Filter.Description?
+    
     // MARK: - Initialization
     
     deinit {
@@ -35,15 +37,31 @@ public final class Filter {
         
         self.rawPointer = rawPointer
         self.isOwner = isOwner
+        self.description = nil
     }
     
     /// Create decoder filter according to a filter's identifier.
-    public convenience init?(identifier: Identifier, factory: Factory) {
+    public init?(identifier: Identifier, factory: Factory) {
         
         guard let rawPointer = ms_factory_create_filter(factory.rawPointer, identifier)
             else { return nil }
         
-        self.init(rawPointer: rawPointer)
+        self.rawPointer = rawPointer
+        self.isOwner = true
+        self.description = nil
+    }
+    
+    /// Create decoder filter according to a filter's description.
+    public init?(description: Description, factory: Factory) {
+        
+        var descriptionData = description.internalData
+        
+        guard let rawPointer = ms_factory_create_filter_from_desc(factory.rawPointer, &descriptionData)
+            else { return nil }
+        
+        self.rawPointer = rawPointer
+        self.isOwner = true
+        self.description = description
     }
     
     /// Create decoder filter according to a filter's name.
@@ -68,15 +86,6 @@ public final class Filter {
     public convenience init?(decoder name: String, factory: Factory) {
         
         guard let rawPointer = ms_factory_create_decoder(factory.rawPointer, name)
-            else { return nil }
-        
-        self.init(rawPointer: rawPointer)
-    }
-    
-    /// Create decoder filter according to a filter's description.
-    public convenience init?(description: Description, factory: Factory) {
-        
-        guard let rawPointer = ms_factory_create_filter_from_desc(factory.rawPointer, description.rawPointer)
             else { return nil }
         
         self.init(rawPointer: rawPointer)

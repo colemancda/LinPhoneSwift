@@ -143,7 +143,9 @@ public final class Factory {
     /// Register a filter description.
     public func register(filter description: Filter.Description) {
         
-        ms_factory_register_filter(rawPointer, description.rawPointer)
+        var filter = description.internalData
+        
+        ms_factory_register_filter(rawPointer, &filter)
     }
     
     /// Add platform tag.

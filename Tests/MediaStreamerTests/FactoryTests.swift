@@ -25,4 +25,5 @@ final class FactoryTests: XCTestCase {
         factory.load(MediaLibrary.all)
         #endif
     }
+    
 }
