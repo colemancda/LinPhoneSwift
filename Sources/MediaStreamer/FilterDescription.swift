@@ -41,19 +41,27 @@ public extension Filter {
         }
         
         /// The filter name
-        public var name: String {
+        public var name: String? {
             
-            get { return internalReference.reference.name }
+            get { return internalReference.reference.name.string }
             
-            set { internalReference.mutatingReference.name = newValue }
+            set { internalReference.mutatingReference.name.string = newValue }
         }
         
         /// Short text describing the filter's function
-        public var text: String {
+        public var text: String? {
             
-            get { return internalReference.reference.text }
+            get { return internalReference.reference.text.string }
             
-            set { internalReference.mutatingReference.text = newValue }
+            set { internalReference.mutatingReference.text.string = newValue }
+        }
+        
+        /// Sub-mime of the format, must be set if category is `.encoder` or `.decoder`.
+        public var encodingFormat: String?  {
+            
+            get { return internalReference.reference.encodingFormat.string }
+            
+            set { internalReference.mutatingReference.encodingFormat.string = newValue }
         }
         
         /// Filter's category
@@ -62,14 +70,6 @@ public extension Filter {
             get { return internalReference.reference.category }
             
             set { internalReference.mutatingReference.category = newValue }
-        }
-        
-        /// Sub-mime of the format, must be set if category is `.encoder` or `.decoder`.
-        public var encodingFormat: String  {
-            
-            get { return internalReference.reference.encodingFormat }
-            
-            set { internalReference.mutatingReference.encodingFormat = newValue }
         }
         
         /// number of inputs
@@ -113,6 +113,8 @@ extension Filter.Description: ReferenceConvertible {
         
         typealias RawPointer = UnsafeMutablePointer<MSFilterDesc>
         
+        typealias CString = UnsafePointer<Int8>!
+        
         // MARK: - Properties
         
         @_versioned
@@ -122,20 +124,13 @@ extension Filter.Description: ReferenceConvertible {
         
         deinit {
             
-            // free string buffers
-            [self.rawPointer.pointee.name,
-             self.rawPointer.pointee.text,
-             self.rawPointer.pointee.enc_fmt]
-                .flatMap({ $0 })
-                .map({ UnsafeMutableRawPointer(mutating: $0) })
-                .forEach { free($0) }
-            
             // free raw pointer
             self.rawPointer.deallocate(capacity: 1)
         }
         
         public init() {
             
+            // alloc raw pointer
             self.rawPointer = RawPointer.allocate(capacity: 1)
         }
         
@@ -147,9 +142,9 @@ extension Filter.Description: ReferenceConvertible {
             copy.rawPointer.pointee = rawPointer.pointee
             
             // replace pointers and retained reference types
-            copy.name = name
-            copy.text = text
-            copy.encodingFormat = encodingFormat
+            copy.name.string = name.string
+            copy.text.string = text.string
+            copy.encodingFormat.string = encodingFormat.string
             
             return copy
         }
@@ -164,16 +159,13 @@ extension Filter.Description: ReferenceConvertible {
         }
         
         /// The filter name
-        public var name: String = "" {
-            
-            willSet { setString(newValue, &rawPointer.pointee.name) }
-        }
+        public lazy var name: ManagedCString<CString> = ManagedCString(didChange: { [weak self] in self?.rawPointer.pointee.name = $0 })
         
         /// Short text describing the filter's function
-        public var text: String = "" {
-            
-            willSet { setString(newValue, &rawPointer.pointee.text) }
-        }
+        public lazy var text: ManagedCString<CString> = ManagedCString(didChange: { [weak self] in self?.rawPointer.pointee.text = $0 })
+        
+        /// Sub-mime of the format, must be set if category is `.encoder` or `.decoder`.
+        public lazy var encodingFormat: ManagedCString<CString> = ManagedCString(didChange: { [weak self] in self?.rawPointer.pointee.enc_fmt = $0 })
         
         /// Filter's category
         public var category: Filter.Category {
@@ -181,12 +173,6 @@ extension Filter.Description: ReferenceConvertible {
             get { return Filter.Category(rawPointer.pointee.category) }
             
             set { rawPointer.pointee.category = newValue.mediaStreamerType }
-        }
-        
-        /// Sub-mime of the format, must be set if category is `.encoder` or `.decoder`.
-        public var encodingFormat: String = ""  {
-            
-            willSet { setString(newValue, &rawPointer.pointee.enc_fmt) }
         }
         
         /// number of inputs
@@ -217,19 +203,6 @@ extension Filter.Description: ReferenceConvertible {
         public func implements(interface: Filter.Interface) -> Bool {
             
             return ms_filter_desc_implements_interface(rawPointer, interface.mediaStreamerType).boolValue
-        }
-        
-        // MARK: - Private Methods
-        
-        private func setString(_ newValue: String, _ pointer: inout UnsafePointer<Int8>!) {
-            
-            if let oldPointer = pointer {
-                
-                free(UnsafeMutableRawPointer(mutating: oldPointer))
-            }
-            
-            // create new string buffer
-            pointer = name.withCString({ strdup($0) })
         }
     }
 }

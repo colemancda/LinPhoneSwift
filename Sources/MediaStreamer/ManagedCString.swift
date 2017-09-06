@@ -12,47 +12,53 @@
     import Glibc
 #endif
 
-internal final class ManagedCString {
+internal final class ManagedCString <CString> {
     
-    typealias RawPointer = UnsafeMutablePointer<UInt8>?
+    typealias RawPointer = UnsafeMutablePointer<CChar>?
     
-    typealias Getter = () -> (RawPointer)
-    
-    typealias Setter = (RawPointer) -> ()
+    typealias DidChange = (CString) -> ()
     
     // MARK: - Properties
     
     @_versioned
-    internal let rawPointer: RawPointer = nil
+    internal private(set) var rawPointer: RawPointer = nil
     
-    let getter: Getter
+    @_versioned
+    internal var string: String? = nil {
+        
+        didSet { stringChanged() }
+    }
     
-    let setter: Setter
+    internal var didChange: DidChange
     
     // MARK: - Initialization
     
     deinit {
         
-        assert(getter() == rawPointer, "The targeted raw pointer has been externally modified")
-        
         if let pointer = rawPointer {
             
             free(pointer)
         }
-        
-        setter(nil)
-        
-        assert(getter() == nil, "The raw pointer has not been freed")
     }
     
-    init(getter: @escaping Getter, setter: @escaping Setter) {
-    
-        self.getter = getter
-        self.setter = setter
+    init(didChange: @escaping DidChange) {
+        
+        self.didChange = didChange
     }
     
-    var string: String? {
+    private func stringChanged() {
         
-        willSet {  }
+        // free C string of old value
+        if let oldPointer = rawPointer {
+            
+            free(oldPointer)
+        }
+        
+        // set new string buffer
+        self.rawPointer = string?.withCString { strdup($0) }
+        
+        // call callback
+        let cString = unsafeBitCast(rawPointer, to: CString.self)
+        didChange(cString)
     }
 }
