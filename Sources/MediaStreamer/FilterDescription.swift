@@ -6,12 +6,6 @@
 //
 //
 
-#if os(macOS) || os(iOS)
-    import Darwin.C.stdlib
-#elseif os(Linux)
-    import Glibc
-#endif
-
 import CMediaStreamer2.filter
 
 public extension Filter {
@@ -33,13 +27,13 @@ public extension Filter {
         
         public init() {
             
-            /// Initialize backed by new reference instance.
+            /// Initialize value backed by new reference instance.
             self.init(referencing: Reference())
         }
         
         // MARK: - Accessors
         
-        public var identifier: MSFilterId {
+        public var identifier: Filter.Identifier {
             
             get { return internalReference.reference.identifier }
             
@@ -59,7 +53,7 @@ public extension Filter {
             
             get { return internalReference.reference.text }
             
-            set { internalReference.mutatingReference.name = newValue }
+            set { internalReference.mutatingReference.text = newValue }
         }
         
         /// Filter's category
@@ -162,7 +156,7 @@ extension Filter.Description: ReferenceConvertible {
         
         // MARK: - Accessors
         
-        public var identifier: MSFilterId {
+        public var identifier: Filter.Identifier {
             
             get { return rawPointer.pointee.id }
             
@@ -235,7 +229,7 @@ extension Filter.Description: ReferenceConvertible {
             }
             
             // create new string buffer
-            pointer = UnsafePointer(name.withCString({ strdup($0) }))
+            pointer = name.withCString({ strdup($0) })
         }
     }
 }
