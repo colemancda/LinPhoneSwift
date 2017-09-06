@@ -144,6 +144,7 @@ public extension Filter /* : BelledonneObject */ {
 
 extension Filter {
     
+    /// Attempt to get the Swift object associated with the raw C instance.
     static func from(rawPointer: RawPointer) -> Filter? {
         
         // lock to access data
@@ -154,17 +155,31 @@ extension Filter {
         guard let userData = rawPointer.pointee.data
             else { return nil }
         
-        let unmanaged = Unmanaged<Self>.fromOpaque(userData)
+        let unmanaged = Unmanaged<Filter>.fromOpaque(userData)
         
-        let context = unmanaged.takeUnretainedValue()
+        let object = unmanaged.takeUnretainedValue()
+        
+        return object
+    }
+}
+
+private extension Filter {
+    
+    func setUserData() {
+        
+        let userData = createUserData()
+        
+        withUnsafeMutableRawPointer { $0.pointee.data = userData }
     }
     
-    static var userDataGetFunction: (RawPointer?) -> UnsafeMutableRawPointer? {
-        return { $0?.pointee.data }
-    }
-    
-    static var userDataSetFunction: (_ UnmanagedPointer: RawPointer?, _ userdata: UnsafeMutableRawPointer?) -> () {
-        return { $0.0?.pointee.data = $0.1 }
+    @inline(__always)
+    private func createUserData() -> UnsafeMutableRawPointer {
+        
+        let unmanaged = Unmanaged<Filter>.passUnretained(self)
+        
+        let objectPointer = unmanaged.toOpaque()
+        
+        return objectPointer
     }
 }
 

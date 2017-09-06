@@ -193,22 +193,22 @@ extension Filter.Description: ReferenceConvertible {
             set { rawPointer.pointee.noutputs = Int32(newValue) }
         }
         
-        public var initialization: (() -> ())? {
+        public var initialization: MSFilterFunc? {
             
-            willSet {
-                
-                let rawPointer = _MSFilterDescSwift.from(self.rawPointer)
-                
-                if let newValue = newValue {
-                    
-                    rawPointer.pointee.cInit = { _ in  }
-                    
-                } else {
-                    
-                    rawPointer.pointee.cInit = nil
-                }
-            }
-         }
+            get { return _MSFilterDescSwift.from(rawPointer).pointee.cInit }
+            
+            set { _MSFilterDescSwift.from(rawPointer).pointee.cInit = newValue }
+        }
+        
+        public var uninitialization: MSFilterFunc? {
+            
+            get { return rawPointer.pointee.uninit }
+        }
+        
+        public var preprocess: MSFilterFunc? {
+            
+            get { return rawPointer.pointee.preprocess }
+        }
         
         // MARK: - Methods
         
@@ -217,16 +217,6 @@ extension Filter.Description: ReferenceConvertible {
             
             return ms_filter_desc_implements_interface(rawPointer, interface.mediaStreamerType).boolValue
         }
-        
-        // MARK: - Private Methods
-        
-        
-        
-        /*
-        private func setFilterMethod(_ method: ((Filter) -> ())?, ) {
-            
-            
-        }*/
     }
 }
 
@@ -309,8 +299,11 @@ private struct _MSFilterDescSwift {
     }
 }
 
-@_silgen_name("_mediastreamer2_swift_msfilterfunc")
-private func FilterFunction(_ filterRawPointer: UnsafeMutablePointer<MSFilter>!) {
+@_silgen_name("_mediastreamer2_swift_init_msfilterfunc")
+private func FilterFunctionInit(_ filterRawPointer: Filter.RawPointer!) {
     
+    guard let filter = Filter.from(rawPointer: filterRawPointer)
+        else { return }
     
+    filter.description?.internalReference.reference.initialization(filter)
 }
