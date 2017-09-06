@@ -104,8 +104,6 @@
 		6E7FEF191F128F5400C27DE9 /* AddressTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7FEF181F128F5400C27DE9 /* AddressTests.swift */; };
 		6E83DE721F57C7E300F84689 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E83DE711F57C7E300F84689 /* Data.swift */; };
 		6E83DE731F57C7E300F84689 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E83DE711F57C7E300F84689 /* Data.swift */; };
-		6E83DE741F57C84600F84689 /* Handle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E569B1E1F09F9D500BF244A /* Handle.swift */; };
-		6E83DE751F57C84700F84689 /* Handle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E569B1E1F09F9D500BF244A /* Handle.swift */; };
 		6E9BFBA01F3238B7007D7A93 /* URI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5291881F0B543C00D4B765 /* URI.swift */; };
 		6E9BFBA11F3238B7007D7A93 /* ObjectHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6A6E31F0D488400C39864 /* ObjectHandle.swift */; };
 		6E9BFBA21F3238B7007D7A93 /* Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E52918C1F0B58C000D4B765 /* Object.swift */; };
@@ -288,6 +286,10 @@
 		6EF6A6E41F0D488400C39864 /* ObjectHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6A6E31F0D488400C39864 /* ObjectHandle.swift */; };
 		6EF6A6E71F0D4F3D00C39864 /* Handle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6A6E51F0D4EC800C39864 /* Handle.swift */; };
 		6EF6A6E91F0D501F00C39864 /* ObjectHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6A6E81F0D501F00C39864 /* ObjectHandle.swift */; };
+		6EFCB87C1F5F9095007B76A1 /* Handle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFCB87B1F5F9095007B76A1 /* Handle.swift */; };
+		6EFCB87D1F5F9095007B76A1 /* Handle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFCB87B1F5F9095007B76A1 /* Handle.swift */; };
+		6EFCB87E1F5FAE57007B76A1 /* Handle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFCB8781F5F8E46007B76A1 /* Handle.swift */; };
+		6EFCB87F1F5FAE58007B76A1 /* Handle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFCB8781F5F8E46007B76A1 /* Handle.swift */; };
 		6EFE258D1F165E8B00FC4ECC /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E25EA501F0B77AB005BC42C /* libsqlite3.tbd */; };
 		6EFE25A81F16611500FC4ECC /* bctoolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EFE259C1F1660FD00FC4ECC /* bctoolbox.framework */; };
 		6EFE25AB1F1661A900FC4ECC /* libbellesip.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EFE25901F1660F100FC4ECC /* libbellesip.a */; };
@@ -1045,6 +1047,8 @@
 		6EF6A6E31F0D488400C39864 /* ObjectHandle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectHandle.swift; sourceTree = "<group>"; };
 		6EF6A6E51F0D4EC800C39864 /* Handle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Handle.swift; sourceTree = "<group>"; };
 		6EF6A6E81F0D501F00C39864 /* ObjectHandle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectHandle.swift; sourceTree = "<group>"; };
+		6EFCB8781F5F8E46007B76A1 /* Handle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Handle.swift; sourceTree = "<group>"; };
+		6EFCB87B1F5F9095007B76A1 /* Handle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Handle.swift; sourceTree = "<group>"; };
 		6EFE258E1F1660F100FC4ECC /* libantlr3c.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libantlr3c.a; path = "../liblinphone-sdk/iOS/apple-darwin/lib/libantlr3c.a"; sourceTree = SOURCE_ROOT; };
 		6EFE258F1F1660F100FC4ECC /* libbcg729.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libbcg729.a; path = "../liblinphone-sdk/iOS/apple-darwin/lib/libbcg729.a"; sourceTree = SOURCE_ROOT; };
 		6EFE25901F1660F100FC4ECC /* libbellesip.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libbellesip.a; path = "../liblinphone-sdk/iOS/apple-darwin/lib/libbellesip.a"; sourceTree = SOURCE_ROOT; };
@@ -1732,6 +1736,7 @@
 				6EABA99A1F4771EF004B0DA4 /* RFC3984.swift */,
 				6EABA99D1F479021004B0DA4 /* Queue.swift */,
 				6E59C7891F11E135005274EC /* Bool.swift */,
+				6EFCB8781F5F8E46007B76A1 /* Handle.swift */,
 			);
 			path = MediaStreamer;
 			sourceTree = "<group>";
@@ -1884,6 +1889,7 @@
 				6EE3642C1F4CAE5E00867353 /* Log.swift */,
 				6E77F64C1F5688D500C355D3 /* Queue.swift */,
 				6E77F64F1F568A0100C355D3 /* Packet.swift */,
+				6EFCB87B1F5F9095007B76A1 /* Handle.swift */,
 				6E83DE711F57C7E300F84689 /* Data.swift */,
 			);
 			path = BelledonneRTP;
@@ -2626,6 +2632,7 @@
 				6E27091A1F3FA9760097A764 /* FilterInterface.swift in Sources */,
 				6E2709171F3FA11E0097A764 /* FilterDescription.swift in Sources */,
 				6E58AF571F085BB5009A0E68 /* Factory.swift in Sources */,
+				6EFCB87F1F5FAE58007B76A1 /* Handle.swift in Sources */,
 				6EABA99B1F4771EF004B0DA4 /* RFC3984.swift in Sources */,
 				6E612A5A1F3D1787003C5A3F /* Filter.swift in Sources */,
 				6EBB16461F5F3D86001B4752 /* FilterCategory.swift in Sources */,
@@ -2671,6 +2678,7 @@
 				6E9BFBC81F3250BC007D7A93 /* Factory.swift in Sources */,
 				6E27091E1F3FA9A30097A764 /* Enumeration.swift in Sources */,
 				6E2709181F3FA11E0097A764 /* FilterDescription.swift in Sources */,
+				6EFCB87E1F5FAE57007B76A1 /* Handle.swift in Sources */,
 				6EABA99F1F479021004B0DA4 /* Queue.swift in Sources */,
 				6E9BFBC91F3250BC007D7A93 /* Bool.swift in Sources */,
 				6EBB16471F5F3D86001B4752 /* FilterCategory.swift in Sources */,
@@ -2735,7 +2743,7 @@
 			files = (
 				6E77F6501F568A0100C355D3 /* Packet.swift in Sources */,
 				6EE3642D1F4CAE5E00867353 /* Log.swift in Sources */,
-				6E83DE741F57C84600F84689 /* Handle.swift in Sources */,
+				6EFCB87C1F5F9095007B76A1 /* Handle.swift in Sources */,
 				6E77F64D1F5688D500C355D3 /* Queue.swift in Sources */,
 				6E83DE721F57C7E300F84689 /* Data.swift in Sources */,
 			);
@@ -2747,7 +2755,7 @@
 			files = (
 				6E77F6511F568A0100C355D3 /* Packet.swift in Sources */,
 				6EE3642E1F4CAE5E00867353 /* Log.swift in Sources */,
-				6E83DE751F57C84700F84689 /* Handle.swift in Sources */,
+				6EFCB87D1F5F9095007B76A1 /* Handle.swift in Sources */,
 				6E77F64E1F5688D500C355D3 /* Queue.swift in Sources */,
 				6E83DE731F57C7E300F84689 /* Data.swift in Sources */,
 			);

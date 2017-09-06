@@ -316,7 +316,7 @@ internal enum ReferenceConvertibleMemoryManagement {
     }
 }
 
-internal extension ReferenceConvertible where Reference: ManagedHandle {
+internal extension ReferenceConvertible {
     
     /// Create reference convertible value type from reference.
     ///
@@ -326,7 +326,10 @@ internal extension ReferenceConvertible where Reference: ManagedHandle {
         
         self.init(CopyOnWrite(reference, externalRetain: false))
     }
-    
+}
+
+internal extension ReferenceConvertible where Reference: ManagedHandle {
+        
     /// Initialize from C object pointer according to the specified memory management rule.
     init(_ rawPointer: Reference.Unmanaged.RawPointer, _ memoryManagement: ReferenceConvertibleMemoryManagement) {
         

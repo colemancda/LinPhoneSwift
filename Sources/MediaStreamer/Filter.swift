@@ -20,6 +20,7 @@ public final class Filter {
     @_versioned
     internal let isOwner: Bool
     
+    /// The `Filter.Description` this filter was created from.
     public let description: Filter.Description?
     
     // MARK: - Initialization
@@ -54,9 +55,7 @@ public final class Filter {
     /// Create decoder filter according to a filter's description.
     public init?(description: Description, factory: Factory) {
         
-        var descriptionData = description.internalData
-        
-        guard let rawPointer = ms_factory_create_filter_from_desc(factory.rawPointer, &descriptionData)
+        guard let rawPointer = ms_factory_create_filter_from_desc(factory.rawPointer, description.internalReference.reference.rawPointer)
             else { return nil }
         
         self.rawPointer = rawPointer
