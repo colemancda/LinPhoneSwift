@@ -13,6 +13,8 @@ public extension Filter {
     /// To make custom filters.
     public struct Description /* Equatable */ {
         
+        public typealias RawPointer = UnsafeMutablePointer<MSFilterDesc>
+        
         // MARK: - Properties
         
         @_versioned // private(set) in Swift 4
@@ -111,7 +113,7 @@ extension Filter.Description: ReferenceConvertible {
     /// Backing reference type of `Filter.Description`.
     internal final class Reference: CopyableHandle {
         
-        typealias RawPointer = UnsafeMutablePointer<MSFilterDesc>
+        typealias RawPointer = Filter.Description.RawPointer
         
         typealias CString = UnsafePointer<Int8>!
         
@@ -215,11 +217,42 @@ extension Filter.Description: ReferenceConvertible {
             
             return ms_filter_desc_implements_interface(rawPointer, interface.mediaStreamerType).boolValue
         }
+        
+        // MARK: - Private Methods
+        
+        
+        
+        /*
+        private func setFilterMethod(_ method: ((Filter) -> ())?, ) {
+            
+            
+        }*/
     }
 }
 
+// MARK: - BelledonneObject
+
+extension Filter.Description /* : BelledonneObject */ {
+    
+    public mutating func withUnsafeMutableRawPointer <Result> (_ body: (UnsafeMutablePointer<MSFilterDesc>) throws -> Result) rethrows -> Result {
+        
+        let rawPointer = internalReference.mutatingReference.rawPointer
+        
+        return try body(rawPointer)
+    }
+    
+    public func withUnsafeRawPointer <Result> (_ body: (UnsafePointer<MSFilterDesc>) throws -> Result) rethrows -> Result {
+        
+        let rawPointer = internalReference.reference.rawPointer
+        
+        return try body(rawPointer)
+    }
+}
+
+// MARK: - Private
+
 /// Renamed struct (because of `init` property.
-fileprivate struct _MSFilterDescSwift {
+private struct _MSFilterDescSwift {
     
     /**< the id declared in allfilters.h */
     public var id: MSFilterId
@@ -274,4 +307,10 @@ fileprivate struct _MSFilterDescSwift {
         
         return MutableSwiftRawPointer(opaquePointer)
     }
+}
+
+@_silgen_name("_mediastreamer2_swift_msfilterfunc")
+private func FilterFunction(_ filterRawPointer: UnsafeMutablePointer<MSFilter>!) {
+    
+    
 }
