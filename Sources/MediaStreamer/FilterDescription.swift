@@ -191,11 +191,22 @@ extension Filter.Description: ReferenceConvertible {
             set { rawPointer.pointee.noutputs = Int32(newValue) }
         }
         
-        /*
-         public var initialization: () {
-         
-         didSet { MSFilterFunc internalData.init = MSFIl }
-         }*/
+        public var initialization: (() -> ())? {
+            
+            willSet {
+                
+                let rawPointer = _MSFilterDescSwift.from(self.rawPointer)
+                
+                if let newValue = newValue {
+                    
+                    rawPointer.pointee.cInit = { _ in  }
+                    
+                } else {
+                    
+                    rawPointer.pointee.cInit = nil
+                }
+            }
+         }
         
         // MARK: - Methods
         
@@ -204,5 +215,63 @@ extension Filter.Description: ReferenceConvertible {
             
             return ms_filter_desc_implements_interface(rawPointer, interface.mediaStreamerType).boolValue
         }
+    }
+}
+
+/// Renamed struct (because of `init` property.
+fileprivate struct _MSFilterDescSwift {
+    
+    /**< the id declared in allfilters.h */
+    public var id: MSFilterId
+    
+    /**< the filter name*/
+    public var name: UnsafePointer<Int8>!
+    
+    /**< short text describing the filter's function*/
+    public var text: UnsafePointer<Int8>!
+    
+    /**< filter's category*/
+    public var category: MSFilterCategory
+    
+    /**< sub-mime of the format, must be set if category is MS_FILTER_ENCODER or MS_FILTER_DECODER */
+    public var enc_fmt: UnsafePointer<Int8>!
+    
+    /**< number of inputs */
+    public var ninputs: Int32
+    
+    /**< number of outputs */
+    public var noutputs: Int32
+    
+    /**< Filter's init function*/
+    public var cInit: CMediaStreamer2.MSFilterFunc!
+    
+    /**< Filter's preprocess function, called one time before starting to process*/
+    public var preprocess: CMediaStreamer2.MSFilterFunc!
+    
+    /**< Filter's process function, called every tick by the MSTicker to do the filter's job*/
+    public var process: CMediaStreamer2.MSFilterFunc!
+    
+    /**< Filter's postprocess function, called once after processing (the filter is no longer called in process() after)*/
+    public var postprocess: CMediaStreamer2.MSFilterFunc!
+    
+    /**< Filter's uninit function, used to deallocate internal structures*/
+    public var uninit: CMediaStreamer2.MSFilterFunc!
+    
+    /**<Filter's method table*/
+    public var methods: UnsafeMutablePointer<MSFilterMethod>!
+    
+    /**<Filter's special flags, from the MSFilterFlags enum.*/
+    public var flags: UInt32
+    
+    @inline(__always)
+    static func from(_ rawPointer: UnsafeMutablePointer<MSFilterDesc>) -> UnsafeMutablePointer<_MSFilterDescSwift> {
+        
+        typealias MutableSwiftRawPointer = UnsafeMutablePointer<_MSFilterDescSwift>
+        
+        assert(MemoryLayout<UnsafeMutablePointer<MSFilterDesc>>.size == MemoryLayout<MutableSwiftRawPointer>.size)
+        
+        let opaquePointer = OpaquePointer(rawPointer)
+        
+        return MutableSwiftRawPointer(opaquePointer)
     }
 }
