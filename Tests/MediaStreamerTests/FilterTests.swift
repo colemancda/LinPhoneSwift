@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import CMediaStreamer2.filter
 @testable import MediaStreamer
 
 final class FilterTests: XCTestCase {
@@ -20,7 +21,8 @@ final class FilterTests: XCTestCase {
         let filterDescriptionReference = description.internalReference.reference
         
         // set new values
-        description.name = "TestFilter"
+        description.identifier = MS_VT_H264_DEC_ID
+        description.name = "TestFilter Decoder"
         description.encodingFormat = "H264"
         description.text = "A test filter"
         description.category = .decoder
@@ -28,9 +30,13 @@ final class FilterTests: XCTestCase {
         description.outputCount = 1
         XCTAssert(description.internalReference.reference === filterDescriptionReference)
         
-        let initExpectation = self.expectation(description: "Filter initialized")
+        description.initialization = { _ in print("Filter created") }
         
-        description.initialization = { (filter) in
+        let uninitExpectation = self.expectation(description: "Filter uninitialized")
+        
+        description.uninitialization = { (filter) in
+            
+            print("\(filter.name) destroyed")
             
             // assert values
             XCTAssert(filter.name == description.name)
@@ -39,13 +45,18 @@ final class FilterTests: XCTestCase {
             XCTAssert(filter.description?.internalReference.reference === filterDescriptionReference)
             XCTAssert(filter.description?.internalReference.reference === description.internalReference.reference)
             
-            initExpectation.fulfill()
+            uninitExpectation.fulfill()
         }
         
-        guard let filter = Filter(description: description, factory: factory)
-            else { XCTFail("Could not create filter"); return }
+        // create custom filter
+        var filter = Filter(description: description, factory: factory)
+        XCTAssertNotNil(filter, "Could not create filter")
+        XCTAssert(filter?.name == description.name)
+        XCTAssert(filter?.description?.internalReference.reference === filterDescriptionReference)
+        XCTAssert(filter?.description?.internalReference.reference === description.internalReference.reference)
         
-        XCTAssert(filter.name == description.name)
+        // release
+        filter = nil
         
         waitForExpectations(timeout: 2)
     }
@@ -71,8 +82,8 @@ final class FilterTests: XCTestCase {
         let filterDescriptionReference = description.internalReference.reference
         
         // set new values
-        description.name = "TestFilter"
-        description.encodingFormat = "H264"
+        description.identifier = MS_VT_H264_DEC_ID
+        description.name = "TestFilter Decoder"
         description.text = "A test filter"
         description.category = .decoder
         description.inputCount = 1
@@ -89,7 +100,12 @@ final class FilterTests: XCTestCase {
         
         var mutableCopy = description
         XCTAssert(description.internalReference.reference === mutableCopy.internalReference.reference)
-        mutableCopy.name = "New value"
+        XCTAssert(mutableCopy.name == description.name)
+        let newValue = "New value"
+        mutableCopy.name = newValue
+        XCTAssert(mutableCopy.name != description.name)
+        XCTAssert(description.name != newValue)
+        XCTAssert(mutableCopy.name == newValue)
         XCTAssert(description.internalReference.reference !== mutableCopy.internalReference.reference)
         XCTAssert(description.internalReference.reference.rawPointer != mutableCopy.internalReference.reference.rawPointer)
         XCTAssert(unmutatedCopy.internalReference.reference !== mutableCopy.internalReference.reference)

@@ -30,7 +30,9 @@ public final class Filter {
     
     deinit {
         
-        ms_filter_destroy(rawPointer)
+        // no need to clear user data
+        
+        withUnsafeMutableRawPointer { ms_filter_destroy($0) }
     }
     
     /// Instantiate from raw C pointer and specify whether the object will own (manage) the raw pointer.

@@ -90,7 +90,7 @@ public extension Filter {
             set { internalReference.mutatingReference.outputCount = newValue }
         }
         
-        public var initialization: Function {
+        public var initialization: MSFilterFunc? {
             
             get { return internalReference.reference.initialization }
             
@@ -227,21 +227,11 @@ extension Filter.Description: ReferenceConvertible {
             set { rawPointer.pointee.noutputs = Int32(newValue) }
         }
         
-        public var initialization: Function = { _ in } {
+        public var initialization: MSFilterFunc? {
             
-            didSet {
-                
-                _MSFilterDescSwift.from(rawPointer).pointee.cInit = {
-                    
-                    // get filter object
-                    guard let rawPointer = $0,
-                        let filter = Filter.from(rawPointer: rawPointer)
-                        else { return }
-                    
-                    // call handler
-                    filter.description?.internalReference.reference.initialization(filter)
-                }
-            }
+            get { return _MSFilterDescSwift.from(rawPointer).pointee.cInit }
+            
+            set { _MSFilterDescSwift.from(rawPointer).pointee.cInit = newValue }
         }
         
         public var preprocess: Function = { _ in } {
@@ -299,7 +289,7 @@ extension Filter.Description: ReferenceConvertible {
             
             didSet {
                 
-                rawPointer.pointee.preprocess = {
+                rawPointer.pointee.uninit = {
                     
                     // get filter object
                     guard let rawPointer = $0,
@@ -307,7 +297,7 @@ extension Filter.Description: ReferenceConvertible {
                         else { return }
                     
                     // call handler
-                    filter.description?.internalReference.reference.initialization(filter)
+                    filter.description?.internalReference.reference.uninitialization(filter)
                 }
             }
         }
@@ -325,6 +315,8 @@ extension Filter.Description: ReferenceConvertible {
 // MARK: - Supporting Types
 
 public extension Filter.Description {
+    
+    public typealias Initialization = () -> ()
     
     public typealias Function = (Filter) -> ()
 }
@@ -357,16 +349,16 @@ private struct _MSFilterDescSwift {
     public var id: MSFilterId
     
     /**< the filter name*/
-    public var name: UnsafePointer<Int8>!
+    public var name: UnsafePointer<Int8>
     
     /**< short text describing the filter's function*/
-    public var text: UnsafePointer<Int8>!
+    public var text: UnsafePointer<Int8>
     
     /**< filter's category*/
     public var category: MSFilterCategory
     
     /**< sub-mime of the format, must be set if category is MS_FILTER_ENCODER or MS_FILTER_DECODER */
-    public var enc_fmt: UnsafePointer<Int8>!
+    public var enc_fmt: UnsafePointer<Int8>
     
     /**< number of inputs */
     public var ninputs: Int32
@@ -375,22 +367,22 @@ private struct _MSFilterDescSwift {
     public var noutputs: Int32
     
     /**< Filter's init function*/
-    public var cInit: CMediaStreamer2.MSFilterFunc!
+    public var cInit: CMediaStreamer2.MSFilterFunc?
     
     /**< Filter's preprocess function, called one time before starting to process*/
-    public var preprocess: CMediaStreamer2.MSFilterFunc!
+    public var preprocess: CMediaStreamer2.MSFilterFunc
     
     /**< Filter's process function, called every tick by the MSTicker to do the filter's job*/
-    public var process: CMediaStreamer2.MSFilterFunc!
+    public var process: CMediaStreamer2.MSFilterFunc
     
     /**< Filter's postprocess function, called once after processing (the filter is no longer called in process() after)*/
-    public var postprocess: CMediaStreamer2.MSFilterFunc!
+    public var postprocess: CMediaStreamer2.MSFilterFunc
     
     /**< Filter's uninit function, used to deallocate internal structures*/
-    public var uninit: CMediaStreamer2.MSFilterFunc!
+    public var uninit: CMediaStreamer2.MSFilterFunc
     
     /**<Filter's method table*/
-    public var methods: UnsafeMutablePointer<MSFilterMethod>!
+    public var methods: UnsafeMutablePointer<MSFilterMethod>
     
     /**<Filter's special flags, from the MSFilterFlags enum.*/
     public var flags: UInt32
