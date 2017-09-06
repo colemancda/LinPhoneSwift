@@ -6,6 +6,12 @@
 //
 //
 
+#if os(macOS) || os(iOS)
+    import Darwin.C.stdlib
+#elseif os(Linux)
+    import Glibc
+#endif
+
 import CMediaStreamer2.filter
 
 public extension Filter {
@@ -163,6 +169,9 @@ extension Filter.Description: ReferenceConvertible {
             
             // alloc raw pointer
             self.rawPointer = RawPointer.allocate(capacity: 1)
+            
+            // initialize pointer (to avoid random values)
+            self.rawPointer.initialize(to: MSFilterDesc())
         }
         
         public var copy: Filter.Description.Reference? {

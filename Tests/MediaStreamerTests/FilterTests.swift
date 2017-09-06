@@ -70,6 +70,7 @@ final class FilterTests: XCTestCase {
         XCTAssert(description.encodingFormat == nil)
         XCTAssert(description.text == nil)
         XCTAssert(description.category == .other)
+        XCTAssert(description.category.rawValue == 0)
         XCTAssert(description.inputCount == 0)
         XCTAssert(description.outputCount == 0)
         XCTAssert(description.implements(interface: .begin) == false)
