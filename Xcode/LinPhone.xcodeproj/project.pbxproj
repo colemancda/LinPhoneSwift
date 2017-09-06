@@ -50,6 +50,8 @@
 		6E2D5DD21F0EF8AF003A1EAF /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E25E9DA1F0B73F1005BC42C /* libstdc++.tbd */; };
 		6E3D82591F5FB97E002F9D35 /* ManagedCString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3D82581F5FB97E002F9D35 /* ManagedCString.swift */; };
 		6E3D825A1F5FB97E002F9D35 /* ManagedCString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3D82581F5FB97E002F9D35 /* ManagedCString.swift */; };
+		6E4055F21F60949D009D2D5C /* FilterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4055F11F60949D009D2D5C /* FilterTests.swift */; };
+		6E4055F31F60949D009D2D5C /* FilterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4055F11F60949D009D2D5C /* FilterTests.swift */; };
 		6E4508BA1F16B58F00B497C8 /* VideoPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4508B91F16B58F00B497C8 /* VideoPolicy.swift */; };
 		6E4508BC1F16BE1500B497C8 /* PayloadType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4508BB1F16BE1500B497C8 /* PayloadType.swift */; };
 		6E5291891F0B543C00D4B765 /* URI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5291881F0B543C00D4B765 /* URI.swift */; };
@@ -936,6 +938,7 @@
 		6E27091C1F3FA9A30097A764 /* Enumeration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enumeration.swift; sourceTree = "<group>"; };
 		6E2D5DCD1F0E9980003A1EAF /* RegistrationState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationState.swift; sourceTree = "<group>"; };
 		6E3D82581F5FB97E002F9D35 /* ManagedCString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagedCString.swift; sourceTree = "<group>"; };
+		6E4055F11F60949D009D2D5C /* FilterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterTests.swift; sourceTree = "<group>"; };
 		6E4508B91F16B58F00B497C8 /* VideoPolicy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoPolicy.swift; sourceTree = "<group>"; };
 		6E4508BB1F16BE1500B497C8 /* PayloadType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayloadType.swift; sourceTree = "<group>"; };
 		6E5291661F0B53AE00D4B765 /* BelledonneSIP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BelledonneSIP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1681,6 +1684,7 @@
 			isa = PBXGroup;
 			children = (
 				6E25EA851F0BEA98005BC42C /* FactoryTests.swift */,
+				6E4055F11F60949D009D2D5C /* FilterTests.swift */,
 			);
 			name = MediaStreamerTests;
 			path = ../Tests/MediaStreamerTests;
@@ -2653,6 +2657,7 @@
 			buildActionMask = 0;
 			files = (
 				6EFE25D71F1667E000FC4ECC /* FactoryTests.swift in Sources */,
+				6E4055F21F60949D009D2D5C /* FilterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2700,6 +2705,7 @@
 			buildActionMask = 0;
 			files = (
 				6E9BFBE81F3250BD007D7A93 /* FactoryTests.swift in Sources */,
+				6E4055F31F60949D009D2D5C /* FilterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

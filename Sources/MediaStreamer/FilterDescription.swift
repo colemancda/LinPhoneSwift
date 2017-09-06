@@ -90,11 +90,40 @@ public extension Filter {
             set { internalReference.mutatingReference.outputCount = newValue }
         }
         
-        /*
-         public var initialization: () {
-         
-         didSet { MSFilterFunc internalData.init = MSFIl }
-         }*/
+        public var initialization: Function {
+            
+            get { return internalReference.reference.initialization }
+            
+            set { internalReference.mutatingReference.initialization = newValue }
+        }
+        
+        public var preprocess: Function {
+            
+            get { return internalReference.reference.preprocess }
+            
+            set { internalReference.mutatingReference.preprocess = newValue }
+        }
+        
+        public var process: Function {
+            
+            get { return internalReference.reference.process }
+            
+            set { internalReference.mutatingReference.process = newValue }
+        }
+        
+        public var postprocess: Function {
+            
+            get { return internalReference.reference.postprocess }
+            
+            set { internalReference.mutatingReference.postprocess = newValue }
+        }
+        
+        public var uninitialization: Function {
+            
+            get { return internalReference.reference.uninitialization }
+            
+            set { internalReference.mutatingReference.uninitialization = newValue }
+        }
         
         // MARK: - Methods
         
@@ -147,6 +176,11 @@ extension Filter.Description: ReferenceConvertible {
             copy.name.string = name.string
             copy.text.string = text.string
             copy.encodingFormat.string = encodingFormat.string
+            copy.initialization = initialization
+            copy.preprocess = preprocess
+            copy.process = process
+            copy.postprocess = postprocess
+            copy.uninitialization = uninitialization
             
             return copy
         }
@@ -193,21 +227,89 @@ extension Filter.Description: ReferenceConvertible {
             set { rawPointer.pointee.noutputs = Int32(newValue) }
         }
         
-        public var initialization: MSFilterFunc? {
+        public var initialization: Function = { _ in } {
             
-            get { return _MSFilterDescSwift.from(rawPointer).pointee.cInit }
-            
-            set { _MSFilterDescSwift.from(rawPointer).pointee.cInit = newValue }
+            didSet {
+                
+                _MSFilterDescSwift.from(rawPointer).pointee.cInit = {
+                    
+                    // get filter object
+                    guard let rawPointer = $0,
+                        let filter = Filter.from(rawPointer: rawPointer)
+                        else { return }
+                    
+                    // call handler
+                    filter.description?.internalReference.reference.initialization(filter)
+                }
+            }
         }
         
-        public var uninitialization: MSFilterFunc? {
+        public var preprocess: Function = { _ in } {
             
-            get { return rawPointer.pointee.uninit }
+            didSet {
+                
+                rawPointer.pointee.preprocess = {
+                    
+                    // get filter object
+                    guard let rawPointer = $0,
+                        let filter = Filter.from(rawPointer: rawPointer)
+                        else { return }
+                    
+                    // call handler
+                    filter.description?.internalReference.reference.preprocess(filter)
+                }
+            }
         }
         
-        public var preprocess: MSFilterFunc? {
+        public var process: Function = { _ in } {
             
-            get { return rawPointer.pointee.preprocess }
+            didSet {
+                
+                rawPointer.pointee.process = {
+                    
+                    // get filter object
+                    guard let rawPointer = $0,
+                        let filter = Filter.from(rawPointer: rawPointer)
+                        else { return }
+                    
+                    // call handler
+                    filter.description?.internalReference.reference.process(filter)
+                }
+            }
+        }
+        
+        public var postprocess: Function = { _ in } {
+            
+            didSet {
+                
+                rawPointer.pointee.postprocess = {
+                    
+                    // get filter object
+                    guard let rawPointer = $0,
+                        let filter = Filter.from(rawPointer: rawPointer)
+                        else { return }
+                    
+                    // call handler
+                    filter.description?.internalReference.reference.postprocess(filter)
+                }
+            }
+        }
+        
+        public var uninitialization: Function = { _ in } {
+            
+            didSet {
+                
+                rawPointer.pointee.preprocess = {
+                    
+                    // get filter object
+                    guard let rawPointer = $0,
+                        let filter = Filter.from(rawPointer: rawPointer)
+                        else { return }
+                    
+                    // call handler
+                    filter.description?.internalReference.reference.initialization(filter)
+                }
+            }
         }
         
         // MARK: - Methods
@@ -218,6 +320,13 @@ extension Filter.Description: ReferenceConvertible {
             return ms_filter_desc_implements_interface(rawPointer, interface.mediaStreamerType).boolValue
         }
     }
+}
+
+// MARK: - Supporting Types
+
+public extension Filter.Description {
+    
+    public typealias Function = (Filter) -> ()
 }
 
 // MARK: - BelledonneObject
@@ -297,13 +406,4 @@ private struct _MSFilterDescSwift {
         
         return MutableSwiftRawPointer(opaquePointer)
     }
-}
-
-@_silgen_name("_mediastreamer2_swift_init_msfilterfunc")
-private func FilterFunctionInit(_ filterRawPointer: Filter.RawPointer!) {
-    
-    guard let filter = Filter.from(rawPointer: filterRawPointer)
-        else { return }
-    
-    filter.description?.internalReference.reference.initialization(filter)
 }
