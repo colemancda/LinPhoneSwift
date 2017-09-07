@@ -1,5 +1,7 @@
 module CMediaStreamer2 {
     
+    header "mediastreamer2/msswift.h"
+    
     module common {
         header "mediastreamer2/mscommon.h"
     }

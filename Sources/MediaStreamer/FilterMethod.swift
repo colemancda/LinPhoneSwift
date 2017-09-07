@@ -19,11 +19,11 @@ public extension Filter {
 
 internal extension Filter.Method {
     
-    var id: UInt32 {
+    var id: FilterMethodIdentifier {
         
         switch self {
-        case .getVideoSize(_): return 0
-        case .setVideoSize(_): return 1 // FIXME
+        case .getVideoSize(_): return .getVideoSize
+        case .setVideoSize(_): return .setVideoSize
         }
     }
     
@@ -80,7 +80,7 @@ internal extension Filter.Description {
                 // set buffer contents
                 for (index, method) in elements.enumerated() {
                     
-                    buffer[index] = MSFilterMethod(id: method.id, method: method.function)
+                    buffer[index] = MSFilterMethod(id: method.id.rawValue, method: method.function)
                 }
                 
                 self.buffer = buffer
