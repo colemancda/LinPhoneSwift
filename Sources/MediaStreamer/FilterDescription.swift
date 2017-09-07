@@ -327,9 +327,9 @@ extension Filter.Description: ReferenceConvertible {
         
         public var flags: Set<Filter.Flag> {
             
-            get { return Filter.Flag.from(flags: Int32(rawPointer.pointee.flags)) }
+            get { return Filter.Flag.from(flags: Int32(bitPattern: rawPointer.pointee.flags)) }
             
-            set { rawPointer.pointee.flags = UInt32(newValue.flags) }
+            set { rawPointer.pointee.flags = UInt32(bitPattern: newValue.flags) }
         }
         
         public var methods: Methods = [] {

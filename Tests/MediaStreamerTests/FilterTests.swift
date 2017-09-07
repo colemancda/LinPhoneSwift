@@ -28,6 +28,10 @@ final class FilterTests: XCTestCase {
         description.category = .decoder
         description.inputCount = 1
         description.outputCount = 1
+        description.flags = [.pump, .enabled]
+        description.methods = []
+        
+        XCTAssert(description.flags == [.pump, .enabled])
         XCTAssert(description.internalReference.reference === filterDescriptionReference)
         
         description.initialization = { _ in print("Filter created") }
@@ -89,6 +93,8 @@ final class FilterTests: XCTestCase {
         description.category = .decoder
         description.inputCount = 1
         description.outputCount = 1
+        description.flags = [.pump, .enabled]
+        description.methods = []
         
         XCTAssert(description.internalReference.reference === filterDescriptionReference)
         
