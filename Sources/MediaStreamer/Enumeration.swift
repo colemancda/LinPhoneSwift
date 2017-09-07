@@ -6,7 +6,7 @@
 //
 //
 
-public protocol MediaStreamerEnumeration: RawRepresentable {
+public protocol MediaStreamerEnumeration {
     
     associatedtype MediaStreamerType: RawRepresentable
     
@@ -15,7 +15,7 @@ public protocol MediaStreamerEnumeration: RawRepresentable {
     var mediaStreamerType: MediaStreamerType { get }
 }
 
-public extension MediaStreamerEnumeration where Self.RawValue == MediaStreamerType.RawValue {
+public extension MediaStreamerEnumeration where Self: RawRepresentable, Self.RawValue == MediaStreamerType.RawValue {
     
     @inline(__always)
     init(_ mediaStreamerType: MediaStreamerType) {

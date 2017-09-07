@@ -138,6 +138,13 @@ public extension Filter {
             set { internalReference.mutatingReference.flags = newValue }
         }
         
+        public var methods: [Method] {
+            
+            get { return internalReference.reference.methods.elements }
+            
+            set { internalReference.mutatingReference.methods = Methods(newValue) }
+        }
+        
         // MARK: - Methods
         
         /// Whether a filter implements a given interface, based on the filter's descriptor.
@@ -323,6 +330,11 @@ extension Filter.Description: ReferenceConvertible {
             get { return Filter.Flag.from(flags: Int32(rawPointer.pointee.flags)) }
             
             set { rawPointer.pointee.flags = UInt32(newValue.flags) }
+        }
+        
+        public var methods: Methods = [] {
+            
+            didSet { rawPointer.pointee.methods = methods.buffer }
         }
         
         // MARK: - Methods

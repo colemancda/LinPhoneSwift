@@ -11,6 +11,8 @@
 		6E0DCF9F1F60D0140007A883 /* FilterFlag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0DCF9D1F60D0140007A883 /* FilterFlag.swift */; };
 		6E0DCFA11F60D3230007A883 /* BitMaskOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0DCFA01F60D3230007A883 /* BitMaskOption.swift */; };
 		6E0DCFA21F60D3230007A883 /* BitMaskOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0DCFA01F60D3230007A883 /* BitMaskOption.swift */; };
+		6E0DCFA41F60FD150007A883 /* FilterMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0DCFA31F60FD150007A883 /* FilterMethod.swift */; };
+		6E0DCFA51F60FD150007A883 /* FilterMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0DCFA31F60FD150007A883 /* FilterMethod.swift */; };
 		6E1303981F3185C500C4AEE8 /* LinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E569ADC1F09DA3500BF244A /* LinkedList.swift */; };
 		6E1303991F3185C500C4AEE8 /* Handle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6A6E51F0D4EC800C39864 /* Handle.swift */; };
 		6E13039A1F3185C500C4AEE8 /* Bool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E59C7871F11E0C6005274EC /* Bool.swift */; };
@@ -919,6 +921,7 @@
 		6E00E17A1F4E1B44008B6C29 /* module.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
 		6E0DCF9D1F60D0140007A883 /* FilterFlag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterFlag.swift; sourceTree = "<group>"; };
 		6E0DCFA01F60D3230007A883 /* BitMaskOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BitMaskOption.swift; sourceTree = "<group>"; };
+		6E0DCFA31F60FD150007A883 /* FilterMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterMethod.swift; sourceTree = "<group>"; };
 		6E1303A21F3185C500C4AEE8 /* BelledonneToolbox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BelledonneToolbox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E1303B01F3185C700C4AEE8 /* BelledonneToolboxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BelledonneToolboxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E25E9D81F0B73A5005BC42C /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/usr/lib/libresolv.tbd; sourceTree = DEVELOPER_DIR; };
@@ -1745,6 +1748,7 @@
 				6E2709191F3FA9760097A764 /* FilterInterface.swift */,
 				6EBB16451F5F3D86001B4752 /* FilterCategory.swift */,
 				6E0DCF9D1F60D0140007A883 /* FilterFlag.swift */,
+				6E0DCFA31F60FD150007A883 /* FilterMethod.swift */,
 				6E27091C1F3FA9A30097A764 /* Enumeration.swift */,
 				6E0DCFA01F60D3230007A883 /* BitMaskOption.swift */,
 				6EABA9971F474C75004B0DA4 /* EventQueue.swift */,
@@ -2647,6 +2651,7 @@
 			files = (
 				6E27091A1F3FA9760097A764 /* FilterInterface.swift in Sources */,
 				6E2709171F3FA11E0097A764 /* FilterDescription.swift in Sources */,
+				6E0DCFA41F60FD150007A883 /* FilterMethod.swift in Sources */,
 				6E0DCFA11F60D3230007A883 /* BitMaskOption.swift in Sources */,
 				6E58AF571F085BB5009A0E68 /* Factory.swift in Sources */,
 				6EFCB87F1F5FAE58007B76A1 /* Handle.swift in Sources */,
@@ -2697,6 +2702,7 @@
 			files = (
 				6E9BFBC81F3250BC007D7A93 /* Factory.swift in Sources */,
 				6E27091E1F3FA9A30097A764 /* Enumeration.swift in Sources */,
+				6E0DCFA51F60FD150007A883 /* FilterMethod.swift in Sources */,
 				6E0DCFA21F60D3230007A883 /* BitMaskOption.swift in Sources */,
 				6E2709181F3FA11E0097A764 /* FilterDescription.swift in Sources */,
 				6EFCB87E1F5FAE57007B76A1 /* Handle.swift in Sources */,
