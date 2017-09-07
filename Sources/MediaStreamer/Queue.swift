@@ -17,9 +17,9 @@ public final class Queue {
     @_versioned
     internal let rawPointer: RawPointer
     
-    public let previous: ControlPoint
+    public let previous: ConnectionPoint
     
-    public let next: ControlPoint
+    public let next: ConnectionPoint
     
     // MARK: - Initialization
     
@@ -28,7 +28,7 @@ public final class Queue {
         ms_queue_destroy(rawPointer)
     }
     
-    public init(previous: ControlPoint, next: ControlPoint) {
+    public init(previous: ConnectionPoint, next: ConnectionPoint) {
         
         self.rawPointer = ms_queue_new(previous.filter.rawPointer, Int32(previous.pin),
                                        next.filter.rawPointer, Int32(next.pin))
@@ -57,7 +57,7 @@ public final class Queue {
 
 public extension Queue {
     
-    public final class ControlPoint {
+    public final class ConnectionPoint {
         
         public let filter: Filter
         
