@@ -131,6 +131,13 @@ public extension Filter {
             set { internalReference.mutatingReference.uninitialization = newValue }
         }
         
+        public var flags: Set<Filter.Flag> {
+            
+            get { return internalReference.reference.flags }
+            
+            set { internalReference.mutatingReference.flags = newValue }
+        }
+        
         // MARK: - Methods
         
         /// Whether a filter implements a given interface, based on the filter's descriptor.
@@ -309,6 +316,13 @@ extension Filter.Description: ReferenceConvertible {
                     filter.description?.internalReference.reference.uninitialization(filter)
                 }
             }
+        }
+        
+        public var flags: Set<Filter.Flag> {
+            
+            get { return Filter.Flag.from(flags: Int32(rawPointer.pointee.flags)) }
+            
+            set { rawPointer.pointee.flags = UInt32(newValue.flags) }
         }
         
         // MARK: - Methods
