@@ -21,5 +21,6 @@ Pod::Spec.new do |s|
    }
    s.ios.library = 'xml2', 'sqlite3'
    s.dependency 'BelledonneToolbox'
+   s.dependency 'BelledonneRTP'
    s.ios.frameworks = 'CoreMedia', 'CoreVideo', 'VideoToolbox', 'QuartzCore', 'AudioToolbox', 'AVFoundation', 'UIKit', 'CoreGraphics', 'OpenGLES'
 end
