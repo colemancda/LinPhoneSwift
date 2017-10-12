@@ -29,9 +29,7 @@ internal struct BelledonneUnmanagedObject: UnmanagedPointer {
     }
 }
 
-internal protocol BelledonneObjectHandle: ManagedHandle, CopyableHandle, CustomStringConvertible {
-    
-    typealias RawPointer = OpaquePointer
+internal protocol BelledonneObjectHandle: ManagedHandle, CopyableHandle, CustomStringConvertible where RawPointer == OpaquePointer {
     
     var rawPointer: OpaquePointer { get }
     

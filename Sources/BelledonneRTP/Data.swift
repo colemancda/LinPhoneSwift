@@ -37,7 +37,7 @@ extension DataBuffer {
         let rawPointer: OpaquePointer
         
         @inline(__always)
-        init(_ rawPointer: UnmanagedPointer.RawPointer) {
+        init(_ rawPointer: OpaquePointer) {
             self.rawPointer = rawPointer
         }
         

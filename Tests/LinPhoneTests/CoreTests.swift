@@ -6,18 +6,27 @@
 //
 //
 
+// C Standard libary
 #if os(macOS) || os(iOS)
     import Darwin.C.stdlib
 #elseif os(Linux)
     import Glibc
 #endif
 
+// ObjC
 import Foundation
 import XCTest
+
+// Swift
 @testable import LinPhoneSwift
 import MediaStreamer
+import BelledonneSIP
+import BelledonneRTP
+import BelledonneToolbox
+
+// C
 import CLinPhone
-import func CMediaStreamer2.ms_video_set_scaler_impl
+import CMediaStreamer2
 
 final class CoreTests: XCTestCase {
     
@@ -46,13 +55,9 @@ final class CoreTests: XCTestCase {
         
         let callbacks = Core.Callbacks()
         
-        callbacks.callStateChanged = {
-            
-            let state = $0.2
+        callbacks.callStateChanged = { (core, call, state, message) in
             
             print("Call state changed to \(state)")
-            
-            let call = $0.1
             
             switch state {
                 
@@ -165,7 +170,7 @@ final class CoreTests: XCTestCase {
                     
                 #endif
                 
-                callbacks.callStateChanged = { [weak self] in self?.call($0.1, stateChanged: $0.2, message: $0.3) }
+                callbacks.callStateChanged = { [weak self] in self?.call($1, stateChanged: $2, message: $3) }
                 
                 self.timer = Timer.scheduledTimer(withTimeInterval: 0.02, repeats: true) { [weak self] _ in self?.iterate() }
             }
@@ -241,9 +246,9 @@ private extension XCTestCase {
     
     func enableCoreLogging() {
         
-        Core.log = { print("\(self): LinPhone.Core:", $0.1) }
+        Core.log = { (domain, message, level) in print("\(self): LinPhone.Core:", message) }
         
-        LinPhoneSwift.Core.setLogLevel([ORTP_DEBUG, ORTP_MESSAGE, ORTP_WARNING, ORTP_ERROR, ORTP_FATAL])
+        LinPhoneSwift.Core.setLogLevel([.debug, .message, .warning, .error, .fatal])
     }
 }
 

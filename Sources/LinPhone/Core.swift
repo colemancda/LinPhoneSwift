@@ -1015,14 +1015,14 @@ public extension Core {
                     
                     // special case beacuase Core Swift object is not initialized when 
                     // first callback is called
-                    guard let rawPointer = $0.0,
+                    guard let rawPointer = $0,
                         let callbacksRawPointer = Core.currentCallbacksFunction(rawPointer),
                         let callbacks = Callbacks.from(rawPointer: callbacksRawPointer)
                         else { fatalError("Nil pointer") }
                     
-                    let state = $0.1
+                    let state = $1
                     
-                    let message = String(lpCString: $0.2)
+                    let message = String(lpCString: $2)
                     
                     callbacks.globalStateChanged?(state, message)
                 }
@@ -1035,14 +1035,14 @@ public extension Core {
                 
                 linphone_core_cbs_set_registration_state_changed(rawPointer) {
                     
-                    guard let (core, callbacks) = Core.callbacksFrom(rawPointer: $0.0)
+                    guard let (core, callbacks) = Core.callbacksFrom(rawPointer: $0)
                         else { fatalError("Nil pointer") }
                     
                     //let proxyConfig = $0.1
                     
-                    let state = RegistrationState($0.2)
+                    let state = RegistrationState($2)
                     
-                    let message = String(lpCString: $0.3)
+                    let message = String(lpCString: $3)
                     
                     callbacks.registrationStateChanged?(core, state, message)
                 }
@@ -1054,9 +1054,9 @@ public extension Core {
             
             didSet {
                 
-                linphone_core_cbs_set_call_created(rawPointer) {
+                linphone_core_cbs_set_call_created(rawPointer) { (coreRawPointer, _) in
                     
-                    guard let (core, callbacks) = Core.callbacksFrom(rawPointer: $0.0)
+                    guard let (core, callbacks) = Core.callbacksFrom(rawPointer: coreRawPointer)
                         else { fatalError("Nil pointer") }
                     
                     callbacks.callCreated?(core)
@@ -1071,17 +1071,17 @@ public extension Core {
                 
                 linphone_core_cbs_set_call_state_changed(rawPointer) {
                     
-                    guard let (core, callbacks) = Core.callbacksFrom(rawPointer: $0.0)
+                    guard let (core, callbacks) = Core.callbacksFrom(rawPointer: $0)
                         else { fatalError("Nil pointer") }
                     
-                    let state = Call.State($0.2)
+                    let state = Call.State($2)
                     
-                    let message = String(lpCString: $0.3)
+                    let message = String(lpCString: $3)
                     
                     let call: Call?
                     
                     if state != .released,
-                        let callRawPointer = $0.1,
+                        let callRawPointer = $1,
                         let existingObject = Call.from(rawPointer: callRawPointer) {
                         
                         call = existingObject
@@ -1102,14 +1102,14 @@ public extension Core {
 
 extension Core: ManagedHandle {
     
-    typealias RawPointer = UnmanagedPointer.RawPointer
+    typealias RawPointer = OpaquePointer
     
     struct UnmanagedPointer: LinPhoneSwift.UnmanagedPointer {
         
         let rawPointer: OpaquePointer
         
         @inline(__always)
-        init(_ rawPointer: UnmanagedPointer.RawPointer) {
+        init(_ rawPointer: OpaquePointer) {
             self.rawPointer = rawPointer
         }
         
@@ -1134,7 +1134,7 @@ extension Core.Callbacks: ManagedHandle {
         let rawPointer: OpaquePointer
         
         @inline(__always)
-        init(_ rawPointer: UnmanagedPointer.RawPointer) {
+        init(_ rawPointer: OpaquePointer) {
             self.rawPointer = rawPointer
         }
         

@@ -542,12 +542,12 @@ public extension Call {
                 
                 linphone_call_cbs_set_state_changed(rawPointer) {
                     
-                    guard let (call, callbacks) = Call.callbacksFrom(rawPointer: $0.0)
+                    guard let (call, callbacks) = Call.callbacksFrom(rawPointer: $0)
                         else { return }
                     
-                    let state = Call.State($0.1)
+                    let state = Call.State($1)
                     
-                    let message = String(lpCString: $0.2)
+                    let message = String(lpCString: $2)
                     
                     callbacks.stateChanged?(call, state, message)
                 }
@@ -567,7 +567,7 @@ extension Call: ManagedHandle {
         let rawPointer: OpaquePointer
         
         @inline(__always)
-        init(_ rawPointer: UnmanagedPointer.RawPointer) {
+        init(_ rawPointer: OpaquePointer) {
             self.rawPointer = rawPointer
         }
         
@@ -592,7 +592,7 @@ extension Call.Callbacks: ManagedHandle {
         let rawPointer: OpaquePointer
         
         @inline(__always)
-        init(_ rawPointer: UnmanagedPointer.RawPointer) {
+        init(_ rawPointer: OpaquePointer) {
             self.rawPointer = rawPointer
         }
         

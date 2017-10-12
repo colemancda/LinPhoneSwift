@@ -13,7 +13,7 @@ public protocol BitMaskOption: RawRepresentable, Hashable {
 }
 
 /// Convert Swift enums for option flags into their raw values OR'd.
-public extension Collection where Iterator.Element: BitMaskOption, Iterator.Element.RawValue: Integer {
+public extension Collection where Iterator.Element: BitMaskOption, Iterator.Element.RawValue: BinaryInteger {
     
     var flags: Iterator.Element.RawValue {
         
@@ -22,7 +22,7 @@ public extension Collection where Iterator.Element: BitMaskOption, Iterator.Elem
     }
 }
 
-public extension BitMaskOption where RawValue: Integer {
+public extension BitMaskOption where RawValue: BinaryInteger {
     
     /// Whether the enum case is present in the raw value.
     @inline(__always)

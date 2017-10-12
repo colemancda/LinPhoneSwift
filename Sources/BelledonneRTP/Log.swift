@@ -53,6 +53,26 @@ public extension Log {
         case error
         
         case fatal
+        
+        public static let all: Set<Log.Level> = [.debug, .trace, .message, .warning, .error, .fatal]
+    }
+}
+
+extension Log.Level: Equatable {
+    
+    @inline(__always)
+    public static func == (lhs: Log.Level, rhs: Log.Level) -> Bool {
+        
+        return lhs.ortpLevel.rawValue == rhs.ortpLevel.rawValue
+    }
+}
+
+extension Log.Level: Hashable {
+    
+    public var hashValue: Int {
+        
+        @inline(__always)
+        get { return ortpLevel.rawValue.hashValue }
     }
 }
 
@@ -87,6 +107,6 @@ public extension Log.Level {
         
         return levels
             .map({ $0.ortpLevel.rawValue })
-            .reduce(0, { $0.0 | $0.1 })
+            .reduce(0, { $0 | $1 })
     }
 }
