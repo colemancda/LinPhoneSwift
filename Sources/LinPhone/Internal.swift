@@ -11,8 +11,6 @@ import typealias CLinPhone.LinphoneStatus
 internal extension LinphoneStatus {
     
     static var success: LinphoneStatus { return 0 }
-    
-    static var error: LinphoneStatus { return -1 }
 }
 
 // MARK: - Assertions

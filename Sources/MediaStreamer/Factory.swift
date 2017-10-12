@@ -127,10 +127,14 @@ public final class Factory {
         ms_factory_uninit_plugins(rawPointer)
     }
     
-    @inline(__always)
-    public func loadPlugins(from directory: String? = nil) {
+    /// Attempt to load plugins from specified directory or default location.
+    @discardableResult
+    public func loadPlugins(from directory: String? = nil) throws -> UInt {
         
-        ms_factory_load_plugins(rawPointer, directory)
+        guard let pluginsCount = ms_factory_load_plugins(rawPointer, directory).nonErrorValue
+            else { throw Error.pluginsUnsupported }
+        
+        return pluginsCount
     }
     
     /// Specify if a filter is enabled or not.
@@ -169,6 +173,15 @@ public final class Factory {
 }
 
 // MARK: - Supporting Types
+
+public extension Factory {
+    
+    public enum Error: Swift.Error {
+        
+        /// No loadable plugin support: plugins cannot be loaded.
+        case pluginsUnsupported
+    }
+}
 
 /// Libraries used with `MediaStreamer2`
 public enum MediaLibrary {

@@ -122,6 +122,7 @@ extension URI: Hashable {
 extension URI: CustomStringConvertible {
     
     public var description: String {
+        
         @inline(__always)
         get { return rawValue }
     }
