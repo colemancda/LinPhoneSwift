@@ -261,6 +261,16 @@ public final class Call {
         get { return Int(linphone_call_get_stream_count(rawPointer)) }
     }
     
+    /// The microphone volume gain.
+    ///
+    /// - Note: If the sound backend supports it, the gain is equal to the gain set with the system mixer.
+    public var microphoneVolumeGain: Float {
+        
+        get { return linphone_call_get_microphone_volume_gain(rawPointer) }
+        
+        set { linphone_call_set_microphone_volume_gain(rawPointer, newValue) }
+    }
+    
     // MARK: - Methods
     
     /// Accept an incoming call.

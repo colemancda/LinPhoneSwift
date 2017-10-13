@@ -42,6 +42,14 @@ public extension Call {
             
             mutating set { linphone_call_params_enable_video(internalReference.mutatingReference.rawPointer, bool_t(newValue)) }
         }
+        
+        /// A boolean value telling whether audio is enabled or not.
+        public var isAudioEnabled: Bool {
+            
+            get { return linphone_call_params_audio_enabled(internalReference.reference.rawPointer).boolValue }
+            
+            mutating set { linphone_call_params_enable_audio(internalReference.mutatingReference.rawPointer, bool_t(newValue)) }
+        }
     }
 }
 
