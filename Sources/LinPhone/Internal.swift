@@ -8,11 +8,6 @@
 
 import typealias CLinPhone.LinphoneStatus
 
-internal extension LinphoneStatus {
-    
-    static var success: LinphoneStatus { return 0 }
-}
-
 // MARK: - Assertions
 
 internal extension LinphoneStatus {

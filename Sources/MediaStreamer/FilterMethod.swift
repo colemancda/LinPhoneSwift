@@ -106,13 +106,6 @@ private extension Filter.Method {
     typealias Argument = UnsafeMutableRawPointer
 }
 
-private extension Filter.Method.Status {
-    
-    static var success: Filter.Method.Status { return 0 }
-    
-    static var error: Filter.Method.Status { return -1 }
-}
-
 private func FilterGetVideoSize(_ rawPointer: Filter.RawPointer?, _ arg: Filter.Method.Argument?) -> Filter.Method.Status {
     
     guard let rawPointer = rawPointer,
