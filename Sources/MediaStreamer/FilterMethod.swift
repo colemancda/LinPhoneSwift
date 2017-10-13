@@ -22,8 +22,8 @@ internal extension Filter.Method {
     var id: FilterMethodIdentifier {
         
         switch self {
-        case .getVideoSize(_): return .getVideoSize
-        case .setVideoSize(_): return .setVideoSize
+        case .getVideoSize(_): return FilterMethodIdentifier() //.getVideoSize // TODO: FIXME
+        case .setVideoSize(_): return FilterMethodIdentifier() //.setVideoSize
         }
     }
     
