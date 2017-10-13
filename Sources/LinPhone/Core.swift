@@ -353,6 +353,54 @@ public final class Core {
     public var isVideoCaptureEnabled: Bool {
         
         get { return linphone_core_video_capture_enabled(rawPointer).boolValue }
+        
+        set { linphone_core_enable_video_capture(rawPointer, bool_t(newValue)) }
+    }
+    
+    /// Test if video is supported.
+    public var isVideoSupported: Bool {
+        
+        get { return linphone_core_video_supported(rawPointer).boolValue }
+    }
+    
+    /// Whether video display is enabled
+    public var isVideoDisplayEnabled: Bool {
+        
+        get { return linphone_core_video_display_enabled(rawPointer).boolValue }
+        
+        set { linphone_core_enable_video_display(rawPointer, bool_t(newValue)) }
+    }
+    
+    /// Whether video preview is enabled.
+    public var isVideoPreviewEnabled: Bool {
+        
+        get { return linphone_core_video_preview_enabled(rawPointer).boolValue }
+        
+        set { linphone_core_enable_video_preview(rawPointer, bool_t(newValue)) }
+    }
+    
+    /// The multicast state of video stream.
+    public var isVideoMulticastEnabled: Bool {
+        
+        get { return linphone_core_video_multicast_enabled(rawPointer).boolValue }
+        
+        set { linphone_core_enable_video_multicast(rawPointer, bool_t(newValue)) }
+    }
+    
+    /// Whether the video adaptive jitter compensation is enabled.
+    public var isVideoJittcompEnabled: Bool {
+        
+        get { return linphone_core_video_adaptive_jittcomp_enabled(rawPointer).boolValue }
+        
+        set { linphone_core_enable_video_adaptive_jittcomp(rawPointer, bool_t(newValue)) }
+    }
+    
+    /// Gets the list of the available video capture devices.
+    public var videoDevices: [VideoDevice] {
+        
+        // An unmodifiable array of strings contanining the names
+        // of the available video capture devices that is NULL terminated
+        get { return getStrings(linphone_core_get_video_devices).map { VideoDevice(name: $0) } }
     }
     
     /// The path to the file storing the zrtp secrets cache.
@@ -483,6 +531,17 @@ public final class Core {
         set { linphone_core_set_video_port(rawPointer, Int32(newValue)) }
     }
     
+    /// Get the camera sensor rotation.
+    ///
+    /// This is needed on some mobile platforms to get the number of degrees
+    /// the camera sensor is rotated relative to the screen.
+    ///
+    /// - Returns: The camera sensor rotation in degrees (0 to 360) or `nil` if it could not be retrieved.
+    public var cameraSensorRotation: UInt? {
+        
+        get { return linphone_core_get_camera_sensor_rotation(rawPointer).nonErrorValue }
+    }
+    
     /// The media encryption policy being used for RTP packets.
     public var mediaEncryption: MediaEncryption {
         
@@ -604,12 +663,18 @@ public final class Core {
         set { linphone_core_enable_echo_limiter(rawPointer, bool_t(newValue)) }
     }
     
-    /// The name of the currently active video device.
-    public var videoDevice: String? {
+    /// The currently active video device.
+    public var videoDevice: VideoDevice? {
         
-        get { return String(lpCString: linphone_core_get_video_device(rawPointer)) }
+        get {
+            
+            guard let name = getString(linphone_core_get_video_device)
+                else { return nil }
+            
+            return VideoDevice(name: name)
+        }
         
-        set { linphone_core_set_video_device(rawPointer, newValue).lpAssert() }
+        set { setString(linphone_core_set_video_device, newValue?.name).lpAssert() }
     }
     
     /// The current preferred video size for sending.
@@ -972,6 +1037,44 @@ public final class Core {
 }
 
 // MARK: - Supporting Types
+
+public extension Core {
+    
+    public struct VideoDevice /* : Equatable, Hashable */ { // TODO: Swift 4 synthesized equatable
+        
+        public let name: String
+        
+        /// Video device for static image.
+        public static let staticImage = VideoDevice(name: "StaticImage: Static picture")
+    }
+}
+
+extension Core.VideoDevice: Equatable {
+    
+    @inline(__always)
+    static public func == (lhs: Core.VideoDevice, rhs: Core.VideoDevice) -> Bool {
+        
+        return lhs.name == rhs.name
+    }
+}
+
+extension Core.VideoDevice: Hashable {
+    
+    public var hashValue: Int {
+        
+        @inline(__always)
+        get { return name.hashValue }
+    }
+}
+
+extension Core.VideoDevice: CustomStringConvertible {
+    
+    public var description: String {
+        
+        @inline(__always)
+        get { return name }
+    }
+}
 
 public extension Core {
     

@@ -21,7 +21,13 @@ public final class Call {
     
     deinit {
         
+        // remove pointer to this swift object
         clearUserData()
+        
+        // release retained properties
+        // and clear their pointer in the C object
+        self.nextVideoFrameDecoded = nil
+        self.nativeWindow = nil
     }
     
     internal init(_ managedPointer: ManagedPointer<UnmanagedPointer>) {
@@ -484,9 +490,10 @@ public protocol CallNativeWindow {
         
         public func toNativeHandle() -> UnsafeMutableRawPointer {
             
-            return Unmanaged.passUnretained(self).toOpaque()
+            return _toNativeHandle()
         }
     }
+    
 #endif
 
 #if os(macOS)
@@ -497,10 +504,21 @@ public protocol CallNativeWindow {
         
         public func toNativeHandle() -> UnsafeMutableRawPointer {
             
-            return Unmanaged.passUnretained(self).toOpaque()
+            return _toNativeHandle()
         }
     }
+    
 #endif
+
+private extension CallNativeWindow where Self: AnyObject {
+    
+    /// Convert object to raw pointer.
+    @inline(__always)
+    func _toNativeHandle() -> UnsafeMutableRawPointer {
+        
+        return Unmanaged.passUnretained(self).toOpaque()
+    }
+}
 
 public extension Call {
     

@@ -6,8 +6,9 @@
 //
 //
 
-import CLinPhone
+import CLinPhone.core
 import struct CMediaStreamer2.MSVideoSize
+import typealias CBelledonneToolbox.bool_t
 
 public extension Call {
     
@@ -27,10 +28,19 @@ public extension Call {
         
         // MARK: - Accessors
         
+        /// Get the size of the video that is received. 
         @available(*, deprecated)
         public var recievedVideoSize: MSVideoSize {
             
             get { return linphone_call_params_get_received_video_size(internalReference.reference.rawPointer) }
+        }
+        
+        /// A boolean value telling whether to enable video or not.
+        public var isVideoEnabled: Bool {
+            
+            get { return linphone_call_params_video_enabled(internalReference.reference.rawPointer).boolValue }
+            
+            mutating set { linphone_call_params_enable_video(internalReference.mutatingReference.rawPointer, bool_t(newValue)) }
         }
     }
 }

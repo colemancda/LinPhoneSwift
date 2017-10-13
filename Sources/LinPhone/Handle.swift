@@ -38,6 +38,20 @@ extension Handle {
         return String(lpCString: function(self.rawPointer))
     }
     
+    /// Get an array of read-only strings whose memory we dont manage.
+    @inline(__always)
+    func getStrings(_ function: (_ internalPointer: RawPointer?) -> (UnsafePointer<UnsafePointer<Int8>?>?)) -> [String] {
+        
+        return String.from(nullTerminatedArray: function(self.rawPointer))
+    }
+    
+    /// Get an array of read-only strings whose memory we dont manage.
+    @inline(__always)
+    func getStrings(_ function: (_ internalPointer: RawPointer?) -> (UnsafeMutablePointer<UnsafePointer<Int8>?>?)) -> [String] {
+        
+        return String.from(nullTerminatedArray: function(self.rawPointer))
+    }
+    
     @inline(__always)
     func setString<Result>(_ function: (_ internalPointer: RawPointer?, _ cString: UnsafePointer<Int8>?) -> Result, _ newValue: String?) -> Result {
         
@@ -484,7 +498,7 @@ internal extension CInt {
     
     var nonErrorValue: UInt? {
         
-        guard self != .error
+        guard self > .error
             else { return nil }
         
         return UInt(self)
@@ -526,5 +540,30 @@ internal extension String {
             else { fatalError("Invalid string") }
         
         self = string as String
+    }
+    
+    static func from(nullTerminatedArray: UnsafePointer<UnsafePointer<Int8>?>?) -> [String] {
+        
+        guard let nullTerminatedArray = nullTerminatedArray
+            else { return [] }
+        
+        var strings = [String]()
+        
+        var cString = nullTerminatedArray.pointee
+        
+        while cString != nil {
+            
+            /// attempt to get string from buffer
+            guard let string = String(lpCString: cString)
+                else { break }
+            
+            // add string to array
+            strings.append(string)
+            
+            // the last item will be allocated but nil, so this should not crash
+            cString = nullTerminatedArray.advanced(by: 1).pointee
+        }
+        
+        return strings
     }
 }

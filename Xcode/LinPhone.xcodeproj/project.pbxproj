@@ -18,6 +18,8 @@
 		6E13039A1F3185C500C4AEE8 /* Bool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E59C7871F11E0C6005274EC /* Bool.swift */; };
 		6E1303A71F3185C700C4AEE8 /* LinkedListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E25EA871F0BEA98005BC42C /* LinkedListTests.swift */; };
 		6E1EF48B1F232901009A5B5B /* bctoolbox.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6EFE259C1F1660FD00FC4ECC /* bctoolbox.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6E1FE6181F90FFD0007971C6 /* InternalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1FE6171F90FFD0007971C6 /* InternalTests.swift */; };
+		6E1FE6191F90FFD0007971C6 /* InternalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1FE6171F90FFD0007971C6 /* InternalTests.swift */; };
 		6E25E9D01F0B6E9C005BC42C /* BelledonneSIP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E5291661F0B53AE00D4B765 /* BelledonneSIP.framework */; };
 		6E25E9D91F0B73A5005BC42C /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E25E9D81F0B73A5005BC42C /* libresolv.tbd */; };
 		6E25E9DB1F0B73F1005BC42C /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E25E9DA1F0B73F1005BC42C /* libstdc++.tbd */; };
@@ -932,6 +934,7 @@
 		6E0DCFA61F6187DC0007A883 /* msswift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = msswift.h; sourceTree = "<group>"; };
 		6E1303A21F3185C500C4AEE8 /* BelledonneToolbox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BelledonneToolbox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E1303B01F3185C700C4AEE8 /* BelledonneToolboxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BelledonneToolboxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E1FE6171F90FFD0007971C6 /* InternalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternalTests.swift; sourceTree = "<group>"; };
 		6E25E9D81F0B73A5005BC42C /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/usr/lib/libresolv.tbd; sourceTree = DEVELOPER_DIR; };
 		6E25E9DA1F0B73F1005BC42C /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/usr/lib/libstdc++.tbd"; sourceTree = DEVELOPER_DIR; };
 		6E25E9DC1F0B7413005BC42C /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/usr/lib/libz.tbd; sourceTree = DEVELOPER_DIR; };
@@ -1930,6 +1933,7 @@
 				6E5BBE4E1F1F2F0E00BE69FC /* FakeServer */,
 				OBJ_11 /* CoreTests.swift */,
 				6E7FEF181F128F5400C27DE9 /* AddressTests.swift */,
+				6E1FE6171F90FFD0007971C6 /* InternalTests.swift */,
 			);
 			name = LinPhoneTests;
 			path = ../Tests/LinPhoneTests;
@@ -2774,6 +2778,7 @@
 			files = (
 				6E9BFC601F3263A5007D7A93 /* AddressTests.swift in Sources */,
 				6E9BFC611F3263A5007D7A93 /* CoreTests.swift in Sources */,
+				6E1FE6191F90FFD0007971C6 /* InternalTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2854,6 +2859,7 @@
 			files = (
 				6E7FEF191F128F5400C27DE9 /* AddressTests.swift in Sources */,
 				OBJ_28 /* CoreTests.swift in Sources */,
+				6E1FE6181F90FFD0007971C6 /* InternalTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

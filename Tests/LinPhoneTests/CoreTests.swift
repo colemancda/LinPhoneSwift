@@ -45,6 +45,22 @@ final class CoreTests: XCTestCase {
         XCTAssert(version.isEmpty == false)
     }
     
+    func testCamera() {
+        
+        enableCoreLogging()
+        
+        let core = Core()
+        
+        guard core.isVideoSupported else { return }
+        
+        let videoDevices = core.videoDevices
+        
+        print("LinPhone video devices:", videoDevices)
+        
+        XCTAssert(videoDevices.isEmpty == false)
+        XCTAssert(videoDevices.contains(.staticImage))
+    }
+    
     func testOutgoingCallToFakeServer() {
         
         enableCoreLogging()
@@ -305,7 +321,7 @@ extension LinPhoneSwift.Core {
         self.sipTransportTimeout = 20000
         self.videoPort = -1
         self.audioPort = -1
-        self.videoDevice = "StaticImage: Static picture"
+        self.videoDevice = VideoDevice.staticImage
         self.preferredVideoSize = MSVideoSize(width: MS_VIDEO_SIZE_QCIF_W,
                                               height: MS_VIDEO_SIZE_QCIF_H)
         self.preferredFramerate = 5
