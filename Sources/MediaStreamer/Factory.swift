@@ -141,7 +141,7 @@ public final class Factory {
     @discardableResult
     public func enableFilter(_ enable: Bool, for name: String) -> Bool {
         
-        return ms_factory_enable_filter_from_name(rawPointer, name, bool_t(enable)) == 0
+        return ms_factory_enable_filter_from_name(rawPointer, name, bool_t(enable)) == .success
     }
     
     /// Register a filter description.
